@@ -1,0 +1,54 @@
+<div class="hero-proyects" id="proyects">
+    <div class="container">
+        <h1 class="title-proyects">MIS PROYECTOS</h1>
+    </div>
+
+    <div class="message-contruction" >
+        <div class="container">
+            <div class="danger-line"></div>
+            <h1 class="content">Todavia en construccion!</h1>
+
+            <button (click)="toogleTag()" class="readMore_btn">Ver ejemplo</button> 
+                <div *ngIf="showMe"  class="list-proyect ">
+                    <div class="container">
+                        <div class="row">
+                             <div class="col-lg-4 col-md-6 col-sm-12"> 
+                                <div class="card card-proyects" id="card-1">
+                                    <img src="../../../assets/img/port.PNG" alt="referencia de proyecto">
+                                    <div class="container card-cont">
+                                        <b class="name-proyect">Nombre proyecto</b>
+                                        <p class="decript-proyect">Breve descripcion del mismo y mi papel
+                                         en este</p>
+                                    </div>  
+                                    <button class="primaty-btn">Ir a la pagina</button>
+                                </div>
+                            </div> 
+                             <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card card-proyects" id="card-2">
+                                    <img src="../../../assets/img/port.PNG" alt="referencia de proyecto">
+                                    <div class="container card-cont">
+                                        <b class="name-proyect">Nombre proyecto</b>
+                                        <p class="decript-proyect">Breve descripcion del mismo y mi papel
+                                         en este</p>
+                                    </div>
+                                    <button class="primaty-btn">Ir a la pagina</button>
+                                </div>
+                             </div>
+                             <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="card card-proyects" id="card-3">
+                                    <img src="../../../assets/img/port.PNG" alt="referencia de proyecto">
+                                    <div class="container card-cont">
+                                        <b class="name-proyect">Nombre proyecto</b>
+                                        <p class="decript-proyect">Breve descripcion del mismo y mi papel
+                                         en este</p>
+                                    </div> 
+                                    <button class="primaty-btn">Ir a la pagina</button>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            <div class="danger-line"></div>
+        </div>
+    </div>
+    

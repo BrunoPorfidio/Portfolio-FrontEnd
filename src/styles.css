@@ -1,1 +1,374 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Adamina;
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: black;
+    font-size: 16px;
+}
+
+.img-circle {
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: 85%;
+}
+
+header {
+    padding: 20%;
+    text-align: center;
+    color: #fff;
+    background-attachment: scroll;
+    background-image: url(assets/img/wallpaper3.jpg);
+    background-position: center center;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.container{ 
+    padding: 1.25em;
+}
+
+nav{
+    font-size: 2em;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+.hero-nav{
+    margin: auto;
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0.625em;
+    width: 100%;
+  }
+
+  .buttons{
+    padding: 2%;
+    text-decoration: none;
+  }
+
+.hero-nombre{
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(8px);
+    border: 2px solid #fff;
+}
+.titulo{
+    font-size: 5.9375em;
+}
+
+.subtitulo{
+    font-size: 2.8125em;
+}
+
+.hero-sobre-mi, .hero-proyects{
+    font-size: 2.1875em;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    margin: auto;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.my-descrp-title, .title-proyects, .my-skills-title{
+    font-size: 1.5em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 15px;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 30%;
+    margin: auto;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+}
+
+.title-proyects{
+    font-size: 1.1em;
+}
+
+.my-skills-title{
+    width: 20%;
+}
+
+.pv{
+    padding: 8px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+}
+
+.readMore_btn{
+    font-size: 1.5625rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 30px;
+    background-color: #000;
+    color: #fff;
+}
+
+.danger-line{
+    height: 1.875rem;
+    color: white;
+    margin-bottom: .9375em;
+    margin-top: 1.5625em;
+    background-image: repeating-linear-gradient(
+      -55deg,
+      #000,
+      #000 20px,
+      #ffb101 20px,
+      #ffb101 40px
+    );
+  }
+
+
+.icons-skills{
+    display: flex;
+    justify-content: center;
+}
+
+.i-skills{
+    width: 7.5rem;
+    margin: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+
+.icon-btsp{
+    margin-top: 1.25em;
+}
+.icon-js{
+    margin-top: .9375em;
+}
+.icon-angular{
+    margin-top: .625em;
+}
+.icon-sql{
+    margin-top: .9375em;
+}
+
+.my-descrp{
+    font-size: 0.875em;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+
+.hero-sobre-mi{
+    margin-bottom: 5%;
+}
+
+
+.list-proyect, .name-proyect{
+    
+    margin: auto;
+    text-align: center;
+}
+
+
+.card-proyects{
+    font-size: .8em;
+    background-color: black;
+    border-radius: 5px;
+    border: 1px #fff solid;
+    margin: 1.5625rem;
+}
+
+.card-cont{
+    padding: .625rem 1em ;
+}
+
+.img-responsive{
+    height: 9em;
+    justify-self: center;
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+  }
+
+.contact-title{
+    font-size: 50px;
+    margin-top: 25px;
+}
+
+.hero-contacto{
+    font-size: 1.875em;
+    margin-left: 15%;
+    margin-top: 5%;
+    width: 70%;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.contact-informat{
+    padding: .625rem;
+    padding-top: 2.5em;
+    margin-bottom: 1.25em;
+    border-bottom: 1px solid #de423a;
+}
+
+.formulario--input-txt, .formulario--textarea{
+    width: 100%;
+}
+
+.nombre-form, .email-form{
+    display: block;
+    width: 100%;
+}
+
+
+.formulario--textarea{
+    min-height: 6.25em;
+    min-width: 6.25em;
+    max-width: 100%;
+    max-height: 100px;
+}
+.formulario--btn{
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    border: 1px solid #fff;
+}
+
+
+
+
+/*-------------------------- Media Queries-------------------------------------- */
+
+
+
+
+@media (max-width: 990px) {
+    [class*="img-responsive"]{
+        height: 105%;
+    }
+
+}
+
+@media (min-width:720px) {
+    [class*="skill-img"]{
+        width: 70%;
+    }
+    [class*="img-responsive"]{
+        height: 50%;
+    }
+    body{
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width:719px) {
+    [class*="col-1"]{
+        width: 20%;
+    }
+    [class*="skill-img"]{
+        width: 50px;
+    }
+    [class*="img-responsive"]{
+        height: 40%;
+        margin-left: 30%;
+    }
+   
+    body{
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width:560px){
+    [class*="col-1"]{
+        width: 25%;
+        height: 25%;
+    }
+    [class*="skill-img"]{
+        width: 45px;
+        margin-bottom: 80%;
+    }
+
+    [class*="img-responsive"]{
+        height: 45%;
+        margin-left: 30%;
+    }
+
+    body{
+        font-size: 9px;
+    }
+
+}
+
+@media (max-width:460px) {
+    [class*="col-1"]{
+        width: 10%;
+    }
+    [class*="skill-img"]{
+        width: 35px;
+        margin-bottom:50px;
+    }
+
+    [class*="img-responsive"]{
+        height: 40%;
+        margin-left: 30%;
+    }
+   
+    body{
+        font-size: 6px;
+    }
+}
+
+@media (max-width: 350px){
+    [class*="col-1"]{
+        width: 20%;
+        height: 25%;
+    }
+    [class*="skill-img"]{
+        width: 110%;
+        margin-bottom:40px;
+    }
+    [class*="img-responsive"]{
+        height: 40%;
+        margin-left: 30%;
+    }
+
+    body{
+        font-size: 6px;
+    }
+
+    .title-proyects{
+        font-size: 10px;
+    }
+    .my-skills-title{
+        font-size: 15px;
+    }
+
+    .hero-skills{
+        margin-top: -25%;
+    }
+
+}
