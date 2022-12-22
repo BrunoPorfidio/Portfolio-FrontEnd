@@ -37,33 +37,6 @@ header {
     padding: 1.25em;
 }
 
-nav{
-    font-size: 2em;
-    text-align: center;
-    backdrop-filter: blur(6px);
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    position: fixed;
-    z-index: 100;
-}
-
-.hero-nav{
-    margin: auto;
-    overflow: hidden;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0.625em;
-    width: 100%;
-  }
-
-  .buttons{
-    padding: 2%;
-    text-decoration: none;
-  }
-
 .hero-nombre{
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(8px);
@@ -115,14 +88,6 @@ ul {
     padding: 8px;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 30px;
-}
-
-.readMore_btn{
-    font-size: 1.5625rem;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 30px;
-    background-color: #000;
-    color: #fff;
 }
 
 .danger-line{
@@ -267,6 +232,18 @@ img {
 @media (max-width: 990px) {
     [class*="img-responsive"]{
         height: 105%;
+    }
+
+    .nav-hero{
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
     }
 
 }

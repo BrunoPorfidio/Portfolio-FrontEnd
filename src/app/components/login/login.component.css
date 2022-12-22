@@ -1,0 +1,36 @@
+.main{
+    background-image: url("https://wallpaperaccess.com/full/1715114.jpg");
+    font-size: 1.25rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    width: 80%;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+}
+
+.loginForm{
+    margin-top: 200px;
+}
+
+
+.button-send{
+    text-align: right;
+    margin-top: -0.3125rem;
+}
+
+.close-form{
+    text-align: left;
+}
+
+form .inp-body{
+    padding-left: 35%;
+    display: flex;
+    align-items: center;
+}
+
+.card-login{
+    margin: 6em auto;
+    align-items: center;
+}

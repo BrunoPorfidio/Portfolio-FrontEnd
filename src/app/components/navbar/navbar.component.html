@@ -1,12 +1,30 @@
-<section class="hero-nav" id="main">
-    <nav>
-        <ul class="inicio">
-            <li class="nav-item">
-                <a class="buttons" href="#main" style="color: #fff;">Inicio</a> 
-                <a class="buttons" href="#about-me" style="color: #fff;">Sobre Mi</a>
-                <a class="buttons" href="#proyects" style="color: #fff;">Mis Proyectos</a>
-                <a class="buttons" href="#contact" style="color: #fff;">Contacto</a>
-            </li>
-        </ul>
-    </nav>
-</section>
+<div  id="main"></div>
+<div class="hero-nav">
+    <div class="container-fluid nabvar">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="nav-item">
+                    <button class="close-menu">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    <a class="buttons" href="#main" style="color: #fff;">Inicio</a> 
+                    <a class="buttons" href="#about-me" style="color: #fff;">Sobre Mi</a>
+                    <a class="buttons" href="#proyects" style="color: #fff;">Mis Proyectos</a>
+                    <a class="buttons" href="#contact" style="color: #fff;">Contacto</a>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="header-user" >
+                    <button class="buttons lgbtn" (click)="openModal()" style="background-color:black; color: #fff;">Iniciar sesion</button>
+               </div>
+            </div>
+            <div class="" *ngIf="modalSwitch == true">
+                <app-login></app-login>
+            </div>
+        </div>
+       
+        <button class="open-menu" aria-label="Abrir Menu">
+            <i class="bi bi-list" style="font-size: 50px;"></i>
+        </button>
+    </div>
+    </div>

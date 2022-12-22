@@ -1,0 +1,64 @@
+
+
+.header-user{
+    text-align: right;
+    font-size: 25px;
+}
+
+.col-xs-6{
+    width: 50%;
+
+}
+
+.hero-nav{
+    font-size: 2em;
+    text-align: center;
+    backdrop-filter: blur(6px);
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0.625em;
+    width: 100%;
+  }
+
+  .buttons{
+    padding: 2%;
+    text-decoration: none;
+  }
+
+  .nabvar a::after{
+    content: "";
+  }
+
+  .open-menu, .close-menu {
+    display: none;
+}
+
+button {
+    overflow: visible;
+}
+
+  button {
+    text-transform: none;
+}
+
+  @media (max-width:950px){
+
+    .open-menu:focus:not(:focus-visible), .close-menu:focus:not(:focus-visible) {
+        outline: none;
+    }
+    .open-menu, .close-menu {
+        display: block;
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
+  }
