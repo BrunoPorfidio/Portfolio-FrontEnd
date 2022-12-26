@@ -15,16 +15,59 @@
             </div>
             <div class="col-xs-6">
                 <div class="header-user" >
-                    <button class="buttons lgbtn" (click)="openModal()" style="background-color:black; color: #fff;">Iniciar sesion</button>
+                    <button class="buttons lgbtn"  data-bs-toggle="modal" data-bs-target="#ventanaLogin"
+                     style="background-color:black; color: #fff;">
+                     Iniciar sesion
+                    </button>
                </div>
             </div>
-            <div class="" *ngIf="modalSwitch == true">
-                <app-login></app-login>
-            </div>
-        </div>
-       
+        </div>       
         <button class="open-menu" aria-label="Abrir Menu">
             <i class="bi bi-list" style="font-size: 50px;"></i>
         </button>
     </div>
     </div>
+
+    <!-- 
+        Modal Inicio de Sesion
+     -->
+
+    <div class="modal fade" id="ventanaLogin" tabindex="-1" role="dialog" aria-labelledby="tituloLogin" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog">
+          <div class="modal-content" rol="document">
+            <div class="modal-header">
+              <h1 class="modal-title fs-1 " id="exampleModalLabel" >Iniciar sesion</h1>
+              <button type="button" class="btn-close" style="background-color: #fff;" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <i class="bi bi-person-circle" style="font-size: 150px;" ></i>
+                <div class="container loginForm">
+                    <form action="#" method=""  id="loginForm">
+                        <div class="inpt-body">
+                            <div>
+                                <input name="correo" id="email" type="text" value placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="inp-body">
+                            <div>
+                                <input name="password" id="password" type="text" value placeholder="Password" required>
+                            </div>
+                        </div>
+                        <ul class="list-login"></ul>
+                        <ul class="list-login-btn"></ul>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn send-btn" style="margin-right: 150px;">
+                <i class="bi bi-box-arrow-in-right"></i>
+            </button>
+            
+              <button type="button" class="btn close-btn" data-bs-dismiss="modal" style="margin-left: 90px;">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+            </div>
+          </div>
+        </div>
+      </div>

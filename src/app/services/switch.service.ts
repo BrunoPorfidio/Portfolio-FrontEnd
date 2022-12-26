@@ -1,13 +1,13 @@
-import { EventEmitter, Injectable } from '@angular/core';
+// import { EventEmitter, Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class SwitchService {
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class SwitchService {
 
-  constructor() { }
+//   constructor() { }
 
-  $modal = new EventEmitter<any>();
+//   $modal = new EventEmitter<any>();
 
 
-}
+// }

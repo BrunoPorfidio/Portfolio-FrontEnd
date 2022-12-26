@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SwitchService } from 'src/app/services/switch.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -8,21 +8,13 @@ import { SwitchService } from 'src/app/services/switch.service';
 })
 export class NavbarComponent implements OnInit  {
 
-  modalSwitch!: boolean;
 
-  constructor(public modalSS:SwitchService){}
+  constructor(){}
 
 
   ngOnInit() {
-
-    this.modalSS.$modal.subscribe((valor) => {this.modalSwitch == valor})
-
-  }
-
-  openModal(){
-    this.modalSwitch = true;
+    
   }
 
 
 }
- 

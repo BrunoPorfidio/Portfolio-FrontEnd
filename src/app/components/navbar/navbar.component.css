@@ -5,6 +5,11 @@
     font-size: 25px;
 }
 
+.modal-title{
+  align-items: center;
+  padding-left: 75px;
+}
+
 .col-xs-6{
     width: 50%;
 
@@ -30,7 +35,7 @@ ul{
   }
 
   .buttons{
-    padding: 2%;
+    padding: 1%;
     text-decoration: none;
   }
 
@@ -49,6 +54,44 @@ button {
   button {
     text-transform: none;
 }
+
+.modal-content{
+  background-image: url("https://wallpaperaccess.com/full/1715114.jpg");
+  font-size: 1.25rem;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  width: 80%;
+  backdrop-filter: blur(6px);
+  border: 1px solid #D4AF37;
+  color: rgb(255, 255, 255);
+}
+
+/* 
+  Inicio Modal Login
+*/
+
+.send-btn{
+  font-size: 35px; 
+  color: #fff;
+  text-align: left;
+}
+.close-btn{
+  font-size: 35px;
+   color: #fff;
+}
+
+.inpt-body{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.card-login{
+  margin: 6em auto;
+  align-items: center;
+}
+
+
 
   @media (max-width:950px){
 
