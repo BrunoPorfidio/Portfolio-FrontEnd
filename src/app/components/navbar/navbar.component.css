@@ -1,14 +1,27 @@
-
-
-.header-user{
-    text-align: right;
-    font-size: 25px;
+.hero-nav{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  justify-content: center;
 }
 
-.modal-title{
-  align-items: center;
-  padding-left: 75px;
+
+.lgbtn{
+
 }
+
+.menu-btn{
+  color: #fff;
+  background-color: black;
+  display: none;
+  font-size: 30px;
+}
+
+
+.li{
+  margin: 0.5em;
+}
+
 
 .col-xs-6{
     width: 50%;
@@ -27,32 +40,26 @@
     text-decoration: none;
 }
 
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0.625em;
-    width: 100%;
-  }
+
 
   .buttons{
     padding: 1%;
     text-decoration: none;
   }
 
-  .nabvar a::after{
-    content: "";
-  }
 
-  .open-menu, .close-menu {
-    display: none;
+
+/* 
+  Inicio Modal Login
+*/
+
+.modal-title{
+  align-items: center;
+  padding-left: 75px;
 }
 
-button {
-    overflow: visible;
-}
-
-  button {
-    text-transform: none;
+.navbar__modal{
+  height: 100%;
 }
 
 .modal-content{
@@ -66,10 +73,6 @@ button {
   border: 1px solid #D4AF37;
   color: rgb(255, 255, 255);
 }
-
-/* 
-  Inicio Modal Login
-*/
 
 .send-btn{
   font-size: 35px; 
@@ -93,15 +96,73 @@ button {
 
 
 
-  @media (max-width:950px){
+  @media screen and (max-width:1057px){
 
-    .open-menu:focus:not(:focus-visible), .close-menu:focus:not(:focus-visible) {
-        outline: none;
+    .menu-btn{
+      font-size: 35px;
     }
-    .open-menu, .close-menu {
-        display: block;
-        border: none;
-        background: none;
-        cursor: pointer;
+
+    
+    .btn-nav{
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center ;
     }
+
+    .menu-btn{
+      display: flex;
+      cursor: pointer;
+    }
+
+    .nav__item{
+      width: 100%;
+      height: 0vh;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      pointer-events: none;
+      transition: all .5s ease;
+    }
+
+    .nav__item--activo{
+      height: 50vh;
+      pointer-events: auto;
+
+    }
+
+    .header-user{
+      font-size: 20px;
+    }
+
+    a{
+      margin: .5 em;
+    }
+
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .nav__item--activo{
+      height: 30vh;
+    }
+
+    .menu-btn{
+      font-size: 25px;
+    }
+
+  }
+
+  @media screen and (max-width: 480){
+
+    .nav__item--activo{
+      height: 10vh;
+    }
+
+    .menu-btn{
+      font-size: 25px;
+    }
+
+
   }

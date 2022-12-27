@@ -8,12 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit  {
 
+public active : boolean = false;
 
   constructor(){}
 
 
   ngOnInit() {
     
+  }
+
+  setActive() : void {
+    this.active = !this.active;
   }
 
 
