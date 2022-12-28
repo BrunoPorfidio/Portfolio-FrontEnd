@@ -1,13 +1,13 @@
-<div  id="main"></div>
+<div class="wallpaper"  id="main"></div>
 <div class="hero-nav">
-    <div class="container-fluid nabvar">
+    <div class="container-fluid navbar">
         <button (click)="setActive()" class="menu-btn"><i class="bi bi-list"></i></button>
             <div class="nav__item"
                 [ngClass]="{'nav__item--activo' : active}">
-                    <a href="#main"><button class="buttons btn-nav" >Inicio</button></a>
-                    <a href="#about-me"><button class="buttons btn-nav">Sobre Mi</button></a>
-                    <a href="#proyects"><button class="buttons btn-nav">Mis Proyectos</button></a>
-                    <a href="#contact"><button class="buttons btn-nav">Contacto</button></a>
+                    <a href="#main"><button class="buttons btn-nav"><p class="nav-txt">Inicio</p> </button></a>
+                    <a href="#about-me"><button class="buttons btn-nav"><p class="nav-txt">Sobre Mi</p></button></a>
+                    <a href="#proyects"><button class="buttons btn-nav"><p class="nav-txt">Mis Proyectos</p></button></a>
+                    <a href="#contact"><button class="buttons btn-nav"><p class="nav-txt">Contacto</p></button></a>
                 <button class="buttons lgnbtn" data-bs-toggle="modal" data-bs-target="#ventanaLogin">
                     <p class="login-txt">Iniciar sesion</p> 
                 </button>
@@ -19,7 +19,7 @@
         Modal Inicio de Sesion
      -->
 
-    <div class="modal fade" id="ventanaLogin" tabindex="-1" role="dialog" aria-labelledby="tituloLogin" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal fade modal-login" id="ventanaLogin" tabindex="-1" role="dialog" aria-labelledby="tituloLogin" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog">
           <div class="modal-content" rol="document">
             <div class="modal-header">
@@ -32,12 +32,12 @@
                     <form action="#" method=""  id="loginForm">
                         <div class="inpt-body">
                             <div>
-                                <input name="correo" id="email" type="text" value placeholder="Email" required>
+                                <input class="inp-space" name="correo" id="email" type="text" value placeholder="Email" required>
                             </div>
                         </div>
                         <div class="inp-body">
                             <div>
-                                <input name="password" id="password" type="text" value placeholder="Password" required>
+                                <input class="inp-space" name="password" id="password" type="text" value placeholder="Password" required>
                             </div>
                         </div>
                         <ul class="list-login"></ul>
@@ -46,13 +46,21 @@
                 </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn send-btn" style="margin-right: 150px;">
-                <i class="bi bi-box-arrow-in-right"></i>
-            </button>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6"><button type="button" class="btn send-btn" style="margin-right: 150px;">
+                            <i class="bi bi-box-arrow-in-right"></i>
+                        </button>
+                    </div>
+                        <div class="col-6"><button type="button" class="btn close-btn" data-bs-dismiss="modal" style="margin-left: 90px;">
+                            <i class="bi bi-x-lg"></i>
+                        </button>
+                    </div>
+                    </div>
+                </div>
+
             
-              <button type="button" class="btn close-btn" data-bs-dismiss="modal" style="margin-left: 90px;">
-                <i class="bi bi-x-lg"></i>
-            </button>
+              
 
             </div>
           </div>

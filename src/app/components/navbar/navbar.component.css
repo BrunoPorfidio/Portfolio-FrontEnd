@@ -1,20 +1,21 @@
 .hero-nav{
-
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   justify-content: center;
+  background-color: rgba(0, 0, 0,1 );
+
 }
 
 .menu-btn{
   color: #fff;
   background-color: black;
   display: none;
+  
 }
 
-
 .col-xs-6{
-    width: 50%;
+  width: 50%;
 }
 
 .nav__item{
@@ -35,12 +36,14 @@
 .buttons{
      color: #fff;
      margin: 3px;
+     border: 1px solid #D4AF37;
 }
 
 .lgnbtn{
   font-size: 15px;
   border: 1px solid #D4AF37;
   float: right;
+  margin: auto;
 }
 
 .buttons:active {
@@ -65,9 +68,7 @@
   background-image: url("https://wallpaperaccess.com/full/1715114.jpg");
   font-size: 1.25rem;
   text-align: center;
-  margin: auto;
   margin-top: 5%;
-  width: 80%;
   backdrop-filter: blur(6px);
   border: 1px solid #D4AF37;
   color: rgb(255, 255, 255);
@@ -76,7 +77,6 @@
 .send-btn{
   font-size: 35px; 
   color: #fff;
-  text-align: left;
 }
 .close-btn{
   font-size: 35px;
@@ -88,25 +88,29 @@
   margin-bottom: 15px;
 }
 
+.modal-login{
+  word-wrap: break-word;
+}
+
+
+
 /* 
- --------------------------------------------- Media Queries---------------------------------------------------
+  -------------------------------------Fin del Modal--------------------------------
 */
 
-  @media screen and (max-width:1057px){
+/* 
+ -------------------------------------- Media Queries---------------------------------------------------
+*/
 
-    .hero-nav{
-      background-color: rgba(0, 0, 0, 0.4);
-      width: 30%;
-      border: 1px solid #D4AF37;
-    }
+  @media screen and (max-width:999px){
+
 
     .menu-btn{
       font-size: 35px;
     }
 
     .btn-nav{
-      width: 100%;
-      display: flex;
+      width: 60%;
       flex-flow: row nowrap;
       align-items: center ;
     }
@@ -120,49 +124,109 @@
       height: 0vh;
       display: flex;
       flex-flow: column nowrap;
-      justify-content: left;
+      justify-content: center;
       overflow: hidden;
       pointer-events: none;
       transition: all .5s ease;
+      background-color: rgba(0, 0, 0,0 );
     }
 
     .nav__item--activo{
-      height: 50vh;
+      height: auto;
       pointer-events: auto;
+      background-color: rgba(0, 0, 0,1 );
+      border: 1px solid #D4AF37;
 
     }
 
-    .header-user{
+    .header-user,.login-txt{
       font-size: 20px;
     }
 
     a{
-      margin: 10px;;
+      margin: 1px;
     }
 
+    .nav__item{
+      font-size: 20px;
+    }
+
+    .lgnbtn{
+      width: 40%;
+      margin: auto;
+    }
   }
+
 
   @media screen and (max-width: 768px) {
 
     .nav__item--activo{
-      height: 30vh;
+      height: auto;
     }
 
     .menu-btn{
-      font-size: 25px;
+      font-size: 20px;
     }
 
+    .btn-nav{
+      height: 20px;
+    }
+
+    .nav-txt{
+      margin-top: -12px;
+    }
+
+    .nav__item, .login-txt{
+      font-size: 15px;
+    }
+
+    .lgnbtn{
+      width: 30%;
+      height: 50px;
+    }
+
+
+
   }
+
 
   @media screen and (max-width: 480){
 
     .nav__item--activo{
-      height: 10vh;
+      height: auto;
     }
 
     .menu-btn{
       font-size: 25px;
     }
 
+    .navbar{
+      align-items: center;
+    }
+
+    .menu-btn{
+      font-size: 55px;
+    }
+  }
+
+
+  @media screen  and (max-width:350px){
+
+    .lgnbtn{
+      width: 40%;
+      height: 50px;
+    }
+
+    .menu-btn{
+      font-size: 15px;
+    }
+
+    .inp-space{
+      width: 100%;
+    }
+
+    .btn-send, .btn-close{
+      display: flex;
+    }
 
   }

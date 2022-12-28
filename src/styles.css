@@ -7,28 +7,6 @@
     text-decoration: none;
 }
 
-.buttons{
-    padding: 10px !important;
-    text-decoration: none;
-    background-color:rgba(0, 0, 0, 0.0);
-    color: #fff;
-  }
-
-  .login-txt{
-    font-size: 25px;
-  }
-
-.buttons:active {
-    box-shadow: 5px 3px 3px #D4AF37;
-  }
-
-  .buttons:hover {
-    background-color: #b8a568;
-}
-
-.row{
-    justify-content: center;
-}
 
 
 /* 
@@ -56,6 +34,30 @@ body{
     font-size: 16px;
     text-align: center;
     align-items: center;
+}
+
+
+.buttons{
+    padding: 10px !important;
+    text-decoration: none;
+    background-color:rgba(0, 0, 0, 0.0);
+    color: #fff;
+  }
+
+  .login-txt{
+    font-size: 25px;
+  }
+
+.buttons:active {
+    box-shadow: 5px 3px 3px #D4AF37;
+  }
+
+  .buttons:hover {
+    background-color: #b8a568;
+}
+
+.row{
+    justify-content: center;
 }
 
 
@@ -148,9 +150,9 @@ body{
 }
 
 .i-skills{
-    width: 7.5rem;
-    margin: 1.25rem;
-    padding: 1.25rem;
+    width: 7.5em;
+    margin: 1.25em;
+    padding: 1.25em;
     border: 1px solid #D4AF37;
     border-radius: 10px;
     justify-content: center;
@@ -257,17 +259,22 @@ img {
         width: 50%;
     }
 
+    .icons-skills{
+        font-size: 19px;
+    }
+
     
 }
 
-@media (max-width: 999px) {
+@media (max-width: 1000px) {
+    
     .img-responsive{
         display: none;
        }
 
 
-       body{
-        font-size: 13px;
+    body{
+        font-size: 10px;
     }
 
     .skill-img{
@@ -290,6 +297,7 @@ img {
         font-size: 20px;
     }
 
+
 }
 
 @media (max-width:770px) {
@@ -297,7 +305,7 @@ img {
         width: 50%;
     }
     body{
-        font-size: 13px;
+        font-size: 10px;
     }
 
     .my-descrp-title, .my-skills-title,.title-proyects, .contact-title{
@@ -310,6 +318,12 @@ img {
 
     .contact-informat{
         font-size: 15px;
+    }
+
+    .example-pryct{
+        font-size: 25px;
+        width: 75%;
+
     }
     
 
@@ -349,8 +363,7 @@ img {
 @media (max-width:600px){
 
     .skill-img{
-        width: 45px;
-        margin-bottom: 80%;
+        width: 32px;
     }
 
 
@@ -366,12 +379,19 @@ img {
         font-size: 10px;
     }
 
+    .example-pryct{
+        font-size: 15px;
+        width: 70%;
+
+    }
+
 }
 
 @media (max-width:490px) {
 
     .skill-img{
-        width: 20px; 
+        width: 15px; 
+        margin-top: -10px;
     }
 
     .i-skills{
@@ -404,6 +424,15 @@ img {
         font-size: 7px;
     }
 
+    .titulo{
+
+        font-size: 35px;
+    }
+
+    .subtitulo{
+        font-size: 15px;
+    }
+
     .title-proyects{
         font-size: 8px;
     }
@@ -413,10 +442,14 @@ img {
 
 
     .hero-skills{
-        margin-bottom: 25%;
+        margin-bottom: 5%;
     }
 
     .column-title{
         font-size: 13px;
+    }
+
+    .btn-nav, .login-txt{
+        font-size: 15px;
     }
 }
