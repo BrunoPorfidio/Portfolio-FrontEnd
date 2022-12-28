@@ -26,6 +26,10 @@
     background-color: #b8a568;
 }
 
+.row{
+    justify-content: center;
+}
+
 
 /* 
   ---------------Inicio Header y Body--------------------
@@ -123,7 +127,7 @@ body{
 }
 
 .danger-line{
-    height: 1.875rem;
+    height: 1.875em;
     color: white;
     margin-bottom: .9375em;
     margin-top: 1.5625em;
@@ -140,6 +144,7 @@ body{
 .icons-skills{
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 
 .i-skills{
@@ -148,20 +153,9 @@ body{
     padding: 1.25rem;
     border: 1px solid #D4AF37;
     border-radius: 10px;
+    justify-content: center;
 }
 
-.icon-btsp{
-    margin-top: 1.25em;
-}
-.icon-js{
-    margin-top: .9375em;
-}
-.icon-angular{
-    margin-top: .625em;
-}
-.icon-sql{
-    margin-top: .9375em;
-}
 
 .my-descrp{
     font-size: 0.875em;
@@ -258,112 +252,134 @@ img {
 /*-------------------------- Media Queries-------------------------------------- */
 
 
-
-
-@media (max-width: 990px) {
-    [class*="img-responsive"]{
-        height: 105%;
+@media  (max-width:2600px){
+       .skill-img{
+        width: 50%;
     }
 
-    .nav-hero{
-        flex-direction: column;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        overflow-y: auto;
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.3s;
+    
+}
+
+@media (max-width: 999px) {
+    .img-responsive{
+        display: none;
+       }
+
+
+       body{
+        font-size: 13px;
+    }
+
+    .skill-img{
+        width: 50%;
+    }
+
+    .title-proyects, .my-descrp-title, .my-skills-title{
+    font-size: 25px;
+    }
+
+    .danger-line{
+        font-size: 10px;
+    }
+
+    .dng-mssg{
+        font-size: 30px ;
+    }
+
+    .readMore_btn{
+        font-size: 20px;
     }
 
 }
 
-@media (min-width:720px) {
-    [class*="skill-img"]{
-        width: 70%;
-    }
-    [class*="img-responsive"]{
-        height: 50%;
+@media (max-width:770px) {
+    .skill-img{
+        width: 50%;
     }
     body{
-        font-size: 14px;
+        font-size: 13px;
     }
+
+    .my-descrp-title, .my-skills-title,.title-proyects, .contact-title{
+        font-size: 20px;
+    }
+
+    .danger-line{
+        font-size: 5px;
+    }
+
+    .contact-informat{
+        font-size: 15px;
+    }
+    
 
 }
 
 @media (max-width:719px) {
-    [class*="col-1"]{
-        width: 20%;
+
+    .skill-img{
+        width: 40px;
+        margin: auto;
     }
-    [class*="skill-img"]{
-        width: 50px;
-    }
-    [class*="img-responsive"]{
-        height: 40%;
-        margin-left: 30%;
+
+    .i-skills{
+        width: 80px;
+        height: 80px;
     }
    
     body{
         font-size: 11px;
     }
 
+    .my-descrp-title, .my-skills-title,.title-proyects, .contact-title{
+        font-size: 20px;
+    }
+
+    .dng-mssg{
+        font-size: 15px ;
+    }
+
+    .readMore_btn{
+        font-size: 15px;
+    }
 }
 
-@media (max-width:560px){
-    [class*="col-1"]{
-        width: 25%;
-        height: 25%;
-    }
-    [class*="skill-img"]{
+
+
+@media (max-width:600px){
+
+    .skill-img{
         width: 45px;
         margin-bottom: 80%;
     }
 
-    [class*="img-responsive"]{
-        height: 45%;
-        margin-left: 30%;
-    }
 
     body{
         font-size: 9px;
     }
+    
+    .my-descrp-title, .my-skills-title, .contact-title{
+        font-size: 15px;
+    }
+    
+    .contact-informat{
+        font-size: 10px;
+    }
 
 }
 
-@media (max-width:460px) {
-    [class*="col-1"]{
-        width: 10%;
-    }
-    [class*="skill-img"]{
-        width: 35px;
-        margin-bottom:50px;
+@media (max-width:490px) {
+
+    .skill-img{
+        width: 20px; 
     }
 
-    [class*="img-responsive"]{
-        height: 40%;
-        margin-left: 30%;
+    .i-skills{
+        width: 15px;
+        height: 15px;
+        display:flex;
     }
-   
-    body{
-        font-size: 6px;
-    }
-}
-
-@media (max-width: 350px){
-    [class*="col-1"]{
-        width: 20%;
-        height: 25%;
-    }
-    [class*="skill-img"]{
-        width: 110%;
-        margin-bottom:40px;
-    }
-    [class*="img-responsive"]{
-        height: 40%;
-        margin-left: 30%;
-    }
-
+  
     body{
         font-size: 6px;
     }
@@ -371,12 +387,36 @@ img {
     .title-proyects{
         font-size: 10px;
     }
+}
+
+@media (max-width: 320px){
+    .skill-img{
+        width: 15px;
+        display:grid;
+    }
+
+    .i-skills{
+        width: 15px;
+        height: 15px;
+    }
+
+    body{
+        font-size: 7px;
+    }
+
+    .title-proyects{
+        font-size: 8px;
+    }
     .my-skills-title{
         font-size: 15px;
     }
 
+
     .hero-skills{
-        margin-top: -25%;
+        margin-bottom: 25%;
     }
 
+    .column-title{
+        font-size: 13px;
+    }
 }
