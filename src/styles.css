@@ -129,7 +129,7 @@ body{
 }
 
 .danger-line{
-    height: 1.875em;
+    height: 0.875em;
     color: white;
     margin-bottom: .9375em;
     margin-top: 1.5625em;
@@ -286,7 +286,8 @@ img {
     }
 
     .danger-line{
-        font-size: 10px;
+        height: 30%;
+        font-size: 5px;
     }
 
     .dng-mssg{
