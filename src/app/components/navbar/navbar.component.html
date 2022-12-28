@@ -1,20 +1,17 @@
 <div  id="main"></div>
-<div class="hero-nav " >
-    <div class="container-fluid nabvar ">
+<div class="hero-nav">
+    <div class="container-fluid nabvar">
         <button (click)="setActive()" class="menu-btn"><i class="bi bi-list"></i></button>
-        <div class="row">
-                <div class="nav__item"
+            <div class="nav__item"
                 [ngClass]="{'nav__item--activo' : active}">
-                        <a class="buttons btn-nav" href="#main" style="color: #fff;">Inicio</a>
-                        <a class="buttons btn-nav" href="#about-me" style="color: #fff;">Sobre Mi</a>
-                        <a class="buttons btn-nav" href="#proyects" style="color: #fff;">Mis Proyectos</a>
-                        <a class="buttons btn-nav" href="#contact" style="color: #fff;">Contacto</a>
-                    <button class="buttons lgbtn" data-bs-toggle="modal" data-bs-target="#ventanaLogin"
-                     style="background-color:black; color: #fff;">
-                     Iniciar sesion
-                    </button>
-            </div>
-        </div>       
+                    <a href="#main"><button class="buttons btn-nav" >Inicio</button></a>
+                    <a href="#about-me"><button class="buttons btn-nav">Sobre Mi</button></a>
+                    <a href="#proyects"><button class="buttons btn-nav">Mis Proyectos</button></a>
+                    <a href="#contact"><button class="buttons btn-nav">Contacto</button></a>
+                <button class="buttons lgnbtn" data-bs-toggle="modal" data-bs-target="#ventanaLogin">
+                    <p class="login-txt">Iniciar sesion</p> 
+                </button>
+            </div>   
     </div>
 </div>
 

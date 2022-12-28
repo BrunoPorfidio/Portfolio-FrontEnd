@@ -4,25 +4,33 @@
     box-sizing: border-box;
     font-family: Adamina;
     scroll-behavior: smooth;
+    text-decoration: none;
 }
 
-body{
-    background-color: black;
-    font-size: 16px;
-    text-align: center;
-    align-items: center;
+.buttons{
+    padding: 10px !important;
+    text-decoration: none;
+    background-color:rgba(0, 0, 0, 0.0);
+    color: #fff;
+  }
+
+  .login-txt{
+    font-size: 25px;
+  }
+
+.buttons:active {
+    box-shadow: 5px 3px 3px #D4AF37;
+  }
+
+  .buttons:hover {
+    background-color: #b8a568;
 }
 
-.img-circle {
-    border-radius: 50%;
-    border: 3px solid #fff;
-}
 
-.img-responsive {
-    display: block;
-    max-width: 100%;
-    height: 85%;
-}
+/* 
+  ---------------Inicio Header y Body--------------------
+*/
+
 
 header {
     padding: 20%;
@@ -39,9 +47,17 @@ header {
     padding: 1.25em;
 }
 
+body{
+    background-color: black;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+}
+
+
 .hero-nombre{
     background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
     border: 2px solid  #D4AF37;
 }
 .titulo{
@@ -52,12 +68,22 @@ header {
     font-size: 2.8125em;
 }
 
+.img-circle {
+    border-radius: 50%;
+    border: 3px solid #D4AF37;
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    height: 85%;
+}
+
 .hero-sobre-mi, .hero-proyects{
-    font-size: 2.1875em;
-    backdrop-filter: blur(6px);
+    font-size: 2.2875em;
     background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
-    margin: auto;
+    height: 30%;
     border: 1px solid  #D4AF37;
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
@@ -69,7 +95,6 @@ header {
     color: rgb(255, 255, 255);
     text-align: center;
     padding: 15px;
-    backdrop-filter: blur(6px);
     background-color: rgba(0, 0, 0, 0.3);
     width: 30%;
     margin: auto;
@@ -90,6 +115,11 @@ header {
     padding: 8px;
     border: 1px solid  #D4AF37;
     border-radius: 30px;
+}
+
+
+.readMore_btn{
+    border: 1px solid #D4AF37;
 }
 
 .danger-line{
@@ -116,7 +146,7 @@ header {
     width: 7.5rem;
     margin: 1.25rem;
     padding: 1.25rem;
-    border: 1px solid rgb(255, 255, 255);
+    border: 1px solid #D4AF37;
     border-radius: 10px;
 }
 
@@ -185,7 +215,6 @@ img {
     margin-left: 15%;
     margin-top: 5%;
     width: 70%;
-    backdrop-filter: blur(6px);
     background-color: rgba(0, 0, 0, 0.7);
     border: 1px solid #D4AF37;
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
