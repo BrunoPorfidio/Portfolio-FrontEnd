@@ -1,67 +1,24 @@
-<div class="wallpaper"  id="main"></div>
-<div class="hero-nav">
+<div id="main"></div>
+<div class="hero-nav" >
     <div class="container-fluid navbar">
         <button (click)="setActive()" class="menu-btn"><i class="bi bi-list"></i></button>
             <div class="nav__item"
-                [ngClass]="{'nav__item--activo' : active}">
-                    <a href="#main"><button class="buttons btn-nav"><p class="nav-txt">Inicio</p> </button></a>
-                    <a href="#about-me"><button class="buttons btn-nav"><p class="nav-txt">Sobre Mi</p></button></a>
-                    <a href="#proyects"><button class="buttons btn-nav"><p class="nav-txt">Mis Proyectos</p></button></a>
-                    <a href="#contact"><button class="buttons btn-nav"><p class="nav-txt">Contacto</p></button></a>
-                <button class="buttons lgnbtn" data-bs-toggle="modal" data-bs-target="#ventanaLogin">
+               [ngClass]="{'nav__item--activo' : active}" >
+                    <a (click)="toHome()"><button class="buttons btn-nav"><p class="nav-txt">Inicio</p> </button></a>
+                    <a (click)="toAbout()"><button class="buttons btn-nav"><p class="nav-txt">Sobre Mi</p></button></a>
+                    <a (click)="toProyects()"><button class="buttons btn-nav"><p class="nav-txt">Mis Proyectos</p></button></a>
+                    <a (click)="toContact()"><button class="buttons btn-nav"><p class="nav-txt">Contacto</p></button></a>
+                <a href="/login" class="buttons lgnbtn" (click)="login()" *ngIf="!isLogged">
                     <p class="login-txt">Iniciar sesion</p> 
+                </a>
+                <button class="buttons lgnbtn" (click)="onLogout()" *ngIf="isLogged">
+                    <p class="login-txt">Cerrar Sesion</p> 
                 </button>
             </div>   
     </div>
 </div>
-
-    <!-- 
-        Modal Inicio de Sesion
-     -->
-
-    <div class="modal fade modal-login" id="ventanaLogin" tabindex="-1" role="dialog" aria-labelledby="tituloLogin" aria-hidden="true" data-bs-backdrop="static">
-        <div class="modal-dialog">
-          <div class="modal-content" rol="document">
-            <div class="modal-header">
-              <h1 class="modal-title fs-1 " id="exampleModalLabel" >Iniciar sesion</h1>
-              <button type="button" class="btn-close" style="background-color: #fff;" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <i class="bi bi-person-circle" style="font-size: 150px;" ></i>
-                <div class="container loginForm">
-                    <form action="#" method=""  id="loginForm">
-                        <div class="inpt-body">
-                            <div>
-                                <input class="inp-space" name="correo" id="email" type="text" value placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div class="inp-body">
-                            <div>
-                                <input class="inp-space" name="password" id="password" type="text" value placeholder="Password" required>
-                            </div>
-                        </div>
-                        <ul class="list-login"></ul>
-                        <ul class="list-login-btn"></ul>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6"><button type="button" class="btn send-btn" style="margin-right: 150px;">
-                            <i class="bi bi-box-arrow-in-right"></i>
-                        </button>
-                    </div>
-                        <div class="col-6"><button type="button" class="btn close-btn" data-bs-dismiss="modal" style="margin-left: 90px;">
-                            <i class="bi bi-x-lg"></i>
-                        </button>
-                    </div>
-                    </div>
-                </div>
-
-            
-              
-
-            </div>
-          </div>
-        </div>
+<div class=" container-fluid wallpaper" id="banner">
+    <div>
+        <img src="{{persona?.imgBanner}}" alt="">
+    </div>
+</div>

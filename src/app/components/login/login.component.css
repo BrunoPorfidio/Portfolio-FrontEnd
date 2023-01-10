@@ -1,0 +1,182 @@
+.wallpaper {
+  background-image: url("https://wallpaperaccess.com/full/1715114.jpg");
+  }
+
+
+
+
+
+/* div{
+
+
+    
+}
+
+
+.modal-title{
+    align-items: center;
+    padding-left: 75px;
+  }
+  
+  .navbar__modal{
+    height: 100%;
+  }
+  
+  .modal-content{
+
+    font-size: 1.25rem;
+    text-align: center;
+    margin-top: 5%;
+    backdrop-filter: blur(6px);
+    border: 1px solid #D4AF37;
+    color: rgb(255, 255, 255);
+  }
+  
+  .send-btn{
+    font-size: 35px; 
+    color: #fff;
+  }
+  .close-btn{
+    font-size: 35px;
+     color: #fff;
+  }
+  
+  .inpt-body{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .modal-login{
+    word-wrap: break-word;
+  }
+   */
+  
+  
+  /* 
+    -------------------------------------Fin del Modal--------------------------------
+  */
+  
+  /* 
+   -------------------------------------- Media Queries---------------------------------------------------
+  */
+  
+    /* @media screen and (max-width:999px){
+  
+      .menu-btn{
+        font-size: 35px;
+      }
+  
+      .btn-nav{
+        flex-flow: row nowrap;
+        align-items: center ;
+      }
+  
+      .menu-btn{
+        display: flex;
+        cursor: pointer;
+      }
+  
+      .nav__item{
+
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        overflow: hidden;
+        pointer-events: none;
+        transition: all .5s ease;
+        background-color: rgba(0, 0, 0,0 );
+      }
+  
+
+  
+      .header-user,.login-txt{
+        font-size: 20px;
+      }
+  
+      a{
+        margin: 1px;
+      }
+  
+      .nav__item{
+        font-size: 20px;
+      }
+  
+      .lgnbtn{
+        
+        margin: auto;
+      }
+    }
+  
+  
+    @media screen and (max-width: 768px) {
+  
+      .nav__item--activo{
+        height: auto;
+      }
+  
+      .menu-btn{
+        font-size: 20px;
+      }
+  
+      .btn-nav{
+        height: 20px;
+      }
+  
+      .nav-txt{
+        margin-top: -12px;
+      }
+  
+      .nav__item, .login-txt{
+        font-size: 15px;
+      }
+  
+      .lgnbtn{
+        width: 30%;
+        height: 50px;
+      }
+  
+  
+  
+    }
+  
+  
+    @media screen and (max-width: 480){
+  
+      .nav__item--activo{
+        height: auto;
+      }
+  
+      .menu-btn{
+        font-size: 25px;
+      }
+  
+      .navbar{
+        align-items: center;
+      }
+  
+      .menu-btn{
+        font-size: 55px;
+      }
+    }
+  
+  
+    @media screen  and (max-width:350px){
+  
+      .lgnbtn{
+        width: 40%;
+        height: 50px;
+      }
+  
+      .menu-btn{
+        font-size: 15px;
+      }
+  
+      .inp-space{
+        width: 100%;
+      }
+  
+      .btn-send, .btn-close{
+        display: flex;
+      }
+  
+} */
