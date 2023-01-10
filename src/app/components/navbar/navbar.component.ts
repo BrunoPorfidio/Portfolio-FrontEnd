@@ -70,6 +70,4 @@ public active : boolean = false;
   toContact(){
     document.getElementById('contact')?.scrollIntoView({behavior:"smooth"})
   }
-
-
 }
