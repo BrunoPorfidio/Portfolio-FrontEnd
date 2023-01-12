@@ -10,7 +10,7 @@ El objetivo del Curso fue crear un Portfolio con Login y autenticacion con JWT
 ##  **invitado**
 
 ## 🔑 Contraseña:
-## **invitado**
+## **invitado123**
 
 ### Para hacer posible este Portfolio de usaron las siguientes Tecnologias:
 
