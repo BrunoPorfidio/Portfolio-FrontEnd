@@ -1,35 +1,53 @@
 export class Persona{
-    idPersona: Number;
+    idPersona?: any;
 
-    nombre: String;
+    nombre?: string;
 
-    apellido: String;
+    apellido?: string;
 
-    correo: String;
+    subTitulo?: string;
 
-    sobre_mi: String;
+    acercaMi?: string;
 
-    urlFoto: String;
+    urlFoto?: string;
 
-    linkedinUrl: String;
+    linkedinUrl?: string;
 
-    githubUrl: String;
+    githubUrl?: string;
 
-    imgBanner: String;
+    imgBanner?: string;
+    
+    // }
 
-    constructor(idPersona: Number, nombre: String,apellido: String,correo: String, sobre_mi: String, urlFoto: String, 
-        linkedinUrl: String,  githubUrl: String, imgBanner: String){
-        this.idPersona = idPersona;
-        this.nombre = nombre;
-        this.apellido =apellido;
-        this.correo = correo;
-        this.sobre_mi = sobre_mi;
-        this.urlFoto = urlFoto;
-        this.linkedinUrl = linkedinUrl;
-        this.githubUrl = githubUrl;
-        this.imgBanner = imgBanner;
+     // idPersona: number;
 
-    }
+    // nombre: string;
 
+    // apellido: string;
+
+    // subTitulo: string;
+
+    // sobre_mi: string;
+
+    // urlFoto: string;
+
+    // linkedinUrl: string;
+
+    // githubUrl: string;
+
+    // imgBanner: string;
+
+    // constructor(idPersona: number, nombre: string,apellido: string,subTitulo:string , acercaMi: string, urlFoto: string, 
+    //     linkedinUrl: string,  githubUrl: string, imgBanner: string){
+    //     this.idPersona = idPersona;
+    //     this.nombre = nombre;
+    //     this.apellido =apellido;
+    //     this.subTitulo = subTitulo;
+    //     this.acercaMi = acercaMi;
+    //     this.urlFoto = urlFoto;
+    //     this.linkedinUrl = linkedinUrl;
+    //     this.githubUrl = githubUrl;
+    //     this.imgBanner = imgBanner;
+    // }
 
 }

@@ -11,11 +11,13 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { Error404Component } from './components/error404/error404.component';
-import { TitleComponent } from './components/title/title.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
-import { InterceptorService } from './services/interceptor.service';
-import { RegistroComponent } from './components/registro/registro.component';
+import { interceptorPorvider, InterceptorService } from './services/interceptor.service';
+import { LoaderComponent } from './components/loader/loader.component';
+import { ModalAboutmeComponent } from './modals/modal-aboutme/modal-aboutme.component';
+import { ModalProyectsComponent } from './modals/modal-proyects/modal-proyects.component';
+import { ModalContactComponent } from './modals/modal-contact/modal-contact.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { RegistroComponent } from './components/registro/registro.component';
     ProyectsComponent,
     ContactComponent,
     Error404Component,
-    TitleComponent,
     PortfolioComponent,
     LoginComponent,
-    RegistroComponent
+    LoaderComponent,
+    ModalAboutmeComponent,
+    ModalProyectsComponent,
+    ModalContactComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +42,7 @@ import { RegistroComponent } from './components/registro/registro.component';
     ReactiveFormsModule
   ],
   providers: [
+    interceptorPorvider,
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]

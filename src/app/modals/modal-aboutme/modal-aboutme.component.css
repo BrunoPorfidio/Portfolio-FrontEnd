@@ -1,0 +1,188 @@
+#presentacion{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 3px #ae3452;
+    border-top: solid 3px #ae3452;
+}
+
+/*Renderizado de botones*/
+#presentacion #botones{
+    position: absolute;
+    width: 40px;
+    right: 35px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+#presentacion #botones a{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+#presentacion #botones a svg{
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+/*Renderizado de persona*/
+#presentacion #persona{
+    position: relative;
+    width: 100%;
+    margin: 20px;
+    display: flex;
+}
+
+#presentacion #persona #contenedor1{
+    width: 40%;
+    padding: 0;
+}
+
+#presentacion #persona #contenedor1 #foto {
+    padding: 0;
+}
+
+#presentacion #persona #contenedor1 #foto .img-fluid {
+    width: 100%;
+    border-top-left-radius: 20px;
+    object-fit:cover;
+}
+
+#presentacion #persona #contenedor1 #datos {
+    width: 100%;
+    background-color:#0c0c2c;
+    border-bottom-left-radius: 20px;
+    color: white;
+}
+
+#presentacion #persona #contenedor1 #datos #nombre, #presentacion #persona #contenedor1 #datos #titulo {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+#presentacion #persona #contenedor2 {
+    width: 60%;
+    border: double 3px #38bbc3;
+    border-left: none;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#presentacion #persona #contenedor2 #encabezado{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#presentacion #persona #contenedor2 #encabezado h1 {
+    text-transform: uppercase;
+}
+
+#presentacion #persona #contenedor2 #encabezado h1:hover {
+color: #ae3452;
+}
+
+#presentacion #persona #contenedor2 #parrafo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#presentacion #persona #contenedor2 #parrafo p {
+    width: 100%;
+    padding-left: 45px;
+    padding-right: 45px;
+}
+
+/*Notificacion base de datos vacia*/
+#presentacion .notificacion{
+    width: 80%;
+}
+
+#presentacion .notificacion .alert{
+    width: 100%;
+    margin: 0;
+}
+
+#presentacion .notificacion .alert h4{
+    text-transform: uppercase;
+}
+
+/*Modals*/
+.modal-content{
+    border: solid 2px #0c0c2c;
+}
+
+.modal-content .modal-header{
+    border-bottom: solid 2px #ae3452;
+}
+
+.modal-content .modal-header .close{
+    border: none;
+}
+
+.modal-content .modal-body input, textarea {
+    border: solid 1px #38bbc3;
+}
+
+.modal-content .modal-footer {
+    border-top: solid 2px #ae3452;
+}
+
+/*Responsivo*/
+@media only screen and (max-width:768px) {
+    #presentacion #persona #fotoYtitulo{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width:425px) {
+    #presentacion #persona{
+        margin: 10px;
+    }
+
+    #presentacion #botones {
+        width: 20px;
+        right: 15px;
+    }
+
+    #presentacion #botones a{
+        width: 20px;
+        height: 20px;
+        padding: 2px;
+    }
+
+    #presentacion #persona #contenedor2 #encabezado h1 {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 5px;
+    }
+
+    #presentacion #persona #contenedor2 #parrafo p {
+        margin-bottom: 2px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}

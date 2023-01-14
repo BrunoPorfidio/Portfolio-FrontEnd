@@ -6,39 +6,39 @@
     <div class="message-contruction" >
         <div class="container danger-zone">
             <div class="danger-line"></div>
-            <h1 class="content dng-mssg">Todavia en construccion!</h1>
+            <h1 class="content dng-mssg">Todavia en construccion!</h1> 
 
             <button (click)="toogleTag()" class="readMore_btn buttons">Ver ejemplo</button> 
                 <div *ngIf="showMe"  class="list-proyect ">
-                    <div class="container example-pryct">
+                    <div class="container example-pryct" *ngFor="let proyecto of proyectos">
                         <div class="row">
                              <div class="col-lg-4 col-md-6 col-sm-12"> 
-                                <div class="card card-proyects" id="card-1">
-                                    <img src="../../../assets/img/port.PNG" alt="referencia de proyecto">
+                                <div class="card card-proyects" [id]="proyecto.idProyectos">
+                                    <img [src]="proyecto.fotoProyecto" alt="referencia de proyecto">
                                     <div class="container card-cont">
-                                        <b class="name-proyect">Nombre proyecto</b>
+                                        <b class="name-proyect">{{proyecto.nombreProyecto}}</b>
                                     </div>  
-                                    <button class="primaty-btn">Ir a la pagina</button>
+                                    <button class="primaty-btn"> Ir a la pagina</button>
                                 </div>
                             </div> 
                              <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card card-proyects" id="card-2">
-                                    <img src="../../../assets/img/port.PNG" alt="referencia de proyecto">
+                                <div class="card card-proyects" [id]="proyecto.idProyectos">
+                                    <img [src]="proyecto.fotoProyecto" alt="referencia de proyecto">
                                     <div class="container card-cont">
-                                        <b class="name-proyect">Nombre proyecto</b>
-                                    </div>
+                                        <b class="name-proyect">{{proyecto.nombreProyecto}}</b>
+                                    </div>  
                                     <button class="primaty-btn">Ir a la pagina</button>
                                 </div>
-                             </div>
+                                </div>
                              <div class="col-lg-4 col-md-6 col-sm-12">
-                                <div class="card card-proyects" id="card-3">
-                                    <img src="../../../assets/img/port.PNG" alt="referencia de proyecto">
+                                <div class="card card-proyects" [id]="proyecto.idProyectos">
+                                    <img [src]="proyecto.fotoProyecto" alt="referencia de proyecto">
                                     <div class="container card-cont">
-                                        <b class="name-proyect">Nombre proyecto</b>
-                                    </div> 
+                                        <b class="name-proyect">{{proyecto.nombreProyecto}}</b>
+                                    </div>  
                                     <button class="primaty-btn">Ir a la pagina</button>
                                 </div>
-                             </div>
+                            </div>
                         </div>
                     </div>
                 </div>

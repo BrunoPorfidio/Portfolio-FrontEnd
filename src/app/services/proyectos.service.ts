@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environments';
+import { environments } from 'src/environments/environments';
 import { Proyectos } from '../model/Proyectos';
 
 
@@ -9,7 +9,7 @@ import { Proyectos } from '../model/Proyectos';
   providedIn: 'root'
 })
 export class ProyectoService {
-  private ApiProyectos = `${environment.Api}/proyecto/`;
+  private ApiProyectos = `${environments.Api}/proyecto/`;
 
   constructor(private http: HttpClient) { }
 
@@ -27,7 +27,7 @@ export class ProyectoService {
 
 
   public editarProyecto(proyectos: Proyectos, id: number): Observable<Proyectos> {
-    return this.http.put<Proyectos>(`${this.ApiProyectos}editar/${id}?tituloProyecto=${proyectos.tituloProyecto}
+    return this.http.put<Proyectos>(`${this.ApiProyectos}editar/${id}?tituloProyecto=${proyectos.nombreProyecto}
     &descripcionProyecto=${proyectos.descripcionProyecto}&urlProyecto=${proyectos.urlProyecto}&fotoProyecto=${proyectos.fotoProyecto}`, proyectos);
   }
 

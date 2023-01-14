@@ -13,13 +13,19 @@
   ---------------Inicio Header y Body--------------------
 */
 
+body{
+    background-color: black;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+}
 
 header {
     padding: 20%;
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(assets/img/wallpaper3.jpg);
+
     background-position: center center;
     background-repeat: none;
     background-size: cover;
@@ -29,12 +35,6 @@ header {
     padding: 1.25em;
 }
 
-body{
-    background-color: black;
-    font-size: 16px;
-    text-align: center;
-    align-items: center;
-}
 
 
 .buttons{
@@ -44,9 +44,7 @@ body{
     color: #fff;
   }
 
-  .login-txt{
-    font-size: 25px;
-  }
+
 
 .buttons:active {
     box-shadow: 5px 3px 3px #D4AF37;
@@ -74,6 +72,15 @@ body{
     font-size: 2.8125em;
 }
 
+.icon-send{
+    font-size: 1.000em;
+}
+
+.btn-edit, .logout-txt{
+    cursor: pointer;
+    font-size:  1.5rem;
+}
+
 .img-circle {
     border-radius: 50%;
     border: 3px solid #D4AF37;
@@ -85,7 +92,7 @@ body{
     height: 85%;
 }
 
-.hero-sobre-mi, .hero-proyects{
+.hero-sobre-mi, .hero-proyects,.login-container{
     font-size: 2.2875em;
     background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
@@ -109,7 +116,7 @@ body{
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
-.title-proyects{
+.title-proyects, .login-txt{
     font-size: 1.1em;
 }
 
@@ -255,6 +262,9 @@ img {
 
 
 @media  (max-width:2600px){
+
+
+
        .skill-img{
         width: 50%;
     }
@@ -268,13 +278,14 @@ img {
 
 @media (max-width: 1000px) {
     
+    
     .img-responsive{
         display: none;
        }
 
 
     body{
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .skill-img{
@@ -300,6 +311,15 @@ img {
 
     .navbar{
         font-size: 30px;
+    }
+
+    .bi{
+        font-size:  0.560em;
+        height: 10%;
+    }
+
+    .icon-send{
+        font-size:  0.860em;
     }
 
 
@@ -330,6 +350,13 @@ img {
         font-size: 25px;
         width: 75%;
 
+    }
+
+    .bi{
+        font-size:  0.360em;
+    }
+    .icon-send{
+        font-size:  0.760em;
     }
     
 
@@ -388,8 +415,8 @@ img {
     .example-pryct{
         font-size: 15px;
         width: 70%;
-
     }
+
 
 }
 
@@ -412,6 +439,10 @@ img {
 
     .title-proyects{
         font-size: 10px;
+    }
+
+    .icon-send{
+        font-size:  0.760em;
     }
 }
 
@@ -458,4 +489,11 @@ img {
     .btn-nav, .login-txt{
         font-size: 15px;
     }
+
+    .icon-send{
+        font-size:  0.760em;
+    }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

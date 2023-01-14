@@ -1,0 +1,175 @@
+<div id="botones" *ngIf="isAdmin">
+    <!--Boton agregar persona-->
+    <a class="btn btn-info text-light" data-bs-toggle="modal" data-bs-target="#agregarPersonaModal"
+        data-bs-whatever="agregarPersonaModal" (click)="openModal('agregar')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle"
+            viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+        </svg>
+    </a>
+    <!--Boton editar persona-->
+    <a (click)="openModal('editar', persona)" class="btn btn-primary tooltips" data-bs-placement="top"
+        data-bs-toggle="modal" data-original-title="Edit" data-bs-target="#editarPersonaModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square"
+            viewBox="0 0 16 16">
+            <path
+                d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+            <path fill-rule="evenodd"
+                d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+        </svg>
+    </a>
+    <!--Boton eliminar persona-->
+    <a (click)="openModal('eliminar', persona)" class="btn btn-danger delete" data-bs-placement="top"
+        data-bs-toggle="modal" data-original-title="Delete" data-bs-target="#eliminarPersonaModal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3"
+            viewBox="0 0 16 16">
+            <path
+                d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+        </svg>
+    </a>
+</div>
+
+<!--Formularios:modal-->
+<!--Modal agregar Persona-->
+<div class="modal fade" id="agregarPersonaModal" tabindex="-1" role="dialog" aria-labelledby="agregarPersonaModalLabel"
+    aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="agregarPersonaModalLabel">Agregar</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #agregarForm="ngForm">
+                    <div class="form-group">
+                        <label for="nombre" class="col-form-label">Nombre</label>
+                        <input type="text" ngModel name="nombre" class="form-control" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido" class="col-form-label">Apellido</label>
+                        <input type="text" ngModel name="apellido" class="form-control" id="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subTitulo" class="col-form-label">Titulo</label>
+                        <input type="text" ngModel name="subTitulo" class="form-control" id="subTitulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="acercaMi" class="col-form-label">Acerca de mi</label>
+                        <input type="text" ngModel name="acercaMi" class="form-control" id="acercaMi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="urlFoto" class="col-form-label">Foto</label>
+                        <input type="text" ngModel name="urlFoto" class="form-control" id="urlFoto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedinUrl" class="col-form-label">Linkedin</label>
+                        <input type="text" ngModel name="linkedinUrl" class="form-control" id="linkedinUrl" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="githubUrl" class="col-form-label">Github</label>
+                        <input type="text" ngModel name="githubUrl" class="form-control" id="githubUrl" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgBanner" class="col-form-label">Banner</label>
+                        <input type="text" ngModel name="imgBanner" class="form-control" id="imgBanner" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" [disabled]="agregarForm.invalid">Agregar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal editar Persona-->
+<div class="modal fade" id="editarPersonaModal" tabindex="-1" role="dialog" aria-labelledby="editarPersonaModalLabel"
+    aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editarPersonaModalLabel">Editar</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form #editForm="ngForm">
+                    <div class="form-group">
+                        <label for="nombre" class="col-form-label">Nombre</label>
+                        <input type="text" ngModel="{{modificarPersona.nombre}}" name="nombre" class="form-control"
+                            id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellido" class="col-form-label">Apellido</label>
+                        <input type="text" ngModel="{{modificarPersona.apellido}}" name="apellido" class="form-control"
+                            id="apellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="titulo" class="col-form-label">Titulo</label>
+                        <input type="text" ngModel="{{modificarPersona.subTitulo}}" name="titulo" class="form-control"
+                            id="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="acercaMi" class="col-form-label">Acerca de mi</label>
+                        <input type="text" ngModel="{{modificarPersona.acercaMi}}" name="acercaMi" class="form-control"
+                            id="acercaMi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="urlFoto" class="col-form-label">Foto</label>
+                        <input type="text" ngModel="{{modificarPersona.urlFoto}}" name="urlFoto" class="form-control"
+                            id="urlFoto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="likedinUrl" class="col-form-label">Linkedin</label>
+                        <input type="text" ngModel="{{modificarPersona.linkedinUrl}}" name="likedinUrl"
+                            class="form-control" id="likedinUrl" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="githubUrl" class="col-form-label">Github</label>
+                        <input type="text" ngModel="{{modificarPersona.githubUrl}}" name="githubUrl"
+                            class="form-control" id="githubUrl" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgBanner" class="col-form-label">Banner</label>
+                        <input type="text" ngModel="{{modificarPersona.imgBanner}}" name="imgBanner"
+                            class="form-control" id="imgBanner" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal"
+                (click)="editarPersona(this.id, this.persona)">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modal eliminar Persona-->
+<div class="modal fade" id="eliminarPersonaModal" tabindex="-1" role="dialog"
+    aria-labelledby="eliminarPersonaModalLabel" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eliminarPersonaModalLabel">Eliminar</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-dark">¿Estás seguro de eliminar: {{borrarPersona?.nombre}}?</p>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+            <button type="submit" (click)="eliminarPersona(borrarPersona!.id)" class="btn btn-danger">Si</button> -->
+            </div>
+        </div>
+    </div>
+</div>

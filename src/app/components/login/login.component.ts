@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from 'src/app/model/login-usuario';
 import { AuthService } from 'src/app/services/auth.service'; 
 import { TokenService } from 'src/app/services/token.service'; 
-import { environment } from 'src/environments/environments'; 
+import { environments } from 'src/environments/environments'; 
 
 @Component({
   selector: 'app-login',
@@ -14,13 +14,16 @@ import { environment } from 'src/environments/environments';
 export class LoginComponent implements OnInit {
   nombreUsuario!: string;
   password!: string;
-  isLogged = environment.isLogged;
+  isLogged = environments.isLogged;
   isLogginFail = false;
   loginUsuario!: LoginUsuario;
   roles: string[] = [];
   errMsj!: string;
 
-  constructor(private tokenService: TokenService, private authService: AuthService, private ruta: Router){
+  constructor(
+    private tokenService: TokenService,
+    private authService: AuthService, 
+    private ruta: Router){
   }
 
 
@@ -29,10 +32,19 @@ export class LoginComponent implements OnInit {
       this.isLogged = true;
       this.isLogginFail = false;
       this.roles = this.tokenService.getAuthorities();
+      this.checkTokenLocal();
+    }
+  }
+
+
+  checkTokenLocal(){
+    if(localStorage.getItem('token')){
+      this.ruta.navigate(['/portfolio'])
     }
   }
 
   onLogin(event: Event): void {
+
     event.preventDefault;
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password); 
       this.authService.login(this.loginUsuario).subscribe({next: data => {
@@ -43,11 +55,12 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
         this.ruta.navigate(['/portfolio'])
-      }, error: err => {
+      }, 
+      error: err => {
         this.isLogged = false;
         this.isLogginFail = true;
         this.errMsj = err.error.mensaje;
-        console.log(this.errMsj);
+        // console.log(this.errMsj);
       }})
     }
 

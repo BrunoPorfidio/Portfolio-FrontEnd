@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginUsuario } from '../model/login-usuario';
 import { NuevoUsuario } from '../model/nuevo-usuario';
 import { JwtDto } from '../model/JwtDto';
-import { environment } from 'src/environments/environments';
+import { environments } from 'src/environments/environments';
 
 
 
@@ -13,10 +13,9 @@ import { environment } from 'src/environments/environments';
 })
 export class AuthService {
 
-  private ApiServerUrl = `${environment.Api}/auth/`;
+  private ApiServerUrl = `${environments.Api}/auth/`;
 
   constructor(private httpClient: HttpClient) { 
-    console.log("El servicio de autenticación está corriendo")
   }
 
   public nuevo(nuevoUsuario: NuevoUsuario): Observable<any> {
@@ -26,4 +25,5 @@ export class AuthService {
   public login(loginUsuario: LoginUsuario): Observable<JwtDto> {
     return this.httpClient.post<JwtDto>(`${this.ApiServerUrl}login`, loginUsuario)
   }
+
 }
