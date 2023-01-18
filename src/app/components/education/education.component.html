@@ -1,0 +1,57 @@
+<div class="hero-education container-fluid" style="background-color: black;">
+    <div class="container">
+        <h1 class="title-education">MI EDUCACION</h1>
+    </div>
+    <div class="botones-admin">
+        <i *ngIf="isAdmin" (click)="openModal()" class="bi bi-plus-square"
+            style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
+
+
+        <div *ngIf="modalSwitch == true">
+            <app-modal-education></app-modal-education>
+        </div>
+    </div>
+
+    <div class="container-fluid" style="margin-bottom: 3%;" >
+        <div class="row">
+            <div class="col-md-6 col-sm-10" *ngFor="let educacion of educacions, let i = index" [id]="educacion.idEducacion" >
+                <div class="card card-education">
+                    <div class="card-header card-education-title">
+                        <h1>{{educacion.institucion}}</h1>
+                    </div>
+                    <div class="card-body black ">
+                        <div class="row">
+                            <div class="col-6">
+                                <img [src]="educacion.fotoEducacion" alt="img Educacion" >
+                            </div>
+                            <div class="col-6">
+                                <div class="card-text">
+                                    <div class="card-title">
+                                        <h2>{{educacion.titulo}}</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <p>Inicio: {{educacion.inicio}}</p>
+                                        </div>
+                                        <div class="col-6">
+                                            <p>Fin: {{educacion.fin}}</p>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <button *ngIf="isAdmin == true" (click)="onEditEducacion(i)" class="btn-edit"><i class="bi bi-pencil-fill"></i></button>
+                        </div>
+                        <div class="col-6">
+                            <button *ngIf="isAdmin == true" (click)="onDeletedEducacion(i)" class="btn-delete"><i class="bi bi-trash-fill"></i></button>
+                        </div>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

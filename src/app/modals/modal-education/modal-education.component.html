@@ -1,0 +1,70 @@
+<ng-container >
+    <div class="modalc">
+      <div class="modalc-content">
+        <!-- Header del modal-->
+        <header class="modalc-header">
+          <h4 class="modalc-title">Agregar Educacion</h4>
+        </header>
+        <!-- Contenido del modal-->
+        <div class="modalc-container">
+          <form [formGroup]="educacionForm" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="idEducaion" formControlName="idEducaion" />
+  
+              <h4>Nombre de la Institucion</h4>
+              <input
+                type="text"
+                name="institucion"
+                formControlName="institucion"
+                placeholder="Ingrese Nombre del la Institucion"
+                required
+                class="contact-input form-control"
+              />
+              <br>
+
+              <h4>Titulo Obtenido</h4>
+              <input
+                type="text"
+                name="titulo"
+                formControlName="titulo"
+                placeholder="Ingrese su Titulo"
+                class="contact-input form-control"
+              />
+              <br>
+              <h4>Fecha Inicio</h4>
+              <input
+                type="text"
+                name="inicio"
+                formControlName="inicio"
+                placeholder="Ingrese la fecha de inicio"
+                class="contact-input form-control"
+              />
+              <br>
+              <h4>Fecha Finalizacion</h4>
+              <input
+                type="text"
+                name="fin"
+                formControlName="fin"
+                placeholder="Ingrese fecha de finalizacion"
+                class="contact-input form-control"
+              />
+              <br>
+              <!--==/ Botón para guardar los datos /==-->
+              <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn-save"><i class="bi bi-person-fill-add" style="font-size: 50px;"></i></button>
+                    </div>
+                    <div class="col-6">
+                        <button (click)="closeModal()" class="btnn-close " ><i class="bi bi-x-circle-fill" style="font-size: 50px;"></i></button>
+                    </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>

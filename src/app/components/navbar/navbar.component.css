@@ -1,3 +1,4 @@
+
 .hero-nav{
   display: flex;
   flex-flow: row wrap;
@@ -34,18 +35,18 @@
 }
 
 .buttons{
-  height: 50px;
+  height: 3.125rem;
      color: #fff;
      margin: 3px;
      border: 1px solid #D4AF37;
 }
 
 .nav-txt{
-  margin-top: -10px
+  margin-top: -0.625rem
 }
 
 .lgnbtn{
-  font-size: 15px;
+  font-size: .9375rem;
   border: 1px solid #D4AF37;
   float: right;
   margin: auto;
@@ -53,6 +54,10 @@
 
 .buttons:active {
   box-shadow: 5px 3px 3px #D4AF37;
+}
+
+.bi{
+  font-size: 0.8625em;
 }
 
 

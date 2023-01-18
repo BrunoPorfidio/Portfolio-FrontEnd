@@ -1,0 +1,83 @@
+.modalc {
+    position: fixed;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  .modalc-content {
+    width: 30%;
+    margin: auto;
+    position: relative;
+    max-width: 800px;
+    max-height: 80vh;
+    border-radius: 5px;
+    background-color: rgb(78, 78, 78);
+    overflow: auto;
+    cursor: default;
+  }
+  
+  .modalc-header {
+    height: 93%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    background-color: white;
+    border-radius: 4px 4px 0 0;
+    color: black;
+  }
+  
+  .modalc-header > i {
+    font-size: 3rem;
+  }
+  
+  .modalc-header > i:hover {
+    cursor: pointer;
+    background-color: gray;
+    transition: 0.5s;
+    border-radius: 10px;
+    color: white;
+  }
+  
+  .modalc-title {
+    font-size: 2em;
+    font-weight: 400;
+  }
+  
+  .modalc-container {
+    padding: 15px;
+    background: white;
+    border-radius: 0 0 4px 4px;
+    color: black;
+  }
+  
+  .contact-input {
+    width: 100%;
+  
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    outline: none;
+    margin-bottom: var(--mb-3);
+  }
+
+  
+  .btn-save, .btnn-close {
+    font-size: 10px; 
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .btn-save:hover, .btnn-close:hover {
+    background-color: #4c5055;
+    transform: translateY(-7px);
+  }

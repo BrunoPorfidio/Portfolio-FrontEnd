@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TitleComponent } from './title.component';
+import { ModalSkillsComponent } from './modal-skills.component';
 
-describe('TitleComponent', () => {
-  let component: TitleComponent;
-  let fixture: ComponentFixture<TitleComponent>;
+describe('ModalSkillsComponent', () => {
+  let component: ModalSkillsComponent;
+  let fixture: ComponentFixture<ModalSkillsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TitleComponent ]
+      declarations: [ ModalSkillsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TitleComponent);
+    fixture = TestBed.createComponent(ModalSkillsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

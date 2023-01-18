@@ -1,44 +1,36 @@
-<section class="hero-sobre-mi" id="about-me">
-    <div class="container">
+
+<div  class="container-fluid"  *ngFor="let persona of personas, let i = index">
+<header style="background-image: url({{persona.imgBanner}});">
+    <section class="hero-nombre">
+        <div class="container" >
+            <div class="col" >
+                <h1 class="titulo"  [id]="persona.id"> {{persona.nombre}} {{persona.apellido}}</h1>
+                <h2 class="subtitulo">{{persona.subTitulo}}</h2>
+            </div>
+        </div>
+    </section>
+</header>
+
+<div class="botones-admin" *ngIf="isAdmin">
+    
+    <i   (click)="openModal()" class="bi bi-pencil-square" style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
+
+    <div *ngIf="modalSwitch == true">
+        <app-modal-aboutme></app-modal-aboutme>
+    </div>
+</div>
+
+<section class=" hero-sobre-mi" id="about-me">
+    <div class="container-fluid">
         <h1 class="my-descrp-title"> Sobre mi</h1>
         <div class="row">
             <div class="col-lg-8">
-                <p class="my-descrp">
-                    Me llamo Bruno, soy un aficionado a la tecnologia y computadoras.
-                    A inicios del 2022 comence mi cursada en Argentina Programa.
-                    Al ir avanzando, cada vez me apasionó mas la Programacion.
-                    Anteriormente ejercia de Tecnico en Computacion, donde tenia el rol
-                    de Atencion al Cliente y de Tecnico.
-                </p>
+                <p class="my-descrp">{{persona.acercaMi}}</p>
+
             </div>
             <div class="col-lg-4 col-md-0">
-                <img src="../../../assets/img/me.jpg" alt="Bruno Porfidio photo" 
+                <img [src]="persona.urlFoto" [alt]="persona.nombre" 
                 class="img-responsive img-circle">
-            </div>
-        </div>
-    </div>
-    <div class="hero-skills">
-        <h2 class="my-skills-title">Mis skills</h2>
-        <div class="container icons-skills">
-            <div class="row">
-                <div class="col-1 i-skills">
-                        <img src="../../../assets/img/html-5.svg" class="skill-img"  alt="html Logo">
-                </div>
-                <div class="col-1 i-skills">
-                        <img src="../../../assets/img/css-3.svg" class="skill-img"  alt="css Logo">
-                </div>
-                <div class="col-1 i-skills">
-                     <img src="../../../assets/img/javascript.svg" class="skill-img icon-js"  alt="JS Logo">
-                </div>
-                <div class="col-1 i-skills ">
-                    <img src="../../../assets/img/bootstrap.svg" class="skill-img icon-btsp"  alt="Bootstrap Logo">
-                </div>
-                <div class="col-1 i-skills">
-                    <img src="../../../assets/img/angular-icon.svg" class="skill-img icon-angular"  alt="Angular Logo">
-                </div>
-                <div class="col-1 i-skills">
-                    <img src="../../../assets/img/mysql.svg" class="skill-img icon-sql"  alt="MySQL Logo">
-                </div>
             </div>
         </div>
     </div>

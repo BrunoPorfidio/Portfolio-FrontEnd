@@ -1,0 +1,113 @@
+
+
+<ng-container >
+    <div class="modalc">
+      <div class="modalc-content">
+        <!-- Header del modal-->
+        <header class="modalc-header">
+          <h4 class="modalc-title">Agregar Persona</h4>
+        </header>
+        <!-- Contenido del modal-->
+        <div class="modalc-container">
+          <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="id" formControlName="id" />
+  
+              <h4>Nombre</h4>
+              <input
+                type="text"
+                name="nombre"
+                formControlName="nombre"
+                placeholder="Ingrese su Nombre"
+                required
+                class="contact-input form-control"
+              />
+              <br>
+
+              <h4>Apellido</h4>
+              <input
+                type="text"
+                name="apellido"
+                formControlName="apellido"
+                placeholder="Ingrese su Apellido"
+                class="contact-input"
+              />
+              <br>
+
+              <h4>Titulo</h4>
+              <input
+                type="text"
+                name="subTitulo"
+                formControlName="subTitulo"
+                placeholder="Ingrese su Titulo. Ej: Programador Web"
+                class="contact-input"
+              />
+              <br>
+
+              <h4>Descripcion</h4>
+              <textarea
+                name="acercaMi"
+                formControlName="acercaMi"
+                placeholder="Ingrese su Descripcion"
+                class="contact-input"
+              ></textarea>
+              <br>
+
+              <h4>Foto de perfil</h4>
+              <input
+              type="url"
+                name="urlFoto"
+                formControlName="urlFoto"
+                placeholder="Ingrese su Url de Foto"
+                class="contact-input"
+              />
+              <br>
+
+              <h4>Linkedin</h4>
+              <input
+                type="url"
+                name="LinkedinUrl"
+                formControlName="linkedinUrl"
+                placeholder="Ingrese su Url de Linkedin"
+                class="contact-input"
+              />
+              <br>
+
+              <h4>Github</h4>
+              <input
+                type="url"
+                name="githubUrl"
+                formControlName="githubUrl"
+                placeholder="Ingrese su Url de imagen"
+                class="contact-input"
+              />
+              <br>
+              
+              <h4>Banner</h4>
+              <input
+                type="url"
+                name="imbBanner"
+                formControlName="imgBanner"
+                placeholder="Ingrese su Url de Banner"
+                class="contact-input"
+              />
+              <!--==/ Botón para guardar los datos /==-->
+              <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add" style="font-size: 50px;"></i></button>
+                    </div>
+                    <div class="col-4">
+                        <button (click)="closeModal()" class="btnn-close" ><i class="bi bi-x-circle-fill" style="font-size: 50px;"></i></button>
+                    </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+

@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { Persona } from 'src/app/model/Persona';
-import { environment } from 'src/environments/environments';
+import { environments } from 'src/environments/environments';
 
 
 @Component({
@@ -16,8 +16,12 @@ import { environment } from 'src/environments/environments';
 
 export class NavbarComponent implements OnInit  {
 
-  public persona: Persona | undefined;
-  isLogged = environment.isLogged;
+
+  isAdmin = false;
+  roles: string[];
+  authority: string;
+  public persona: Persona;
+  isLogged = environments.isLogged;
 
   constructor(
     private tokenService: TokenService,
@@ -28,12 +32,23 @@ export class NavbarComponent implements OnInit  {
     ){}
 
 
-
-
 public active : boolean = false;
 
 
   ngOnInit(): void {
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((rol) => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
 
     if(this.tokenService.getToken()){
       this.isLogged = true;
@@ -41,6 +56,7 @@ public active : boolean = false;
       this.isLogged = false;
     }
   }
+
 
   setActive() : void {
     this.active = !this.active;
@@ -70,4 +86,9 @@ public active : boolean = false;
   toContact(){
     document.getElementById('contact')?.scrollIntoView({behavior:"smooth"})
   }
+
+  onSubmit(){
+    console.log(this.persona);
+  }
+
 }

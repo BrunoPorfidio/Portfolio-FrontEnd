@@ -1,14 +1,21 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environments';
+import { environments } from 'src/environments/environments';
 import { Educacion } from '../model/Educacion'; 
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'content-Type': 'application/json',
+  }),
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class EducacionService {
-  private ApiEducacion = `${environment.Api}/educacion/`;
+  private ApiEducacion = `${environments.Api}/educacion/`;
 
   constructor(private http: HttpClient) { }
 
@@ -16,12 +23,16 @@ export class EducacionService {
     return this.http.get<Educacion[]>(`${this.ApiEducacion}ver`);
   }
 
-  public agregarEducacion(educacion: Educacion): Observable<Educacion> {
-    return this.http.post<Educacion>(`${this.ApiEducacion}nuevo`, educacion);
+  public buscarEducacion(id: number): Observable<any>{
+    return this.http.get<any>(`${this.ApiEducacion}buscar/${id}`);
+  }
+
+  public crearEducacion(educacion: Educacion): Observable<Educacion> {
+    return this.http.post<Educacion>(`${this.ApiEducacion}nuevo`, educacion, httpOptions);
   }
 
   public borrarEducacion(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.ApiEducacion}borrar/${id}?institucion=`);
+    return this.http.delete<void>(`${this.ApiEducacion}borrar/${id}`);
   }
 
   public editarEducacion(educacion: Educacion, id: number): Observable<Educacion> {

@@ -13,13 +13,19 @@
   ---------------Inicio Header y Body--------------------
 */
 
+body{
+    background-color: black;
+    font-size: 16px;
+    text-align: center;
+    align-items: center;
+}
 
 header {
     padding: 20%;
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(assets/img/wallpaper3.jpg);
+
     background-position: center center;
     background-repeat: none;
     background-size: cover;
@@ -29,24 +35,19 @@ header {
     padding: 1.25em;
 }
 
-body{
-    background-color: black;
-    font-size: 16px;
-    text-align: center;
-    align-items: center;
-}
 
 
 .buttons{
-    padding: 10px !important;
+    padding: 10px ;
     text-decoration: none;
     background-color:rgba(0, 0, 0, 0.0);
     color: #fff;
   }
 
-  .login-txt{
-    font-size: 25px;
-  }
+.botones-admin{
+    padding: 0px;
+    
+}
 
 .buttons:active {
     box-shadow: 5px 3px 3px #D4AF37;
@@ -74,18 +75,30 @@ body{
     font-size: 2.8125em;
 }
 
+.icon-send{
+    font-size: 1.000em;
+}
+
+.btn-edit, .logout-txt{
+    cursor: pointer;
+    font-size:  1.5rem;
+}
+
 .img-circle {
     border-radius: 50%;
     border: 3px solid #D4AF37;
 }
 
 .img-responsive {
-    display: block;
-    max-width: 100%;
-    height: 85%;
+    margin-top: -80px;
+    justify-content: center;
+    align-items: center;
+    font-size: auto;
 }
 
-.hero-sobre-mi, .hero-proyects{
+/* Estilos Globales  */
+
+.hero-sobre-mi, .hero-proyects,.login-container, .hero-education{
     font-size: 2.2875em;
     background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
@@ -94,9 +107,10 @@ body{
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     text-align: center;
+    margin-bottom: 5%;
 }
 
-.my-descrp-title, .title-proyects, .my-skills-title{
+.my-descrp-title, .title-proyects, .my-skills-title, .title-education{
     font-size: 1.5em;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -109,9 +123,20 @@ body{
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
-.title-proyects{
+.title-proyects, .login-txt, .title-education{
     font-size: 1.1em;
 }
+
+
+.card-education{
+    background-color: #000;
+    border: 1px solid  #D4AF37;
+}
+
+
+  /* Estilos de los Skills */
+
+
 
 .my-skills-title{
     width: 20%;
@@ -142,7 +167,6 @@ body{
     );
   }
 
-
 .icons-skills{
     display: flex;
     justify-content: center;
@@ -168,25 +192,40 @@ body{
 }
 
 
-.hero-sobre-mi{
-    margin-bottom: 5%;
-}
-
-
 .list-proyect, .name-proyect{
     
     margin: auto;
     text-align: center;
 }
 
+.card-main{
+    size: 2em;
+}
 
 .card-proyects{
-    font-size: .8em;
+    font-size: .6em;
     background-color: black;
     border-radius: 5px;
     border: 1px  #D4AF37 solid;
-    margin: 1.5625rem;
+    margin: auto;
 }
+
+
+/* Botones de editar y borrar cada seccion de la pagina */
+
+.btn-delete{
+    margin: auto;
+    font-size: 20px;
+    background-color: black;
+    color: #de423a;
+}
+.btn-edit{
+    margin: auto;
+    font-size: 20px;
+    color: #D4AF37;
+    background-color: black;
+}
+
 
 .card-cont{
     padding: .625rem 1em ;
@@ -255,6 +294,9 @@ img {
 
 
 @media  (max-width:2600px){
+
+
+
        .skill-img{
         width: 50%;
     }
@@ -268,13 +310,14 @@ img {
 
 @media (max-width: 1000px) {
     
+    
     .img-responsive{
         display: none;
        }
 
 
     body{
-        font-size: 10px;
+        font-size: 15px;
     }
 
     .skill-img{
@@ -302,6 +345,14 @@ img {
         font-size: 30px;
     }
 
+    .bi{
+        font-size:  0.560em;
+        height: 10%;
+    }
+
+    .icon-send{
+        font-size:  0.860em;
+    }
 
 
 }
@@ -330,6 +381,13 @@ img {
         font-size: 25px;
         width: 75%;
 
+    }
+
+    .bi{
+        font-size:  0.360em;
+    }
+    .icon-send{
+        font-size:  0.760em;
     }
     
 
@@ -388,8 +446,8 @@ img {
     .example-pryct{
         font-size: 15px;
         width: 70%;
-
     }
+
 
 }
 
@@ -412,6 +470,10 @@ img {
 
     .title-proyects{
         font-size: 10px;
+    }
+
+    .icon-send{
+        font-size:  0.760em;
     }
 }
 
@@ -458,4 +520,11 @@ img {
     .btn-nav, .login-txt{
         font-size: 15px;
     }
+
+    .icon-send{
+        font-size:  0.760em;
+    }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

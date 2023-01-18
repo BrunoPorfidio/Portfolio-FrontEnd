@@ -1,15 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Skills } from '../model/Skills'; 
-import { environment } from 'src/environments/environments';
+import { environments } from 'src/environments/environments';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'content-Type': 'application/json',
+  }),
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillsService {
 
-  private ApiSkills = `${environment.Api}/skills/`;
+  private ApiSkills = `${environments.Api}/skills/`;
 
   constructor(private http: HttpClient) { }
 
@@ -17,17 +23,24 @@ export class SkillsService {
     return this.http.get<Skills[]>(`${this.ApiSkills}ver`);
   }
 
-  public guardarSkills(skills: Skills): Observable<any>{
-    return this.http.post<any>(`${this.ApiSkills}nuevo`, skills);
+  public buscarSkills(id: number): Observable<any>{
+    return this.http.get<any>(`${this.ApiSkills}buscar/${id}`);
   }
 
-  public editarSkills(id: number, skills: Skills): Observable<any>{
-    return this.http.put<any>(`${this.ApiSkills}editar/${id}?nombreSkill=${skills.nombreSkills}
-    &fotoSkill=${skills.fotoSkill}`, skills);
+  public crearSkills(skills: Skills): Observable<Object>{
+    return this.http.post<Object>(this.ApiSkills + `nuevo`, skills, httpOptions);
   }
 
-  public borrarSkills(id: number): Observable<any>{
-    return this.http.delete<any>(`${this.ApiSkills}borrar/${id}`);
+  
+  public editarSkills(skills: Skills, id: number): Observable<Skills> {
+    return this.http.put<Skills>(`${this.ApiSkills}editar/${id}?nombreSkill=${skills.nombreSkill}&fotoSkill=${skills.fotoSkill}`, skills);
   }
 
+  // public editarSkills(skills: Skills): Observable<any>{
+  //   return this.http.put<any>(`${this.ApiSkills}editar`, skills, httpOptions);
+  // }
+  
+  public borrarSkills(id: number): Observable<void>{
+     return this.http.delete<void>(`${this.ApiSkills}borrar/${id}`);
+  }
 }
