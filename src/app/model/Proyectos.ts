@@ -3,7 +3,7 @@ export class Proyectos{
 
     nombreProyecto?: String;
 
-    descripcionProyecto?: String;
+    descripcion?: String;
 
     fotoProyecto?: String;
 

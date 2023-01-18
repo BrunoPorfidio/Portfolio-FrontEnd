@@ -38,13 +38,16 @@ header {
 
 
 .buttons{
-    padding: 10px !important;
+    padding: 10px ;
     text-decoration: none;
     background-color:rgba(0, 0, 0, 0.0);
     color: #fff;
   }
 
-
+.botones-admin{
+    padding: 0px;
+    
+}
 
 .buttons:active {
     box-shadow: 5px 3px 3px #D4AF37;
@@ -87,12 +90,15 @@ header {
 }
 
 .img-responsive {
-    display: block;
-    max-width: 100%;
-    height: 85%;
+    margin-top: -80px;
+    justify-content: center;
+    align-items: center;
+    font-size: auto;
 }
 
-.hero-sobre-mi, .hero-proyects,.login-container{
+/* Estilos Globales  */
+
+.hero-sobre-mi, .hero-proyects,.login-container, .hero-education{
     font-size: 2.2875em;
     background-color: rgba(0, 0, 0, 0.9);
     width: 100%;
@@ -101,9 +107,10 @@ header {
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     text-align: center;
+    margin-bottom: 5%;
 }
 
-.my-descrp-title, .title-proyects, .my-skills-title{
+.my-descrp-title, .title-proyects, .my-skills-title, .title-education{
     font-size: 1.5em;
     color: rgb(255, 255, 255);
     text-align: center;
@@ -116,9 +123,20 @@ header {
     box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
-.title-proyects, .login-txt{
+.title-proyects, .login-txt, .title-education{
     font-size: 1.1em;
 }
+
+
+.card-education{
+    background-color: #000;
+    border: 1px solid  #D4AF37;
+}
+
+
+  /* Estilos de los Skills */
+
+
 
 .my-skills-title{
     width: 20%;
@@ -149,7 +167,6 @@ header {
     );
   }
 
-
 .icons-skills{
     display: flex;
     justify-content: center;
@@ -175,25 +192,40 @@ header {
 }
 
 
-.hero-sobre-mi{
-    margin-bottom: 5%;
-}
-
-
 .list-proyect, .name-proyect{
     
     margin: auto;
     text-align: center;
 }
 
+.card-main{
+    size: 2em;
+}
 
 .card-proyects{
-    font-size: .8em;
+    font-size: .6em;
     background-color: black;
     border-radius: 5px;
     border: 1px  #D4AF37 solid;
-    margin: 1.5625rem;
+    margin: auto;
 }
+
+
+/* Botones de editar y borrar cada seccion de la pagina */
+
+.btn-delete{
+    margin: auto;
+    font-size: 20px;
+    background-color: black;
+    color: #de423a;
+}
+.btn-edit{
+    margin: auto;
+    font-size: 20px;
+    color: #D4AF37;
+    background-color: black;
+}
+
 
 .card-cont{
     padding: .625rem 1em ;
@@ -321,7 +353,6 @@ img {
     .icon-send{
         font-size:  0.860em;
     }
-
 
 
 }

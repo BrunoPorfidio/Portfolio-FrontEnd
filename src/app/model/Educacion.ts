@@ -9,5 +9,6 @@ export class Educacion {
     
     fin?: Number;
 
+    fotoEducacion?: String;
 
 }

@@ -62,7 +62,6 @@
 
 .contact-input {
   width: 100%;
-
   padding: 1rem;
   border-radius: 0.5rem;
   border: 2px solid black;
@@ -74,9 +73,10 @@
 .btn-save, .btnn-close {
   font-size: 10px; 
   cursor: pointer;
+  outline: none;
 }
 
 .btn-save:hover, .btnn-close:hover {
   background-color: #4c5055;
-  transform: translateY(-7px);
+  transform: translateY(7px);
 }

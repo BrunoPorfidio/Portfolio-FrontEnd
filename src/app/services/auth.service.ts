@@ -26,4 +26,8 @@ export class AuthService {
     return this.httpClient.post<JwtDto>(`${this.ApiServerUrl}login`, loginUsuario)
   }
 
+  public isLogged(): boolean {
+    return sessionStorage.getItem('user') !== null;
+  }
+
 }

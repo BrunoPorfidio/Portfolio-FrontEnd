@@ -1,7 +1,7 @@
 export class Skills{
-    idSkills?: any;
+    idSkill?: any;
 
-    nombreSkills?: String;
+    nombreSkill?: String;
     
     fotoSkill?: String;
 }

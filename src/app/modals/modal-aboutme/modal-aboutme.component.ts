@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Persona } from 'src/app/model/Persona';
-import { PersonaService } from 'src/app/services/persona.service';
-import { Router } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Persona } from 'src/app/model/Persona'; 
+import { PersonaService } from 'src/app/services/persona.service'; 
 import { environments } from 'src/environments/environments';
 import { TokenService } from 'src/app/services/token.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { SwitchService } from 'src/app/services/switch.service';
 
 @Component({
   selector: 'app-modal-aboutme',
@@ -13,117 +14,105 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class ModalAboutmeComponent implements OnInit {
 
-
-  public modificarPersonas: Persona | undefined;
-  public borrarPersona: Persona | undefined;
-
+  // Variables globales
+  persona: Persona;
+  personaList: Persona[] = [];
+  isLogged: Boolean = false;
+  personaForm: FormGroup;
   roles: string[];
-  authority: string;
   isAdmin = false;
 
-  id: any = '';
-  nuevaPersona: Persona = {
-    nombre: '',
-    apellido: '',
-    subTitulo: '',
-    acercaMi: '',
-    urlFoto: '',
-    linkedinUrl: '',
-    githubUrl: '',
-    imgBanner: '',
-  };
-
-  persona: Persona;
-
-  modificarPersona: Persona = {
-    nombre: '',
-    apellido: '',
-    subTitulo: '',
-    acercaMi: '',
-    urlFoto: '',
-    linkedinUrl: '',
-    githubUrl: '',
-    imgBanner: '',
-  };
-
-  isLogged = environments.isLogged;
-
   constructor(
+    private modalSS: SwitchService,
     private personaService: PersonaService,
-    private ruta: Router,
-    private activateRoute: ActivatedRoute,
-    private tokenService: TokenService
-  ) {}
-
-  ngOnInit(): void {
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach((rol) => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
+    private tokenService: TokenService,
+    private authService: AuthService,
+    private formBuilder: FormBuilder
+  ) {
+    this.personaForm = this.formBuilder.group({
+      id: [5],
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      subTitulo: ['', [Validators.required]],
+      acercaMi: ['', [Validators.required]],
+      urlFoto: ['', [Validators.required]],
+      linkedinUrl: ['', [Validators.required]],
+      githubUrl: ['', [Validators.required]],
+      imgBanner: ['', [Validators.required]],
     });
   }
 
+  ngOnInit(): void {
+    this.isLogged = this.authService.isLogged();
 
-  openModal(mode: String, Persona?: Persona,): void {
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    if (mode === 'agregar') {
-      button.setAttribute('data-target', '#agregarPersonaModal');
-    } else if (mode === 'eliminar') {
-      this.borrarPersona = Persona;
-      button.setAttribute('data-target', '#eliminarPersonaModal');
-    } else if (mode === 'editar') {
-      this.modificarPersonas = Persona;
-      button.setAttribute('data-target', '#editarPersonaModal');
+    this.reloadDate();
+  }
+
+  closeModal(){
+    this.modalSS.$modal.emit(false);
+  }
+
+  /*===/ Configuraciones del formulario /===*/
+  private loadForm(persona: Persona) {
+    this.personaForm.setValue({
+      id: persona.id,
+      nombre: persona.nombre,
+      apellido: persona.apellido,
+      subTitulo: persona.subTitulo,
+      acercaMi: persona.acercaMi,
+      urlFoto: persona.urlFoto,
+      linkedinUrl: persona.linkedinUrl,
+      githubUrl: persona.githubUrl,
+      imgBanner: persona.imgBanner,
+    });
+  }
+
+  onEditPersona(index: number) {
+    let persona: Persona = this.personaList[index];
+    this.loadForm(persona);
+  }
+
+  onSubmit() {
+    let persona: Persona = this.personaForm.value;
+
+    if (this.personaForm.get('id')?.value == 5) {
+      this.personaService
+        .crearPersona(persona)
+        .subscribe((newPersona: Persona) => {
+          this.personaList.push(newPersona);
+        });
+    } else {
+      this.personaService.editarPersona(persona).subscribe(() => {
+        this.reloadDate();
+      });
     }
-    container?.appendChild(button);
-    button.click();
+    this.refresh();
   }
 
-
-  // agregarPersona() {
-  //   this.personaService.crearPersona(this.nuevaPersona).subscribe(
-  //     (res) => {
-  //       console.log(res);
-  //       this.ruta.navigate(['/portfolio']);
-  //       window.location.reload();
-  //       alert('¡Enviado correctamente!');
-  //     },
-  //     (err) => console.log(err)
-  //   );
-
-  //   this.id = this.activateRoute.snapshot.params['id'];
-  //   this.personaService.verPersonPerfil(this.id).subscribe(
-  //     (res) => {
-  //       this.editarPersona = res;
-  //     },
-  //     (err) => console.log(err)
-  //   );
-  // }
-
-  editarPersona(id:any, data: Persona) {
-    this.personaService.editarPersona(this.id, this.modificarPersona).subscribe(
-      (res) => {
-        this.modificarPersona = res;
-        this.ruta.navigate(['/portfolio']);
-      },
-      (err) => console.log(err)
-    );
+  // Método para recurar los datos de la base de datos
+  reloadDate() {
+    this.personaService.verPersona().subscribe((date) => {
+      this.personaList = date;
+    });
   }
 
-  // eliminarPersona(id: number) {
-  //   this.personaService.borrarPersona(id).subscribe(
-  //     (res) => {
-  //       this.ngOnInit();
-  //       window.location.reload();
-  //       alert('¡Enviado correctamente!');
-  //     },
-  //     (err) => console.log(err)
-  //   );
-  // }
+  // Métodos para cerrar y abrir el modal
 
 
+  refresh(): void {
+      window.location.reload();
+  }
+
+   private obtenerPersona(){
+  this.personaService.verPersona().subscribe(dato => {
+    this.personaList = dato;
+  })
+}
+
+  eliminarPersona(id:number){
+  this.personaService.borrarPersona(id).subscribe(dato => {
+    console.log(dato);
+    this.obtenerPersona();
+  })
+}
 }

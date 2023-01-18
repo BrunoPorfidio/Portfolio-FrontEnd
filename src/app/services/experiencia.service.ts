@@ -8,12 +8,17 @@ import { Experiencia } from '../model/Experiencia';
   providedIn: 'root'
 })
 export class ExperienciaService {
+  
   private ApiExperiencia = `${environments.Api}/experiencia/`;
 
   constructor(private http: HttpClient) { }
 
   public verExperiencia(): Observable<Experiencia[]> {
     return this.http.get<Experiencia[]>(`${this.ApiExperiencia}ver`);
+  }
+
+  public buscarExperiencia(id: number): Observable<any>{
+    return this.http.get<any>(`${this.ApiExperiencia}buscar/${id}`);
   }
 
   public agregarExperiencia(experiencia: Experiencia): Observable<Experiencia> {

@@ -5,12 +5,6 @@ import { Persona } from '../model/Persona';
 import { environments } from 'src/environments/environments';
 
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'content-Type': 'application/json',
-  }),
-}
-
 @Injectable({
   providedIn: 'root',
 })
@@ -23,42 +17,19 @@ export class PersonaService {
     return this.http.get<Persona[]>(this.ApiPersona + 'ver');
   }
 
-  public verPersonPerfil(id: number): Observable<Persona> {
-    return this.http.get<Persona>(this.ApiPersona + `ver/perfil/${id}`);
+  public buscarPersona(id: number): Observable<any>{
+    return this.http.get<any>(`${this.ApiPersona}buscar/${id}`);
   }
 
-  public crearPersona(persona: Persona): Observable<any> {
-    return this.http.post<Persona>(this.ApiPersona + 'nuevo', persona, httpOptions);
+  public crearPersona(persona: Persona): Observable<Object> {
+    return this.http.post(this.ApiPersona + `nuevo`, persona);
   }
-
-  public borrarPersona(id: any): Observable<any> {
-    return this.http.delete(this.ApiPersona + `borrar/` + id);
+  
+  public editarPersona(persona: Persona): Observable<any> {
+    return this.http.put<any>(`${this.ApiPersona}editar`, persona);
   }
-
-  public editarPersona(id: any,data: any): Observable<any> {
-    return this.http.put(this.ApiPersona + `editar/${id}`, data);
+  
+  public borrarPersona(id:number | any): Observable<Persona> {
+    return this.http.delete<Persona>(this.ApiPersona + `borrar/` + id);
   }
-
-
-
-    // public verPersonas(): Observable<Persona[]>{
-    //   return this.http.get<Persona[]>(`${this.ApiPersona}ver`);
-    // }
-  
-    // public verPersonaPerfil(id: number): Observable<Persona> {
-    //   return this.http.get<Persona>(`${this.ApiPersona}ver/perfil`+ id);
-    // }
-
-    // public crearPersona(persona:Persona ): Observable<Persona> {
-    //   return this.http.post<Persona>(`${this.ApiPersona}nuevo/`, persona);
-    // }
-  
-    // public editarPersona(  id: number, persona: Persona): Observable<any> {
-    //   return this.http.put(`${this.ApiPersona}editar/`+ id, persona);
-    // }
-  
-    // public borrarPersona(id: number): Observable<void> {
-    //   return this.http.delete<void>(`${this.ApiPersona}borrar/` + id);
-    // }
-  
 }

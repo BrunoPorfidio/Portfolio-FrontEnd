@@ -1,19 +1,27 @@
 
-<div  class="container-fluid" *ngFor="let persona of personas">
+<div  class="container-fluid"  *ngFor="let persona of personas, let i = index">
 <header style="background-image: url({{persona.imgBanner}});">
     <section class="hero-nombre">
         <div class="container" >
-            <div class="col" id="datos" >
-                <h1 class="titulo"  id="nombre"> {{persona.nombre}} {{persona.apellido}}</h1>
+            <div class="col" >
+                <h1 class="titulo"  [id]="persona.id"> {{persona.nombre}} {{persona.apellido}}</h1>
                 <h2 class="subtitulo">{{persona.subTitulo}}</h2>
             </div>
         </div>
     </section>
 </header>
-<app-modal-aboutme></app-modal-aboutme>
 
-<section class="hero-sobre-mi" id="about-me">
-    <div class="container">
+<div class="botones-admin" *ngIf="isAdmin">
+    
+    <i   (click)="openModal()" class="bi bi-pencil-square" style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
+
+    <div *ngIf="modalSwitch == true">
+        <app-modal-aboutme></app-modal-aboutme>
+    </div>
+</div>
+
+<section class=" hero-sobre-mi" id="about-me">
+    <div class="container-fluid">
         <h1 class="my-descrp-title"> Sobre mi</h1>
         <div class="row">
             <div class="col-lg-8">
@@ -26,87 +34,4 @@
             </div>
         </div>
     </div>
-    <div class="hero-skills">
-        <h2 class="my-skills-title">Mis skills</h2>
-        <div class="container icons-skills"  >
-            <div class="row">
-                <div class="col-1 i-skills" *ngFor="let skills of skilss">
-                       {{skills.idSkills}} <img [src]="skills.fotoSkill" class="skill-img"  alt="skills Logo">
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
-
-
-
-<!-- <div class="col-md-6 offset-md-3" style="color:blanchedalmond">
-    <div class="text-center">Agregar Persona</div>
-    <form (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            <label>Nombre:</label>
-            <input type="text"
-            class="form-control"
-            id="nombre"
-            [(ngModel)]="persona.nombre"
-            name = "nombre">
-        </div>
-        <div class="form-group">
-            <label>Apellido</label>
-            <input type="text"
-            class="form-control"
-            id="apellido"
-            [(ngModel)]="persona.apellido"
-            name = "apellido">
-        </div>
-        <div class="form-group">
-            <label>Titulo:</label>
-            <input type="text"
-            class="form-control"
-            id="subTitulo"
-            [(ngModel)]="persona.subTitulo"
-            name = "subTitulo">
-        </div>
-        <div class="form-group">
-            <label>Sobre mi:</label>
-            <input type="text"
-            class="form-control"
-            id="acercaMi"
-            [(ngModel)]="persona.acercaMi"
-            name = "acercami">
-        </div>
-        <div class="form-group">
-            <label>Url de foto:</label>
-            <input type="text"
-            class="form-control"
-            id="urlFoto"
-            [(ngModel)]="persona.urlFoto"
-            name = "urlFoto">
-        </div>
-        <div class="form-group">
-            <label>Url Lnkedin:</label>
-            <input type="text"
-            class="form-control"
-            id="linkedinUrl"
-            [(ngModel)]="persona.linkedinUrl"
-            name = "linkedinUrl">
-        </div>
-        <div class="form-group">
-            <label>Url GitHub:</label>
-            <input type="text"
-            class="form-control"
-            id="githubUrl"
-            [(ngModel)]="persona.githubUrl"
-            name = "githubUrl">
-        </div>
-        <div class="form-group">
-            <label>Url para imagen de Fondo:</label>
-            <input type="text"
-            class="form-control"
-            id="imgBanner"
-            [(ngModel)]="persona.imgBanner"
-            name = "imgBanner">
-        </div>
-        <button class="btn btn-success">Guardar</button>
-    </form>
-</div> -->

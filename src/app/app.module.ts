@@ -18,6 +18,10 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { ModalAboutmeComponent } from './modals/modal-aboutme/modal-aboutme.component';
 import { ModalProyectsComponent } from './modals/modal-proyects/modal-proyects.component';
 import { ModalContactComponent } from './modals/modal-contact/modal-contact.component';
+import { ModalSkillsComponent } from './modals/modal-skills/modal-skills.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { EducationComponent } from './components/education/education.component';
+import { ModalEducationComponent } from './modals/modal-education/modal-education.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { ModalContactComponent } from './modals/modal-contact/modal-contact.comp
     LoaderComponent,
     ModalAboutmeComponent,
     ModalProyectsComponent,
-    ModalContactComponent
+    ModalContactComponent,
+    ModalSkillsComponent,
+    SkillsComponent,
+    EducationComponent,
+    ModalEducationComponent
   ],
   imports: [
     BrowserModule,
