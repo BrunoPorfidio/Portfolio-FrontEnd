@@ -15,39 +15,38 @@
     <div class="container-fluid" style="margin-bottom: 3%;" >
         <div class="row">
             <div class="col-md-6 col-sm-10" *ngFor="let educacion of educacions, let i = index" [id]="educacion.idEducacion" >
-                <div class="card card-education">
+                <div class="card main-card-education">
                     <div class="card-header card-education-title">
-                        <h1>{{educacion.institucion}}</h1>
+                        <h2 class="school-title">{{educacion.institucion}}</h2>
                     </div>
-                    <div class="card-body black ">
+                    <div class="card-body education-card">
                         <div class="row">
                             <div class="col-6">
-                                <img [src]="educacion.fotoEducacion" alt="img Educacion" >
+                                <img class=" img-education" [src]="educacion.fotoEducacion" alt="img Educacion" >
                             </div>
                             <div class="col-6">
                                 <div class="card-text">
                                     <div class="card-title">
-                                        <h2>{{educacion.titulo}}</h2>
+                                        <h3 class="title-card-education">{{educacion.titulo}}</h3>
                                     </div>
-                                    <div class="row">
+                                    <div class="row date-education">
                                         <div class="col-6">
-                                            <p>Inicio: {{educacion.inicio}}</p>
+                                            <p class="date-card-education">Inicio: {{educacion.inicio}}</p>
                                         </div>
                                         <div class="col-6">
-                                            <p>Fin: {{educacion.fin}}</p>
+                                            <p class="date-card-education" >Fin: {{educacion.fin}}</p>
                                         </div>  
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="row">
+                    <div class="row admin-btn" >
                         <div class="col-6">
-                            <button *ngIf="isAdmin == true" (click)="onEditEducacion(i)" class="btn-edit"><i class="bi bi-pencil-fill"></i></button>
+                            <i *ngIf="isAdmin == true" (click)="onEditEducacion(i)" class="btn-edit bi bi-pencil-fill"></i>
                         </div>
                         <div class="col-6">
-                            <button *ngIf="isAdmin == true" (click)="onDeletedEducacion(i)" class="btn-delete"><i class="bi bi-trash-fill"></i></button>
+                            <i *ngIf="isAdmin == true" (click)="onDeletedEducacion(i)" class="btn-delete bi bi-trash-fill"></i>
                         </div>
                        </div>
                 </div>

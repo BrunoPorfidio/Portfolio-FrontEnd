@@ -4,7 +4,6 @@ import { Skills } from 'src/app/model/Skills';
 import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
 import { SwitchService } from 'src/app/services/switch.service';
-import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-modal-skills',
@@ -12,7 +11,9 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./modal-skills.component.css'],
 })
 export class ModalSkillsComponent implements OnInit {
+
   // Variables globales
+
   skillList: Skills[] = [];
   isLogged: Boolean = false;
   skillsForm: FormGroup;
@@ -88,16 +89,16 @@ export class ModalSkillsComponent implements OnInit {
     window.location.reload();
   }
 
-  private obtenerPersona() {
+  private obtenerSkills() {
     this.skillService.verSkills().subscribe((dato) => {
       this.skillList = dato;
     });
   }
 
-  eliminarPersona(id: number) {
+  eliminarSkills(id: number) {
     this.skillService.borrarSkills(id).subscribe((dato) => {
       console.log(dato);
-      this.obtenerPersona();
+      this.obtenerSkills();
     });
   }
 }

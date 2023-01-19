@@ -68,6 +68,8 @@ export class ModalEducationComponent implements OnInit  {
       inicio: ['', [Validators.required]],
       
       fin: ['', [Validators.required]],
+
+      fotoEducacion: ['', [Validators.required]],
     });
   }
 
@@ -79,7 +81,7 @@ export class ModalEducationComponent implements OnInit  {
   onSubmit() {
     let educacion: Educacion = this.educacionForm.value;
 
-    // this.skillsForm.get('id')?.value == '';
+    // this.educacionForm.get('id')?.value == '';
     this.educacionService.crearEducacion(educacion).subscribe((newEducacion: Educacion) => {
       this.educacionList.push(newEducacion);
       alert("Educacion Creada!")
@@ -101,16 +103,16 @@ export class ModalEducationComponent implements OnInit  {
     window.location.reload();
   }
 
-  private obtenerPersona() {
+  private obtenerEducacion() {
     this.educacionService.verEducacion().subscribe((dato) => {
       this.educacionList = dato;
     });
   }
 
-  eliminarPersona(id: number) {
+  eliminarEducacion(id: number) {
     this.educacionService.borrarEducacion(id).subscribe((dato) => {
       console.log(dato);
-      this.obtenerPersona();
+      this.obtenerEducacion();
     });
   }
 }

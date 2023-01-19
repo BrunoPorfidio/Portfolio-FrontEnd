@@ -10,17 +10,13 @@
 
 
         <div *ngIf="modalSwitch == true">
-            <app-modal-proyects #modal></app-modal-proyects>
+            <app-modal-proyects></app-modal-proyects>
         </div>
     </div>
 
     <div class="message-contruction">
-        <div class="container danger-zone">
-            <div class="danger-line"></div>
-            <h1 class="content dng-mssg">Todavia en construccion!</h1>
-
-            <button (click)="toogleTag()" class="readMore_btn buttons">Ver ejemplo</button>
-            <div *ngIf="showMe" class="list-proyect ">
+        <div class="container">
+            <div class="list-proyect ">
                 <div class="container example-pryct" >
                     <div class="row">
                         <div class="col-lg-4 col-md-6 col-sm-12 card-main" *ngFor="let proyecto of proyectos , let i = index">
@@ -35,11 +31,11 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <button *ngIf="isAdmin == true" (click)="onEditProyectos(i)" class="btn-edit"><i
-                                                class="bi bi-pencil-fill " ></i></button>
-                                    </div>
-                                    <div class="col-6">
-                                        <button *ngIf="isAdmin == true" (click)="onDeletedProyecto(i)"
-                                            class="btn-delete"><i class="bi bi-trash-fill"></i></button>
+                                            class="bi bi-pencil-fill " ></i></button>
+                                </div>
+                                <div class="col-6">
+                                    <button *ngIf="isAdmin == true" (click)="onDeletedProyecto(i)"
+                                        class="btn-delete"><i class="bi bi-trash-fill"></i></button>
                                     </div>
                                 </div>
                             </div>
@@ -47,7 +43,6 @@
                     </div>
                 </div>
             </div>
-            <div class="danger-line"></div>
         </div>
     </div>
 

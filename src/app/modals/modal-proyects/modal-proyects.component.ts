@@ -58,17 +58,21 @@ export class ModalProyectsComponent implements OnInit {
     });
   }
 
-  onEditProyectos(index: number) {
-    let proyectos: Proyectos = this.proyectosList[index];
-    this.loadForm(proyectos);
+  onEditProyectos(idProyectos: number) {
+    let proyectos: Proyectos = this.proyectosList[idProyectos];
+    this.proyectosService.editarProyecto(proyectos.idProyectos).subscribe(() =>{
+      this.loadForm(proyectos);
+    });
+    this.refresh();
   }
 
   onUpdate() {
     let proyectos: Proyectos = this.proyectosForm.value;
 
-    this.proyectosService.editarProyecto(proyectos).subscribe(() => {
+    this.proyectosService.editarProyecto(proyectos.idProyectos).subscribe(() => {
         this.reloadDate();
       });
+      this.refresh();
     }
 
     onDeletedProyecto(index: number) {

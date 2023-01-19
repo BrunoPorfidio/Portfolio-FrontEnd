@@ -2,28 +2,28 @@
     <div class="hero-skills" style="margin-top: 50px;">
         <h2 class="container my-skills-title">Mis skills</h2>
         <div class="botones-admin">
-            <i *ngIf="isAdmin"  (click)="openModal()" class="bi bi-plus-square" style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
-        
-            
+            <i *ngIf="isAdmin" (click)="openModal()" class="bi bi-plus-square"
+                style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
             <div *ngIf="modalSwitch == true">
                 <app-modal-skills></app-modal-skills>
             </div>
         </div>
-        <div class="container icons-skills"  >
-            <div class="row">
+        <div class="container icons-skills">
+            <div class="row admin-btn">
                 <div class="col-1 i-skills" *ngFor="let skills of skilss, let i = index" [id]="skills.idSkill">
-                       <img [src]="skills.fotoSkill" class="skill-img"  [alt]="skills.nombreSkill">
-                       <div class="row">
+                    <img [src]="skills.fotoSkill" class="skill-img" [alt]="skills.nombreSkill">
+                    <div class="row">
                         <div class="col-6">
-                            <button *ngIf="isAdmin == true" (click)="onEditSkills(i)" class="btn-edit"><i class="bi bi-pencil-fill"></i></button>
+                            <i *ngIf="isAdmin == true" (click)="onEditSkills(i)" class="btn-edit bi bi-pencil-fill"></i>
                         </div>
                         <div class="col-6">
-                            <button *ngIf="isAdmin == true" (click)="onDeletedSkills(i)" class="btn-delete"><i class="bi bi-trash-fill"></i></button>
+                            <i *ngIf="isAdmin == true" (click)="onDeletedSkills(i)"
+                                class="btn-delete bi bi-trash-fill"></i>
                         </div>
-                       </div>
-                        
-                 </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
-    </section>
+</section>

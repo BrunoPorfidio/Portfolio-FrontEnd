@@ -1,11 +1,9 @@
-
-
 <ng-container >
     <div class="modalc">
       <div class="modalc-content">
         <!-- Header del modal-->
         <header class="modalc-header">
-          <h4 class="modalc-title">Agregar Persona</h4>
+          <h4 class="modalc-title"><b>Agregar Persona</b></h4>
         </header>
         <!-- Contenido del modal-->
         <div class="modalc-container">
@@ -20,10 +18,10 @@
                 formControlName="nombre"
                 placeholder="Ingrese su Nombre"
                 required
-                class="contact-input form-control"
+                class="contact-input"
               />
               <br>
-
+              <br>
               <h4>Apellido</h4>
               <input
                 type="text"
@@ -33,7 +31,7 @@
                 class="contact-input"
               />
               <br>
-
+              <br>
               <h4>Titulo</h4>
               <input
                 type="text"
@@ -43,7 +41,7 @@
                 class="contact-input"
               />
               <br>
-
+              <br>
               <h4>Descripcion</h4>
               <textarea
                 name="acercaMi"
@@ -52,7 +50,7 @@
                 class="contact-input"
               ></textarea>
               <br>
-
+              <br>
               <h4>Foto de perfil</h4>
               <input
               type="url"
@@ -62,17 +60,17 @@
                 class="contact-input"
               />
               <br>
-
+              <br>
               <h4>Linkedin</h4>
               <input
                 type="url"
                 name="LinkedinUrl"
-                formControlName="linkedinUrl"
+                formControlName="LinkedinUrl"
                 placeholder="Ingrese su Url de Linkedin"
                 class="contact-input"
               />
               <br>
-
+              <br>
               <h4>Github</h4>
               <input
                 type="url"
@@ -82,7 +80,7 @@
                 class="contact-input"
               />
               <br>
-              
+              <br>
               <h4>Banner</h4>
               <input
                 type="url"
@@ -95,15 +93,13 @@
               <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add" style="font-size: 50px;"></i></button>
+                        <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
                     </div>
                     <div class="col-4">
-                        <button (click)="closeModal()" class="btnn-close" ><i class="bi bi-x-circle-fill" style="font-size: 50px;"></i></button>
+                        <button (click)="closeModal()" class="btnn-close" ><i class="bi bi-x-circle-fill"></i></button>
                     </div>
                 </div>
               </div>
-              
-              
             </div>
           </form>
         </div>

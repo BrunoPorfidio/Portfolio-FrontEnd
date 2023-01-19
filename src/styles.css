@@ -1,530 +1,802 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Adamina;
-    scroll-behavior: smooth;
-    text-decoration: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Adamina;
+  scroll-behavior: smooth;
+  text-decoration: none;
 }
-
-
 
 /* 
   ---------------Inicio Header y Body--------------------
 */
 
-body{
-    background-color: black;
-    font-size: 16px;
-    text-align: center;
-    align-items: center;
+body {
+  background-color: black;
+  font-size: 16px;
+  text-align: center;
+  align-items: center;
 }
 
 header {
-    padding: 20%;
-    text-align: center;
-    color: #fff;
-    background-attachment: scroll;
+  padding: 20%;
+  text-align: center;
+  color: #fff;
+  background-attachment: scroll;
 
-    background-position: center center;
-    background-repeat: none;
-    background-size: cover;
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
 }
 
-.container{ 
-    padding: 1.25em;
+.container {
+  padding: 1.25em;
 }
 
+.buttons {
+  padding: 10px;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: #fff;
+}
 
-
-.buttons{
-    padding: 10px ;
-    text-decoration: none;
-    background-color:rgba(0, 0, 0, 0.0);
-    color: #fff;
-  }
-
-.botones-admin{
-    padding: 0px;
-    
+.botones-admin {
+  padding: 0px;
 }
 
 .buttons:active {
-    box-shadow: 5px 3px 3px #D4AF37;
-  }
-
-  .buttons:hover {
-    background-color: #b8a568;
+  box-shadow: 5px 3px 3px #d4af37;
 }
 
-.row{
-    justify-content: center;
+.buttons:hover {
+  background-color: #b8a568;
 }
 
-
-.hero-nombre{
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(5px);
-    border: 2px solid  #D4AF37;
-}
-.titulo{
-    font-size: 5.9375em;
+.row {
+  justify-content: center;
 }
 
-.subtitulo{
-    font-size: 2.8125em;
+.hero-nombre {
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(5px);
+  border: 2px solid #d4af37;
+}
+.titulo {
+  font-size: 5.9375em;
 }
 
-.icon-send{
-    font-size: 1.000em;
+.subtitulo {
+  font-size: 2.8125em;
 }
 
-.btn-edit, .logout-txt{
-    cursor: pointer;
-    font-size:  1.5rem;
+.icon-send {
+  font-size: 1em;
+}
+
+.btn-edit,
+.logout-txt {
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .img-circle {
-    border-radius: 50%;
-    border: 3px solid #D4AF37;
+  border-radius: 50%;
+  border: 3px solid #d4af37;
 }
 
 .img-responsive {
-    margin-top: -80px;
-    justify-content: center;
-    align-items: center;
-    font-size: auto;
+  font-size: 30px;
+  margin-bottom: 50px;
 }
 
 /* Estilos Globales  */
 
-.hero-sobre-mi, .hero-proyects,.login-container, .hero-education{
-    font-size: 2.2875em;
-    background-color: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    height: 30%;
-    border: 1px solid  #D4AF37;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin-bottom: 5%;
+.hero-sobre-mi,
+.hero-proyects,
+.login-container,
+.hero-education {
+  font-size: 2.2875em;
+  background-color: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 30%;
+  border: 1px solid #d4af37;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-bottom: 5%;
 }
 
-.my-descrp-title, .title-proyects, .my-skills-title, .title-education{
-    font-size: 1.5em;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 30%;
-    margin: auto;
-    border: 1px solid  #D4AF37;
-    border-radius: 30px;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
+.my-descrp-title,
+.title-proyects,
+.my-skills-title,
+.title-education {
+  font-size: 1.5em;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 30%;
+  margin: auto;
+  border: 1px solid #d4af37;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
 }
 
-.title-proyects, .login-txt, .title-education{
-    font-size: 1.1em;
+.title-proyects,
+.login-txt,
+.title-education {
+  font-size: 1.1em;
+}
+
+.main-card-education {
+  margin: auto;
+  height: auto;
+  background-color: #000;
+  border: 1px solid #d4af37;
+}
+
+.img-education {
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+}
+
+.education-card {
+  height: auto;
+}
+
+/* Estilos de los Skills */
+
+.my-skills-title {
+  width: 20%;
+}
+
+.pv {
+  padding: 8px;
+  border: 1px solid #d4af37;
+  border-radius: 30px;
+}
+
+.readMore_btn {
+  border: 1px solid #d4af37;
+}
+
+.danger-line {
+  height: 0.875em;
+  color: white;
+  margin-bottom: 0.9375em;
+  margin-top: 1.5625em;
+  background-image: repeating-linear-gradient(
+    -55deg,
+    #000,
+    #000 20px,
+    #ffb101 20px,
+    #ffb101 40px
+  );
+}
+
+.icons-skills {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+
+.i-skills {
+  width: 7.5em;
+  margin: 1.25em;
+  padding: 1.25em;
+  border: 1px solid #d4af37;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.my-descrp {
+  font-size: 0.875em;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.list-proyect,
+.name-proyect {
+  margin: auto;
+  text-align: center;
+}
+
+.card-main {
+  size: 2em;
+}
+
+.card-proyects {
+  font-size: 0.6em;
+  background-color: black;
+  border-radius: 5px;
+  border: 1px #d4af37 solid;
+  margin: auto;
+}
+
+/*------------- Estilos para Modales --------------------------*/
+
+.modalc {
+  text-align: center;
+  position: fixed;
+  color: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  z-index: 1000;
+}
+.modalc-content {
+  background-color: #000;
+  width: 30%;
+  margin: auto;
+  position: relative;
+  max-width: 800px;
+  max-height: 80vh;
+  border-radius: 5px;
+  overflow: auto;
+  cursor: default;
+  border: 1px solid #d4af37;
+  box-shadow: 2px 2px 5px rgb(0, 0, 1);
+}
+
+.modalc-header {
+  justify-content: space-between;
+  padding: 0 32px;
+  background-color: rgb(0, 0, 0.1);
+  border-radius: 4px 4px 0 0;
+  color: rgb(255, 255, 255);
+}
+
+.modalc-header > i {
+  text-align: center;
+  font-size: 3rem;
+}
+
+.modalc-header > i:hover {
+  cursor: pointer;
+  background-color: gray;
+  transition: 0.5s;
+  border-radius: 10px;
+  color: white;
+}
+
+.modalc-title{
+  font-size: 30px;
+  text-align: center;
+}
+
+h4{
+  padding-top: 20px;
+}
+
+.modalc-container {
+  margin: 10px;
+  background: rgb(0, 0, 0);
+  border-radius: 0 0 4px 4px;
+  color: rgb(255, 255, 255);
+}
+
+.contact-input {
+  text-align: center;
+  width: 100%;
+  padding: 0.5em;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  outline: none;
+  margin-bottom: var(--mb-3);
 }
 
 
-.card-education{
-    background-color: #000;
-    border: 1px solid  #D4AF37;
+.btn-save, .btnn-close {
+  border-radius: 5px;
+  border: 1px #d4af37 solid;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 40px;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  
 }
 
-
-  /* Estilos de los Skills */
-
-
-
-.my-skills-title{
-    width: 20%;
+.btn-save:hover, .btnn-close:hover {
+  background-color: #4c5055;
+  transform: translateY(7px);
 }
 
-.pv{
-    padding: 8px;
-    border: 1px solid  #D4AF37;
-    border-radius: 30px;
+br{
+  margin: 10px;
 }
-
-
-.readMore_btn{
-    border: 1px solid #D4AF37;
-}
-
-.danger-line{
-    height: 0.875em;
-    color: white;
-    margin-bottom: .9375em;
-    margin-top: 1.5625em;
-    background-image: repeating-linear-gradient(
-      -55deg,
-      #000,
-      #000 20px,
-      #ffb101 20px,
-      #ffb101 40px
-    );
-  }
-
-.icons-skills{
-    display: flex;
-    justify-content: center;
-    margin: auto;
-}
-
-.i-skills{
-    width: 7.5em;
-    margin: 1.25em;
-    padding: 1.25em;
-    border: 1px solid #D4AF37;
-    border-radius: 10px;
-    justify-content: center;
-}
-
-
-.my-descrp{
-    font-size: 0.875em;
-    color: rgb(255, 255, 255);
-    text-align: center;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-}
-
-
-.list-proyect, .name-proyect{
-    
-    margin: auto;
-    text-align: center;
-}
-
-.card-main{
-    size: 2em;
-}
-
-.card-proyects{
-    font-size: .6em;
-    background-color: black;
-    border-radius: 5px;
-    border: 1px  #D4AF37 solid;
-    margin: auto;
-}
-
 
 /* Botones de editar y borrar cada seccion de la pagina */
 
-.btn-delete{
-    margin: auto;
-    font-size: 20px;
-    background-color: black;
-    color: #de423a;
+.btn-delete {
+  cursor:pointer;
+  margin: auto;
+  font-size: 20px;
+  background-color: black;
+  color: #de423a;
 }
-.btn-edit{
-    margin: auto;
-    font-size: 20px;
-    color: #D4AF37;
-    background-color: black;
-}
-
-
-.card-cont{
-    padding: .625rem 1em ;
+.btn-edit {
+  margin: auto;
+  font-size: 20px;
+  color: #d4af37;
+  background-color: black;
 }
 
-.img-responsive{
-    height: 9em;
-    justify-self: center;
+.card-cont {
+  padding: 0.625rem 1em;
+}
+
+.img-responsive {
+  height: 9em;
+  justify-self: center;
 }
 
 img {
-    border-radius: 5px 5px 0 0;
-  }
-
-.contact-title{
-    font-size: 50px;
-    margin-top: 25px;
+  border-radius: 5px 5px 0 0;
 }
 
-.hero-contacto{
-    font-size: 1.875em;
-    margin-left: 15%;
-    margin-top: 5%;
-    width: 70%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border: 1px solid #D4AF37;
-    box-shadow: 2px 2px 5px rgb(0, 0, 0);
-    color: rgb(255, 255, 255);
-    text-align: center;
+.contact-title {
+  font-size: 50px;
+  margin-top: 25px;
 }
 
-.contact-informat{
-    padding: .625rem;
-    padding-top: 2.5em;
-    margin-bottom: 1.25em;
-    border-bottom: 1px solid #de423a;
+.hero-contacto {
+  font-size: 1.875em;
+  margin-left: 15%;
+  margin-top: 5%;
+  width: 70%;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #d4af37;
+  box-shadow: 2px 2px 5px rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-align: center;
 }
 
-.formulario--input-txt, .formulario--textarea{
-    width: 100%;
+.contact-informat {
+  padding: 0.625rem;
+  padding-top: 2.5em;
+  margin-bottom: 1.25em;
+  border-bottom: 1px solid #de423a;
 }
 
-.nombre-form, .email-form{
-    display: block;
-    width: 100%;
+.formulario--input-txt,
+.formulario--textarea {
+  width: 100%;
 }
 
-
-.formulario--textarea{
-    min-height: 6.25em;
-    min-width: 6.25em;
-    max-width: 100%;
-    max-height: 100px;
-}
-.formulario--btn{
-    color: #fff;
-    cursor: pointer;
-    font-size: 1em;
-    border: 1px solid #fff;
+.nombre-form,
+.email-form {
+  display: block;
+  width: 100%;
 }
 
-
-
+.formulario--textarea {
+  min-height: 6.25em;
+  min-width: 6.25em;
+  max-width: 100%;
+  max-height: 100px;
+}
+.formulario--btn {
+  color: #fff;
+  cursor: pointer;
+  font-size: 1em;
+  border: 1px solid #fff;
+}
 
 /*-------------------------- Media Queries-------------------------------------- */
 
+@media (max-width: 2600px) {
+  .skill-img {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  }
 
-@media  (max-width:2600px){
-
-
-
-       .skill-img{
-        width: 50%;
-    }
-
-    .icons-skills{
-        font-size: 19px;
-    }
-
-    
+  .icons-skills {
+    font-size: 19px;
+  }
 }
 
-@media (max-width: 1000px) {
-    
-    
-    .img-responsive{
-        display: none;
-       }
-
-
-    body{
-        font-size: 15px;
-    }
-
-    .skill-img{
-        width: 50%;
-    }
-
-    .title-proyects, .my-descrp-title, .my-skills-title{
+@media (max-width: 1200px) {
+  .img-responsive {
     font-size: 25px;
-    }
+  }
 
-    .danger-line{
-        height: 30%;
-        font-size: 5px;
-    }
+  body {
+    font-size: 15px;
+  }
 
-    .dng-mssg{
-        font-size: 30px ;
-    }
+  .skill-img {
+    width: 50%;
+  }
 
-    .readMore_btn{
-        font-size: 20px;
-    }
+  .title-proyects,
+  .my-descrp-title,
+  .my-skills-title,
+  .title-education  {
+    font-size: 25px;
+  }
 
-    .navbar{
-        font-size: 30px;
-    }
+  .danger-line {
+    height: 30%;
+    font-size: 5px;
+  }
 
-    .bi{
-        font-size:  0.560em;
-        height: 10%;
-    }
+  .dng-mssg {
+    font-size: 30px;
+  }
 
-    .icon-send{
-        font-size:  0.860em;
-    }
+  .readMore_btn {
+    font-size: 20px;
+  }
 
+  .navbar {
+    font-size: 30px;
+  }
 
-}
+  .bi {
+    font-size: 1em;
+  }
 
-@media (max-width:770px) {
-    .skill-img{
-        width: 50%;
-    }
-    body{
-        font-size: 10px;
-    }
+  .icon-send {
+    font-size: 0.86em;
+  }
 
-    .my-descrp-title, .my-skills-title,.title-proyects, .contact-title{
-        font-size: 20px;
-    }
+  .education-card {
+    font-size: 0.8em;
+  }
 
-    .danger-line{
-        font-size: 5px;
-    }
+  .img-education {
+    font-size: 1em;
+  }
 
-    .contact-informat{
-        font-size: 15px;
-    }
+  .title-card-education, .date-card-education, .school-title{
+    font-size: 0.8em;
+  }
 
-    .example-pryct{
-        font-size: 25px;
-        width: 75%;
+  .modalc-title{
+    font-size: 40px;
+  }
 
-    }
+  .modalc-content{
+    width: 60%;
+  }
 
-    .bi{
-        font-size:  0.360em;
-    }
-    .icon-send{
-        font-size:  0.760em;
-    }
-    
-
-}
-
-@media (max-width:719px) {
-
-    .skill-img{
-        width: 40px;
-        margin: auto;
-    }
-
-    .i-skills{
-        width: 80px;
-        height: 80px;
-    }
-   
-    body{
-        font-size: 11px;
-    }
-
-    .my-descrp-title, .my-skills-title,.title-proyects, .contact-title{
-        font-size: 20px;
-    }
-
-    .dng-mssg{
-        font-size: 15px ;
-    }
-
-    .readMore_btn{
-        font-size: 15px;
-    }
-}
-
-
-
-@media (max-width:600px){
-
-    .skill-img{
-        width: 32px;
-    }
-
-
-    body{
-        font-size: 9px;
-    }
-    
-    .my-descrp-title, .my-skills-title, .contact-title{
-        font-size: 15px;
-    }
-    
-    .contact-informat{
-        font-size: 10px;
-    }
-
-    .example-pryct{
-        font-size: 15px;
-        width: 70%;
-    }
+  .modalc-container{
+    font-size: 2px;
+  }
 
 
 }
 
-@media (max-width:490px) {
+@media (max-width: 990px){
+  .img-responsive {
+    display: none;
+  }
 
-    .skill-img{
-        width: 15px; 
-        margin-top: -10px;
-    }
+  .modalc-content{
+    width: 60%;
+  }
 
-    .i-skills{
-        width: 15px;
-        height: 15px;
-        display:flex;
-    }
+  .modalc-title{
+    font-size: 30px;
+  }
+
+  .btn-save, .btnn-close{
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 770px) {
+  .skill-img {
+    width: 50px;
+  }
+  body {
+    font-size: 10px;
+  }
+
+  .my-descrp-title,
+  .my-skills-title,
+  .title-proyects,
+  .contact-title,
+  .title-education  {
+    font-size: 20px;
+  }
+
+  .danger-line {
+    font-size: 5px;
+  }
+
+  .contact-informat {
+    font-size: 15px;
+  }
+
+  .example-pryct {
+    font-size: 25px;
+    width: 75%;
+  }
+
+  .bi {
+    font-size: 0.36em;
+  }
+  .icon-send {
+    font-size: 0.76em;
+  }
+
+  .btn-edit, .btn-delete{
+    font-size: 0.8em;
+  }
+
+  .education-card {
+    font-size: 0.5em;
+  }
+
+  .img-education {
+    width: 5em;
+  }
+
+  .title-card-education, .date-card-education, .school-title{
+    font-size: 1em;
+  }
+
+  .modalc-title{
+    font-size: 30px;
+  }
+
+  .modalc-content{
+    width: 80%;
+  }
+
+  .btn-save, .btnn-close{
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 719px) {
+  .skill-img {
+    width: 40px;
+    margin: auto;
+  }
+
+  .i-skills {
+    width: 80px;
+    height: 80px;
+  }
+
+  body {
+    font-size: 11px;
+  }
+
+  .my-descrp-title,
+  .my-skills-title,
+  .title-proyects,
+  .contact-title,
+  .title-education  {
+    font-size: 20px;
+  }
+
+  .dng-mssg {
+    font-size: 15px;
+  }
+
+  .readMore_btn {
+    font-size: 15px;
+  }
+
+
+  .main-card-education{
+
+    max-width: 70%;
+  }
+
+  .education-card {
+    font-size: 0.5em;
+  }
+
+  .img-education {
+    width: 4em;
+  }
+
+  .title-card-education, .date-card-education, .school-title{
+    font-size: 0.7em;
+  }
+
+  .modalc-title{
+    font-size: 25px;
+  }
+
+  .modalc-content{
+    width: 100%;
+  }
+
+  .btn-save, .btnn-close{
+    font-size: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skill-img {
+    width: 32px;
+  }
+
+  body {
+    font-size: 9px;
+  }
+
+  .my-descrp-title,
+  .my-skills-title,
+  .contact-title,
+  .title-education  {
+    font-size: 15px;
+  }
+
+  .contact-informat {
+    font-size: 10px;
+  }
+
+  .example-pryct {
+    font-size: 15px;
+    width: 70%;
+  }
+
+  .education-card {
+    font-size: 0.5em;
+  }
+
+  .img-education {
+    width: 5em;
+  }
+
+  .title-card-education, .date-card-education, .school-title{
+    font-size: 1em;
+  }
   
-    body{
-        font-size: 6px;
-    }
+  .modalc-title{
+    font-size: 25px;
+  }
 
-    .title-proyects{
-        font-size: 10px;
-    }
+  .modalc-content{
+    width: 100%;
+  }
 
-    .icon-send{
-        font-size:  0.760em;
-    }
+  .btn-save, .btnn-close{
+    font-size: 100px;
+  }
 }
 
-@media (max-width: 320px){
-    .skill-img{
-        width: 15px;
-        display:grid;
-    }
+@media (max-width: 490px) {
+  .skill-img {
+    width: 25px;
+    margin-top: -10px;
+  }
 
-    .i-skills{
-        width: 15px;
-        height: 15px;
-    }
+  .i-skills {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-wrap: wrap;
 
-    body{
-        font-size: 7px;
-    }
+  }
 
-    .titulo{
+  body {
+    font-size: 6px;
+  }
 
-        font-size: 35px;
-    }
+  .title-proyects, .title-education {
+    font-size: .6425em;
+  }
 
-    .subtitulo{
-        font-size: 15px;
-    }
+  .icon-send {
+    font-size: 0.76em;
+  }
 
-    .title-proyects{
-        font-size: 8px;
-    }
-    .my-skills-title{
-        font-size: 15px;
-    }
+  .education-card {
 
+    font-size: 0.5em;
+  }
 
-    .hero-skills{
-        margin-bottom: 5%;
-    }
+  .img-education {
+    width: 6em;
+  }
 
-    .column-title{
-        font-size: 13px;
-    }
+  .title-card-education, .date-card-education, .school-title{
+    font-size: 1em;
+  }
+  .admin-btn{
+    font-size: 1em;
+  }
+  
+  .date-education{
+    display:flex;
+  }
 
-    .btn-nav, .login-txt{
-        font-size: 15px;
-    }
+  .modalc-title{
+    font-size: 20px;
+  }
 
-    .icon-send{
-        font-size:  0.760em;
-    }
+  .contact-input{
+    font-size: 12px;
+  }
+
+  .modalc-content{
+    width: 100%;
+  }
+
+  .btn-save, .btnn-close{
+    font-size: 100px;
+  }
+
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@media (max-width: 320px) {
+  .skill-img {
+    width: 15px;
+    display: grid;
+  }
+
+  .i-skills {
+    width: 15px;
+    height: 15px;
+  }
+
+  body {
+    font-size: 7px;
+  }
+
+  .titulo {
+    font-size: 35px;
+  }
+
+  .subtitulo {
+    font-size: 15px;
+  }
+
+  .title-proyects,
+  .title-education  {
+    font-size: 8px;
+  }
+  .my-skills-title {
+    font-size: 15px;
+  }
+
+  .hero-skills {
+    margin-bottom: 5%;
+  }
+
+  .column-title {
+    font-size: 13px;
+  }
+
+  .btn-nav,
+  .login-txt {
+    font-size: 15px;
+  }
+
+  .icon-send {
+    font-size: 0.76em;
+  }
+  
+  .title-card-education, .date-card-education, .school-title{
+    font-size: 1.2em;
+  }
+
+  .date-education{
+    display:flex;
+  }
+
+
+}
