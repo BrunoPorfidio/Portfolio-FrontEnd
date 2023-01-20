@@ -30,7 +30,7 @@ header {
 }
 
 .container {
-  padding: 1.25em;
+  padding: 1em;
 }
 
 .buttons {
@@ -133,6 +133,10 @@ header {
   height: auto;
   background-color: #000;
   border: 1px solid #d4af37;
+}
+
+.date-card-education {
+  font-size: 0.9em;
 }
 
 .img-education {
@@ -271,12 +275,12 @@ header {
   color: white;
 }
 
-.modalc-title{
+.modalc-title {
   font-size: 30px;
   text-align: center;
 }
 
-h4{
+h4 {
   padding-top: 20px;
 }
 
@@ -297,8 +301,8 @@ h4{
   margin-bottom: var(--mb-3);
 }
 
-
-.btn-save, .btnn-close {
+.btn-save,
+.btnn-close {
   border-radius: 5px;
   border: 1px #d4af37 solid;
   margin: auto;
@@ -308,22 +312,22 @@ h4{
   background-color: #000;
   color: #fff;
   cursor: pointer;
-  
 }
 
-.btn-save:hover, .btnn-close:hover {
+.btn-save:hover,
+.btnn-close:hover {
   background-color: #4c5055;
   transform: translateY(7px);
 }
 
-br{
+br {
   margin: 10px;
 }
 
 /* Botones de editar y borrar cada seccion de la pagina */
 
 .btn-delete {
-  cursor:pointer;
+  cursor: pointer;
   margin: auto;
   font-size: 20px;
   background-color: black;
@@ -373,9 +377,11 @@ img {
   border-bottom: 1px solid #de423a;
 }
 
+
 .formulario--input-txt,
 .formulario--textarea {
   width: 100%;
+  text-align: center;
 }
 
 .nombre-form,
@@ -427,7 +433,7 @@ img {
   .title-proyects,
   .my-descrp-title,
   .my-skills-title,
-  .title-education  {
+  .title-education {
     font-size: 25px;
   }
 
@@ -464,39 +470,49 @@ img {
     font-size: 1em;
   }
 
-  .title-card-education, .date-card-education, .school-title{
-    font-size: 0.8em;
+  .title-card-education,
+  .date-card-education,
+  .school-title {
+    font-size: 0.9em;
   }
 
-  .modalc-title{
+  .modalc-title {
     font-size: 40px;
   }
 
-  .modalc-content{
+  .modalc-content {
     width: 60%;
   }
 
-  .modalc-container{
+  .modalc-container {
     font-size: 2px;
   }
 
 
+  .contact-input {
+    font-size: 20px;
+  }
 }
 
-@media (max-width: 990px){
+@media (max-width: 990px) {
   .img-responsive {
     display: none;
   }
 
-  .modalc-content{
+  .modalc-content {
     width: 60%;
   }
 
-  .modalc-title{
+  .contact-input {
+    font-size: 18px;
+  }
+
+  .modalc-title {
     font-size: 30px;
   }
 
-  .btn-save, .btnn-close{
+  .btn-save,
+  .btnn-close {
     font-size: 50px;
   }
 }
@@ -513,7 +529,7 @@ img {
   .my-skills-title,
   .title-proyects,
   .contact-title,
-  .title-education  {
+  .title-education {
     font-size: 20px;
   }
 
@@ -525,19 +541,21 @@ img {
     font-size: 15px;
   }
 
+  .contact-input {
+    font-size: 16px;
+  }
+
   .example-pryct {
     font-size: 25px;
     width: 75%;
   }
 
-  .bi {
-    font-size: 0.36em;
-  }
   .icon-send {
     font-size: 0.76em;
   }
 
-  .btn-edit, .btn-delete{
+  .btn-edit,
+  .btn-delete {
     font-size: 0.8em;
   }
 
@@ -549,20 +567,23 @@ img {
     width: 5em;
   }
 
-  .title-card-education, .date-card-education, .school-title{
+  .title-card-education,
+  .date-card-education,
+  .school-title {
     font-size: 1em;
   }
 
-  .modalc-title{
+  .modalc-title {
     font-size: 30px;
   }
 
-  .modalc-content{
+  .modalc-content {
     width: 80%;
   }
 
-  .btn-save, .btnn-close{
-    font-size: 100px;
+  .btn-save,
+  .btnn-close {
+    font-size: 40px;
   }
 }
 
@@ -585,7 +606,7 @@ img {
   .my-skills-title,
   .title-proyects,
   .contact-title,
-  .title-education  {
+  .title-education {
     font-size: 20px;
   }
 
@@ -597,9 +618,11 @@ img {
     font-size: 15px;
   }
 
+  .contact-input {
+    font-size: 15px;
+  }
 
-  .main-card-education{
-
+  .main-card-education {
     max-width: 70%;
   }
 
@@ -611,20 +634,23 @@ img {
     width: 4em;
   }
 
-  .title-card-education, .date-card-education, .school-title{
+  .title-card-education,
+  .date-card-education,
+  .school-title {
     font-size: 0.7em;
   }
 
-  .modalc-title{
+  .modalc-title {
     font-size: 25px;
   }
 
-  .modalc-content{
+  .modalc-content {
     width: 100%;
   }
 
-  .btn-save, .btnn-close{
-    font-size: 100px;
+  .btn-save,
+  .btnn-close {
+    font-size: 30px;
   }
 }
 
@@ -640,8 +666,12 @@ img {
   .my-descrp-title,
   .my-skills-title,
   .contact-title,
-  .title-education  {
+  .title-education {
     font-size: 15px;
+  }
+
+  .contact-input {
+    font-size: 13px;
   }
 
   .contact-informat {
@@ -661,20 +691,26 @@ img {
     width: 5em;
   }
 
-  .title-card-education, .date-card-education, .school-title{
-    font-size: 1em;
+  .title-card-education,
+  .date-card-education {
+    font-size: 0.9em;
   }
-  
-  .modalc-title{
+
+  .school-title {
+    font-size: 0.8em;
+  }
+
+  .modalc-title {
     font-size: 25px;
   }
 
-  .modalc-content{
+  .modalc-content {
     width: 100%;
   }
 
-  .btn-save, .btnn-close{
-    font-size: 100px;
+  .btn-save,
+  .btnn-close {
+    font-size: 30px;
   }
 }
 
@@ -689,15 +725,15 @@ img {
     height: 20px;
     display: flex;
     flex-wrap: wrap;
-
   }
 
   body {
     font-size: 6px;
   }
 
-  .title-proyects, .title-education {
-    font-size: .6425em;
+  .title-proyects,
+  .title-education {
+    font-size: 0.6425em;
   }
 
   .icon-send {
@@ -705,7 +741,6 @@ img {
   }
 
   .education-card {
-
     font-size: 0.5em;
   }
 
@@ -713,33 +748,35 @@ img {
     width: 6em;
   }
 
-  .title-card-education, .date-card-education, .school-title{
+  .title-card-education,
+  .date-card-education {
     font-size: 1em;
-  }
-  .admin-btn{
-    font-size: 1em;
-  }
-  
-  .date-education{
-    display:flex;
   }
 
-  .modalc-title{
+  .admin-btn {
+    font-size: 1em;
+  }
+
+  .date-education {
+    display: flex;
+  }
+
+  .modalc-title {
     font-size: 20px;
   }
 
-  .contact-input{
-    font-size: 12px;
+  .contact-input {
+    font-size: 10px;
   }
 
-  .modalc-content{
+  .modalc-content {
     width: 100%;
   }
 
-  .btn-save, .btnn-close{
-    font-size: 100px;
+  .btn-save,
+  .btnn-close {
+    font-size: 20px;
   }
-
 }
 
 @media (max-width: 320px) {
@@ -766,7 +803,7 @@ img {
   }
 
   .title-proyects,
-  .title-education  {
+  .title-education {
     font-size: 8px;
   }
   .my-skills-title {
@@ -789,14 +826,13 @@ img {
   .icon-send {
     font-size: 0.76em;
   }
-  
-  .title-card-education, .date-card-education, .school-title{
+
+  .title-card-education,
+  .date-card-education {
     font-size: 1.2em;
   }
 
-  .date-education{
-    display:flex;
+  .date-education {
+    display: flex;
   }
-
-
 }

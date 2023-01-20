@@ -17,4 +17,10 @@ export class Persona{
 
     imgBanner?: string;
 
+    telefono?: Number;
+
+    email?: string;
+
+    ubicacion?: string;
+
 }

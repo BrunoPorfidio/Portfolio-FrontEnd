@@ -35,7 +35,7 @@ export class AboutMeComponent implements OnInit {
     this.mostrarPersona();
     
     this.modalSS.$modal.subscribe((dato)=> {
-      this.modalSwitch= dato
+      this.modalSwitch= dato;
     })
 
 
