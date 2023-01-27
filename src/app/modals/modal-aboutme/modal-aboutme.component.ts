@@ -1,11 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Persona } from 'src/app/model/Persona'; 
 import { PersonaService } from 'src/app/services/persona.service'; 
-import { environments } from 'src/environments/environments';
-import { TokenService } from 'src/app/services/token.service';
 import { AuthService } from 'src/app/services/auth.service';
-import { SwitchService } from 'src/app/services/switch.service';
 
 @Component({
   selector: 'app-modal-aboutme',
@@ -13,6 +10,7 @@ import { SwitchService } from 'src/app/services/switch.service';
   styleUrls: ['./modal-aboutme.component.css'],
 })
 export class ModalAboutmeComponent implements OnInit {
+  @Input() title = '';
 
   // Variables globales
   persona: Persona;
@@ -22,22 +20,35 @@ export class ModalAboutmeComponent implements OnInit {
   roles: string[];
   isAdmin = false;
 
+  public show = false;
   constructor(
-    private modalSS: SwitchService,
     private personaService: PersonaService,
-    private tokenService: TokenService,
     private authService: AuthService,
     private formBuilder: FormBuilder
   ) {
     this.personaForm = this.formBuilder.group({
-      id: [5],
+      id: [],
+
       nombre: ['', [Validators.required]],
+
       apellido: ['', [Validators.required]],
+
       subTitulo: ['', [Validators.required]],
+
       acercaMi: ['', [Validators.required]],
+
       urlFoto: ['', [Validators.required]],
+
       linkedinUrl: ['', [Validators.required]],
+
       githubUrl: ['', [Validators.required]],
+
+      telefono: ['', [Validators.required]],
+      
+      email: ['', [Validators.required]],
+      
+      ubicacion: ['', [Validators.required]],
+
       imgBanner: ['', [Validators.required]],
     });
   }
@@ -48,47 +59,95 @@ export class ModalAboutmeComponent implements OnInit {
     this.reloadDate();
   }
 
-  closeModal(){
-    this.modalSS.$modal.emit(false);
-  }
-
   /*===/ Configuraciones del formulario /===*/
-  private loadForm(persona: Persona) {
+
+
+    private clearForm() {
     this.personaForm.setValue({
-      id: persona.id,
-      nombre: persona.nombre,
-      apellido: persona.apellido,
-      subTitulo: persona.subTitulo,
-      acercaMi: persona.acercaMi,
-      urlFoto: persona.urlFoto,
-      linkedinUrl: persona.linkedinUrl,
-      githubUrl: persona.githubUrl,
-      imgBanner: persona.imgBanner,
+      id: '',
+
+      nombre: '',
+
+      apellido: '',
+
+      subTitulo: '',
+
+      acercaMi: '',
+
+      urlFoto: '',
+
+      linkedinUrl: '',
+
+      githubUrl: '',
+
+      telefono: '',
+
+      email: '',
+
+      ubicacion: '',
+
+      imgBanner: '',
     });
   }
 
-  onEditPersona(index: number) {
-    let persona: Persona = this.personaList[index];
-    this.loadForm(persona);
+  onNewPersona() {
+    this.clearForm();
+    this.showModal();
   }
 
+  private loadForm(persona: Persona) {
+    this.personaForm.setValue({
+
+      id: persona.id,
+
+      nombre: persona.nombre,
+
+      apellido: persona.apellido,
+
+      subTitulo: persona.subTitulo,
+
+      acercaMi: persona.acercaMi,
+
+      urlFoto: persona.urlFoto,
+
+      linkedinUrl: persona.linkedinUrl,
+
+      githubUrl: persona.githubUrl,
+
+      imgBanner: persona.imgBanner,
+
+      telefono: persona.telefono,
+
+      email: persona.email,
+
+      ubicacion: persona.ubicacion,
+    });
+  }
+  
   onSubmit() {
     let persona: Persona = this.personaForm.value;
-
-    if (this.personaForm.get('id')?.value == 5) {
+    
+    if (this.personaForm.get('id')?.value == '') {
       this.personaService
-        .crearPersona(persona)
-        .subscribe((newPersona: Persona) => {
-          this.personaList.push(newPersona);
-        });
+      .crearPersona(persona, 1)
+      .subscribe((newPersona: Persona) => {
+        this.personaList.push(newPersona);
+      });
     } else {
       this.personaService.editarPersona(persona).subscribe(() => {
         this.reloadDate();
       });
     }
+    this.hideModal();
     this.refresh();
   }
-
+  
+    onEditPersona(index: number) {
+      let persona: Persona = this.personaList[index];
+      this.loadForm(persona);
+      this.showModal();
+    }
+  
   // Método para recurar los datos de la base de datos
   reloadDate() {
     this.personaService.verPersona().subscribe((date) => {
@@ -96,23 +155,17 @@ export class ModalAboutmeComponent implements OnInit {
     });
   }
 
-  // Métodos para cerrar y abrir el modal
-
 
   refresh(): void {
       window.location.reload();
   }
 
-   private obtenerPersona(){
-  this.personaService.verPersona().subscribe(dato => {
-    this.personaList = dato;
-  })
-}
+  // Métodos para cerrar y abrir el modal
+  showModal() {
+    this.show = true;
+  }
 
-  eliminarPersona(id:number){
-  this.personaService.borrarPersona(id).subscribe(dato => {
-    console.log(dato);
-    this.obtenerPersona();
-  })
-}
+  hideModal() {
+    this.show = false;
+  }
 }

@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Skills } from 'src/app/model/Skills';
 import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
-import { SwitchService } from 'src/app/services/switch.service';
 
 @Component({
   selector: 'app-modal-skills',
@@ -11,6 +10,7 @@ import { SwitchService } from 'src/app/services/switch.service';
   styleUrls: ['./modal-skills.component.css'],
 })
 export class ModalSkillsComponent implements OnInit {
+  @Input() title = '';
 
   // Variables globales
 
@@ -19,9 +19,9 @@ export class ModalSkillsComponent implements OnInit {
   skillsForm: FormGroup;
   roles: string[];
   isAdmin = false;
+  public show = false;
 
   constructor(
-    private modalSS: SwitchService,
     private skillService: SkillsService,
     private authService: AuthService,
     private formBuilder: FormBuilder
@@ -41,39 +41,54 @@ export class ModalSkillsComponent implements OnInit {
     this.reloadDate();
   }
 
-  closeModal() {
-    this.modalSS.$modal.emit(false);
-  }
-
-  openModal() {
-    this.modalSS.$modal.emit(true);
-  }
-
   /*===/ Configuraciones del formulario /===*/
 
-  private loadForm(skills: Skills) {
+  private clearForm() {
     this.skillsForm.setValue({
-      idSkill: skills.idSkill,
-      nombreSkill: skills.nombreSkill,
-      fotoSkill: skills.fotoSkill,
+      idSkill: '',
+      nombreSkill: '',
+      fotoSkill: '',
     });
   }
 
-  onEditSkill(index: number) {
-    let skills: Skills = this.skillList[index];
-    this.loadForm(skills);
+  onNewSkill() {
+    this.clearForm();
+    this.showModal();
+  }
+
+  private loadForm(skills: Skills) {
+    this.skillsForm.setValue({
+
+      idSkill: skills.idSkill,
+
+      nombreSkill: skills.nombreSkill,
+
+      fotoSkill: skills.fotoSkill,
+    });
   }
 
   onSubmit() {
     let skills: Skills = this.skillsForm.value;
 
-    // this.skillsForm.get('id')?.value == '';
-    this.skillService.crearSkills(skills).subscribe((newSkill: Skills) => {
-      this.skillList.push(newSkill);
-      alert("Skil Creada!")
-    },);
-
+    if (this.skillsForm.get('id')?.value == '') {
+      this.skillService
+      .crearSkills(skills, 1)
+      .subscribe((newSkill: Skills) => {
+        this.skillList.push(newSkill);
+      });
+    } else {
+      this.skillService.editarSkills(skills).subscribe(() => {
+        this.reloadDate();
+      });
+    }
+    this.hideModal();
     this.refresh();
+  }
+
+  onEditSkill(index: number) {
+    let skills: Skills = this.skillList[index];
+    this.loadForm(skills);
+    this.showModal();
   }
 
   // Método para recurar los datos de la base de datos
@@ -89,16 +104,25 @@ export class ModalSkillsComponent implements OnInit {
     window.location.reload();
   }
 
-  private obtenerSkills() {
-    this.skillService.verSkills().subscribe((dato) => {
-      this.skillList = dato;
-    });
+  onDeletedSkill(index: number) {
+    let skills: Skills = this.skillList[index];
+
+    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
+      this.skillService
+      .borrarSkills(skills.idSkill)
+      .subscribe(() => {
+        this.reloadDate();
+      });
+      this.refresh();
+    }
   }
 
-  eliminarSkills(id: number) {
-    this.skillService.borrarSkills(id).subscribe((dato) => {
-      console.log(dato);
-      this.obtenerSkills();
-    });
+  // Métodos para cerrar y abrir el modal
+  showModal() {
+    this.show = true;
+  }
+
+  hideModal() {
+    this.show = false;
   }
 }

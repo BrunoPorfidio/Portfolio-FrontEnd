@@ -1,9 +1,9 @@
-<ng-container >
+<ng-container *ngIf="show">
     <div class="modalc">
       <div class="modalc-content">
         <!-- Header del modal-->
         <header class="modalc-header">
-          <h4 class="modalc-title"><b>Agregar Educacion</b></h4>
+          <h4 class="modalc-title"><b>{{ title }}</b></h4>
         </header>
         <!-- Contenido del modal-->
         <div class="modalc-container">
@@ -59,7 +59,7 @@
                         <button type="submit" class="btn-save"><i class="bi bi-person-fill-add"></i></button>
                     </div>
                     <div class="col-6">
-                        <button (click)="closeModal()" class="btnn-close " ><i class="bi bi-x-circle-fill"></i></button>
+                        <button (click)="show = false" class="btnn-close " ><i class="bi bi-x-circle-fill"></i></button>
                     </div>
                 </div>
               </div>

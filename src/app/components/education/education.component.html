@@ -3,13 +3,8 @@
         <h1 class="title-education">MI EDUCACION</h1>
     </div>
     <div class="botones-admin">
-        <i *ngIf="isAdmin" (click)="openModal()" class="bi bi-plus-square"
+        <i *ngIf="isAdmin" (click)="modal.onNewEducacion()" class="bi bi-plus-square"
             style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
-
-
-        <div *ngIf="modalSwitch == true">
-            <app-modal-education></app-modal-education>
-        </div>
     </div>
 
     <div class="container-fluid" style="margin-bottom: 3%;" >
@@ -41,16 +36,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row admin-btn" >
+                    <div class="row">
                         <div class="col-6">
-                            <i *ngIf="isAdmin == true" (click)="onEditEducacion(i)" class="btn-edit bi bi-pencil-fill"></i>
+                            <i *ngIf="isAdmin == true" (click)="modal.onEditEducacion(i)" class="btn-edit bi bi-pencil-fill"></i>
+
                         </div>
                         <div class="col-6">
-                            <i *ngIf="isAdmin == true" (click)="onDeletedEducacion(i)" class="btn-delete bi bi-trash-fill"></i>
+                            <i *ngIf="isAdmin == true" (click)="modal.onDeletedEducacion(i)"
+                                class="btn-delete bi bi-trash-fill"></i>
                         </div>
-                       </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<app-modal-education [title]="'Educacion'" #modal></app-modal-education>

@@ -1,12 +1,9 @@
 <section class="hero-sobre-mi" id="about-me">
     <div class="hero-skills" style="margin-top: 50px;">
-        <h2 class="container my-skills-title">Mis skills</h2>
+        <h2 class="container my-skills-title">MIS SKILLS</h2>
         <div class="botones-admin">
-            <i *ngIf="isAdmin" (click)="openModal()" class="bi bi-plus-square"
+            <i *ngIf="isAdmin" (click)="modal.onNewSkill()" class="bi bi-plus-square"
                 style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
-            <div *ngIf="modalSwitch == true">
-                <app-modal-skills></app-modal-skills>
-            </div>
         </div>
         <div class="container icons-skills">
             <div class="row admin-btn">
@@ -14,16 +11,18 @@
                     <img [src]="skills.fotoSkill" class="skill-img" [alt]="skills.nombreSkill">
                     <div class="row">
                         <div class="col-6">
-                            <i *ngIf="isAdmin == true" (click)="onEditSkills(i)" class="btn-edit bi bi-pencil-fill"></i>
+                            <i *ngIf="isAdmin == true" (click)="modal.onEditSkill(i)" class="btn-edit bi bi-pencil-fill"></i>
                         </div>
                         <div class="col-6">
-                            <i *ngIf="isAdmin == true" (click)="onDeletedSkills(i)"
+                            <i *ngIf="isAdmin == true" (click)="modal.onDeletedSkill(i)"
                                 class="btn-delete bi bi-trash-fill"></i>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </section>
+<app-modal-skills [title]="'Skills'" #modal ></app-modal-skills>
+
+

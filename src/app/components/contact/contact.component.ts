@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { environments } from 'src/environments/environments';
 import { Persona } from 'src/app/model/Persona';
 import { PersonaService } from 'src/app/services/persona.service';
-import { SwitchService } from 'src/app/services/switch.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -14,7 +12,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  modalSwitch: boolean;
   personas: Persona[] =[];
   personaList: Persona[] =[];
   roles: string[];
@@ -26,10 +23,8 @@ export class ContactComponent implements OnInit {
   public persona:Persona;
 
   constructor(
-    private modalSS: SwitchService,
     private tokenService: TokenService,
     private personaService: PersonaService,
-    private router: Router
   ) {
     this.contacto = new FormGroup({
       nombre: new FormControl('', Validators.required),
@@ -41,12 +36,6 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.mostrarPersona();
-
-    this.modalSS.$modal.subscribe((dato)=>{
-      this.modalSwitch= dato;
-    })
-
-    this.personaService.verPersona();
 
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
@@ -62,60 +51,15 @@ export class ContactComponent implements OnInit {
     }
   }
 
-
-  // enviarEmail(){
-
-  //   let params = {
-  //     email: Email.contacto.
-  //   }
-  
-  //   this.http.post(`${this.ApiExperiencia}ver`);
-  // }
-
-openModal(){
-  this.modalSwitch = true;
-}
-
-private mostrarPersona(){
-  this.personaService.verPersona().subscribe(
-    (dato)=> {
-      this.personas = dato;
-    },
-    (err) => {
-      console.log(err);
-    }
-  );
-}
-
-reloadDate(){
-  this.personaService.verPersona().subscribe((dato)=> {
-    this.personas = dato;
-  });
-}
-
-onEditPersona(index: number) {
-  let persona: Persona = this.personaList[index];
-  
-  this.personaService.editarPersona(persona.id).subscribe((date) =>{
-   
-    this.reloadDate();
-  })
-  this.openModal()
-}
-
-onDeletedPersona(index: number) {
-  let persona: Persona = this.personaList[index];
-
-  if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-    this.personaService.borrarPersona(persona.id).subscribe(() => {
-      this.reloadDate();
-    })
-    this.refresh();
+  private mostrarPersona() {
+    this.personaService.verPersona().subscribe(
+      (data) => {
+        this.personas = data;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
-}
-
-refresh(): void {
-  window.location.reload();
-}
 
 }

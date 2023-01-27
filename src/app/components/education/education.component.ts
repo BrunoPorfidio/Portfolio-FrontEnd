@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SwitchService } from 'src/app/services/switch.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Educacion } from 'src/app/model/Educacion';
 import { environments } from 'src/environments/environments';
@@ -19,7 +17,6 @@ export class EducationComponent implements OnInit  {
   educacionList: Educacion[]=[];
   educacionForm: FormGroup;
 
-  modalSwitch:boolean;
   roles:string[];
   authority:string;
   isAdmin = false;
@@ -28,7 +25,6 @@ export class EducationComponent implements OnInit  {
   public educacion: Educacion;
 
   constructor(
-    private modalSS: SwitchService,
     private tokenService: TokenService,
     private educacionService: EducacionService,
     private formBuilder: FormBuilder
@@ -54,10 +50,6 @@ export class EducationComponent implements OnInit  {
 
     this.reloadDate();
 
-    this.modalSS.$modal.subscribe((dato) =>{
-      this.modalSwitch =dato
-    })
-
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
       if (rol === 'ROLE_ADMIN') {
@@ -66,19 +58,29 @@ export class EducationComponent implements OnInit  {
     });
   }
 
-
-  // Métodos para cerrar y abrir el modal
-
-  openModal(){
-    this.modalSwitch = true;
-  }
-
-  closeModal(){
-    this.modalSS.$modal.emit(false);
-  }
-
    /*===/ Configuraciones del formulario /===*/
 
+   onSubmit() {
+    let educacion: Educacion = this.educacionForm.value;
+
+    if (this.educacionForm.get('id')?.value == '') {
+      this.educacionService
+        .crearEducacion(educacion, 1)
+        .subscribe((newEducacion: Educacion) => {
+          this.educacionList.push(newEducacion);
+        });
+    } else {
+      this.educacionService.editarEducacion(educacion).subscribe(() => {
+        this.reloadDate();
+      });
+    }
+    this.refresh();
+  }
+  
+    onEditEducacion(index: number) {
+      let educacion: Educacion = this.educacionList[index];
+      this.loadForm(educacion);
+    }
 
    private loadForm(educacion: Educacion) {
     this.educacionForm.setValue({
@@ -94,13 +96,6 @@ export class EducationComponent implements OnInit  {
 
       fotoEducacion: educacion.fotoEducacion,
     });
-  }
-
-  onEditEducacion(index: number) {
-    let educacion: Educacion = this.educacionList[index];
-    
-    this.loadForm(educacion);
-    this.openModal();
   }
 
 

@@ -17,11 +17,11 @@ import { interceptorPorvider, InterceptorService } from './services/interceptor.
 import { LoaderComponent } from './components/loader/loader.component';
 import { ModalAboutmeComponent } from './modals/modal-aboutme/modal-aboutme.component';
 import { ModalProyectsComponent } from './modals/modal-proyects/modal-proyects.component';
-import { ModalContactComponent } from './modals/modal-contact/modal-contact.component';
 import { ModalSkillsComponent } from './modals/modal-skills/modal-skills.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { EducationComponent } from './components/education/education.component';
 import { ModalEducationComponent } from './modals/modal-education/modal-education.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,6 @@ import { ModalEducationComponent } from './modals/modal-education/modal-educatio
     LoaderComponent,
     ModalAboutmeComponent,
     ModalProyectsComponent,
-    ModalContactComponent,
     ModalSkillsComponent,
     SkillsComponent,
     EducationComponent,
@@ -47,7 +46,8 @@ import { ModalEducationComponent } from './modals/modal-education/modal-educatio
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     interceptorPorvider,

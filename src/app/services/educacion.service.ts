@@ -27,16 +27,16 @@ export class EducacionService {
     return this.http.get<any>(`${this.ApiEducacion}buscar/${id}`);
   }
 
-  public crearEducacion(educacion: Educacion): Observable<Educacion> {
-    return this.http.post<Educacion>(`${this.ApiEducacion}nuevo`, educacion, httpOptions);
+  public crearEducacion(educacion: Educacion, id: number): Observable<Object>{
+    return this.http.post<Object>(`${this.ApiEducacion}nuevo/${id}`, educacion, httpOptions);
+  }
+  
+  public editarEducacion(educacion: Educacion): Observable<any> {
+    return this.http.put<any>(`${this.ApiEducacion}editar`, educacion, httpOptions);
   }
 
   public borrarEducacion(id: number): Observable<void> {
     return this.http.delete<void>(`${this.ApiEducacion}borrar/${id}`);
   }
 
-  public editarEducacion(educacion: Educacion, id: number): Observable<Educacion> {
-    return this.http.put<Educacion>(`${this.ApiEducacion}editar/${id}?institucion=${educacion.institucion}
-    &titulo=${educacion.titulo}&inicio=${educacion.inicio}&fin=${educacion.fin}`, educacion);
-  }
 }

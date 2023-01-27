@@ -204,6 +204,11 @@ header {
   margin-bottom: 2.5rem;
 }
 
+.social-img{
+color: #ffff;
+font-size: 1.3125em;
+}
+
 .list-proyect,
 .name-proyect {
   margin: auto;

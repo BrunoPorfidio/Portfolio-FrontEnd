@@ -1,9 +1,10 @@
-<ng-container >
+<ng-container *ngIf="show">
     <div class="modalc">
       <div class="modalc-content">
         <!-- Header del modal-->
         <header class="modalc-header">
-          <h4 class="modalc-title"><b>Agregar Persona</b></h4>
+          <h4 class="modalc-title"><b>{{ title }}</b></h4>
+          <i class="bx bx-x" (click)="show = false"></i>
         </header>
         <!-- Contenido del modal-->
         <div class="modalc-container">
@@ -80,6 +81,33 @@
                 class="contact-input"
               />
               <br>
+              <h4>Telefono</h4>
+              <input
+                type="text"
+                name="telefono"
+                formControlName="telefono"
+                placeholder="Ej: 11 2345 6789"
+                required
+                class="contact-input form-control"
+              />
+              <br>
+              <h4>Email</h4>
+              <input
+                type="text"
+                name="email"
+                formControlName="email"
+                placeholder="Ej: example@gmail.com"
+                class="contact-input form-control"
+              />
+              <br>
+              <h4>Ubicacion</h4>
+              <input
+                type="text"
+                name="ubicacion"
+                formControlName="ubicacion"
+                placeholder="Ej: Buenos Aires, Argentina"
+                class="contact-input form-control"
+              />
               <br>
               <h4>Banner</h4>
               <input
@@ -96,7 +124,7 @@
                         <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
                     </div>
                     <div class="col-4">
-                        <button (click)="closeModal()" class="btnn-close" ><i class="bi bi-x-circle-fill"></i></button>
+                        <button (click)="show = false" class="btnn-close" ><i class="bi bi-x-circle-fill"></i></button>
                     </div>
                 </div>
               </div>

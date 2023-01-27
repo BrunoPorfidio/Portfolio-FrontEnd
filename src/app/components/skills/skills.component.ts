@@ -3,8 +3,6 @@ import { Skills } from 'src/app/model/Skills';
 import { TokenService } from 'src/app/services/token.service';
 import { environments } from 'src/environments/environments';
 import { SkillsService } from 'src/app/services/skills.service';
-import { SwitchService } from 'src/app/services/switch.service';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -17,7 +15,6 @@ export class SkillsComponent implements OnInit {
   skillList: Skills[] = [];
   skillsForm: FormGroup;
   
-  modalSwitch:boolean;
   skilss: Skills[] = [];
   roles: string[];
   authority: string;
@@ -28,9 +25,7 @@ export class SkillsComponent implements OnInit {
   public skills: Skills;
 
   constructor(
-    private modalSS: SwitchService,
     private tokenService: TokenService,
-    private router: Router,
     private skillsService: SkillsService,
     private formBuilder: FormBuilder
   ){
@@ -47,10 +42,6 @@ export class SkillsComponent implements OnInit {
 
     this.reloadDate();
 
-    this.modalSS.$modal.subscribe((dato)=> {
-      this.modalSwitch= dato
-    })
-
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
       if (rol === 'ROLE_ADMIN') {
@@ -59,33 +50,40 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  openModal(){
-    this.modalSwitch = true;
-  }
-
-  closeModal(){
-    this.modalSS.$modal.emit(false);
-  }
-
    /*===/ Configuraciones del formulario /===*/
 
+   onSubmit() {
+    let skills: Skills = this.skillsForm.value;
 
-   private loadForm(skills: Skills) {
-    this.skillsForm.setValue({
-      idSkill: skills.idSkill,
-
-      nombreSkills: skills.nombreSkill,
-      
-      fotoSkill: skills.fotoSkill,
-    });
+    if (this.skillsForm.get('id')?.value == '') {
+      this.skillsService
+        .crearSkills(skills, 1)
+        .subscribe((newSkill: Skills) => {
+          this.skillList.push(newSkill);
+        });
+    } else {
+      this.skillsService.editarSkills(skills).subscribe(() => {
+        this.reloadDate();
+      });
+    }
+    this.refresh();
   }
 
-  onEditSkills(i: number) {
-    this.openModal();
-      let skills: Skills = this.skillList[this.skills.idSkill];
-      this.loadForm(skills);
-      this.openModal();
-  }
+   onEditSkills(index: number) {
+     let skills: Skills = this.skillList[index];
+     this.loadForm(skills);
+    }
+    
+    private loadForm(skills: Skills) {
+     this.skillsForm.setValue({
+       idSkill: skills.idSkill,
+ 
+       nombreSkills: skills.nombreSkill,
+       
+       fotoSkill: skills.fotoSkill,
+     });
+   }
+
   // Método para recurar los datos de la base de datos
   reloadDate() {
     this.skillsService.verSkills().subscribe((date) => {

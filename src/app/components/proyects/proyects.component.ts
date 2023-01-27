@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
 import { environments } from 'src/environments/environments';
 import { Proyectos } from 'src/app/model/Proyectos';
 import { ProyectoService } from 'src/app/services/proyectos.service';
-import { SwitchService } from 'src/app/services/switch.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -17,9 +15,7 @@ export class ProyectsComponent implements OnInit {
   proyectosList: Proyectos[] =[];
   proyectosForm: FormGroup;
 
-  modalSwitch:boolean;
   proyectos: Proyectos[] = [];
-  showMe:boolean=false;
   roles: string[];
   authority: string;
   isAdmin = false;
@@ -28,10 +24,8 @@ export class ProyectsComponent implements OnInit {
   public proyecto: Proyectos;
 
   constructor(
-    private modalSS: SwitchService,
     private tokenService: TokenService,
     private proyectosService: ProyectoService,
-    private router: Router,
     private formBuilder: FormBuilder
   ) {
     this.proyectosForm = this.formBuilder.group({
@@ -43,21 +37,11 @@ export class ProyectsComponent implements OnInit {
   });
 }
 
-  toogleTag(){
-    this.showMe=!this.showMe
-  }
-
   ngOnInit(): void {
 
     this.reloadDate();
 
     this.mostrarProyectos();
-
-    this.modalSS.$modal.subscribe((dato)=> {
-      this.modalSwitch= dato
-    })
-
-    this.proyectosService.verProyecto();
 
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
@@ -67,63 +51,49 @@ export class ProyectsComponent implements OnInit {
     });
   }
 
-  closeModal(){
-    this.modalSS.$modal.emit(false);
-  }
+  /*===/ Configuraciones del formulario /===*/
 
-  openModal(){
-    this.modalSS.$modal.emit(true);
-  }
+  onSubmit() {
+    let proyectos: Proyectos = this.proyectosForm.value;
 
+    if (this.proyectosForm.get('id')?.value == '') {
+      this.proyectosService
+        .crearProyecto(proyectos, 1)
+        .subscribe((newProyecto: Proyectos) => {
+          this.proyectosList.push(newProyecto);
+        });
+    } else {
+      this.proyectosService.editarProyecto(proyectos).subscribe(() => {
+        this.reloadDate();
+      });
+    }
+    this.refresh();
+  }
+  
+  onEditProyectos(index: number) {
+    let proyectos: Proyectos = this.proyectosList[index];
+    this.loadForm(proyectos);
+  }
+  
+  private loadForm(proyectos: Proyectos) {
+    this.proyectosForm.setValue({
+      id: proyectos.idProyectos,
+
+      nombreProyecto: proyectos.nombreProyecto,
+
+      descripcion: proyectos.descripcion,
+
+      urlProyecto: proyectos.urlProyecto,
+
+      fotoProyecto: proyectos.fotoProyecto,
+    });
+  }
 
   reloadDate() {
     this.proyectosService.verProyecto().subscribe((date) => {
       this.proyectosList = date;
     });
   }
-
-  /*===/ Configuraciones del formulario /===*/
-
-  private clearForm() {
-    this.proyectosForm.setValue({
-      id: '',
-      nombreProyecto: '',
-      descripcion: '',
-      urlProyecto: '',
-      fotoProyecto: '',
-    });
-  }
-
-
-  onNewroyecto() {
-    this.clearForm();
-  }
-
-  private loadForm(proyectos: Proyectos) {
-    this.proyectosForm.setValue({
-      id: proyectos.idProyectos,
-      nombreProyecto: proyectos.nombreProyecto,
-      descripcion: proyectos.descripcion,
-      urlProyecto: proyectos.urlProyecto,
-      fotoProyecto: proyectos.fotoProyecto,
-    });
-  }
-
-
-
-  onEditProyectos(index: number) {
-    let proyectos: Proyectos = this.proyectosList[index];
-    this.loadForm(proyectos);
-    this.openModal();
-  }
-
-  onUpdate() {
-    let proyectos: Proyectos = this.proyectosForm.value;
-
-    this.proyectosService.editarProyecto(proyectos).subscribe(() => {
-        this.reloadDate();
-      });
-    }
 
     onDeletedProyecto(index: number) {
       let proyectos: Proyectos = this.proyectosList[index];
@@ -150,8 +120,4 @@ export class ProyectsComponent implements OnInit {
       }
     );
   }
-
-
-  
-
 }

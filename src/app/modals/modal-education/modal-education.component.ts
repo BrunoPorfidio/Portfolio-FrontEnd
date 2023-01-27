@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Educacion } from 'src/app/model/Educacion';
 import { AuthService } from 'src/app/services/auth.service';
 import { EducacionService } from 'src/app/services/educacion.service';
-import { SwitchService } from 'src/app/services/switch.service';
 
 @Component({
   selector: 'app-modal-education',
@@ -12,6 +11,8 @@ import { SwitchService } from 'src/app/services/switch.service';
 })
 export class ModalEducationComponent implements OnInit  {
 
+    @Input() title = '';
+
   // Variables globales
 
   educacionList: Educacion[] = [];
@@ -19,9 +20,10 @@ export class ModalEducationComponent implements OnInit  {
   educacionForm: FormGroup;
   roles: string[];
   isAdmin = false;
+  
+  public show = false;
 
   constructor(
-    private modalSS: SwitchService,
     private educacionService: EducacionService,
     private authService: AuthService,
     private formBuilder: FormBuilder
@@ -47,49 +49,70 @@ export class ModalEducationComponent implements OnInit  {
     this.reloadDate();
   }
 
-  closeModal() {
-    this.modalSS.$modal.emit(false);
-  }
-
-  openModal() {
-    this.modalSS.$modal.emit(true);
-  }
 
   /*===/ Configuraciones del formulario /===*/
 
-  private loadForm(educacion: Educacion) {
+    private clearForm() {
     this.educacionForm.setValue({
-      idEducacion: [''], 
+      idEducacion: '', 
     
-      institucion: ['', [Validators.required]],
+      institucion: '',
      
-      titulo: ['', [Validators.required]],
+      titulo: '',
       
-      inicio: ['', [Validators.required]],
+      inicio: '',
       
-      fin: ['', [Validators.required]],
+      fin: '',
 
-      fotoEducacion: ['', [Validators.required]],
+      fotoEducacion: '',
     });
   }
 
-  onEditSkill(index: number) {
-    let educacion: Educacion = this.educacionList[index];
-    this.loadForm(educacion);
+  onNewEducacion() {
+    this.clearForm();
+    this.showModal();
   }
 
+  private loadForm(educacion: Educacion) {
+    this.educacionForm.setValue({
+      idEducacion: educacion.idEducacion, 
+    
+      institucion: educacion.institucion,
+     
+      titulo: educacion.titulo,
+      
+      inicio: educacion.inicio,
+      
+      fin: educacion.fin,
+
+      fotoEducacion: educacion.fotoEducacion,
+    });
+  }
+  
   onSubmit() {
     let educacion: Educacion = this.educacionForm.value;
-
-    // this.educacionForm.get('id')?.value == '';
-    this.educacionService.crearEducacion(educacion).subscribe((newEducacion: Educacion) => {
-      this.educacionList.push(newEducacion);
-      alert("Educacion Creada!")
-    },);
-
+    
+    if (this.educacionForm.get('id')?.value == '') {
+      this.educacionService
+      .crearEducacion(educacion, 1)
+      .subscribe((newEducacion: Educacion) => {
+        this.educacionList.push(newEducacion);
+      });
+    } else {
+      this.educacionService.editarEducacion(educacion).subscribe(() => {
+        this.reloadDate();
+      });
+    }
+    this.hideModal();
     this.refresh();
   }
-
+  
+    onEditEducacion(index: number) {
+      let educacion: Educacion = this.educacionList[index];
+      this.loadForm(educacion);
+      this.showModal();
+    }
+  
   // Método para recurar los datos de la base de datos
   reloadDate() {
     this.educacionService.verEducacion().subscribe((date) => {
@@ -109,10 +132,23 @@ export class ModalEducationComponent implements OnInit  {
     });
   }
 
-  eliminarEducacion(id: number) {
-    this.educacionService.borrarEducacion(id).subscribe((dato) => {
-      console.log(dato);
-      this.obtenerEducacion();
-    });
+  onDeletedEducacion(index: number) {
+    let educacion: Educacion = this.educacionList[index];
+
+    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
+      this.educacionService.borrarEducacion(educacion.idEducacion).subscribe(() => {
+        this.reloadDate();
+      });
+      this.refresh();
+    }
   }
+
+    // Métodos para cerrar y abrir el modal
+    showModal() {
+      this.show = true;
+    }
+  
+    hideModal() {
+      this.show = false;
+    }
 }

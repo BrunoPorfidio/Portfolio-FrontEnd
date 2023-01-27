@@ -5,37 +5,34 @@
         <h1 class="title-proyects">MIS PROYECTOS</h1>
     </div>
     <div class="botones-admin">
-        <i *ngIf="isAdmin" (click)="openModal()" class="bi bi-pencil-square"
+        <i *ngIf="isAdmin" (click)="modal.onNewProyecto()" class="bi bi-pencil-square"
             style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
-
-
-        <div *ngIf="modalSwitch == true">
-            <app-modal-proyects></app-modal-proyects>
-        </div>
     </div>
-
     <div class="message-contruction">
         <div class="container">
             <div class="list-proyect ">
-                <div class="container example-pryct" >
+                <div class="container example-pryct">
                     <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-12 card-main" *ngFor="let proyecto of proyectos , let i = index">
+                        <div class="col-lg-4 col-md-6 col-sm-12 card-main"
+                            *ngFor="let proyecto of proyectos , let i = index">
                             <div class="card card-proyects" [id]="proyecto.idProyectos">
-                                <img  [src]="proyecto.fotoProyecto" alt="referencia de proyecto">
+                                <img [src]="proyecto.fotoProyecto" alt="referencia de proyecto">
                                 <div class="container card-cont">
                                     <b class="name-proyect">{{proyecto.nombreProyecto}}</b>
-                                    <p>{{proyecto.descripcion}}</p>
+                                    <p >{{proyecto.descripcion}}</p>
                                 </div>
-                                <button class="readMore_btn buttons"> <a style="color:white; text-decoration:none;" [href]="proyecto.urlProyecto"> Ir a la
+                                <button class="readMore_btn buttons"> <a style="color:white; text-decoration:none;"
+                                        [href]="proyecto.urlProyecto"> Ir a la
                                         pagina</a></button>
                                 <div class="row">
                                     <div class="col-6">
-                                        <button *ngIf="isAdmin == true" (click)="onEditProyectos(i)" class="btn-edit"><i
-                                            class="bi bi-pencil-fill " ></i></button>
-                                </div>
-                                <div class="col-6">
-                                    <button *ngIf="isAdmin == true" (click)="onDeletedProyecto(i)"
-                                        class="btn-delete"><i class="bi bi-trash-fill"></i></button>
+                                        <i *ngIf="isAdmin == true" (click)="modal.onEditProyecto(i)"
+                                            class="btn-edit bi bi-pencil-fill"></i>
+
+                                    </div>
+                                    <div class="col-6">
+                                        <i *ngIf="isAdmin == true" (click)="modal.onDeletedProyecto(i)"
+                                            class="btn-delete bi bi-trash-fill"></i>
                                     </div>
                                 </div>
                             </div>
@@ -46,4 +43,4 @@
         </div>
     </div>
 
-    
+    <app-modal-proyects [title]="'Proyectos'" #modal></app-modal-proyects>
