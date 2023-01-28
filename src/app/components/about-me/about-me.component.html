@@ -15,7 +15,7 @@
         <div class="row">
             <div class="col-4">
                 <i (click)="modal.onEditPersona(i)" style="color: rgb(255, 225, 0); font-size: 30px; cursor: pointer;" 
-                class="bi bi-pencil-fill"></i>
+                class="btn-edit bi bi-pencil-fill"></i>
             </div>
         </div>
     </div>
@@ -28,12 +28,12 @@
                     <p class="my-descrp">{{persona.acercaMi}}</p>
                     <div class="row ">
                         <div class="col-4"> 
-                            <a [href]="persona.githubUrl">
+                            <a [href]="persona.githubUrl" target="_blank" >
                                 <i class="bi bi-github social-img"></i>
                             </a>
                         </div>
                         <div class="col-4  ">
-                            <a [href]="persona.linkedinUrl">
+                            <a [href]="persona.linkedinUrl" target="_blank" >
                                 <i class="bi bi-linkedin social-img"></i>
                         </a>
                     </div>

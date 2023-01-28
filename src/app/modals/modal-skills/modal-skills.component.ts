@@ -82,7 +82,7 @@ export class ModalSkillsComponent implements OnInit {
       });
     }
     this.hideModal();
-    this.refresh();
+    // this.refresh();
   }
 
   onEditSkill(index: number) {

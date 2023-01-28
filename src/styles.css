@@ -128,6 +128,20 @@ header {
   font-size: 1.1em;
 }
 
+.my-descrp {
+  font-size: 1.075em;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.social-img{
+color: #ffff;
+font-size: 1.5125em;
+}
+
+
 .main-card-education {
   margin: auto;
   height: auto;
@@ -196,18 +210,6 @@ header {
   flex-wrap: wrap;
 }
 
-.my-descrp {
-  font-size: 0.875em;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.social-img{
-color: #ffff;
-font-size: 1.3125em;
-}
 
 .list-proyect,
 .name-proyect {
@@ -225,6 +227,20 @@ font-size: 1.3125em;
   border-radius: 5px;
   border: 1px #d4af37 solid;
   margin: auto;
+  overflow: hidden;
+}
+
+.img-proyect{
+  transform: scale(var(--escala, 1));
+  transition: transform 0.25s;
+  width: 100%;
+  height: 100%;
+}
+
+.img-proyect:hover{
+  --escala: 1.1;
+  cursor:pointer;
+  object-fit: cover;
 }
 
 /*------------- Estilos para Modales --------------------------*/
@@ -363,6 +379,10 @@ img {
   margin-top: 25px;
 }
 
+.column-title{
+  font-size: 1.5em;
+}
+
 .hero-contacto {
   font-size: 1.875em;
   margin-left: 15%;
@@ -379,7 +399,6 @@ img {
   padding: 0.625rem;
   padding-top: 2.5em;
   margin-bottom: 1.25em;
-  border-bottom: 1px solid #de423a;
 }
 
 
@@ -457,10 +476,6 @@ img {
 
   .navbar {
     font-size: 30px;
-  }
-
-  .bi {
-    font-size: 1em;
   }
 
   .icon-send {
@@ -733,7 +748,7 @@ img {
   }
 
   body {
-    font-size: 6px;
+    font-size: 8px;
   }
 
   .title-proyects,
@@ -796,7 +811,7 @@ img {
   }
 
   body {
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .titulo {
