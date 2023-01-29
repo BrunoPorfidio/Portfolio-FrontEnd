@@ -1,0 +1,71 @@
+<ng-container *ngIf="show">
+    <div class="modalc">
+      <div class="modalc-content">
+        <!-- Header del modal-->
+        <header class="modalc-header">
+          <h4 class="modalc-title"><b>{{ title }}</b></h4>
+        </header>
+        <!-- Contenido del modal-->
+        <div class="modalc-container">
+          <form [formGroup]="experienciaForm" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="idEducaion" formControlName="idExperiencia" />
+  
+              <h4>Nombre de la Empresa</h4>
+              <input
+                type="text"
+                name="nombreEmpresa"
+                formControlName="nombreEmpresa"
+                placeholder="Ingrese Nombre del la Empresa"
+                required
+                class="contact-input form-control"
+              />
+              <h4>Puesto en la Empresa</h4>
+              <input
+                type="text"
+                name="puesto"
+                formControlName="puesto"
+                placeholder="Ingrese el Puesto en su Empresa"
+                class="contact-input form-control"
+              />
+              <h4>Descripcion</h4>
+              <input
+                type="text"
+                name="descripcion"
+                formControlName="descripcion"
+                placeholder="Ingrese Una Descripcion"
+                class="contact-input form-control"
+              />
+              <h4>Fecha de Inicio</h4>
+              <input
+                type="text"
+                name="inicio"
+                formControlName="inicio"
+                placeholder="Ingrese la fecha de inicio"
+                class="contact-input form-control"
+              />
+              <h4>Fecha de Finalizacion</h4>
+              <input
+                type="text"
+                name="fin"
+                formControlName="fin"
+                placeholder="Ingrese fecha de finalizacion"
+                class="contact-input form-control"
+              />
+              <!--==/ Botón para guardar los datos /==-->
+              <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn-save"><i class="bi bi-person-fill-add"></i></button>
+                    </div>
+                    <div class="col-6">
+                        <button (click)="show = false" class="btnn-close " ><i class="bi bi-x-circle-fill"></i></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>

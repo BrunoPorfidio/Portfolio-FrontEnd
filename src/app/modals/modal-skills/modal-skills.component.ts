@@ -72,7 +72,7 @@ export class ModalSkillsComponent implements OnInit {
 
     if (this.skillsForm.get('id')?.value == '') {
       this.skillService
-      .crearSkills(skills, 1)
+      .crearSkills(skills, 154)
       .subscribe((newSkill: Skills) => {
         this.skillList.push(newSkill);
       });

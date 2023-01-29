@@ -94,7 +94,8 @@ header {
 .hero-sobre-mi,
 .hero-proyects,
 .login-container,
-.hero-education {
+.hero-education,
+.hero-experience {
   font-size: 2.2875em;
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
@@ -109,7 +110,8 @@ header {
 .my-descrp-title,
 .title-proyects,
 .my-skills-title,
-.title-education {
+.title-education,
+.title-experience {
   font-size: 1.5em;
   color: rgb(255, 255, 255);
   text-align: center;
@@ -124,7 +126,8 @@ header {
 
 .title-proyects,
 .login-txt,
-.title-education {
+.title-education,
+.title-experience {
   font-size: 1.1em;
 }
 
@@ -142,26 +145,40 @@ font-size: 1.5125em;
 }
 
 
-.main-card-education {
+.main-card-education,
+.main-card-experience {
   margin: auto;
   height: auto;
   background-color: #000;
   border: 1px solid #d4af37;
 }
 
-.date-card-education {
+.date-card-education,
+.date-card-experience {
   font-size: 0.9em;
 }
+
+
 
 .img-education {
   align-items: center;
   justify-content: center;
-  max-width: 2em;
+  max-width: 5rem;
 }
 
-.education-card {
+.education-card,
+.experience-card {
   height: auto;
 }
+
+/*  Estilos de Experiencias */
+
+.title-card-experience{
+  font-size: 1.2em;
+}
+
+
+
 
 /* Estilos de los Skills */
 
@@ -177,20 +194,6 @@ font-size: 1.5125em;
 
 .readMore_btn {
   border: 1px solid #d4af37;
-}
-
-.danger-line {
-  height: 0.875em;
-  color: white;
-  margin-bottom: 0.9375em;
-  margin-top: 1.5625em;
-  background-image: repeating-linear-gradient(
-    -55deg,
-    #000,
-    #000 20px,
-    #ffb101 20px,
-    #ffb101 40px
-  );
 }
 
 .icons-skills {
@@ -461,15 +464,6 @@ img {
     font-size: 25px;
   }
 
-  .danger-line {
-    height: 30%;
-    font-size: 5px;
-  }
-
-  .dng-mssg {
-    font-size: 30px;
-  }
-
   .readMore_btn {
     font-size: 20px;
   }
@@ -553,9 +547,6 @@ img {
     font-size: 20px;
   }
 
-  .danger-line {
-    font-size: 5px;
-  }
 
   .contact-informat {
     font-size: 15px;
@@ -584,7 +575,7 @@ img {
   }
 
   .img-education {
-    width: 5em;
+    width: 8em;
   }
 
   .title-card-education,
@@ -628,14 +619,6 @@ img {
   .contact-title,
   .title-education {
     font-size: 20px;
-  }
-
-  .dng-mssg {
-    font-size: 15px;
-  }
-
-  .readMore_btn {
-    font-size: 15px;
   }
 
   .contact-input {
@@ -703,7 +686,8 @@ img {
     width: 70%;
   }
 
-  .education-card {
+  .education-card,
+  .experience-card {
     font-size: 0.5em;
   }
 
@@ -848,11 +832,14 @@ img {
   }
 
   .title-card-education,
-  .date-card-education {
+  .date-card-education,
+  .title-card-experience,
+  .date-card-experience {
     font-size: 1.2em;
   }
 
-  .date-education {
+  .date-education,
+  .date-experience {
     display: flex;
   }
 }

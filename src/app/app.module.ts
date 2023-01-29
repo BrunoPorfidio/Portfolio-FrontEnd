@@ -22,6 +22,8 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { EducationComponent } from './components/education/education.component';
 import { ModalEducationComponent } from './modals/modal-education/modal-education.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { ModalExperienceComponent } from './modals/modal-experience/modal-experience.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModalSkillsComponent,
     SkillsComponent,
     EducationComponent,
-    ModalEducationComponent
+    ModalEducationComponent,
+    ExperienceComponent,
+    ModalExperienceComponent
   ],
   imports: [
     BrowserModule,
