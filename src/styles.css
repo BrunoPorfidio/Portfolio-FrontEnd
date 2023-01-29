@@ -174,10 +174,12 @@ font-size: 1.5125em;
 /*  Estilos de Experiencias */
 
 .title-card-experience{
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 
-
+.experience-puesto{
+  font-size: 1.3em;
+}
 
 
 /* Estilos de los Skills */
@@ -460,7 +462,8 @@ img {
   .title-proyects,
   .my-descrp-title,
   .my-skills-title,
-  .title-education {
+  .title-education,
+  .title-experience {
     font-size: 25px;
   }
 
@@ -543,7 +546,8 @@ img {
   .my-skills-title,
   .title-proyects,
   .contact-title,
-  .title-education {
+  .title-education,
+  .title-experience {
     font-size: 20px;
   }
 
@@ -617,7 +621,8 @@ img {
   .my-skills-title,
   .title-proyects,
   .contact-title,
-  .title-education {
+  .title-education,
+  .title-experience  {
     font-size: 20px;
   }
 
@@ -669,7 +674,8 @@ img {
   .my-descrp-title,
   .my-skills-title,
   .contact-title,
-  .title-education {
+  .title-education,
+  .title-experience  {
     font-size: 15px;
   }
 
@@ -686,8 +692,7 @@ img {
     width: 70%;
   }
 
-  .education-card,
-  .experience-card {
+  .education-card{
     font-size: 0.5em;
   }
 
@@ -736,7 +741,8 @@ img {
   }
 
   .title-proyects,
-  .title-education {
+  .title-education,
+  .title-experience  {
     font-size: 0.6425em;
   }
 
@@ -807,7 +813,8 @@ img {
   }
 
   .title-proyects,
-  .title-education {
+  .title-education,
+  .title-experience  {
     font-size: 8px;
   }
   .my-skills-title {
