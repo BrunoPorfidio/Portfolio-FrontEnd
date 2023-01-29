@@ -156,7 +156,7 @@ font-size: 1.5125em;
 .img-education {
   align-items: center;
   justify-content: center;
-  width: 3em;
+  max-width: 2em;
 }
 
 .education-card {

@@ -40,8 +40,6 @@ export class SkillsComponent implements OnInit {
   ngOnInit(): void {
     this.mostrarSkills();
 
-    this.reloadDate();
-
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
       if (rol === 'ROLE_ADMIN') {
@@ -50,74 +48,10 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-   /*===/ Configuraciones del formulario /===*/
-
-   onSubmit() {
-    let skills: Skills = this.skillsForm.value;
-
-    if (this.skillsForm.get('id')?.value == '') {
-      this.skillsService
-        .crearSkills(skills, 1)
-        .subscribe((newSkill: Skills) => {
-          this.skillList.push(newSkill);
-        });
-    } else {
-      this.skillsService.editarSkills(skills).subscribe(() => {
-        this.reloadDate();
-      });
-    }
-    this.refresh();
-  }
-
-   onEditSkills(index: number) {
-     let skills: Skills = this.skillList[index];
-     this.loadForm(skills);
-    }
-    
-    private loadForm(skills: Skills) {
-     this.skillsForm.setValue({
-       idSkill: skills.idSkill,
- 
-       nombreSkills: skills.nombreSkill,
-       
-       fotoSkill: skills.fotoSkill,
-     });
-   }
-
-  // Método para recurar los datos de la base de datos
-  reloadDate() {
-    this.skillsService.verSkills().subscribe((date) => {
-      this.skillList = date;
-    });
-  }
-
-  onDeletedSkills(index: number) {
-    let skills: Skills = this.skillList[index];
-
-    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-      this.skillsService.borrarSkills(skills.idSkill).subscribe(() => {
-        this.reloadDate();
-      });
-      this.refresh();
-    }
-  }
-
-
-  // Métodos para cerrar y abrir el modal
-
-
-  refresh(): void {
-      window.location.reload();
-  }
-
-
   private mostrarSkills() {
     this.skillsService.verSkills().subscribe(
       (data) => {
         this.skilss = data;
-      },
-      (err) => {
-        console.log(err);
       }
     );
   }
