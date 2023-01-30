@@ -1,7 +1,6 @@
 export class Email{
-    email?: string;
-    name?: string;
-    subject?: string;
-    body?: string;
-
+    email?: String;
+    name?: String;
+    subject?: String;
+    body?: String;
 }

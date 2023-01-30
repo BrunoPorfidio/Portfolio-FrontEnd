@@ -1,26 +1,26 @@
 export class Persona{
     id?: any;
 
-    nombre?: string;
+    nombre?: String;
 
-    apellido?: string;
+    apellido?: String;
 
-    subTitulo?: string;
+    subTitulo?: String;
 
-    acercaMi?: string;
+    acercaMi?: String;
 
-    urlFoto?: string;
+    urlFoto?: String;
 
-    linkedinUrl?: string;
+    linkedinUrl?: String;
 
-    githubUrl?: string;
+    githubUrl?: String;
 
-    imgBanner?: string;
+    imgBanner?: String;
 
     telefono?: Number;
 
-    email?: string;
+    email?: String;
 
-    ubicacion?: string;
+    ubicacion?: String;
 
 }

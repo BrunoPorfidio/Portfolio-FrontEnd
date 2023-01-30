@@ -223,10 +223,6 @@ font-size: 1.5125em;
   text-align: center;
 }
 
-.card-main {
-  size: 2em;
-}
-
 .card-proyects {
   font-size: 0.6em;
   background-color: black;
@@ -234,6 +230,7 @@ font-size: 1.5125em;
   border: 1px #d4af37 solid;
   margin: auto;
   overflow: hidden;
+
 }
 
 .img-proyect{
