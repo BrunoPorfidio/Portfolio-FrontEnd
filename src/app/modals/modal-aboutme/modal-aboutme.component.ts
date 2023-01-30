@@ -129,7 +129,7 @@ export class ModalAboutmeComponent implements OnInit {
     
     if (this.personaForm.get('id')?.value == '') {
       this.personaService
-      .crearPersona(persona, 1)
+      .crearPersona(persona)
       .subscribe((newPersona: Persona) => {
         this.personaList.push(newPersona);
       });

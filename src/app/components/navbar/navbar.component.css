@@ -112,8 +112,7 @@
  -------------------------------------- Media Queries---------------------------------------------------
 */
 
-  @media screen and (max-width:999px){
-
+  @media screen and (max-width:1100px) {
     .menu-btn{
       font-size: 35px;
     }
@@ -122,6 +121,7 @@
       width: 60%;
       flex-flow: row nowrap;
       align-items: center ;
+
     }
 
     .menu-btn{
@@ -145,8 +145,14 @@
       pointer-events: auto;
       background-color: rgba(0, 0, 0,1 );
       border: 1px solid #D4AF37;
-
+      transition: all .5s ease;
     }
+  }
+
+
+  @media screen and (max-width:999px){
+
+
 
     .header-user,.login-txt{
       font-size: 20px;
@@ -174,7 +180,7 @@
     }
 
     .menu-btn{
-      font-size: 20px;
+      font-size: 30px;
     }
 
     .btn-nav{
@@ -185,7 +191,9 @@
       margin-top: -12px;
     }
 
-    .nav__item, .login-txt{
+    .nav__item, 
+    .login-txt,
+    .logout-txt{
       font-size: 15px;
     }
 
@@ -206,7 +214,7 @@
     }
 
     .menu-btn{
-      font-size: 25px;
+      font-size: 20px;
     }
 
     .navbar{
@@ -214,7 +222,7 @@
     }
 
     .menu-btn{
-      font-size: 55px;
+      font-size: 65px;
     }
   }
 
@@ -227,7 +235,7 @@
     }
 
     .menu-btn{
-      font-size: 15px;
+      font-size: 20px;
     }
 
     .inp-space{

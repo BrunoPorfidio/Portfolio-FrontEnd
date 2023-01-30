@@ -79,6 +79,10 @@ public active : boolean = false;
     document.getElementById('about-me')?.scrollIntoView({behavior:"smooth"})
   }
 
+  toExperience(){
+    document.getElementById('experiece')?.scrollIntoView({behavior:"smooth"})
+  }
+
   toProyects(){
     document.getElementById('proyects')?.scrollIntoView({behavior:"smooth"})
   }

@@ -26,8 +26,8 @@ export class PersonaService {
     return this.http.get<any>(`${this.ApiPersona}ver_uno/${id}`);
   }
 
-  public crearPersona(persona: Persona, id: number | any): Observable<Object> {
-    return this.http.post(`${this.ApiPersona}nuevo/${id}`, persona, httpOptions);
+  public crearPersona(persona: Persona): Observable<Object> {
+    return this.http.post(`${this.ApiPersona}nuevo`, persona, httpOptions);
   }
   
   public editarPersona(persona: Persona): Observable<any> {
