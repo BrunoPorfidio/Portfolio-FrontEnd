@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./modal-proyects.component.css'],
 })
 export class ModalProyectsComponent implements OnInit {
+
   @Input() title = '';
 
   // Variables globales
@@ -18,6 +19,7 @@ export class ModalProyectsComponent implements OnInit {
   proyectosForm: FormGroup;
   roles: string[];
   isAdmin = false;
+
   public show = false;
 
   constructor(
@@ -43,13 +45,19 @@ export class ModalProyectsComponent implements OnInit {
 
     this.reloadDate();
   }
+  
+  /*===/ Configuraciones del formulario /===*/
 
   private clearForm() {
     this.proyectosForm.setValue({
       idProyectos: '',
+
       nombreProyecto: '',
+
       descripcion: '',
+
       urlProyecto: '',
+
       fotoProyecto: '',
     });
   }
@@ -59,9 +67,9 @@ export class ModalProyectsComponent implements OnInit {
     this.showModal();
   }
 
-  /*===/ Configuraciones del formulario /===*/
   private loadForm(proyectos: Proyectos) {
     this.proyectosForm.setValue({
+
       idProyectos: proyectos.idProyectos,
 
       nombreProyecto: proyectos.nombreProyecto,
@@ -117,8 +125,6 @@ export class ModalProyectsComponent implements OnInit {
       this.refresh();
     }
   }
-
-  // Métodos para cerrar y abrir el modal
 
   refresh(): void {
     window.location.reload();

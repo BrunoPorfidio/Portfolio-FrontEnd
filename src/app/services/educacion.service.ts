@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environments } from 'src/environments/environments';
 import { Educacion } from '../model/Educacion'; 
 
-
 const httpOptions = {
   headers: new HttpHeaders({
     'content-Type': 'application/json',

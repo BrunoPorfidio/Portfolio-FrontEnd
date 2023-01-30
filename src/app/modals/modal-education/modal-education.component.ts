@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Educacion } from 'src/app/model/Educacion';
-import { AuthService } from 'src/app/services/auth.service';
 import { EducacionService } from 'src/app/services/educacion.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-modal-education',
@@ -94,7 +94,7 @@ export class ModalEducationComponent implements OnInit  {
     
     if (this.educacionForm.get('id')?.value == '') {
       this.educacionService
-      .crearEducacion(educacion, 1)
+      .crearEducacion(educacion, 5)
       .subscribe((newEducacion: Educacion) => {
         this.educacionList.push(newEducacion);
       });
@@ -113,23 +113,15 @@ export class ModalEducationComponent implements OnInit  {
       this.showModal();
     }
   
-  // Método para recurar los datos de la base de datos
   reloadDate() {
     this.educacionService.verEducacion().subscribe((date) => {
       this.educacionList = date;
     });
   }
 
-  // Métodos para cerrar y abrir el modal
 
   refresh(): void {
     window.location.reload();
-  }
-
-  private obtenerEducacion() {
-    this.educacionService.verEducacion().subscribe((dato) => {
-      this.educacionList = dato;
-    });
   }
 
   onDeletedEducacion(index: number) {
