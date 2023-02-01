@@ -1,5 +1,5 @@
 export class Educacion {
-    idEducacion?: any;
+    idEducacion?:  any;
     
     institucion?: String;
    

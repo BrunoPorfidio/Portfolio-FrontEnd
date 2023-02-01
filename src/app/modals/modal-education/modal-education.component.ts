@@ -94,7 +94,7 @@ export class ModalEducationComponent implements OnInit  {
     
     if (this.educacionForm.get('id')?.value == '') {
       this.educacionService
-      .crearEducacion(educacion, 5)
+      .crearEducacion(educacion, 1)
       .subscribe((newEducacion: Educacion) => {
         this.educacionList.push(newEducacion);
       });
@@ -128,9 +128,10 @@ export class ModalEducationComponent implements OnInit  {
     let educacion: Educacion = this.educacionList[index];
 
     if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-      this.educacionService.borrarEducacion(educacion.idEducacion).subscribe(() => {
+      this.educacionService.borrarEducacion(educacion?.idEducacion).subscribe(() => {
         this.reloadDate();
       });
+      this.refresh();
       this.refresh();
     }
   }

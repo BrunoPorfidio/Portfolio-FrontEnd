@@ -148,7 +148,7 @@ font-size: 1.5125em;
 
 .main-card-education,
 .main-card-experience {
-  margin: auto;
+  margin: 30px;
   height: auto;
   background-color: #000;
   border: 1px solid #d4af37;
@@ -170,6 +170,7 @@ font-size: 1.5125em;
 .education-card,
 .experience-card {
   height: auto;
+
 }
 
 /*  Estilos de Experiencias */
