@@ -83,7 +83,6 @@ export class ModalSkillsComponent implements OnInit {
     }
     this.hideModal();
     this.refresh();
-    this.refresh();
   }
 
   onEditSkill(index: number) {
@@ -113,6 +112,8 @@ export class ModalSkillsComponent implements OnInit {
       .borrarSkills(skills.idSkill)
       .subscribe(() => {
         this.reloadDate();
+      this.refresh();
+        
       });
       this.refresh();
     }

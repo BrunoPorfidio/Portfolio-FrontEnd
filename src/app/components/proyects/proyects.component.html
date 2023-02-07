@@ -7,6 +7,7 @@
     <div class="botones-admin">
         <i *ngIf="isAdmin" (click)="modal.onNewProyecto()" class="bi bi-pencil-square"
             style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
+            <app-modal-proyects [title]="'Agregar Proyecto'" #modal></app-modal-proyects>
     </div>
     <div class="message-contruction">
         <div class="container">
@@ -28,7 +29,7 @@
                                     <div class="col-6">
                                         <i *ngIf="isAdmin == true" (click)="modal.onEditProyecto(i)"
                                             class="btn-edit bi bi-pencil-fill"></i>
-
+                                            <app-modal-proyects [title]="'Editar Proyectos'" #modal></app-modal-proyects>
                                     </div>
                                     <div class="col-6">
                                         <i *ngIf="isAdmin == true" (click)="modal.onDeletedProyecto(i)"
@@ -43,4 +44,3 @@
         </div>
     </div>
 
-    <app-modal-proyects [title]="'Proyectos'" #modal></app-modal-proyects>

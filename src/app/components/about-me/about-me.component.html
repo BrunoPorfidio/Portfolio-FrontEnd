@@ -16,6 +16,7 @@
             <div class="col-4">
                 <i (click)="modal.onEditPersona(i)" style="color: rgb(255, 225, 0); font-size: 30px; cursor: pointer;" 
                 class="btn-edit bi bi-pencil-fill"></i>
+                <app-modal-aboutme [title]="'Editar Sobre Mi'" #modal></app-modal-aboutme>
             </div>
         </div>
     </div>
@@ -47,4 +48,3 @@
      </div>
     </section>
 </div>
-<app-modal-aboutme [title]="'Sobre Mi'" #modal></app-modal-aboutme>

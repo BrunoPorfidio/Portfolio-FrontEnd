@@ -5,6 +5,7 @@
     <div class="botones-admin">
         <i *ngIf="isAdmin" (click)="modal.onNewExperiencia()" class="bi bi-plus-square"
             style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
+            <app-modal-experience [title]="'Agregar Experiencia'" #modal></app-modal-experience>
     </div>
 
     <div class="container-fluid" style="margin-bottom: 3%;" >
@@ -37,7 +38,7 @@
                     <div class="row">
                         <div class="col-6">
                             <i *ngIf="isAdmin == true" (click)="modal.onEditExperiencia(i)" class="btn-edit bi bi-pencil-fill"></i>
-
+                            <app-modal-experience [title]="'Editar Experiencia'" #modal></app-modal-experience>
                         </div>
                         <div class="col-6">
                             <i *ngIf="isAdmin == true" (click)="modal.onDeletedExperiencia(i)" 
@@ -49,4 +50,3 @@
         </div>
     </div>
 </div>
-<app-modal-experience [title]="'Experiencia'" #modal></app-modal-experience>

@@ -602,15 +602,7 @@ img {
 }
 
 @media (max-width: 719px) {
-  .skill-img {
-    width: 40px;
-    margin: auto;
-  }
 
-  .i-skills {
-    width: 80px;
-    height: 80px;
-  }
 
   body {
     font-size: 11px;
@@ -625,12 +617,26 @@ img {
     font-size: 20px;
   }
 
+  .skill-img {
+    width: 40px;
+    margin: auto;
+  }
+
+  .i-skills {
+    width: 80px;
+    height: 80px;
+  }
+
   .contact-input {
     font-size: 15px;
   }
 
   .main-card-education {
-    max-width: 70%;
+    max-width: 90%;
+  }
+
+  .card-text{
+    font-size: 1em;
   }
 
   .education-card {

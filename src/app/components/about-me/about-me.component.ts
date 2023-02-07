@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Persona } from 'src/app/model/Persona';
 import { PersonaService } from 'src/app/services/persona.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -21,7 +22,7 @@ export class AboutMeComponent implements OnInit {
 
   constructor(
     private tokenService: TokenService,
-    private personaService: PersonaService,
+    private personaService: PersonaService
   ) {}
 
   ngOnInit(): void {
@@ -46,4 +47,5 @@ export class AboutMeComponent implements OnInit {
       }
     );
   }
+
 }
