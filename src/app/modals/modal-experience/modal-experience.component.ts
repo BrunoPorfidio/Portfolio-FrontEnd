@@ -96,7 +96,7 @@ onSubmit() {
   
   if (this.experienciaForm.get('id')?.value == '') {
     this.experienciaService
-    .crearExperiencia(experiencia, 5)
+    .crearExperiencia(experiencia, 1)
     .subscribe((newExperiencia: Experiencia) => {
       this.experienciaList.push(newExperiencia);
     });
