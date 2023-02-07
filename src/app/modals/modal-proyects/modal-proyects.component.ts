@@ -87,7 +87,7 @@ export class ModalProyectsComponent implements OnInit {
 
     if (this.proyectosForm.get('id')?.value == '') {
       this.proyectosService
-      .crearProyecto(proyectos, 1)
+      .crearProyecto(proyectos, 5)
       .subscribe((newProyecto: Proyectos) => {
         this.proyectosList.push(newProyecto);
       });

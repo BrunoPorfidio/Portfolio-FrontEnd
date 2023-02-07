@@ -94,7 +94,7 @@ export class ModalEducationComponent implements OnInit  {
     
     if (this.educacionForm.get('id')?.value == '') {
       this.educacionService
-      .crearEducacion(educacion, 1)
+      .crearEducacion(educacion, 5)
       .subscribe((newEducacion: Educacion) => {
         this.educacionList.push(newEducacion);
       });
