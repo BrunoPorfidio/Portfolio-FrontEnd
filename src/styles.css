@@ -217,6 +217,9 @@ font-size: 1.5125em;
   flex-wrap: wrap;
 }
 
+.card-cont{
+  overflow: hidden;
+}
 
 .list-proyect,
 .name-proyect {
