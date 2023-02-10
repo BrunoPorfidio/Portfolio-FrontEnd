@@ -10,6 +10,7 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['./modal-skills.component.css'],
 })
 export class ModalSkillsComponent implements OnInit {
+
   @Input() title = '';
 
   // Variables globales
@@ -46,7 +47,9 @@ export class ModalSkillsComponent implements OnInit {
   private clearForm() {
     this.skillsForm.setValue({
       idSkill: '',
+
       nombreSkill: '',
+      
       fotoSkill: '',
     });
   }
@@ -106,14 +109,12 @@ export class ModalSkillsComponent implements OnInit {
 
   onDeletedSkill(index: number) {
     let skills: Skills = this.skillList[index];
-
+  
     if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
       this.skillService
       .borrarSkills(skills.idSkill)
       .subscribe(() => {
         this.reloadDate();
-      this.refresh();
-        
       });
       this.refresh();
     }

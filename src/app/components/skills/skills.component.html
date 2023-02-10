@@ -8,8 +8,8 @@
         </div>
         <div class="container icons-skills">
             <div class="row admin-btn">
-                <div class="col-1 i-skills" *ngFor="let skills of skilss, let i = index" [id]="skills.idSkill">
-                    <img [src]="skills.fotoSkill" class="skill-img" [alt]="skills.nombreSkill">
+                <div class="col-1 i-skills" *ngFor="let skills of skilss, let i = index" [id]="skills?.idSkill">
+                    <img [src]="skills?.fotoSkill" class="skill-img" [alt]="skills?.nombreSkill">
                     <div class="row">
                         <div class="col-6">
                             <i *ngIf="isAdmin == true" (click)="modal.onEditSkill(i)" class="btn-edit bi bi-pencil-fill"></i>
@@ -25,6 +25,7 @@
         </div>
     </div>
 </section>
+
 
 
 

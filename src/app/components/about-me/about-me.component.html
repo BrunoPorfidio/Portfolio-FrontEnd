@@ -1,11 +1,11 @@
 
 <div  class="container-fluid"  *ngFor="let persona of personas, let i = index">
-    <header style="background-image: url({{persona.imgBanner}});">
+    <header style="background-image: url({{persona?.imgBanner}});">
         <section class="hero-nombre">
             <div class="container" >
                 <div class="col" >
-                    <h1 class="titulo"  [id]="persona.id"> {{persona.nombre}} {{persona.apellido}}</h1>
-                    <h2 class="subtitulo">{{persona.subTitulo}}</h2>
+                    <h1 class="titulo"  [id]="persona.id"> {{persona?.nombre}} {{persona?.apellido}}</h1>
+                    <h2 class="subtitulo">{{persona?.subTitulo}}</h2>
             </div>
             </div>
         </section>
@@ -26,22 +26,22 @@
             <h1 class="my-descrp-title"> Sobre mi</h1>
             <div class="row">
                 <div class="col-lg-8 col-md-12">
-                    <p class="my-descrp">{{persona.acercaMi}}</p>
+                    <p class="my-descrp">{{persona?.acercaMi}}</p>
                     <div class="row ">
                         <div class="col-4"> 
-                            <a [href]="persona.githubUrl" target="_blank" >
+                            <a [href]="persona?.githubUrl" target="_blank" >
                                 <i class="bi bi-github social-img"></i>
                             </a>
                         </div>
                         <div class="col-4  ">
-                            <a [href]="persona.linkedinUrl" target="_blank" >
+                            <a [href]="persona?.linkedinUrl" target="_blank" >
                                 <i class="bi bi-linkedin social-img"></i>
                         </a>
                     </div>
                 </div>
         </div>
             <div class="col-lg-4 col-md-0">
-                <img [src]="persona.urlFoto" [alt]="persona.nombre" 
+                <img [src]="persona?.urlFoto" [alt]="persona.nombre" 
                 class="img-responsive img-circle">
             </div>
         </div>

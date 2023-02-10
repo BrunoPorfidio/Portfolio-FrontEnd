@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { TokenService } from 'src/app/services/token.service';
@@ -11,9 +10,6 @@ import { environments } from 'src/environments/environments';
   styleUrls: ['./experience.component.css']
 })
 export class ExperienceComponent implements OnInit{
-
-  experienciaList: Experiencia[] = [];
-  skillsForm: FormGroup;
   
   experiencias: Experiencia[] = [];
   roles: string[];
@@ -27,18 +23,9 @@ export class ExperienceComponent implements OnInit{
   constructor(
     private tokenService: TokenService,
     private experienciaService: ExperienciaService,
-    private formBuilder: FormBuilder
-  ){
-    this.skillsForm = this.formBuilder.group({
-      idSkill: [''],
-
-      nombreSkills: ['', [Validators.required]],
-
-      fotoSkill: ['', [Validators.required]],
-    });
-  }
+  ){}
   ngOnInit(): void {
-    this.mostrarSkills();
+    this.mostrarExperiencia();
 
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
@@ -48,7 +35,7 @@ export class ExperienceComponent implements OnInit{
     });
   }
 
-  private mostrarSkills() {
+  private mostrarExperiencia() {
     this.experienciaService.verExperiencia().subscribe(
       (data) => {
         this.experiencias = data;
