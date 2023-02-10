@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Persona } from 'src/app/model/Persona';
 import { PersonaService } from 'src/app/services/persona.service';
 import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment';
 
 @Component({
   selector: 'app-about-me',

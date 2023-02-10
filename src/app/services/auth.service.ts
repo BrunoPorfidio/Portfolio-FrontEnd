@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { LoginUsuario } from '../model/login-usuario';
 import { NuevoUsuario } from '../model/nuevo-usuario';
 import { JwtDto } from '../model/JwtDto';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment.prod';
 
 
 

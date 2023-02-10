@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Skills } from 'src/app/model/Skills';
 import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({

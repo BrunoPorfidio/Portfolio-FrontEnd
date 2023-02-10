@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TokenService } from 'src/app/services/token.service';
 import { PersonaService } from 'src/app/services/persona.service';
 import { Persona } from 'src/app/model/Persona';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment';
 
 
 @Component({

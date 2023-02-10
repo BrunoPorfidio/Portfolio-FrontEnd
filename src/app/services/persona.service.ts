@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Persona } from '../model/Persona';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({

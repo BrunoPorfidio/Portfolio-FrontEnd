@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/model/Educacion';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment';
 import { TokenService } from 'src/app/services/token.service';
 import { EducacionService } from 'src/app/services/educacion.service';
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment';
 import { Persona } from 'src/app/model/Persona';
 import { PersonaService } from 'src/app/services/persona.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';

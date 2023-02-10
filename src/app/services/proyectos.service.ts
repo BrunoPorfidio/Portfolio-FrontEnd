@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environments } from 'src/environments/environments';
+import { environments } from 'src/environments/environment.prod';
 import { Proyectos } from '../model/Proyectos';
 
 const httpOptions = {
