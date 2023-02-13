@@ -32,7 +32,7 @@ export class SkillsService {
   }
   
   public editarSkills(skills: Skills): Observable<any> {
-    return this.http.put<any>(`${this.ApiSkills}editar`, skills, httpOptions);
+    return this.http.put<any>(`${this.ApiSkills}editar/`, skills, httpOptions);
   }
 
   public borrarSkills(id: number): Observable<void>{
