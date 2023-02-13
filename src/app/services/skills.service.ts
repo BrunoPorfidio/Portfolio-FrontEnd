@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class SkillsService {
 
-  private ApiSkills = `${environments.Api}/skills/`;
+  private ApiSkills = environments.Api + "/skills/";
 
   constructor(private http: HttpClient) { }
 
