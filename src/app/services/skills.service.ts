@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Skills } from '../model/Skills'; 
-import { environments } from 'src/environments/environment.prod';
+// import { environments } from 'src/environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class SkillsService {
 
-  private ApiSkills = environments.Api + "/skills/";
+  private ApiSkills = "https://api-portfolio-brunoporfidio.koyeb.app/skills/";
 
   constructor(private http: HttpClient) { }
 
