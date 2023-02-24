@@ -13,22 +13,22 @@
             <div class="col-md-6 col-sm-10" *ngFor="let experiencia of experiencias, let i = index" [id]="experiencia?.idExperiencia" >
                 <div class="card main-card-experience">
                     <div class="card-header card-experience-title">
-                        <h2 class="title-card-experience">{{experiencia?.nombreEmpresa}}</h2>
+                        <h2 class="title-card-experience">{{experiencia.nombreEmpresa}}</h2>
                     </div>
                     <div class="card-body experience-card">
                         <div class="row">
                             <div class="col">
                                 <div class="card-text">
                                     <div class="card-title">
-                                        <p class="experience-puesto">{{experiencia?.puesto}}</p>
-                                        <p class="experience-descript"> {{experiencia?.descripcion}} </p>
+                                        <p class="experience-puesto">{{experiencia.puesto}}</p>
+                                        <p class="experience-descript"> {{experiencia.descripcion}} </p>
                                     </div>
                                     <div class="row date-experience">
                                         <div class="col-6">
-                                            <p class="date-card-experience">Inicio: {{experiencia?.inicio}}</p>
+                                            <p class="date-card-experience">Inicio: {{experiencia.inicio}}</p>
                                         </div>
                                         <div class="col-6">
-                                            <p class="date-card-experience" >Fin: {{experiencia?.fin}}</p>
+                                            <p class="date-card-experience" >Fin: {{experiencia.fin}}</p>
                                         </div>  
                                     </div>
                                 </div>

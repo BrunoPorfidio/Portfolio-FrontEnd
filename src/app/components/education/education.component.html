@@ -13,24 +13,24 @@
             <div class="col-md-6 col-sm-10" *ngFor="let educacion of educacions, let i = index" [id]="educacion?.idEducacion" >
                 <div class="card main-card-education">
                     <div class="card-header card-education-title">
-                        <h2 class="school-title">{{educacion?.institucion}}</h2>
+                        <h2 class="school-title">{{educacion.institucion}}</h2>
                     </div>
                     <div class="card-body education-card">
                         <div class="row">
                             <div class="col-6">
-                                <img class=" img-education" [src]="educacion?.fotoEducacion" alt="img Educacion" >
+                                <img class=" img-education" [src]="educacion.fotoEducacion" alt="img Educacion" >
                             </div>
                             <div class="col-6">
                                 <div class="card-text">
                                     <div class="card-title">
-                                        <h3 class="title-card-education">{{educacion?.titulo}}</h3>
+                                        <h3 class="title-card-education">{{educacion.titulo}}</h3>
                                     </div>
                                     <div class="row date-education">
                                         <div class="col-6">
-                                            <p class="date-card-education">Inicio: {{educacion?.inicio}}</p>
+                                            <p class="date-card-education">Inicio: {{educacion.inicio}}</p>
                                         </div>
                                         <div class="col-6">
-                                            <p class="date-card-education" >Fin: {{educacion?.fin}}</p>
+                                            <p class="date-card-education" >Fin: {{educacion.fin}}</p>
                                         </div>  
                                     </div>
                                 </div>

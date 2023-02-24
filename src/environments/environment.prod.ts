@@ -1,7 +1,7 @@
 export const environments = {
     production: true,
     
-    Api:'https://api-portfolio-brunoporfidio.koyeb.app',
+    Api:'http://apiportfolio-env.eba-gpmpcpha.us-east-1.elasticbeanstalk.com',
 
     // Api: 'http://localhost:8080',
 
