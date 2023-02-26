@@ -1,0 +1,121 @@
+<ng-container *ngIf="show">
+    <div class="modalc">
+      <div class="modalc-content">
+        <!-- Header del modal-->
+        <header class="modalc-header">
+          <h4 class="modalc-title"><b>{{ title }}</b></h4>
+          <i class="bx bx-x" (click)="show = false"></i>
+        </header>
+        <!-- Contenido del modal-->
+        <div class="modalc-container">
+          <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="id" formControlName="id" />
+  
+              <h4>Nombre</h4>
+              <input
+                type="text"
+                name="nombre"
+                formControlName="nombre"
+                placeholder="Ingrese su Nombre"
+                required
+                class="contact-input"
+              />
+              <h4>Apellido</h4>
+              <input
+                type="text"
+                name="apellido"
+                formControlName="apellido"
+                placeholder="Ingrese su Apellido"
+                class="contact-input"
+              />
+              <h4>Titulo</h4>
+              <input
+                type="text"
+                name="subTitulo"
+                formControlName="subTitulo"
+                placeholder="Ingrese su Titulo. Ej: Programador Web"
+                class="contact-input"
+              />
+              <h4>Descripcion</h4>
+              <textarea
+                name="acercaMi"
+                formControlName="acercaMi"
+                placeholder="Ingrese su Descripcion"
+                class="contact-input"
+              ></textarea>
+              <h4>Foto de perfil</h4>
+              <input
+              type="url"
+                name="urlFoto"
+                formControlName="urlFoto"
+                placeholder="Ingrese su Url de Foto"
+                class="contact-input"
+              />
+              <h4>Linkedin</h4>
+              <input
+                type="url"
+                name="linkedinUrl"
+                formControlName="linkedinUrl"
+                placeholder="Ingrese su Url de Linkedin"
+                class="contact-input"
+              />
+              <h4>Github</h4>
+              <input
+                type="url"
+                name="githubUrl"
+                formControlName="githubUrl"
+                placeholder="Ingrese su Url de imagen"
+                class="contact-input"
+              />
+              <h4>Telefono</h4>
+              <input
+                type="text"
+                name="telefono"
+                formControlName="telefono"
+                placeholder="Ej: 11 2345 6789"
+                required
+                class="contact-input form-control"
+              />
+              <h4>Email</h4>
+              <input
+                type="text"
+                name="email"
+                formControlName="email"
+                placeholder="Ej: example@gmail.com"
+                class="contact-input form-control"
+              />
+              <h4>Ubicacion</h4>
+              <input
+                type="text"
+                name="ubicacion"
+                formControlName="ubicacion"
+                placeholder="Ej: Buenos Aires, Argentina"
+                class="contact-input form-control"
+              />
+              <h4>Banner</h4>
+              <input
+                type="url"
+                name="imbBanner"
+                formControlName="imgBanner"
+                placeholder="Ingrese su Url de Banner"
+                class="contact-input"
+              />
+              <!--==/ Botón para guardar los datos /==-->
+              <div class="container">
+                <div class="row">
+                    <div class="col-4">
+                        <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
+                    </div>
+                    <div class="col-4">
+                        <button (click)="show = false" class="btnn-close" ><i class="bi bi-x-circle-fill"></i></button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+

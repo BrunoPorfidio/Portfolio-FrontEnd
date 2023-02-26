@@ -5,11 +5,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 
 @Component({
-  selector: 'app-modal-experience',
-  templateUrl: './modal-experience.component.html',
-  styleUrls: ['./modal-experience.component.css']
+  selector: 'app-modal-experience-edit',
+  templateUrl: './modal-experience-edit.component.html',
+  styleUrls: ['./modal-experience-edit.component.css']
 })
-export class ModalExperienceComponent  implements OnInit  {
+export class ModalExperienceEditComponent  implements OnInit  {
 
   @Input() title = '';
 
@@ -75,19 +75,38 @@ onNewExperiencia() {
   this.showModal();
 }
 
+private loadForm(experiencia: Experiencia) {
+  this.experienciaForm.setValue({
+    idExperiencia: experiencia.idExperiencia,
+    
+    nombreEmpresa: experiencia.nombreEmpresa,
+    
+    puesto: experiencia.puesto,
+    
+    descripcion: experiencia.descripcion,
+    
+    inicio: experiencia.inicio,
+    
+    fin: experiencia.fin,
+  });
+}
+
 onSubmit() {
   let experiencia: Experiencia = this.experienciaForm.value;
   
-  (this.experienciaForm.get('id')?.value == '') 
-    this.experienciaService
-    .crearExperiencia(experiencia)
-    .subscribe((newExperiencia: Experiencia) => {
-      this.experienciaList.push(newExperiencia);
+    this.experienciaService.editarExperiencia(experiencia).subscribe(() => {
+      this.reloadDate();
     });
-
+  
   this.hideModal();
   this.refresh();
 }
+
+  onEditExperiencia(index: number) {
+    let experiencia: Experiencia = this.experienciaList[index];
+    this.loadForm(experiencia);
+    this.showModal();
+  }
 
 // Método para recurar los datos de la base de datos
 reloadDate() {
@@ -100,6 +119,19 @@ reloadDate() {
 
 refresh(): void {
   window.location.reload();
+}
+
+onDeletedExperiencia(index: number) {
+  let experiencia: Experiencia = this.experienciaList[index];
+
+  if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
+    this.experienciaService
+    .borrarExperiencia(experiencia)
+    .subscribe(() => {
+      this.reloadDate();
+    });
+    this.refresh();
+  }
 }
 
   // Métodos para cerrar y abrir el modal

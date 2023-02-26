@@ -5,11 +5,11 @@ import { PersonaService } from 'src/app/services/persona.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-modal-aboutme',
-  templateUrl: './modal-aboutme.component.html',
-  styleUrls: ['./modal-aboutme.component.css'],
+  selector: 'app-modal-aboutme-edit',
+  templateUrl: './modal-aboutme-edit.component.html',
+  styleUrls: ['./modal-aboutme-edit.component.css']
 })
-export class ModalAboutmeComponent implements OnInit {
+export class ModalAboutmeEditComponent implements OnInit {
   @Input() title = '';
 
   // Variables globales
@@ -127,12 +127,10 @@ export class ModalAboutmeComponent implements OnInit {
   onSubmit() {
     let persona: Persona = this.personaForm.value;
     
-    (this.personaForm.get('id')?.value == '') 
-      this.personaService
-      .crearPersona(persona)
-      .subscribe((newPersona: Persona) => {
-        this.personaList.push(newPersona);
-      });
+    this.personaService.editarPersona(persona).subscribe(() => {
+      this.reloadDate();
+    });
+    
     this.hideModal();
     this.refresh();
   }
@@ -155,6 +153,7 @@ export class ModalAboutmeComponent implements OnInit {
       window.location.reload();
   }
 
+  
   // Métodos para cerrar y abrir el modal
   showModal() {
     this.show = true;

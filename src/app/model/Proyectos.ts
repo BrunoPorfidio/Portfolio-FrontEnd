@@ -1,13 +1,34 @@
 export class Proyectos{
-    idProyectos?: any;
+    idProyectos: number;
 
-    nombreProyecto?: String;
+    nombreProyecto: String;
 
-    descripcion?: String;
+    descripcion: String;
 
-    fotoProyecto?: String;
+    fotoProyecto: String;
 
-    urlProyecto?: String;
+    urlProyecto: String;
 
+    constructor(
+    idProyectos: number,
 
+    nombreProyecto: String,
+
+    descripcion: String,
+
+    fotoProyecto: String,
+
+    urlProyecto: String
+
+    ){
+    this.idProyectos = idProyectos,
+    
+    this.nombreProyecto = nombreProyecto,
+
+    this.descripcion = descripcion,
+
+    this.fotoProyecto = fotoProyecto,
+
+    this.urlProyecto = urlProyecto
+    }
 }

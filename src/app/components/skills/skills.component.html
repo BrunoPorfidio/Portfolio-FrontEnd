@@ -13,11 +13,11 @@
                     <div class="row">
                         <div class="col-6">
                             <i *ngIf="isAdmin == true" (click)="modal.onEditSkill(i)" class="btn-edit bi bi-pencil-fill"></i>
-                            <app-modal-skills [title]="'Editar Skills'" #modal ></app-modal-skills>
+                            <app-modal-skills-edit [title]="'Editar Skills'" #modal ></app-modal-skills-edit>
                         </div>
                         <div class="col-6">
                             <i *ngIf="isAdmin == true" (click)="modal.onDeletedSkill(i)"
-                                class="btn-delete bi bi-trash-fill"></i>
+                                 class="btn-delete bi bi-trash-fill"></i>
                         </div>
                     </div>
                 </div>

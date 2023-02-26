@@ -1,26 +1,76 @@
 export class Persona{
-    id?: any;
+    id: number;
 
-    nombre?: String;
+    nombre: String;
 
-    apellido?: String;
+    apellido: String;
 
-    subTitulo?: String;
+    subTitulo: String;
 
-    acercaMi?: String;
+    acercaMi: String;
 
-    urlFoto?: String;
+    urlFoto: String;
 
-    linkedinUrl?: String;
+    linkedinUrl: String;
 
-    githubUrl?: String;
+    githubUrl: String;
 
-    imgBanner?: String;
+    imgBanner: String;
 
-    telefono?: Number;
+    telefono: Number;
 
-    email?: String;
+    email: String;
 
-    ubicacion?: String;
+    ubicacion: String;
 
+    constructor(
+        id: number,
+
+        nombre: String,
+
+        apellido: String,
+
+        subTitulo: String,
+
+        acercaMi: String,
+
+        urlFoto: String,
+
+        linkedinUrl: String,
+
+        githubUrl: String,
+
+        imgBanner: String,
+
+        telefono: Number,
+
+        email: String,
+
+        ubicacion: String
+
+        ){
+    this.id = id,
+
+    this.nombre = nombre,
+    
+    this.apellido = apellido,
+
+    this.subTitulo = subTitulo,
+
+    this.acercaMi = acercaMi,
+
+    this.urlFoto = urlFoto,
+
+    this.linkedinUrl = linkedinUrl,
+
+    this.githubUrl = githubUrl,
+
+    this.imgBanner = imgBanner,
+
+    this.telefono = telefono,
+
+    this.email = email,
+
+    this.ubicacion = ubicacion
+    }
 }

@@ -24,6 +24,11 @@ import { ModalEducationComponent } from './modals/modal-education/modal-educatio
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ModalExperienceComponent } from './modals/modal-experience/modal-experience.component';
+import { ModalSkillsEditComponent } from './modals/modal-skills-edit/modal-skills-edit.component';
+import { ModalAboutmeEditComponent } from './modals/modal-aboutme-edit/modal-aboutme-edit.component';
+import { ModalEducationEditComponent } from './modals/modal-education-edit/modal-education-edit.component';
+import { ModalExperienceEditComponent } from './modals/modal-experience-edit/modal-experience-edit.component';
+import { ModalProyectsEditComponent } from './modals/modal-proyects-edit/modal-proyects-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +48,12 @@ import { ModalExperienceComponent } from './modals/modal-experience/modal-experi
     EducationComponent,
     ModalEducationComponent,
     ExperienceComponent,
-    ModalExperienceComponent
+    ModalExperienceComponent,
+    ModalSkillsEditComponent,
+    ModalAboutmeEditComponent,
+    ModalEducationEditComponent,
+    ModalExperienceEditComponent,
+    ModalProyectsEditComponent
   ],
   imports: [
     BrowserModule,

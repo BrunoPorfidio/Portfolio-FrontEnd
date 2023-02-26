@@ -19,24 +19,24 @@ export class ExperienciaService {
 
   constructor(private http: HttpClient) { }
 
-  public verExperiencia(): Observable<Experiencia[]> {
+  public verExperiencia(){
     return this.http.get<Experiencia[]>(`${this.ApiExperiencia}ver`);
   }
 
-  public buscarExperiencia(id: number): Observable<any>{
-    return this.http.get<any>(`${this.ApiExperiencia}buscar/${id}`);
+  public buscarExperiencia(experiencia: Experiencia){
+    return this.http.get<Experiencia>(`${this.ApiExperiencia}/`+ experiencia.idExperiencia);
   }
 
-  public crearExperiencia(experiencia: Experiencia, id: number): Observable<Object>{
-    return this.http.post<Object>(`${this.ApiExperiencia}nuevo/${id}`, experiencia, httpOptions);
+  public crearExperiencia(experiencia: Experiencia){
+    return this.http.post<Experiencia>(`${this.ApiExperiencia}nuevo`+ experiencia.idExperiencia, experiencia, httpOptions);
   }
   
-  public editarExperiencia(experiencia: Experiencia): Observable<any> {
-    return this.http.put<any>(`${this.ApiExperiencia}editar`, experiencia, httpOptions);
+  public editarExperiencia(experiencia: Experiencia){
+    return this.http.put<Experiencia>(`${this.ApiExperiencia}editar/`+ experiencia.idExperiencia, experiencia, httpOptions);
   }
 
-  public borrarExperiencia(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.ApiExperiencia}borrar/${id}`);
+  public borrarExperiencia(experiencia: Experiencia){
+    return this.http.delete<Experiencia>(`${this.ApiExperiencia}borrar/`+ experiencia.idExperiencia);
   }
 
 }

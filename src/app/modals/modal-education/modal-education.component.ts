@@ -92,17 +92,13 @@ export class ModalEducationComponent implements OnInit  {
   onSubmit() {
     let educacion: Educacion = this.educacionForm.value;
     
-    if (this.educacionForm.get('id')?.value == '') {
+    (this.educacionForm.get('id')?.value == '') 
       this.educacionService
-      .crearEducacion(educacion, 1)
+      .crearEducacion(educacion)
       .subscribe((newEducacion: Educacion) => {
         this.educacionList.push(newEducacion);
       });
-    } else {
-      this.educacionService.editarEducacion(educacion).subscribe(() => {
-        this.reloadDate();
-      });
-    }
+
     this.hideModal();
     this.refresh();
   }
@@ -119,22 +115,8 @@ export class ModalEducationComponent implements OnInit  {
     });
   }
 
-
   refresh(): void {
     window.location.reload();
-  }
-
-  onDeletedEducacion(index: number) {
-    let educacion: Educacion = this.educacionList[index];
-  
-    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-      this.educacionService
-      .borrarEducacion(educacion.idEducacion)
-      .subscribe(() => {
-        this.reloadDate();
-      });
-      this.refresh();
-    }
   }
 
     // Métodos para cerrar y abrir el modal

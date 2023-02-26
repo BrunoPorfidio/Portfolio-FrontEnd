@@ -1,7 +1,22 @@
 export class Skills{
-    idSkill?: any;
+    idSkill: number;
 
-    nombreSkill?: String;
+    nombreSkill: String;
     
-    fotoSkill?: String;
+    fotoSkill: String;
+
+    constructor(
+        idSkill: number,
+
+        nombreSkill: String,
+        
+        fotoSkill: String
+
+    ){
+    this.idSkill = idSkill,
+    
+    this.nombreSkill = nombreSkill,
+
+    this.fotoSkill = fotoSkill
+    }
 }

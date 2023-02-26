@@ -1,22 +1,21 @@
-
-<div  class="container-fluid"  *ngFor="let persona of personas, let i = index">
+<div class="container-fluid" *ngFor="let persona of personas, let i = index">
     <header style="background-image: url({{persona.imgBanner}});">
         <section class="hero-nombre">
-            <div class="container" >
-                <div class="col" >
-                    <h1 class="titulo"  [id]="persona?.id"> {{persona.nombre}} {{persona.apellido}}</h1>
+            <div class="container">
+                <div class="col">
+                    <h1 class="titulo" [id]="persona.id"> {{persona.nombre}} {{persona.apellido}}</h1>
                     <h2 class="subtitulo">{{persona.subTitulo}}</h2>
-            </div>
+                </div>
             </div>
         </section>
     </header>
 
-    <div class="botones-admin" *ngIf="isAdmin" >
+    <div class="botones-admin" *ngIf="isAdmin">
         <div class="row">
             <div class="col-4">
-                <i (click)="modal.onEditPersona(i)" style="color: rgb(255, 225, 0); font-size: 30px; cursor: pointer;" 
-                class="btn-edit bi bi-pencil-fill"></i>
-                <app-modal-aboutme [title]="'Editar Sobre Mi'" #modal></app-modal-aboutme>
+                <i (click)="modal.onEditPersona(i)" style="color: rgb(255, 225, 0); font-size: 30px; cursor: pointer;"
+                    class="btn-edit bi bi-pencil-fill"></i>
+                <app-modal-aboutme-edit [title]="'Editar Sobre Mi'" #modal></app-modal-aboutme-edit>
             </div>
         </div>
     </div>
@@ -28,23 +27,22 @@
                 <div class="col-lg-8 col-md-12">
                     <p class="my-descrp">{{persona.acercaMi}}</p>
                     <div class="row ">
-                        <div class="col-4"> 
-                            <a [href]="persona.githubUrl" target="_blank" >
+                        <div class="col-4">
+                            <a [href]="persona.githubUrl" target="_blank">
                                 <i class="bi bi-github social-img"></i>
                             </a>
                         </div>
                         <div class="col-4  ">
-                            <a [href]="persona.linkedinUrl" target="_blank" >
+                            <a [href]="persona.linkedinUrl" target="_blank">
                                 <i class="bi bi-linkedin social-img"></i>
-                        </a>
+                            </a>
+                        </div>
                     </div>
                 </div>
-        </div>
-            <div class="col-lg-4 col-md-0">
-                <img [src]="persona?.urlFoto" [alt]="persona.nombre" 
-                class="img-responsive img-circle">
+                <div class="col-lg-4 col-md-0">
+                    <img [src]="persona.urlFoto" [alt]="persona.nombre" class="img-responsive img-circle">
+                </div>
             </div>
         </div>
-     </div>
     </section>
 </div>

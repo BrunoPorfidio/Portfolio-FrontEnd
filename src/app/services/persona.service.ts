@@ -18,23 +18,23 @@ export class PersonaService {
 
   constructor(private http: HttpClient) {}
 
-  public verPersona(): Observable<Persona[]> {
+  public verPersona() {
     return this.http.get<Persona[]>(this.ApiPersona + 'ver');
   }
 
-  public buscarPersona(id: number): Observable<any>{
-    return this.http.get<any>(`${this.ApiPersona}ver_uno/${id}`);
+  public buscarPersona(persona: Persona){
+    return this.http.get<Persona>(`${this.ApiPersona}/`+ persona.id);
   }
 
-  public crearPersona(persona: Persona): Observable<Object> {
-    return this.http.post(`${this.ApiPersona}nuevo`, persona, httpOptions);
+  public crearPersona(persona: Persona){
+    return this.http.post<Persona>(`${this.ApiPersona}nuevo`, persona, httpOptions);
   }
   
-  public editarPersona(persona: Persona): Observable<any> {
-    return this.http.put<any>(`${this.ApiPersona}editar`, persona, httpOptions);
+  public editarPersona(persona: Persona) {
+    return this.http.put<Persona>(`${this.ApiPersona}editar/`+ persona.id, persona, httpOptions);
   }
   
-  public borrarPersona(id:number | any): Observable<Persona> {
-    return this.http.delete<Persona>(`${this.ApiPersona}borrar/` + id);
+  public borrarPersona(persona: Persona) {
+    return this.http.delete<Persona>(`${this.ApiPersona}borrar/`+ persona.id);
   }
 }

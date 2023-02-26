@@ -1,14 +1,40 @@
 export class Educacion {
-    idEducacion?: any; 
+    idEducacion: number; 
     
-    institucion?: String;
+    institucion: String;
    
-    titulo?: String;
+    titulo: String;
     
-    inicio?: Number;
+    inicio: Number;
     
-    fin?: Number;
+    fin: Number;
 
-    fotoEducacion?: String;
+    fotoEducacion: String;
+
+    constructor(
+        idEducacion: number,
+
+        institucion: String,
+
+        titulo: String,
+
+        inicio: Number,
+
+        fin: Number,
+
+        fotoEducacion: String
+    ){
+        this.idEducacion = idEducacion,
+
+        this.institucion = institucion,
+
+        this.titulo = titulo,
+
+        this.inicio = inicio,
+
+        this.fin = fin
+
+        this.fotoEducacion = fotoEducacion
+    }
 
 }

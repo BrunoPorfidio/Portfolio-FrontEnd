@@ -18,24 +18,24 @@ export class EducacionService {
 
   constructor(private http: HttpClient) { }
 
-  public verEducacion(): Observable<Educacion[]> {
+  public verEducacion(){
     return this.http.get<Educacion[]>(`${this.ApiEducacion}ver`);
   }
 
-  public buscarEducacion(id: number): Observable<any>{
-    return this.http.get<any>(`${this.ApiEducacion}buscar/${id}`);
+  public buscarEducacion(educacion: Educacion,){
+    return this.http.get<Educacion>(`${this.ApiEducacion}buscar/`+ educacion.idEducacion);
   }
 
-  public crearEducacion(educacion: Educacion, id: number): Observable<Object>{
-    return this.http.post<Object>(`${this.ApiEducacion}nuevo/${id}`, educacion, httpOptions);
+  public crearEducacion(educacion: Educacion){
+    return this.http.post<Educacion>(`${this.ApiEducacion}nuevo`, educacion, httpOptions);
   }
   
-  public editarEducacion(educacion: Educacion): Observable<any> {
-    return this.http.put<any>(`${this.ApiEducacion}editar`, educacion, httpOptions);
+  public editarEducacion(educacion: Educacion){
+    return this.http.put<Educacion>(`${this.ApiEducacion}editar/`+ educacion.idEducacion, educacion, httpOptions);
   }
 
-  public borrarEducacion(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.ApiEducacion}borrar/${id}`);
+  public borrarEducacion(educacion: Educacion){
+    return this.http.delete<Educacion>(`${this.ApiEducacion}borrar/`+ educacion.idEducacion, httpOptions);
   }
 
 }

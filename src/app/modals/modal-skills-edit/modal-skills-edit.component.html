@@ -1,0 +1,49 @@
+<ng-container *ngIf="show" >
+    <div class="modalc">
+      <div class="modalc-content">
+        <!-- Header del modal-->
+        <header class="modalc-header">
+          <h4 class="modalc-title"><b>{{ title }}</b></h4>
+        </header>
+        <!-- Contenido del modal-->
+        <div class="modalc-container">
+          <form [formGroup]="skillsForm" (ngSubmit)="onSubmit()">
+            <div>
+              <input type="hidden" name="idSkill" formControlName="idSkill" />
+  
+              <h4>Nombre del skill</h4>
+              <input
+                type="text"
+                name="nombreSkill"
+                formControlName="nombreSkill"
+                placeholder="Ingrese Nombre del Skill"
+                required
+                class="contact-input form-control"
+              />
+              <h4>Imagen del Skill</h4>
+              <input
+                type="url"
+                name="fotoSkill"
+                formControlName="fotoSkill"
+                placeholder="Ingrese la Url del Skill"
+                class="contact-input form-control"
+              />
+              <!--==/ Botón para guardar los datos /==-->
+              <div class="container">
+                <div class="row">
+                    <div class="col-6">
+                        <button type="submit" class="btn-save"><i class="bi bi-person-fill-add"></i></button>
+                    </div>
+                    <div class="col-6">
+                        <button (click)="show = false" class="btnn-close " ><i class="bi bi-x-circle-fill"></i></button>
+                    </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </ng-container>

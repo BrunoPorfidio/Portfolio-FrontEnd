@@ -5,11 +5,11 @@ import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
-  selector: 'app-modal-skills',
-  templateUrl: './modal-skills.component.html',
-  styleUrls: ['./modal-skills.component.css'],
+  selector: 'app-modal-skills-edit',
+  templateUrl: './modal-skills-edit.component.html',
+  styleUrls: ['./modal-skills-edit.component.css']
 })
-export class ModalSkillsComponent implements OnInit {
+export class ModalSkillsEditComponent  implements OnInit {
 
   @Input() title = '';
 
@@ -20,6 +20,7 @@ export class ModalSkillsComponent implements OnInit {
   skillsForm: FormGroup;
   roles: string[];
   isAdmin = false;
+  
   public show = false;
 
   constructor(
@@ -59,18 +60,33 @@ export class ModalSkillsComponent implements OnInit {
     this.showModal();
   }
 
+  private loadForm(skills: Skills) {
+    this.skillsForm.setValue({
+
+      idSkill: skills.idSkill,
+
+      nombreSkill: skills.nombreSkill,
+
+      fotoSkill: skills.fotoSkill,
+    });
+  }
+
   onSubmit() {
+
     let skills: Skills = this.skillsForm.value;
 
-    (this.skillsForm.get('id')?.value == '') 
-      this.skillService
-      .crearSkills(skills)
-      .subscribe((newSkill: Skills) => {
-        this.skillList.push(newSkill);
-      });
-      
+    this.skillService.editarSkills(skills).subscribe(() => {
+      this.reloadDate();
+    });
+
     this.hideModal();
     this.refresh();
+  }
+
+  onEditSkill(index: number) {
+    let skills: Skills = this.skillList[index];
+    this.loadForm(skills);
+    this.showModal();
   }
 
   // Método para recurar los datos de la base de datos
@@ -84,6 +100,19 @@ export class ModalSkillsComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
+  }
+
+  onDeletedSkill(index: number) {
+    let skills: Skills = this.skillList[index];
+  
+    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
+      this.skillService
+      .borrarSkills(skills)
+      .subscribe(() => {
+        this.reloadDate();
+      });
+      this.refresh();
+    }
   }
 
   // Métodos para cerrar y abrir el modal

@@ -5,11 +5,11 @@ import { ProyectoService } from 'src/app/services/proyectos.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-modal-proyects',
-  templateUrl: './modal-proyects.component.html',
-  styleUrls: ['./modal-proyects.component.css'],
+  selector: 'app-modal-proyects-edit',
+  templateUrl: './modal-proyects-edit.component.html',
+  styleUrls: ['./modal-proyects-edit.component.css']
 })
-export class ModalProyectsComponent implements OnInit {
+export class ModalProyectsEditComponent implements OnInit {
 
   @Input() title = '';
 
@@ -85,13 +85,10 @@ export class ModalProyectsComponent implements OnInit {
   onSubmit() {
     let proyectos: Proyectos = this.proyectosForm.value;
 
-    (this.proyectosForm.get('id')?.value == '') 
-      this.proyectosService
-      .crearProyecto(proyectos)
-      .subscribe((newProyecto: Proyectos) => {
-        this.proyectosList.push(newProyecto);
+      this.proyectosService.editarProyecto(proyectos).subscribe(() => {
+        this.reloadDate();
       });
-
+    
     this.hideModal();
     this.refresh();
   }
@@ -108,6 +105,19 @@ export class ModalProyectsComponent implements OnInit {
         this.proyectosList = date;
       });
     }
+
+  onDeletedProyecto(index: number) {
+    let proyectos: Proyectos = this.proyectosList[index];
+
+    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
+      this.proyectosService
+        .borrarProyecto(proyectos)
+        .subscribe(() => {
+          this.reloadDate();
+        });
+      this.refresh();
+    }
+  }
 
   refresh(): void {
     window.location.reload();

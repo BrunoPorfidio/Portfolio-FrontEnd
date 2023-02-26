@@ -18,24 +18,24 @@ export class ProyectoService {
 
   constructor(private http: HttpClient) { }
 
-  public verProyecto(): Observable<Proyectos[]> {
+  public verProyecto() {
     return this.http.get<Proyectos[]>(`${this.ApiProyectos}ver`);
   }
 
-  public buscarProyecto(id: number): Observable<any>{
-    return this.http.get<any>(`${this.ApiProyectos}buscar/${id}`);
+  public buscarProyecto(proyectos: Proyectos){
+    return this.http.get<Proyectos>(`${this.ApiProyectos}/`+ proyectos.idProyectos);
   }
 
-  public crearProyecto(proyectos: Proyectos, id: number): Observable<Object>{
-    return this.http.post<Object>(`${this.ApiProyectos}nuevo/${id}`, proyectos, httpOptions);
+  public crearProyecto(proyectos: Proyectos){
+    return this.http.post<Proyectos>(`${this.ApiProyectos}nuevo`, proyectos, httpOptions);
   }
   
-  public editarProyecto(proyectos: Proyectos): Observable<any> {
-    return this.http.put<any>(`${this.ApiProyectos}editar`, proyectos, httpOptions);
+  public editarProyecto(proyectos: Proyectos){
+    return this.http.put<Proyectos>(`${this.ApiProyectos}editar/`+ proyectos.idProyectos, proyectos, httpOptions);
   }
 
-  public borrarProyecto(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.ApiProyectos}borrar/${id}`);
+  public borrarProyecto(proyectos: Proyectos){
+    return this.http.delete<Proyectos>(`${this.ApiProyectos}borrar/`+ proyectos.idProyectos);
   }
 
 }

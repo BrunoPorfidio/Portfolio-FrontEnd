@@ -16,20 +16,20 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 card-main"
                             *ngFor="let proyecto of proyectos , let i = index">
-                            <div class="card card-proyects" [id]="proyecto?.idProyectos">
+                            <div class="card card-proyects" [id]="proyecto.idProyectos">
                                 <a [href]="proyecto.urlProyecto" target="_blank" > 
                                     <img class="img-proyect"[src]="proyecto.fotoProyecto" alt="referencia de proyecto">
                                 </a>
                                 <div class="container card-cont">
                                     <b class="name-proyect">{{proyecto.nombreProyecto}}</b>
-                                    <p >{{proyecto?.descripcion}}</p>
+                                    <p >{{proyecto.descripcion}}</p>
                                 </div>
                                
                                 <div class="row">
                                     <div class="col-6">
                                         <i *ngIf="isAdmin == true" (click)="modal.onEditProyecto(i)"
                                             class="btn-edit bi bi-pencil-fill"></i>
-                                            <app-modal-proyects [title]="'Editar Proyectos'" #modal></app-modal-proyects>
+                                            <app-modal-proyects-edit [title]="'Editar Proyectos'" #modal></app-modal-proyects-edit>
                                     </div>
                                     <div class="col-6">
                                         <i *ngIf="isAdmin == true" (click)="modal.onDeletedProyecto(i)"
