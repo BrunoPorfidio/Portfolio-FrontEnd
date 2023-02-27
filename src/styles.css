@@ -1,6 +1,5 @@
 * {
-  margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
   font-family: Adamina;
   scroll-behavior: smooth;
@@ -16,6 +15,7 @@ body {
   font-size: 16px;
   text-align: center;
   align-items: center;
+  width: auto;
 }
 
 header {
@@ -141,21 +141,6 @@ header {
   margin-bottom: 2.5rem;
   position: relative;
 }
-  /* animation-name: moveToRight;
-  animation-duration: 3s;
-}
-
-@keyframes moveToRight {
-0% {
-    opacity: 0;
-    left: -1000px;
-}
-100% {
-    opacity: 1;
-    left: 0;
-}
-} */
-
 
 .social-img{
 color: #ffff;
@@ -461,7 +446,7 @@ img {
 
 @media (max-width: 2600px) {
   .skill-img {
-    width: 50%;
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
   }

@@ -4,7 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {FormControl} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -30,6 +29,8 @@ import { ModalAboutmeEditComponent } from './modals/modal-aboutme-edit/modal-abo
 import { ModalEducationEditComponent } from './modals/modal-education-edit/modal-education-edit.component';
 import { ModalExperienceEditComponent } from './modals/modal-experience-edit/modal-experience-edit.component';
 import { ModalProyectsEditComponent } from './modals/modal-proyects-edit/modal-proyects-edit.component';
+import { RegisterComponent } from './components/login/register/register.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ModalProyectsEditComponent } from './modals/modal-proyects-edit/modal-p
     ModalAboutmeEditComponent,
     ModalEducationEditComponent,
     ModalExperienceEditComponent,
-    ModalProyectsEditComponent
+    ModalProyectsEditComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { ModalProyectsEditComponent } from './modals/modal-proyects-edit/modal-p
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
-    BrowserAnimationsModule 
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     interceptorPorvider,

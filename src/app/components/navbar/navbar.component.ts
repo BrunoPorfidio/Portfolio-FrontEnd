@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { TokenService } from 'src/app/services/token.service';
-import { PersonaService } from 'src/app/services/persona.service';
 import { Persona } from 'src/app/model/Persona';
 import { environments } from 'src/environments/environment';
-
 
 @Component({
   selector: 'app-navbar',
@@ -25,10 +21,7 @@ export class NavbarComponent implements OnInit  {
 
   constructor(
     private tokenService: TokenService,
-    private authService: AuthService,
-    private personaService: PersonaService,
-    private formBuilder: FormBuilder,
-    private ruta: Router
+    private ruta: Router,
     ){}
 
 
@@ -89,10 +82,6 @@ public active : boolean = false;
 
   toContact(){
     document.getElementById('contact')?.scrollIntoView({behavior:"smooth"})
-  }
-
-  onSubmit(){
-    console.log(this.persona);
   }
 
 }

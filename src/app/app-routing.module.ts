@@ -4,16 +4,14 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
 import { Error404Component } from './components/error404/error404.component';
 import { GuardGuard as guard } from './services/guard.guard';
+import { RegisterComponent } from './components/login/register/register.component';
 
 const routes: Routes = [
   {
-    path: 'portfolio',
-    component: PortfolioComponent,
-    canActivate: [guard],
-    data: { expectedRol: ['admin', 'user'] },
-  },
+    path: 'portfolio',component: PortfolioComponent},
   { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent },
+  { path: '**', redirectTo: '/portfolio', pathMatch: 'full' },
   { path: '', component: Error404Component },
 ];
 

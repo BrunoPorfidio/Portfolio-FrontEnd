@@ -9,31 +9,27 @@
               <h3><p class="text-white-50 mb-5">
                 Por favor, ingresar usuario y contraseña.
                 <br>
-                <br>
-                <span style="font-size: 0.8em;" >Usuario para invitados:
-                  <br>
-                  Nombre se usuario: <b>invitado</b> 
-                  <br>
-                  Contraseña: <b>invitado123</b> </span> 
-              </p></h3>
+                </h3>
 
               <form id="form" #form="ngForm" (ngSubmit)="onLogin($event)" novalidate>
                 <div class="form-outline form-white mb-4">
-                  <label class="form-label login-txt" for="nombreUsuario">Usuario</label>
+                  <label class="form-label login-txt" for="nombreUsuario">Nombre de Usuario</label>
                   <input type="text" name="nombreUsuario" id="nombreUsuario" style="font-size: 20px;" class="form-control form-control-md"
-                    [(ngModel)]="nombreUsuario" required>
+                    [(ngModel)]="nombreUsuario" required placeholder="Ejemplo: Bruno">
                 </div>
 
                 <div class="form-outline form-white mb-4">
                   <label class="form-label login-txt" for="password">Contraseña</label>
                   <input type="password" name="password" id="password" style="font-size: 20px;" class="form-control form-control-md"
-                    [(ngModel)]="password" required>
+                    [(ngModel)]="password" required placeholder="Ejemplo: Password">
                 </div>  
                 <button id="boton" class="btn btn-outline-light btn-lg px-5 buttons" type="submit"><i class="bi bi-box-arrow-in-right icon-send"></i>
                   Ingresar
                 </button>
+                <!-- <button id="boton" routerLink="/register" class="btn btn-outline-light btn-lg px-5 buttons" type="submit"><i class="bi bi-plus-square"></i>
+                  Crear Cuenta
+                </button> -->
               </form>
-              <div *ngIf="isLogginFail" class="alert alert-danger mt-3">Fallo en el Login {{errMsj}}</div>
             </div>
           </div>
         </div>

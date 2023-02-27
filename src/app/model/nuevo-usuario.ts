@@ -3,6 +3,7 @@ export class NuevoUsuario {
   nombreUsuario: String;
   email: String;
   password: String;
+
   constructor(
     nombre: String,
     nombreUsuario: String,
