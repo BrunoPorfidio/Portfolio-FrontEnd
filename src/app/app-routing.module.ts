@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
 import { Error404Component } from './components/error404/error404.component';
-import { GuardGuard as guard } from './services/guard.guard';
 import { RegisterComponent } from './components/login/register/register.component';
 
 const routes: Routes = [
@@ -16,7 +15,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
