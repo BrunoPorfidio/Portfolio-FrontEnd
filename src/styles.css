@@ -216,14 +216,14 @@ font-size: 1.5125em;
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
-  transform: scale(var(--escala, 1));
-  transition: transform 0.25s;
+  /* transform: scale(var(--escala, 1));
+  transition: transform 0.25s; */
 }
 
-.i-skills:hover {
+/* .i-skills:hover {
   --escala: 1.4;
   object-fit: cover;
-}
+} */
 
 .card-cont{
   overflow: hidden;
