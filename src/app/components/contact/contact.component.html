@@ -1,43 +1,51 @@
-<section class="hero-contacto" id="contact" >
+<section class="hero-contacto" id="contact">
     <h2 class="contact-title">Contactame!</h2>
     <div class="container-fluid contact-container" data-aos="flip-right">
-        <div class="row" >
-            <div class="col-lg-6 col-md-12 col-sm-12"  *ngFor="let persona of personas, let i = index">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-sm-12" *ngFor="let persona of personas, let i = index">
                 <div class="contact-informat">
                     <h3 class="column-title"><b>Informacion de contacto </b>
                     </h3>
                     <p class="column-text"> Telefono: </p>
-                        <i class="bi bi-phone"></i> (+54 9) {{persona.telefono}}
+                    <i class="bi bi-phone"></i> (+54 9) {{persona.telefono}}
                     <p class="column-text"> Email:</p>
-                        <i class="bi bi-google"></i> {{persona.email}}
+                    <i class="bi bi-google"></i> {{persona.email}}
                     <p class="column-text"><i class="bi bi-geo-alt"></i><b> {{persona.ubicacion}}</b></p>
                 </div>
             </div>
-            <!-- <div class="col-lg-6 col-md-12 col-sm-12">
-                <div class="formulario">
-                <form action=""  [formGroup]="contacto">
-                    <div class="row">
-                        <div class="col-6 ">
-                            <label formControlName="nombre" class="formulario--label ">Nombre:</label>
-                            <input type="text" id="form-nombre" class="formulario--input-txt nombre-form"
-                             name="nombre" placeholder="Ingrese su Nombre" required>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="formulario form-group">
+                    <form #form target="_blank" action="https://formsubmit.co/brunoporfidio117@gmail.com" method="post">
+                        <div class="row">
+                            <div class="col-6 form-group ">
+                                <label class="formulario--label ">Nombre:</label>
+                                <input type="text" name="nombre"  class="formulario--input-txt nombre-form"
+                                    placeholder="Ingrese su Nombre" required>
+                            </div>
+                            <div class="col-6 form-group">
+                                <label class="formulario--label">Email:</label>
+                                <input type="email" name="email" class="formulario--input-txt email-form" 
+                                    placeholder="Ejemplo: example@gmail.com" required>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <label formControlName="email" class="formulario--label ">Email:</label>
-                            <input type="text" class="formulario--input-txt email-form"
-                             name="Email" placeholder="Ingrese su Email" required>
+                        <div class="form-group"> 
+                            <label class="formulario--label">Asunto:</label>
+                            <input type="text" name="Asunto" class="formulario--input-txt" placeholder="Ingrese el Asunto"
+                                required>
                         </div>
-                    </div>
-                <label formControlName="asunto" class="formulario--label">Asunto:</label>
-                <input type="text" class="formulario--input-txt"
-                 name="Asunto" placeholder="Ingrese el Asunto" required>
-                <label formControlName="mensaje" class="formulario--label">Mensaje:</label>
-                <textarea name="mensaje" id="" cols="30" rows="10" 
-                    class="formulario--textarea" placeholder="Ingrese el Mensaje" required></textarea>
-                 <input type="submit" class="btn formulario--btn" value="Enviar">
-                </form>
+
+                        <div class="form-group">
+                            <label class="formulario--label">Mensaje:</label>
+                            <textarea name="mensaje" rows="6" class="formulario--textarea"
+                                placeholder="Ingrese el Mensaje" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn formulario--btn" (click)="form.submit()">
+                            Enviar
+                        </button>
+                    </form>
                 </div>
-            </div> -->
+            </div>
         </div>
     </div>
 </section>
