@@ -10,7 +10,7 @@
 
     <div class="container-fluid" style="margin-bottom: 3%;" >
         <div class="row">
-            <div class="col-md-6 col-sm-10" data-aos="zoom-in-down" *ngFor="let experiencia of experiencias, let i = index" [id]="experiencia.idExperiencia" >
+            <div class="col-md-6 col-sm-10" *ngFor="let experiencia of experiencias, let i = index" [id]="experiencia.idExperiencia" >
                 <div class="card main-card-experience">
                     <div class="card-header card-experience-title">
                         <h2 class="title-card-experience">{{experiencia.nombreEmpresa}}</h2>

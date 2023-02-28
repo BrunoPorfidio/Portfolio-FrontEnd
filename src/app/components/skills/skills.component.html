@@ -9,8 +9,7 @@
         <div class="container icons-skills" data-aos="fade-up"
         data-aos-anchor-placement="center-bottom">
             <div class="row admin-btn">
-                <div class="col-1 i-skills"  data-aos="fade-up"
-                data-aos-anchor-placement="center-bottom" *ngFor="let skills of skilss, let i = index" [id]="skills.idSkill">
+                <div class="col-1 i-skills" *ngFor="let skills of skilss, let i = index" [id]="skills.idSkill">
                     <img [src]="skills.fotoSkill" class="skill-img" [alt]="skills.nombreSkill">
                     <div class="row">
                         <div class="col-6">
