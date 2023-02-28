@@ -23,7 +23,7 @@ export class PersonaService {
   }
 
   public buscarPersona(persona: Persona){
-    return this.http.get<Persona>(`${this.ApiPersona}/`+ persona.id);
+    return this.http.get<Persona>(`${this.ApiPersona}`+ persona.id);
   }
 
   public crearPersona(persona: Persona){
