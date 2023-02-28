@@ -6,8 +6,7 @@
                 style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
                 <app-modal-skills [title]="'Agregar Skills'" #modal ></app-modal-skills>
         </div>
-        <div class="container icons-skills" data-aos="fade-up"
-        data-aos-anchor-placement="center-bottom">
+        <div class="container icons-skills" data-aos="zoom-out">
             <div class="row admin-btn">
                 <div class="col-1 i-skills" *ngFor="let skills of skilss, let i = index" [id]="skills.idSkill">
                     <img [src]="skills.fotoSkill" class="skill-img" [alt]="skills.nombreSkill">
