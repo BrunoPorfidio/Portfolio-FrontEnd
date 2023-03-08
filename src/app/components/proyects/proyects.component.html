@@ -17,10 +17,10 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 card-main"
                             *ngFor="let proyecto of proyectos , let i = index">
                             <div class="card card-proyects" [id]="proyecto.idProyectos">
-                                <a  data-aos="fade-right" [href]="proyecto.urlProyecto" target="_blank" > 
+                                <a  data-aos="fade-right" data-aos-duration="1000" [href]="proyecto.urlProyecto" target="_blank" > 
                                     <img class="img-proyect"[src]="proyecto.fotoProyecto" alt="referencia de proyecto">
                                 </a>
-                                <div  data-aos="fade-left" class="container card-cont">
+                                <div  data-aos="fade-left" data-aos-duration="1000" class="container card-cont">
                                     <b class="name-proyect">{{proyecto.nombreProyecto}}</b>
                                     <p >{{proyecto.descripcion}}</p>
                                 </div>

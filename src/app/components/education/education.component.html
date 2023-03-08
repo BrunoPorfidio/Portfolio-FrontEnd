@@ -12,10 +12,10 @@
         <div class="row" >
             <div class="col-md-6 col-sm-10"  *ngFor="let educacion of educacions, let i = index" [id]="educacion.idEducacion" >
                 <div class="card main-card-education">
-                    <div class="card-header card-education-title" data-aos="flip-left">
+                    <div class="card-header card-education-title" data-aos="flip-left" data-aos-duration="1000">
                         <h2 class="school-title">{{educacion.institucion}}</h2>
                     </div>
-                    <div class="card-body education-card" data-aos="flip-left">
+                    <div class="card-body education-card" data-aos="flip-left" data-aos-duration="1000">
                         <div class="row">
                             <div class="col-6">
                                 <img class=" img-education" [src]="educacion.fotoEducacion" alt="img Educacion" >

@@ -23,7 +23,6 @@ header {
   text-align: center;
   color: #fff;
   background-attachment: scroll;
-
   background-position: center center;
   background-repeat: none;
   background-size: cover;
@@ -174,6 +173,11 @@ font-size: 1.5125em;
 }
 
 /*  Estilos de Experiencias */
+
+.main-card-experience{
+  overflow: hidden;
+
+}
 
 .title-card-experience{
   font-size: 1.5em;

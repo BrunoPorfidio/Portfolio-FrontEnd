@@ -1,6 +1,6 @@
 <div class="container-fluid" *ngFor="let persona of personas, let i = index">
     <header style="background-image: url({{persona.imgBanner}});">
-        <section class="hero-nombre" data-aos="zoom-in">
+        <section class="hero-nombre" data-aos="zoom-in" data-aos-duration="1000">
             <div class="container">
                 <div class="col">
                     <h1 class="titulo" [id]="persona.id"> {{persona.nombre}} {{persona.apellido}}</h1>
@@ -24,7 +24,7 @@
         <div class="container">
             <h1 class="my-descrp-title"> Sobre mi</h1>
             <div class="row">
-                <div class="col-lg-8 col-md-12" data-aos="fade-right" data-aos-offset="500">
+                <div class="col-lg-8 col-md-12" data-aos="fade-right" data-aos-offset="500" data-aos-duration="1000">
                     <p class="my-descrp">{{persona.acercaMi}}</p>
                     <div class="row ">
                         <div class="col-4">
