@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PersonaService {
-  ApiPersona = 'https://api-portfolio-brunoporfidio.koyeb.app/persona/';
+  private ApiPersona = `${environments.Api}/persona/`;
 
   constructor(private http: HttpClient) {}
 
