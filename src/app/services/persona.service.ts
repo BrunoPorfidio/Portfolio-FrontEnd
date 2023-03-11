@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Persona } from '../model/Persona';
-import { environments } from 'src/environments/environment.prod';
+// import { environments } from 'src/environments/environment.prod';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -14,7 +14,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class PersonaService {
-  private ApiPersona = `${environments.Api}/persona/`;
+  ApiPersona = 'https://api-portfolio-brunoporfidio.koyeb.app';
 
   constructor(private http: HttpClient) {}
 
