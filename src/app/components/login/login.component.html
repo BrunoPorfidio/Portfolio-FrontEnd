@@ -5,12 +5,16 @@
         <div class="card bg-dark text-white">
           <div class="card-body p-4 text-center login-container">
             <div>
-              <h1 class="fw-bold mb-2 text-uppercase login-title">Login</h1>
+              <div class="row">
+                <div class="col-10"><h1 class="fw-bold mb-2 text-uppercase login-title" style="padding-left: 2.5em;">Login</h1></div>
+                <div class="col-2"><button id="boton" class="btn btn-outline-light buttons" (click)="volver()" type="submit">
+                  <i class="bi bi-backspace"></i>
+                </button></div>
+              </div>
               <h3><p class="text-white-50 mb-5">
                 Por favor, ingresar usuario y contraseña.
                 <br>
                 </h3>
-
               <form id="form" #form="ngForm" (ngSubmit)="onLogin($event)" novalidate>
                 <div class="form-outline form-white mb-4">
                   <label class="form-label login-txt" for="nombreUsuario">Nombre de Usuario</label>

@@ -24,7 +24,7 @@ export class ExperienciaService {
   }
 
   public buscarExperiencia(experiencia: Experiencia){
-    return this.http.get<Experiencia>(`${this.ApiExperiencia}/`+ experiencia.idExperiencia);
+    return this.http.get<Experiencia>(`${this.ApiExperiencia}`+ experiencia.idExperiencia);
   }
 
   public crearExperiencia(experiencia: Experiencia){

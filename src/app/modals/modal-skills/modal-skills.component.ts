@@ -25,7 +25,7 @@ export class ModalSkillsComponent implements OnInit {
   constructor(
     private skillService: SkillsService,
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
   ) {
     this.skillsForm = this.formBuilder.group({
       idSkill: [''],
