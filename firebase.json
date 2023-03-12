@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "brunoporfidio",
     "public": "dist/portfolio-front-end",
     "ignore": [
       "firebase.json",
