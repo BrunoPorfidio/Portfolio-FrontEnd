@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environment';
 import { Proyectos } from 'src/app/model/Proyectos';
 import { ProyectoService } from 'src/app/services/proyectos.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-proyects',
@@ -12,30 +10,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProyectsComponent implements OnInit {
 
-  proyectosList: Proyectos[] =[];
-  proyectosForm: FormGroup;
 
   proyectos: Proyectos[] = [];
   roles: string[];
   authority: string;
   isAdmin = false;
-  isLogged = environments.isLogged;
 
   public proyecto: Proyectos;
 
   constructor(
     private tokenService: TokenService,
     private proyectosService: ProyectoService,
-    private formBuilder: FormBuilder
-  ) {
-    this.proyectosForm = this.formBuilder.group({
-      id: [''],
-      nombreProyecto: ['', [Validators.required]],
-      descripcion: ['', [Validators.required]],
-      urlProyecto: ['', [Validators.required]],
-      fotoProyecto: ['', [Validators.required]],
-  });
-}
+  ) {}
 
   ngOnInit(): void {
 
@@ -59,4 +45,17 @@ export class ProyectsComponent implements OnInit {
       }
     );
   }
+
+  delete(id?: number){
+    if(id != undefined)[
+      this.proyectosService.borrarProyecto(id).subscribe(
+        data =>{
+          this.mostrarProyectos();
+        }, err =>{
+          alert("No se pudo Eliminar el Proyecto")
+        }
+      )
+    ]
+  }
+
 }

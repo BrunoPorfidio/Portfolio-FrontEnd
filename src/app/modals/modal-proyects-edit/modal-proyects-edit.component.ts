@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Proyectos } from 'src/app/model/Proyectos';
 import { ProyectoService } from 'src/app/services/proyectos.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-proyects-edit',
@@ -11,125 +12,36 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class ModalProyectsEditComponent implements OnInit {
 
-  @Input() title = '';
-
-  // Variables globales
-  proyectosList: Proyectos[] = [];
-  isLogged: Boolean = false;
-  proyectosForm: FormGroup;
-  roles: string[];
-  isAdmin = false;
-
-  public show = false;
+  proyectos: Proyectos;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private proyectosService: ProyectoService,
-    private authService: AuthService,
-    private formBuilder: FormBuilder
-  ) {
-    this.proyectosForm = this.formBuilder.group({
-      idProyectos: [''],
-
-      nombreProyecto: ['', [Validators.required]],
-
-      descripcion: ['', [Validators.required]],
-
-      urlProyecto: ['', [Validators.required]],
-
-      fotoProyecto: ['', [Validators.required]],
-    });
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.isLogged = this.authService.isLogged();
 
-    this.reloadDate();
+    const id = this.activatedRoute.snapshot.params['idProyectos'];
+    this.proyectosService.buscarProyecto(id).subscribe(
+      data => {this.proyectos = data;
+      }, err => {
+        alert("Error al modificar el Proyecto");
+        this.router.navigate(['/portfolio']);
+      }
+      )
   }
   
-  /*===/ Configuraciones del formulario /===*/
-
-  private clearForm() {
-    this.proyectosForm.setValue({
-      idProyectos: '',
-
-      nombreProyecto: '',
-
-      descripcion: '',
-
-      urlProyecto: '',
-
-      fotoProyecto: '',
-    });
-  }
-
-  onNewProyecto() {
-    this.clearForm();
-    this.showModal();
-  }
-
-  private loadForm(proyectos: Proyectos) {
-    this.proyectosForm.setValue({
-
-      idProyectos: proyectos.idProyectos,
-
-      nombreProyecto: proyectos.nombreProyecto,
-
-      descripcion: proyectos.descripcion,
-
-      urlProyecto: proyectos.urlProyecto,
-
-      fotoProyecto: proyectos.fotoProyecto,
-    });
-  }
-
-  onSubmit() {
-    let proyectos: Proyectos = this.proyectosForm.value;
-
-      this.proyectosService.editarProyecto(proyectos).subscribe(() => {
-        this.reloadDate();
-      });
-    
-    this.hideModal();
-    this.refresh();
-  }
-
-
-  onEditProyecto(index: number) {
-    let proyectos: Proyectos = this.proyectosList[index];
-    this.loadForm(proyectos);
-    this.showModal();
-  }
-  
-    reloadDate() {
-      this.proyectosService.verProyecto().subscribe((date) => {
-        this.proyectosList = date;
-      });
-    }
-
-  onDeletedProyecto(index: number) {
-    let proyectos: Proyectos = this.proyectosList[index];
-
-    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-      this.proyectosService
-        .borrarProyecto(proyectos)
-        .subscribe(() => {
-          this.reloadDate();
-        });
-      this.refresh();
-    }
-  }
-
-  refresh(): void {
-    window.location.reload();
-  }
-
-  // Métodos para cerrar y abrir el modal
-  showModal() {
-    this.show = true;
-  }
-
-  hideModal() {
-    this.show = false;
+  onUpdate(): void {
+    const id = this.activatedRoute.snapshot.params['idProyectos'];
+    this.proyectosService.editarProyecto(id, this.proyectos).subscribe(
+      data => {
+        this.router.navigate(['/portfolio'])
+      }, err => {
+        alert("Error al modificar el Proyecto");
+        this.router.navigate(['/portfolio']);
+      }
+    )
   }
 
 }

@@ -1,130 +1,48 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { Educacion } from 'src/app/model/Educacion';
 import { EducacionService } from 'src/app/services/educacion.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-education',
   templateUrl: './modal-education.component.html',
-  styleUrls: ['./modal-education.component.css']
+  styleUrls: ['./modal-education.component.css'],
 })
-export class ModalEducationComponent implements OnInit  {
+export class ModalEducationComponent implements OnInit {
 
-    @Input() title = '';
+  institucion: String;
 
-  // Variables globales
+  titulo: String;
 
-  educacionList: Educacion[] = [];
-  isLogged: Boolean = false;
-  educacionForm: FormGroup;
-  roles: string[];
-  isAdmin = false;
-  
-  public show = false;
+  inicio: Number;
+
+  fin: Number;
+
+  fotoEducacion: String;
 
   constructor(
     private educacionService: EducacionService,
-    private authService: AuthService,
-    private formBuilder: FormBuilder
-  ) {
-    this.educacionForm = this.formBuilder.group({
-      idEducacion: [''], 
-    
-      institucion: ['', [Validators.required]],
-     
-      titulo: ['', [Validators.required]],
-      
-      inicio: ['', [Validators.required]],
-      
-      fin: ['', [Validators.required]],
-      
-      fotoEducacion: ['',[Validators.required]],
-    });
-    }
+    private router: Router
+  ) {}
 
-  ngOnInit(): void {
-    this.isLogged = this.authService.isLogged();
+  ngOnInit(): void {}
 
-    this.reloadDate();
+  onCreate(): void {
+    const education = new Educacion(
+      this.institucion,
+      this.titulo,
+      this.inicio,
+      this.fin,
+      this.fotoEducacion
+    );
+    this.educacionService.crearEducacion(education).subscribe(
+      (data) => {
+        this.router.navigate(['/portfolio']);
+      },
+      (err) => {
+        alert('Error al crear la Educacion');
+        this.router.navigate(['/portfolio']);
+      }
+    );
   }
-
-
-  /*===/ Configuraciones del formulario /===*/
-
-    private clearForm() {
-    this.educacionForm.setValue({
-      idEducacion: '', 
-    
-      institucion: '',
-     
-      titulo: '',
-      
-      inicio: '',
-      
-      fin: '',
-
-      fotoEducacion: '',
-    });
-  }
-
-  onNewEducacion() {
-    this.clearForm();
-    this.showModal();
-  }
-
-  private loadForm(educacion: Educacion) {
-    this.educacionForm.setValue({
-      idEducacion: educacion.idEducacion, 
-    
-      institucion: educacion.institucion,
-     
-      titulo: educacion.titulo,
-      
-      inicio: educacion.inicio,
-      
-      fin: educacion.fin,
-
-      fotoEducacion: educacion.fotoEducacion,
-    });
-  }
-  
-  onSubmit() {
-    let educacion: Educacion = this.educacionForm.value;
-    
-    (this.educacionForm.get('id')?.value == '') 
-      this.educacionService
-      .crearEducacion(educacion)
-      .subscribe((newEducacion: Educacion) => {
-        this.educacionList.push(newEducacion);
-      });
-
-    this.hideModal();
-    this.refresh();
-  }
-  
-    onEditEducacion(index: number) {
-      let educacion: Educacion = this.educacionList[index];
-      this.loadForm(educacion);
-      this.showModal();
-    }
-  
-  reloadDate() {
-    this.educacionService.verEducacion().subscribe((date) => {
-      this.educacionList = date;
-    });
-  }
-
-  refresh(): void {
-    window.location.reload();
-  }
-
-    // Métodos para cerrar y abrir el modal
-    showModal() {
-      this.show = true;
-    }
-  
-    hideModal() {
-      this.show = false;
-    }
 }

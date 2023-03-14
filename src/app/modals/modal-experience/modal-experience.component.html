@@ -1,66 +1,50 @@
-<ng-container *ngIf="show">
-    <div class="modalc">
-      <div class="modalc-content">
-        <!-- Header del modal-->
-        <header class="modalc-header">
-          <h4 class="modalc-title"><b>{{ title }}</b></h4>
-        </header>
-        <!-- Contenido del modal-->
-        <div class="modalc-container">
-          <form [formGroup]="experienciaForm" (ngSubmit)="onSubmit()">
-            <div>
-              <input type="hidden" name="idExperiencia" formControlName="idExperiencia" />
-  
-              <h4>Nombre de la Empresa</h4>
-              <input
-                type="text"
-                name="nombreEmpresa"
-                formControlName="nombreEmpresa"
-                placeholder="Ingrese Nombre del la Empresa"
-                required
-                class="contact-input form-control"
-              />
-              <h4>Puesto en la Empresa</h4>
-              <input
-                type="text"
-                name="puesto"
-                formControlName="puesto"
-                placeholder="Ingrese el Puesto en su Empresa"
-                class="contact-input form-control"
-              />
-              <h4>Descripcion</h4>
-              <input
-                type="text"
-                name="descripcion"
-                formControlName="descripcion"
-                placeholder="Ingrese Una Descripcion"
-                class="contact-input form-control"
-              />
-              <h4>Fecha de Inicio</h4>
-              <input
-                type="text"
-                name="inicio"
-                formControlName="inicio"
-                placeholder="Ingrese la fecha de inicio"
-                class="contact-input form-control"
-              />
-              <h4>Fecha de Finalizacion</h4>
-              <input
-                type="text"
-                name="fin"
-                formControlName="fin"
-                placeholder="Ingrese fecha de finalizacion"
-                class="contact-input form-control"
-              />
-              <!--==/ Botón para guardar los datos /==-->
-              <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <button type="submit" class="btn-save"><i class="bi bi-person-fill-add"></i></button>
-                    </div>
-                    <div class="col-6">
-                        <button (click)="show = false" class="btnn-close " ><i class="bi bi-x-circle-fill"></i></button>
-                    </div>
+<ng-container class="modalc">
+  <div class="modalc-content">
+    <nav class="modalc-header">
+      <div class="container-fluid">
+        <span class="modalc-title">Crear Experiencia</span>
+      </div>
+    </nav>
+    <div class="container modalc-container">
+      <div class="row">
+        <div>
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+              <label for="nombreEmpresa">Nombre de la Empresa</label>
+              <input type="text" class="form-control form-control-lg" id="nombreEmpresa" name="nombreEmpresa"
+              placeholder="Ingrese nombre de la Empresa"  [(ngModel)]="nombreEmpresa" required>
+            </div>
+            <div class="form-group">
+              <label for="puesto">Puesto Obtenido</label>
+              <input type="text" class="form-control form-control-lg" id="puesto" name="puesto"
+              placeholder="Ingrese Titulo Obtenido"  [(ngModel)]="puesto" required>
+            </div>
+
+            <div class="form-group ">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" class="form-control form-control-lg" id="descripcion" name="descripcion"
+              placeholder="Ingresar una Descripcion" [(ngModel)]="descripcion" required>
+            </div>
+
+            <div class="form-group">
+              <label for="inicio">Fecha de Inicio</label>
+              <input type="text" class="form-control form-control-lg" id="inicio" name="inicio" size="5000px"
+              placeholder="Ingresar Fecha de Inicio (Solo Numeros)" [(ngModel)]="fin" required>
+            </div>
+
+            <div class="form-group">
+              <label for="fin">Fecha de Finalizacion</label>
+              <input type="text" class="form-control form-control-lg" id="fin" name="fin"
+              placeholder="Ingresar Fecha de Finalizacion (Solo Numeros)" [(ngModel)]="fin" required>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
+                </div>
+                <div class="col-4">
+                  <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
             </div>
@@ -68,4 +52,5 @@
         </div>
       </div>
     </div>
-  </ng-container>
+  </div>
+</ng-container>

@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/Experiencia';
-import { AuthService } from 'src/app/services/auth.service';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 
 @Component({
@@ -11,135 +10,36 @@ import { ExperienciaService } from 'src/app/services/experiencia.service';
 })
 export class ModalExperienceEditComponent  implements OnInit  {
 
-  @Input() title = '';
-
-// Variables globales
-
-experienciaList: Experiencia[] = [];
-isLogged: Boolean = false;
-experienciaForm: FormGroup;
-roles: string[];
-isAdmin = false;
-
-public show = false;
+experiencia: Experiencia;
 
 constructor(
+  private activatedRoute: ActivatedRoute,
   private experienciaService: ExperienciaService,
-  private authService: AuthService,
-  private formBuilder: FormBuilder
-) {
-  this.experienciaForm = this.formBuilder.group({
-
-  idExperiencia: ['',],
-
-  nombreEmpresa: ['', [Validators.required]],
-
-  puesto: ['', [Validators.required]],
-
-  descripcion: ['', [Validators.required]],
-
-  inicio: ['', [Validators.required]],
-
-  fin: ['', [Validators.required]],
-  
-  });
-  }
+  private router: Router
+) {}
 
 ngOnInit(): void {
-  this.isLogged = this.authService.isLogged();
 
-  this.reloadDate();
+  const id = this.activatedRoute.snapshot.params['idExperiencia'];
+  this.experienciaService.buscarExperiencia(id).subscribe(
+    data => {this.experiencia = data;
+    }, err => {
+      alert("Error al modificar la Experiencia");
+      this.router.navigate(['/portfolio']);
+    }
+    )
 }
 
-
-/*===/ Configuraciones del formulario /===*/
-
-  private clearForm() {
-  this.experienciaForm.setValue({
-    idExperiencia: '',
-    
-    nombreEmpresa: '',
-    
-    puesto: '',
-    
-    descripcion: '',
-    
-    inicio: '',
-    
-    fin: '',
-  });
+onUpdate(): void {
+  const id = this.activatedRoute.snapshot.params['idExperiencia'];
+  this.experienciaService.editarExperiencia(id, this.experiencia).subscribe(
+    data => {
+      this.router.navigate(['/portfolio'])
+    }, err => {
+      alert("Error al modificar la Experiencia");
+      this.router.navigate(['/portfolio']);
+    }
+  )
 }
 
-onNewExperiencia() {
-  this.clearForm();
-  this.showModal();
-}
-
-private loadForm(experiencia: Experiencia) {
-  this.experienciaForm.setValue({
-    idExperiencia: experiencia.idExperiencia,
-    
-    nombreEmpresa: experiencia.nombreEmpresa,
-    
-    puesto: experiencia.puesto,
-    
-    descripcion: experiencia.descripcion,
-    
-    inicio: experiencia.inicio,
-    
-    fin: experiencia.fin,
-  });
-}
-
-onSubmit() {
-  let experiencia: Experiencia = this.experienciaForm.value;
-  
-    this.experienciaService.editarExperiencia(experiencia).subscribe(() => {
-      this.reloadDate();
-    });
-  
-  this.hideModal();
-  this.refresh();
-}
-
-  onEditExperiencia(index: number) {
-    let experiencia: Experiencia = this.experienciaList[index];
-    this.loadForm(experiencia);
-    this.showModal();
-  }
-
-// Método para recurar los datos de la base de datos
-reloadDate() {
-  this.experienciaService.verExperiencia().subscribe((date) => {
-    this.experienciaList = date;
-  });
-}
-
-// Métodos para cerrar y abrir el modal
-
-refresh(): void {
-  window.location.reload();
-}
-
-onDeletedExperiencia(index: number) {
-  let experiencia: Experiencia = this.experienciaList[index];
-
-  if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-    this.experienciaService
-    .borrarExperiencia(experiencia)
-    .subscribe(() => {
-      this.reloadDate();
-    });
-    this.refresh();
-  }
-}
-
-  // Métodos para cerrar y abrir el modal
-  showModal() {
-    this.show = true;
-  }
-
-  hideModal() {
-    this.show = false;
-  }
 }

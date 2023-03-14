@@ -1,5 +1,5 @@
 export class Experiencia{
-    idExperiencia: number;
+    idExperiencia?: number;
 
     nombreEmpresa: String;
 
@@ -12,7 +12,6 @@ export class Experiencia{
     fin: Number;
 
     constructor(
-        idExperiencia: number,
 
         nombreEmpresa: String,
     
@@ -25,7 +24,6 @@ export class Experiencia{
         fin: Number
      
     ){
-    this.idExperiencia = idExperiencia,
     
     this.nombreEmpresa = nombreEmpresa,
 

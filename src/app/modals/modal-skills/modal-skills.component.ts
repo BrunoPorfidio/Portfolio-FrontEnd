@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Skills } from 'src/app/model/Skills';
 import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
@@ -11,87 +12,34 @@ import { SkillsService } from 'src/app/services/skills.service';
 })
 export class ModalSkillsComponent implements OnInit {
 
-  @Input() title = '';
-
   // Variables globales
 
-  skillList: Skills[] = [];
-  isLogged: Boolean = false;
-  skillsForm: FormGroup;
-  roles: string[];
-  isAdmin = false;
-  public show = false;
+  nombreSkill: String;
+    
+  fotoSkill: String;
 
   constructor(
     private skillService: SkillsService,
-    private authService: AuthService,
-    private formBuilder: FormBuilder,
-  ) {
-    this.skillsForm = this.formBuilder.group({
-      idSkill: [''],
-
-      nombreSkill: ['', [Validators.required]],
-
-      fotoSkill: ['', [Validators.required]],
-    });
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.isLogged = this.authService.isLogged();
-
-    this.reloadDate();
   }
 
-  /*===/ Configuraciones del formulario /===*/
-
-  private clearForm() {
-    this.skillsForm.setValue({
-      idSkill: '',
-
-      nombreSkill: '',
-      
-      fotoSkill: '',
-    });
+  onCreate(): void {
+    const skills = new Skills(
+      this.nombreSkill,
+      this.fotoSkill,
+    );
+    this.skillService.crearSkills(skills).subscribe(
+      (data) => {
+        this.router.navigate(['/portfolio']);
+      },
+      (err) => {
+        alert('Error al crear la Skill');
+        this.router.navigate(['/portfolio']);
+      }
+    );
   }
 
-  onNewSkill() {
-    this.clearForm();
-    this.showModal();
-  }
-
-  onSubmit() {
-    let skills: Skills = this.skillsForm.value;
-
-    (this.skillsForm.get('id')?.value == '') 
-      this.skillService
-      .crearSkills(skills)
-      .subscribe((newSkill: Skills) => {
-        this.skillList.push(newSkill);
-      });
-      
-    this.hideModal();
-    this.refresh();
-  }
-
-  // Método para recurar los datos de la base de datos
-  reloadDate() {
-    this.skillService.verSkills().subscribe((date) => {
-      this.skillList = date;
-    });
-  }
-
-  // Métodos para cerrar y abrir el modal
-
-  refresh(): void {
-    window.location.reload();
-  }
-
-  // Métodos para cerrar y abrir el modal
-  showModal() {
-    this.show = true;
-  }
-
-  hideModal() {
-    this.show = false;
-  }
 }

@@ -1,59 +1,45 @@
-<ng-container *ngIf="show">
-    <div class="modalc">
-      <div class="modalc-content">
-        <!-- Header del modal-->
-        <header class="modalc-header">
-          <h4 class="modalc-title"><b>{{ title }}</b></h4>
-        </header>
-        <!-- Contenido del modal-->
-        <div class="modalc-container">
-          <form [formGroup]="proyectosForm" (ngSubmit)="onSubmit()">
-            <div>
-              <input type="hidden" name="idProyectos" formControlName="idProyectos" />
-  
-              <h4>Nombre del Proyecto</h4>
-              <input
-                type="text"
-                name="nombreProyecto"
-                formControlName="nombreProyecto"
-                placeholder="Ingrese nombre del Proyecto"
-                required
-                class="contact-input form-control"
-              />
-              <h4>Descripcion</h4>
-              <input
-                type="text"
-                name="descripcion"
-                formControlName="descripcion"
-                placeholder="Ingrese descripcion del Proyecto"
-                required
-                class="contact-input form-control"
-              />
-              <h4>Direccion del Proyecto</h4>
-              <input
-              type="url"
-                name="urlProyecto"
-                formControlName="urlProyecto"
-                placeholder="Ingrese la Url del Proyecto"
-                class="contact-input form-control"
-              />
-              <h4>Direccion de imagen</h4>
-              <input
-              type="url"
-                name="fotoProyecto"
-                formControlName="fotoProyecto"
-                placeholder="Ingrese la Url de la imgen del proyecto"
-                class="contact-input form-control"
-              />
-              <!--==/ Botón para guardar los datos /==-->
-              <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
-                    </div>
-                    <div class="col-6">
-                        <button (click)="show = false" class="btnn-close" ><i class="bi bi-x-circle-fill"></i></button>
-                    </div>
+<ng-container class="modalc">
+  <div class="modalc-content">
+    <nav class="modalc-header">
+      <div class="container-fluid">
+        <span class="modalc-title">Crear Proyecto</span>
+      </div>
+    </nav>
+    <div class="container modalc-container">
+      <div class="row">
+        <div>
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+              <label for="nombreProyecto">Nombre del Proyecto</label>
+              <input type="text" class="form-control form-control-lg" id="nombreProyecto" name="nombreProyecto"
+               placeholder="Ingrese Nombre del Proyecto" [(ngModel)]="nombreProyecto" required>
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" class="form-control form-control-lg" id="descripcion" name="descripcion"
+              placeholder="Ingrese una Descripcion" [(ngModel)]="descripcion" required>
+            </div>
+
+            <div class="form-group">
+              <label for="fotoProyecto">Url de Foto</label>
+              <input type="text" class="form-control form-control-lg" id="fotoProyecto" name="fotoProyecto"
+              placeholder="Ingrese la Url de la Imagen" [(ngModel)]="fotoProyecto" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="urlProyecto">Url del Proyecto</label>
+              <input type="text" class="form-control form-control-lg" id="urlProyecto" name="urlProyecto"
+              placeholder="Ingrese la Url del Proyecto" [(ngModel)]="urlProyecto" required>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
+                </div>
+                <div class="col-4">
+                  <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
             </div>
@@ -61,5 +47,5 @@
         </div>
       </div>
     </div>
-  </ng-container>
-
+  </div>
+</ng-container>

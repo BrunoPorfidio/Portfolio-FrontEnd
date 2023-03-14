@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Experiencia } from 'src/app/model/Experiencia';
 import { ExperienciaService } from 'src/app/services/experiencia.service';
 import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environment';
 
 @Component({
   selector: 'app-experience',
@@ -16,8 +15,6 @@ export class ExperienceComponent implements OnInit{
   authority: string;
   isAdmin = false;
 
-
-  isLogged = environments.isLogged;
   public experiencia: Experiencia;
 
   constructor(
@@ -41,6 +38,18 @@ export class ExperienceComponent implements OnInit{
         this.experiencias = data;
       }
     );
+  }
+
+  delete(id?: number){
+    if(id != undefined)[
+      this.experienciaService.borrarExperiencia(id).subscribe(
+        data =>{
+          this.mostrarExperiencia();
+        }, err =>{
+          alert("No se pudo Eliminar la Experiencia")
+        }
+      )
+    ]
   }
 
 }

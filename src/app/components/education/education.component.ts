@@ -50,4 +50,16 @@ private mostrarEducacion(){
   )
 }
 
+delete(id?: number){
+  if(id != undefined)[
+    this.educacionService.borrarEducacion(id).subscribe(
+      data =>{
+        this.mostrarEducacion();
+      }, err =>{
+        alert("No se pudo Eliminar")
+      }
+    )
+  ]
+}
+
 }

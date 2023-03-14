@@ -1,5 +1,5 @@
 export class Educacion {
-    idEducacion: number; 
+    idEducacion?: number; 
     
     institucion: String;
    
@@ -12,7 +12,6 @@ export class Educacion {
     fotoEducacion: String;
 
     constructor(
-        idEducacion: number,
 
         institucion: String,
 
@@ -24,7 +23,6 @@ export class Educacion {
 
         fotoEducacion: String
     ){
-        this.idEducacion = idEducacion,
 
         this.institucion = institucion,
 

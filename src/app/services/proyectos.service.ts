@@ -26,16 +26,16 @@ export class ProyectoService {
     return this.http.get<Proyectos>(`${this.ApiProyectos}/`+ proyectos.idProyectos);
   }
 
-  public crearProyecto(proyectos: Proyectos){
+  public crearProyecto(proyectos: Proyectos): Observable<any>{
     return this.http.post<Proyectos>(`${this.ApiProyectos}nuevo`, proyectos, httpOptions);
   }
   
-  public editarProyecto(proyectos: Proyectos){
-    return this.http.put<Proyectos>(`${this.ApiProyectos}editar/`+ proyectos.idProyectos, proyectos, httpOptions);
+  public editarProyecto(id: number, proyectos: Proyectos): Observable<any>{
+    return this.http.put<Proyectos>(`${this.ApiProyectos}editar/${id}`, proyectos, httpOptions);
   }
 
-  public borrarProyecto(proyectos: Proyectos){
-    return this.http.delete<Proyectos>(`${this.ApiProyectos}borrar/`+ proyectos.idProyectos);
+  public borrarProyecto(id: number): Observable<any>{
+    return this.http.delete<Proyectos>(`${this.ApiProyectos}borrar/${id}`, httpOptions);
   }
 
 }

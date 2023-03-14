@@ -1,115 +1,87 @@
-<ng-container *ngIf="show">
-    <div class="modalc">
-      <div class="modalc-content">
-        <!-- Header del modal-->
-        <header class="modalc-header">
-          <h4 class="modalc-title"><b>{{ title }}</b></h4>
-          <i class="bx bx-x" (click)="show = false"></i>
-        </header>
-        <!-- Contenido del modal-->
-        <div class="modalc-container">
-          <form [formGroup]="personaForm" (ngSubmit)="onSubmit()">
-            <div>
-              <input type="hidden" name="id" formControlName="id" />
-  
-              <h4>Nombre</h4>
-              <input
-                type="text"
-                name="nombre"
-                formControlName="nombre"
-                placeholder="Ingrese su Nombre"
-                required
-                class="contact-input"
-              />
-              <h4>Apellido</h4>
-              <input
-                type="text"
-                name="apellido"
-                formControlName="apellido"
-                placeholder="Ingrese su Apellido"
-                class="contact-input"
-              />
-              <h4>Titulo</h4>
-              <input
-                type="text"
-                name="subTitulo"
-                formControlName="subTitulo"
-                placeholder="Ingrese su Titulo. Ej: Programador Web"
-                class="contact-input"
-              />
-              <h4>Descripcion</h4>
-              <textarea
-                name="acercaMi"
-                formControlName="acercaMi"
-                placeholder="Ingrese su Descripcion"
-                class="contact-input"
-              ></textarea>
-              <h4>Foto de perfil</h4>
-              <input
-              type="url"
-                name="urlFoto"
-                formControlName="urlFoto"
-                placeholder="Ingrese su Url de Foto"
-                class="contact-input"
-              />
-              <h4>Linkedin</h4>
-              <input
-                type="url"
-                name="linkedinUrl"
-                formControlName="linkedinUrl"
-                placeholder="Ingrese su Url de Linkedin"
-                class="contact-input"
-              />
-              <h4>Github</h4>
-              <input
-                type="url"
-                name="githubUrl"
-                formControlName="githubUrl"
-                placeholder="Ingrese su Url de imagen"
-                class="contact-input"
-              />
-              <h4>Telefono</h4>
-              <input
-                type="text"
-                name="telefono"
-                formControlName="telefono"
-                placeholder="Ej: 11 2345 6789"
-                required
-                class="contact-input form-control"
-              />
-              <h4>Email</h4>
-              <input
-                type="text"
-                name="email"
-                formControlName="email"
-                placeholder="Ej: example@gmail.com"
-                class="contact-input form-control"
-              />
-              <h4>Ubicacion</h4>
-              <input
-                type="text"
-                name="ubicacion"
-                formControlName="ubicacion"
-                placeholder="Ej: Buenos Aires, Argentina"
-                class="contact-input form-control"
-              />
-              <h4>Banner</h4>
-              <input
-                type="url"
-                name="imbBanner"
-                formControlName="imgBanner"
-                placeholder="Ingrese su Url de Banner"
-                class="contact-input"
-              />
-              <!--==/ Botón para guardar los datos /==-->
-              <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
-                    </div>
-                    <div class="col-4">
-                        <button (click)="show = false" class="btnn-close" ><i class="bi bi-x-circle-fill"></i></button>
-                    </div>
+<ng-container class="modalc">
+  <div class="modalc-content">
+    <nav class="modalc-header">
+      <div class="container-fluid">
+        <span class="modalc-title">EDITAR PERSONA</span>
+      </div>
+    </nav>
+
+    <div class="container modalc-container" *ngIf="persona">
+      <div class="row">
+        <div>
+          <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input type="text" class="form-control form-control-lg" id="nombre" name="nombre"
+                [(ngModel)]="persona.nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input type="text" class="form-control form-control-lg" id="apellido" name="apellido"
+                [(ngModel)]="persona.apellido" required>
+            </div>
+
+            <div class="form-group ">
+              <label for="subTitulo">Titulo</label>
+              <input type="text" class="form-control form-control-lg" id="subTitulo" name="subTitulo"
+                [(ngModel)]="persona.subTitulo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="descripcion">Descripcion</label>
+              <input type="text" class="form-control form-control-lg" id="descripcion" name="descripcion" size="5000px"
+                [(ngModel)]="persona.acercaMi" required>
+            </div>
+
+            <div class="form-group">
+              <label for="urlFoto">Agregar URL de la Imgen</label>
+              <input type="text" class="form-control form-control-lg" id="urlFoto" name="urlFoto"
+                [(ngModel)]="persona.urlFoto" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" class="form-control form-control-lg" id="email" name="email" size="5000px"
+                [(ngModel)]="persona.email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="telefono">Telefono</label>
+              <input type="text" class="form-control form-control-lg" id="telefono" name="telefono" size="5000px"
+                [(ngModel)]="persona.telefono" required>
+            </div>
+
+            <div class="form-group">
+              <label for="linkedinUrl">Linkedin Url</label>
+              <input type="url" class="form-control form-control-lg" id="linkedinUrl" name="linkedinUrl" size="5000px"
+                [(ngModel)]="persona.linkedinUrl" required>
+            </div>
+
+            <div class="form-group">
+              <label for="githubUrl">GitHub Url</label>
+              <input type="url" class="form-control form-control-lg" id="githubUrl" name="githubUrl" size="5000px"
+                [(ngModel)]="persona.githubUrl" required>
+            </div>
+
+            <div class="form-group">
+              <label for="ubicacion">Ubicacion</label>
+              <input type="text" class="form-control form-control-lg" id="ubicacion" name="ubicacion" size="5000px"
+                [(ngModel)]="persona.ubicacion" required>
+            </div>
+
+            <div class="form-group">
+              <label for="imgBanner">Banner Url</label>
+              <input type="url" class="form-control form-control-lg" id="imgBanner" name="imgBanner" size="5000px"
+                [(ngModel)]="persona.imgBanner" required>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
+                </div>
+                <div class="col-4">
+                  <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
             </div>
@@ -117,5 +89,5 @@
         </div>
       </div>
     </div>
-  </ng-container>
-
+  </div>
+</ng-container>

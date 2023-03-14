@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class SkillsService {
 
-  private ApiSkills = `${environments.Api}/skills/`;
+   ApiSkills = `${environments.Api}/skills/`;
 
   constructor(private http: HttpClient) { }
 
@@ -23,19 +23,20 @@ export class SkillsService {
     return this.http.get<Skills[]>(`${this.ApiSkills}ver`);
   }
 
-  public buscarSkills(skills: Skills){
-    return this.http.get<Skills>(`${this.ApiSkills}/`+skills.idSkill);
+  public buscarSkills(id: number){
+    return this.http.get<Skills>(`${this.ApiSkills}${id}`);
   }
 
-  public crearSkills(skills: Skills){
-    return this.http.post<Skills>(`${this.ApiSkills}nuevo`, skills, httpOptions);
+  public crearSkills(skills: Skills): Observable<any>{
+    return this.http.post<any>(`${this.ApiSkills}nuevo`, skills);
   }
   
-  public editarSkills(skills: Skills){
-    return this.http.put<Skills>(`${this.ApiSkills}editar/`+skills.idSkill, skills, httpOptions);
+  public editarSkills(id: number,skills: Skills): Observable<any>{
+    return this.http.put<any>(`${this.ApiSkills}editar/${id}`, skills);
   }
 
-  public borrarSkills(skills: Skills){
-     return this.http.delete<Skills>(`${this.ApiSkills}borrar/`+ skills.idSkill);
+  public borrarSkills(id: number): Observable<any>{
+     return this.http.delete<any>(`${this.ApiSkills}borrar/${id}`);
   }
+  
 }

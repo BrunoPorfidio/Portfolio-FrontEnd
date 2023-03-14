@@ -1,66 +1,50 @@
-<ng-container *ngIf="show">
-    <div class="modalc">
-      <div class="modalc-content">
-        <!-- Header del modal-->
-        <header class="modalc-header">
-          <h4 class="modalc-title"><b>{{ title }}</b></h4>
-        </header>
-        <!-- Contenido del modal-->
-        <div class="modalc-container">
-          <form [formGroup]="educacionForm" (ngSubmit)="onSubmit()">
-            <div>
-              <input type="hidden" name="idEducacion" formControlName="idEducacion" />
-              
-              <h4>Nombre de la Institucion</h4>
-              <input
-                type="text"
-                name="institucion"
-                formControlName="institucion"
-                placeholder="Ingrese Nombre del la Institucion"
-                required
-                class="contact-input form-control"
-              />
-              <h4>Titulo Obtenido</h4>
-              <input
-                type="text"
-                name="titulo"
-                formControlName="titulo"
-                placeholder="Ingrese su Titulo"
-                class="contact-input form-control"
-              />
-              <h4>Fecha Inicio</h4>
-              <input
-                type="text"
-                name="inicio"
-                formControlName="inicio"
-                placeholder="Ingrese la fecha de inicio"
-                class="contact-input form-control"
-              />
-              <h4>Fecha Finalizacion</h4>
-              <input
-                type="text"
-                name="fin"
-                formControlName="fin"
-                placeholder="Ingrese fecha de finalizacion"
-                class="contact-input form-control"
-              />
-              <h4>Url de imagen</h4>
-              <input
-                type="text"
-                name="fotoEducacion"
-                formControlName="fotoEducacion"
-                placeholder="Ingrese la url de la imagen"
-                class="contact-input form-control"
-              />
-              <!--==/ Botón para guardar los datos /==-->
-              <div class="container">
-                <div class="row">
-                    <div class="col-6">
-                        <button type="submit" class="btn-save"><i class="bi bi-person-fill-add"></i></button>
-                    </div>
-                    <div class="col-6">
-                        <button (click)="show = false" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
-                    </div>
+<ng-container class="modalc">
+  <div class="modalc-content">
+    <nav class="modalc-header">
+      <div class="container-fluid">
+        <span class="modalc-title">Crear Educacion</span>
+      </div>
+    </nav>
+    <div class="container modalc-container">
+      <div class="row">
+        <div>
+          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+            <div class="form-group">
+              <label for="institucion">Institucion</label>
+              <input type="text" class="form-control form-control-lg" id="institucion" name="institucion"
+              placeholder="Ingrese nombre del Instituto"  [(ngModel)]="institucion" required>
+            </div>
+            <div class="form-group">
+              <label for="titulo">titulo</label>
+              <input type="text" class="form-control form-control-lg" id="titulo" name="titulo"
+              placeholder="Ingrese Titulo Obtenido"  [(ngModel)]="titulo" required>
+            </div>
+
+            <div class="form-group ">
+              <label for="inicio">inicio</label>
+              <input type="text" class="form-control form-control-lg" id="inicio" name="inicio"
+              placeholder="Ingresar Fecha de inicio (Solo Numeros)" [(ngModel)]="inicio" required>
+            </div>
+
+            <div class="form-group">
+              <label for="fin">fin</label>
+              <input type="text" class="form-control form-control-lg" id="fin" name="fin" size="5000px"
+              placeholder="Ingresar Fecha de Finalizacion (Solo Numeros)" [(ngModel)]="fin" required>
+            </div>
+
+            <div class="form-group">
+              <label for="fotoEducacion">Foto Educacion Url</label>
+              <input type="text" class="form-control form-control-lg" id="fotoEducacion" name="fotoEducacion"
+               placeholder="Ingrese Url de la imagen" [(ngModel)]="fotoEducacion" required>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
+                </div>
+                <div class="col-4">
+                  <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
             </div>
@@ -68,4 +52,5 @@
         </div>
       </div>
     </div>
-  </ng-container>
+  </div>
+</ng-container>

@@ -23,20 +23,20 @@ export class ExperienciaService {
     return this.http.get<Experiencia[]>(`${this.ApiExperiencia}ver`);
   }
 
-  public buscarExperiencia(experiencia: Experiencia){
-    return this.http.get<Experiencia>(`${this.ApiExperiencia}`+ experiencia.idExperiencia);
+  public buscarExperiencia(id: number){
+    return this.http.get<Experiencia>(`${this.ApiExperiencia}${id}`);
   }
 
-  public crearExperiencia(experiencia: Experiencia){
-    return this.http.post<Experiencia>(`${this.ApiExperiencia}nuevo`+ experiencia.idExperiencia, experiencia, httpOptions);
+  public crearExperiencia(experiencia: Experiencia): Observable<any>{
+    return this.http.post<Experiencia>(`${this.ApiExperiencia}nuevo`, experiencia, httpOptions);
   }
   
-  public editarExperiencia(experiencia: Experiencia){
-    return this.http.put<Experiencia>(`${this.ApiExperiencia}editar/`+ experiencia.idExperiencia, experiencia, httpOptions);
+  public editarExperiencia(id: number, experiencia: Experiencia): Observable<any>{
+    return this.http.put<Experiencia>(`${this.ApiExperiencia}editar/${id}`, experiencia, httpOptions);
   }
 
-  public borrarExperiencia(experiencia: Experiencia){
-    return this.http.delete<Experiencia>(`${this.ApiExperiencia}borrar/`+ experiencia.idExperiencia);
+  public borrarExperiencia(id: number): Observable<any>{
+    return this.http.delete<Experiencia>(`${this.ApiExperiencia}borrar/${id}`, httpOptions);
   }
 
 }

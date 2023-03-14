@@ -22,20 +22,20 @@ export class EducacionService {
     return this.http.get<Educacion[]>(`${this.ApiEducacion}ver`);
   }
 
-  public buscarEducacion(educacion: Educacion,){
-    return this.http.get<Educacion>(`${this.ApiEducacion}buscar/`+ educacion.idEducacion);
+  public buscarEducacion(id: number){
+    return this.http.get<Educacion>(`${this.ApiEducacion}${id}`);
   }
 
-  public crearEducacion(educacion: Educacion){
-    return this.http.post<Educacion>(`${this.ApiEducacion}nuevo`, educacion, httpOptions);
+  public crearEducacion(educacion: Educacion): Observable<any>{
+    return this.http.post<any>(`${this.ApiEducacion}nuevo`, educacion, httpOptions);
   }
   
-  public editarEducacion(educacion: Educacion){
-    return this.http.put<Educacion>(`${this.ApiEducacion}editar/`+ educacion.idEducacion, educacion, httpOptions);
+  public editarEducacion(id: number, educacion: Educacion): Observable<any>{
+    return this.http.put<any>(`${this.ApiEducacion}editar/${id}`, educacion, httpOptions);
   }
 
-  public borrarEducacion(educacion: Educacion){
-    return this.http.delete<Educacion>(`${this.ApiEducacion}borrar/`+ educacion.idEducacion, httpOptions);
+  public borrarEducacion(id: number): Observable<any>{
+    return this.http.delete<any>(`${this.ApiEducacion}borrar/${id}`, httpOptions);
   }
 
 }

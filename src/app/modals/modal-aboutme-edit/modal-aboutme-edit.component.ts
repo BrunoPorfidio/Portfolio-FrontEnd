@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Persona } from 'src/app/model/Persona'; 
 import { PersonaService } from 'src/app/services/persona.service'; 
 import { AuthService } from 'src/app/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal-aboutme-edit',
@@ -10,137 +11,51 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./modal-aboutme-edit.component.css']
 })
 export class ModalAboutmeEditComponent implements OnInit {
-  @Input() title = '';
 
   // Variables globales
   persona: Persona;
   personaList: Persona[] = [];
   isLogged: Boolean = false;
-  personaForm: FormGroup;
   roles: string[];
   isAdmin = false;
 
   public show = false;
   constructor(
+    private activatedRoute: ActivatedRoute,
     private personaService: PersonaService,
     private authService: AuthService,
-    private formBuilder: FormBuilder
-  ) {
-    this.personaForm = this.formBuilder.group({
-      id: [],
-
-      nombre: ['', [Validators.required]],
-
-      apellido: ['', [Validators.required]],
-
-      subTitulo: ['', [Validators.required]],
-
-      acercaMi: ['', [Validators.required]],
-
-      urlFoto: ['', [Validators.required]],
-
-      linkedinUrl: ['', [Validators.required]],
-
-      githubUrl: ['', [Validators.required]],
-
-      telefono: ['', [Validators.required]],
-      
-      email: ['', [Validators.required]],
-      
-      ubicacion: ['', [Validators.required]],
-
-      imgBanner: ['', [Validators.required]],
-    });
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.personaService.buscarPersona(id).subscribe(
+      data => {this.persona = data;
+      }, err => {
+        alert("Error al modificar");
+        this.router.navigate(['/portfolio']);
+      }
+      )
+
     this.isLogged = this.authService.isLogged();
 
     this.reloadDate();
   }
 
-  /*===/ Configuraciones del formulario /===*/
 
-
-    private clearForm() {
-    this.personaForm.setValue({
-      id: '',
-
-      nombre: '',
-
-      apellido: '',
-
-      subTitulo: '',
-
-      acercaMi: '',
-
-      urlFoto: '',
-
-      linkedinUrl: '',
-
-      githubUrl: '',
-
-      telefono: '',
-
-      email: '',
-
-      ubicacion: '',
-
-      imgBanner: '',
-    });
+  onUpdate(): void {
+    const id = this.activatedRoute.snapshot.params['id'];
+    this.personaService.editarPersona(id, this.persona).subscribe(
+      data => {
+        this.router.navigate(['/portfolio'])
+      }, err => {
+        alert("Error al modificar la persona");
+        this.router.navigate(['/portfolio']);
+      }
+    )
   }
 
-  onNewPersona() {
-    this.clearForm();
-    this.showModal();
-  }
-
-  private loadForm(persona: Persona) {
-    this.personaForm.setValue({
-
-      id: persona.id,
-
-      nombre: persona.nombre,
-
-      apellido: persona.apellido,
-
-      subTitulo: persona.subTitulo,
-
-      acercaMi: persona.acercaMi,
-
-      urlFoto: persona.urlFoto,
-
-      linkedinUrl: persona.linkedinUrl,
-
-      githubUrl: persona.githubUrl,
-
-      imgBanner: persona.imgBanner,
-
-      telefono: persona.telefono,
-
-      email: persona.email,
-
-      ubicacion: persona.ubicacion,
-    });
-  }
-  
-  onSubmit() {
-    let persona: Persona = this.personaForm.value;
-    
-    this.personaService.editarPersona(persona).subscribe(() => {
-      this.reloadDate();
-    });
-    
-    this.hideModal();
-    this.refresh();
-  }
-  
-    onEditPersona(index: number) {
-      let persona: Persona = this.personaList[index];
-      this.loadForm(persona);
-      this.showModal();
-    }
-  
   // Método para recurar los datos de la base de datos
   reloadDate() {
     this.personaService.verPersona().subscribe((date) => {
@@ -153,13 +68,5 @@ export class ModalAboutmeEditComponent implements OnInit {
       window.location.reload();
   }
 
-  
-  // Métodos para cerrar y abrir el modal
-  showModal() {
-    this.show = true;
-  }
 
-  hideModal() {
-    this.show = false;
-  }
 }

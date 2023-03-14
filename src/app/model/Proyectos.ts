@@ -1,5 +1,5 @@
 export class Proyectos{
-    idProyectos: number;
+    idProyectos?: number;
 
     nombreProyecto: String;
 
@@ -10,7 +10,6 @@ export class Proyectos{
     urlProyecto: String;
 
     constructor(
-    idProyectos: number,
 
     nombreProyecto: String,
 
@@ -21,7 +20,6 @@ export class Proyectos{
     urlProyecto: String
 
     ){
-    this.idProyectos = idProyectos,
     
     this.nombreProyecto = nombreProyecto,
 

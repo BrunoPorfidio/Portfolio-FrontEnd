@@ -1,7 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Skills } from 'src/app/model/Skills';
-import { AuthService } from 'src/app/services/auth.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -11,116 +10,36 @@ import { SkillsService } from 'src/app/services/skills.service';
 })
 export class ModalSkillsEditComponent  implements OnInit {
 
-  @Input() title = '';
-
-  // Variables globales
-
-  skillList: Skills[] = [];
-  isLogged: Boolean = false;
-  skillsForm: FormGroup;
-  roles: string[];
-  isAdmin = false;
-  
-  public show = false;
+  skills: Skills;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private skillService: SkillsService,
-    private authService: AuthService,
-    private formBuilder: FormBuilder
-  ) {
-    this.skillsForm = this.formBuilder.group({
-      idSkill: [''],
-
-      nombreSkill: ['', [Validators.required]],
-
-      fotoSkill: ['', [Validators.required]],
-    });
-  }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.isLogged = this.authService.isLogged();
 
-    this.reloadDate();
+    const id = this.activatedRoute.snapshot.params['idSkill'];
+    this.skillService.buscarSkills(id).subscribe(
+      data => {this.skills = data;
+      }, err => {
+        alert("Error al modificar la Skill");
+        this.router.navigate(['/portfolio']);
+      }
+      )
   }
 
-  /*===/ Configuraciones del formulario /===*/
-
-  private clearForm() {
-    this.skillsForm.setValue({
-      idSkill: '',
-
-      nombreSkill: '',
-      
-      fotoSkill: '',
-    });
+  onUpdate(): void {
+    const id = this.activatedRoute.snapshot.params['idSkill'];
+    this.skillService.editarSkills(id, this.skills).subscribe(
+      data => {
+        this.router.navigate(['/portfolio'])
+      }, err => {
+        alert("Error al modificar la Skill");
+        this.router.navigate(['/portfolio']);
+      }
+    )
   }
 
-  onNewSkill() {
-    this.clearForm();
-    this.showModal();
-  }
-
-  private loadForm(skills: Skills) {
-    this.skillsForm.setValue({
-
-      idSkill: skills.idSkill,
-
-      nombreSkill: skills.nombreSkill,
-
-      fotoSkill: skills.fotoSkill,
-    });
-  }
-
-  onSubmit() {
-
-    let skills: Skills = this.skillsForm.value;
-
-    this.skillService.editarSkills(skills).subscribe(() => {
-      this.reloadDate();
-    });
-
-    this.hideModal();
-    this.refresh();
-  }
-
-  onEditSkill(index: number) {
-    let skills: Skills = this.skillList[index];
-    this.loadForm(skills);
-    this.showModal();
-  }
-
-  // Método para recurar los datos de la base de datos
-  reloadDate() {
-    this.skillService.verSkills().subscribe((date) => {
-      this.skillList = date;
-    });
-  }
-
-  // Métodos para cerrar y abrir el modal
-
-  refresh(): void {
-    window.location.reload();
-  }
-
-  onDeletedSkill(index: number) {
-    let skills: Skills = this.skillList[index];
-  
-    if (confirm('Va a eliminar este registro. ¿ Está seguro ?')) {
-      this.skillService
-      .borrarSkills(skills)
-      .subscribe(() => {
-        this.reloadDate();
-      });
-      this.refresh();
-    }
-  }
-
-  // Métodos para cerrar y abrir el modal
-  showModal() {
-    this.show = true;
-  }
-
-  hideModal() {
-    this.show = false;
-  }
 }

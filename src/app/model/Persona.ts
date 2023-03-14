@@ -1,5 +1,5 @@
 export class Persona{
-    id: number;
+    id?: number;
 
     nombre: String;
 
@@ -17,14 +17,13 @@ export class Persona{
 
     imgBanner: String;
 
-    telefono: Number;
+    telefono: String;
 
     email: String;
 
     ubicacion: String;
 
     constructor(
-        id: number,
 
         nombre: String,
 
@@ -42,14 +41,13 @@ export class Persona{
 
         imgBanner: String,
 
-        telefono: Number,
+        telefono: String,
 
         email: String,
 
         ubicacion: String
 
         ){
-    this.id = id,
 
     this.nombre = nombre,
     

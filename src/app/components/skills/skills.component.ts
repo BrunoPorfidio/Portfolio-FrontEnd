@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skills } from 'src/app/model/Skills';
 import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environment';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class SkillsComponent implements OnInit {
   isAdmin = false;
 
 
-  isLogged = environments.isLogged;
   public skills: Skills;
 
   constructor(
@@ -42,6 +40,18 @@ export class SkillsComponent implements OnInit {
         this.skilss = data;
       }
     );
+  }
+
+  delete(id?: number){
+    if(id != undefined)[
+      this.skillsService.borrarSkills(id).subscribe(
+        data =>{
+          this.mostrarSkills();
+        }, err =>{
+          alert("No se pudo Eliminar la Skill")
+        }
+      )
+    ]
   }
 
 }
