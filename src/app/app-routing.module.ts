@@ -12,6 +12,7 @@ import { ModalSkillsEditComponent } from './modals/modal-skills-edit/modal-skill
 import { ModalExperienceComponent } from './modals/modal-experience/modal-experience.component';
 import { ModalProyectsComponent } from './modals/modal-proyects/modal-proyects.component';
 import { ModalProyectsEditComponent } from './modals/modal-proyects-edit/modal-proyects-edit.component';
+import { ModalExperienceEditComponent } from './modals/modal-experience-edit/modal-experience-edit.component';
 
 const routes: Routes = [
   {
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'newSkill', component: ModalSkillsComponent },
   { path: 'editSkill/:idSkill', component: ModalSkillsEditComponent },
   { path: 'newExperience', component: ModalExperienceComponent },
-  { path: 'editExperience/:idExperiencia', component: ModalEducationEditComponent },
+  { path: 'editExperience/:idExperiencia', component: ModalExperienceEditComponent },
   { path: 'newProyect', component: ModalProyectsComponent },
   { path: 'editProyect/:idProyectos', component:ModalProyectsEditComponent }
 ];

@@ -13,7 +13,8 @@
     <div class="botones-admin" *ngIf="isAdmin">
         <div class="row">
             <div class="col-4">
-                <i routerLink="/editaboutMe/1" *ngIf="isLogged" style="color: rgb(255, 225, 0); font-size: 30px; cursor: pointer;"
+                <i routerLink="/editaboutMe/1" *ngIf="isLogged"
+                    style="color: rgb(255, 225, 0); font-size: 30px; cursor: pointer;"
                     class="btn-edit bi bi-pencil-fill"></i>
             </div>
         </div>
@@ -26,14 +27,20 @@
                 <div class="col-lg-8 col-md-12" data-aos="fade-right" data-aos-offset="500" data-aos-duration="1000">
                     <p class="my-descrp">{{persona.acercaMi}}</p>
                     <div class="row ">
-                        <div class="col-4">
+                        <div class="col">
                             <a [href]="persona.githubUrl" target="_blank">
                                 <i class="bi bi-github social-img"></i>
                             </a>
                         </div>
-                        <div class="col-4  ">
+                        <div class="col">
                             <a [href]="persona.linkedinUrl" target="_blank">
                                 <i class="bi bi-linkedin social-img"></i>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a download="BrunoPortfidioCV" href="../../../assets/documents/BrunoCGPorfidioCVTI.pdf">
+                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAESklEQVR4nO2bS4gVRxSGe6HjQsWNmqgkWw1GoptoBs1eTBTXEpcuQly4SRRcBONjhPicYDAKblzozpWI4AMFNyJoRnEpAa8QSII6khnHxyfF/Vsqna7u6uq6Tvd1fijoW33OqXP+PlVd1VU3SaYwhUYDGAD2A4/wx01gftIPAIYIw0hfkAB0FNCgp3x/kYBQVV7Bt58EwgmYB/yu6/vAguQ9IaAjldXmyb/TTACWAUeAu8AzFXN9GPg0BgGuEc9z0LwZK9b/AJgBHANeFTT+EvjFvNaS3hIwIBI6RXKxg78s++PKgJXATBVzfVT3DC5VISGW470k4FfZfgh8ViC3XDIGw40nANgAXFU/dqXbMqX9eFHwGRLG1R2WZp1ztOHVBVwIIoCS2ZclZwY3gyMl9i6Youth6RxsJAF0n7zBc+B7YGGB7D3Jfl4gs8jyZzGwStcjjewCdNPe4AcP2aeSnVUgs8Mi4Dtgtq6fRnU8lh1gVLIL6xjVk9+hTErxSBMU76BcqeyLEAIqO+eBPcDFbGUrCcB/ff5YQa+15gu7gAeWTEcDrnNeUIWsOnFVIeB/bwiXbIGNLIbKZKu20UsCOhIZ9E0zl5w1HnR8/aEieknA6ggErGkjAUM57Thfgzn66WvQxr5Qfyq0G42AgZzVlnMilKOfToR8B8G3GefbRo6N0kwLYhw4IPGjPvKZqfDPPf4oSpVMCyVgqRY2ZoGz3HMxZCZGL4Alnm0Uru89UZppQQRkFkQPi0jILIffLoQaB6oTMKDVHnq6w+rns1S+UF06JT4PTE/6hQBrlnfIIxUPhn4Sc8ElX6WNaAYsv24B/6jcimSzuQTQTfWtll+bgWkq5jrF1ipzhhC8UwKAD4Efgb/xxxN9OP042MlI/gcbAD4BTgMTVmB3gI3AiZygT+iekUkxIRuFr8MyNkP8LwQlBvRVJw18wgrqsiZGf+n3FhVUd8D6fH4nY+PbVhAAfAO8VjkFfKTvfHkYsbalslgs3VOWvU3BTnv6X8sA3f4+lj7dzL3rwB96zZ3MCfik7hmZaxndNEv+BT4IdrzE/9oGgL26daZE30x0DP5UMThfonNWcrtd/rjg6783cBs2x04KV2XaChvT+mCuykvVzSzQ+1K27zWZgMe6NadAd71kblh1N1S3vkBvjmTGgh0v8b+2ATwMA79JbKdVt1N1x3vqeCw79AmmCAgFdRmcZETLgKSleG8IwOFnDAJGfTdHJxN5gVpb8U/qGL4iI9uTlsHair9Ux8jXMmK+4W1veiY4tuLX1TW4h/bip1isfqX1ezomNBmjOn5X78nHALBCTt0O0L0t3RVJW0H305fBuQDdc9LdmLQVwDYFcThAN91l2pa0FdQIog55jQE10rhO92kMqDGQ1RlA2/avrvjb2pMF4h5gcMF5iqx1/+qqAp9TZJMOIpzhiXK2p8+7wL6kqSDOGZ72DoJTSNqNNz3MNNFwU4wbAAAAAElFTkSuQmCC"
+                                    style="width: 2em;" alt="" srcset="">
                             </a>
                         </div>
                     </div>

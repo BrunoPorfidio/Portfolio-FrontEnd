@@ -95,7 +95,8 @@ header {
 .hero-proyects,
 .login-container,
 .hero-education,
-.hero-experience {
+.hero-experience,
+.hero-contacto {
   font-size: 2.2875em;
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
@@ -266,7 +267,6 @@ font-size: 1.5125em;
 
 .modalc {
   text-align: center;
-  position: fixed;
   color: white;
   width: 100%;
   background: rgba(0, 0, 0, 0.75);
@@ -274,9 +274,6 @@ font-size: 1.5125em;
 
 .form-group{
   padding: 10px;
-}
-
-label{
   font-size: 1.8em;
 }
 
@@ -290,7 +287,6 @@ input{
   background-color: #000;
   width: 60%;
   margin: auto;
-  position: relative;
   max-width: 800px;
   border-radius: 5px;
   cursor: default;
@@ -397,25 +393,14 @@ img {
 }
 
 .contact-title {
-  font-size: 50px;
+  font-size: 1.7em;
   margin-top: 25px;
 }
 
 .column-title{
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 
-.hero-contacto {
-  font-size: 1.875em;
-  margin-left: 15%;
-  margin-top: 5%;
-  width: 70%;
-  background-color: rgba(0, 0, 0, 0.7);
-  border: 1px solid #d4af37;
-  box-shadow: 2px 2px 5px rgb(0, 0, 0);
-  color: rgb(255, 255, 255);
-  text-align: center;
-}
 
 .contact-informat {
   padding-top: 2.5em;
@@ -433,6 +418,7 @@ img {
 
 .formulario--input-txt,
 .formulario--textarea {
+  font-size: 30px;
   width: 100%;
   text-align: center;
 }
@@ -443,12 +429,21 @@ img {
   width: 100%;
 }
 
+.formulario{
+  font-size: .5em !important;
+}
+
 .formulario--textarea {
   min-height: 6.25em;
   min-width: 6.25em;
   max-width: 100%;
   max-height: 100px;
 }
+
+.formulario--label{
+  font-size: 1em;
+}
+
 .formulario--btn {
   color: #fff;
   cursor: pointer;

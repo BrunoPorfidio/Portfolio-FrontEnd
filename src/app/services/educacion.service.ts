@@ -14,6 +14,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class EducacionService {
+  
   private ApiEducacion = `${environments.Api}/educacion/`;
 
   constructor(private http: HttpClient) { }

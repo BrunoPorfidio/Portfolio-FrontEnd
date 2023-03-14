@@ -27,7 +27,7 @@ ngOnInit(): void {
   this.educacionService.buscarEducacion(id).subscribe(
     data => {this.educacion = data;
     }, err => {
-      alert("Error al modificar");
+      alert("Error al cargar la Educacion");
       this.router.navigate(['/portfolio']);
     }
     )

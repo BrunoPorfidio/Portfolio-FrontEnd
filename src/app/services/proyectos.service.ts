@@ -22,8 +22,8 @@ export class ProyectoService {
     return this.http.get<Proyectos[]>(`${this.ApiProyectos}ver`);
   }
 
-  public buscarProyecto(proyectos: Proyectos){
-    return this.http.get<Proyectos>(`${this.ApiProyectos}/`+ proyectos.idProyectos);
+  public buscarProyecto(id: number){
+    return this.http.get<Proyectos>(`${this.ApiProyectos}${id}`);
   }
 
   public crearProyecto(proyectos: Proyectos): Observable<any>{

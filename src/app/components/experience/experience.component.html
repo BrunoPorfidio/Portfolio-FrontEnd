@@ -36,7 +36,7 @@
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <i *ngIf="isAdmin == true" routerLink="/editExperience{{experiencia.idExperiencia}}" class="btn-edit bi bi-pencil-fill"></i>
+                            <i *ngIf="isAdmin == true" routerLink="/editExperience/{{experiencia.idExperiencia}}" class="btn-edit bi bi-pencil-fill"></i>
                         </div>
                         <div class="col-6">
                             <i *ngIf="isAdmin == true" (click)="delete(experiencia.idExperiencia)" 

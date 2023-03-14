@@ -26,7 +26,7 @@ export class ModalProyectsEditComponent implements OnInit {
     this.proyectosService.buscarProyecto(id).subscribe(
       data => {this.proyectos = data;
       }, err => {
-        alert("Error al modificar el Proyecto");
+        alert("Error al cargar el Proyecto");
         this.router.navigate(['/portfolio']);
       }
       )

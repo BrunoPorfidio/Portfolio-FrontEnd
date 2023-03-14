@@ -24,7 +24,7 @@ ngOnInit(): void {
   this.experienciaService.buscarExperiencia(id).subscribe(
     data => {this.experiencia = data;
     }, err => {
-      alert("Error al modificar la Experiencia");
+      alert("Error al cargar la Experiencia");
       this.router.navigate(['/portfolio']);
     }
     )

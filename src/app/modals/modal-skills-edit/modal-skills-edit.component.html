@@ -11,14 +11,14 @@
         <div>
           <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
             <div class="form-group">
-              <label for="institucion">Institucion</label>
+              <label for="institucion">Nombre de la Skill</label>
               <input type="text" class="form-control form-control-lg" id="institucion" name="institucion"
-                [(ngModel)]="skills.nombreSkill" required>
+              placeholder="Ingrese Nombre de la Skill" [(ngModel)]="skills.nombreSkill" required>
             </div>
             <div class="form-group">
-              <label for="fotoSkill">titulo</label>
+              <label for="fotoSkill">Url de imagen</label>
               <input type="text" class="form-control form-control-lg" id="fotoSkill" name="fotoSkill"
-                [(ngModel)]="skills.fotoSkill" required>
+              placeholder="Ingrese la Url de la Foto" [(ngModel)]="skills.fotoSkill" required>
             </div>
 
             <div class="container">
