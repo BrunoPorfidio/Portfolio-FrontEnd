@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   // { path: '**', redirectTo: '/portfolio', pathMatch: 'full' },
-  { path: '', component: Error404Component },
+  { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
   { path: 'editaboutMe/:id', component: ModalAboutmeEditComponent },
   { path: 'newEducation', component: ModalEducationComponent },
   { path: 'editEducation/:idEducacion', component: ModalEducationEditComponent },
