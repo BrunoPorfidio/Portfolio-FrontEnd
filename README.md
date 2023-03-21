@@ -2,15 +2,8 @@
 
 En este Repositoro se alojara la parte del Front End de mi Portfolio echo con el curso de **Argentina Programa 3ra edicion**
 
-El objetivo del Curso fue crear un Portfolio con Login y autenticacion con JWT 
+El objetivo del Curso fue crear un Portfolio con Login y autenticacion con JWT.
 
-## 🔐 Para Acceser la pagina es necesario Logearte, te dejo el Usuario de Invitado:
-
-## 🔒 Nombde se Usuario:
-##  **invitado**
-
-## 🔑 Contraseña:
-## **invitado123**
 
 ----------------------------------------------------------------------------
 
