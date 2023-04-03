@@ -6,9 +6,6 @@ export const environments = {
 
     // Api en Koyeb
     Api:'https://api-portfolio-brunoporfidio.koyeb.app',
-
-    // Api Render
-    // Api:'https://api-portfolio-o75z.onrender.com',
-
+    
     isLogged: true
   };

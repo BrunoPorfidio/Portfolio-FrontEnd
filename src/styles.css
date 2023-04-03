@@ -19,7 +19,10 @@ body {
 }
 
 header {
-  padding: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
   color: #fff;
   background-attachment: scroll;
@@ -407,10 +410,6 @@ img {
   margin-bottom: 1.25em;
 }
 
-.contact{
-  padding: 20px;
-}
-
 .contact-e{
   padding-top: 20px;
 }
@@ -430,7 +429,7 @@ img {
 }
 
 .formulario{
-  font-size: .5em !important;
+  font-size: .5em;
 }
 
 .formulario--textarea {
@@ -548,7 +547,11 @@ img {
   }
 
   .contact-input {
-    font-size: 18px;
+    font-size: 12px;
+  }
+
+  .contact-informat{
+    font-size: 25px;
   }
 
   .modalc-title {
@@ -560,6 +563,21 @@ img {
     font-size: 50px;
   }
 
+  .title-card-education, .date-card-education, .school-title {
+    font-size: .5em;
+}
+
+.contact-informat {
+  font-size: 22px;
+}
+
+.contact-input {
+  font-size: 15px;
+}
+
+.formulario--input-txt, .formulario--textarea{
+  font-size: 25px;
+}
 
 
 }
@@ -583,11 +601,11 @@ img {
 
 
   .contact-informat {
-    font-size: 15px;
+    font-size: 20px;
   }
 
   .contact-input {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .example-pryct {
@@ -633,6 +651,14 @@ img {
 
   label{
     font-size: 1.6rem;
+  }
+
+  .formulario--input-txt{
+    font-size: 15px;
+  }
+
+  .formulario--textarea{
+    font-size: 15px;
   }
 
 }
@@ -702,9 +728,6 @@ img {
     font-size: 30px;
   }
 
-  input{
-    height: 1em;
-  }
 
 }
 
@@ -726,11 +749,11 @@ img {
   }
 
   .contact-input {
-    font-size: 13px;
+    font-size: 15px;
   }
 
   .contact-informat {
-    font-size: 10px;
+    font-size: 15px;
   }
 
   .example-pryct {
