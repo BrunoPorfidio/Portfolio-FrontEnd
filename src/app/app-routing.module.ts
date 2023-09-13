@@ -15,25 +15,41 @@ import { ModalProyectsEditComponent } from './modals/modal-proyects-edit/modal-p
 import { ModalExperienceEditComponent } from './modals/modal-experience-edit/modal-experience-edit.component';
 
 const routes: Routes = [
+
+  { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
   {
     path: 'portfolio',component: PortfolioComponent },
+
+  //---------- Section Login y future Register ------------ 
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  // { path: '**', redirectTo: '/portfolio', pathMatch: 'full' },
-  { path: '', redirectTo: '/portfolio', pathMatch: 'full' },
+
+  //---------- Section Edit AboutMe ------------ 
   { path: 'editaboutMe/:id', component: ModalAboutmeEditComponent },
+
+  //---------- Section New Education ------------ 
   { path: 'newEducation', component: ModalEducationComponent },
+  //---------- Section Edit Education ------------ 
   { path: 'editEducation/:idEducacion', component: ModalEducationEditComponent },
+
+  //---------- Section New Skills ------------ 
   { path: 'newSkill', component: ModalSkillsComponent },
+  //---------- Section Edit Skills ------------ 
   { path: 'editSkill/:idSkill', component: ModalSkillsEditComponent },
+
+  //---------- Section New Experience ------------ 
   { path: 'newExperience', component: ModalExperienceComponent },
+  //---------- Section Edit Experience ------------ 
   { path: 'editExperience/:idExperiencia', component: ModalExperienceEditComponent },
+
+  //---------- Section New Project ------------ 
   { path: 'newProyect', component: ModalProyectsComponent },
+  //---------- Section Edit Project ------------ 
   { path: 'editProyect/:idProyectos', component:ModalProyectsEditComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'top' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
