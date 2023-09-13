@@ -1,0 +1,173 @@
+.d-f {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.al-c {
+  align-items: center;
+}
+
+.add-skill {
+  font-size: 3em;
+}
+
+.btn-edit,
+.btn-delete {
+  font-size: 1.5em;
+}
+
+.row-btn {
+  margin-top: 1em;
+}
+
+.bi {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.bi:hover {
+  color: #4444bd;
+}
+
+.project-title {
+  width: auto;
+  font-family: bold;
+  color: #fff;
+  font-size: 2.5em;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 2em 1em;
+  font-weight: 700;
+  background: #50469d;
+  color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  border-top: 2px solid #59b8b0;
+  border-left: 2px solid #59b8b0;
+  border-bottom: 2px solid rgb(238, 103, 238);
+  border-right: 2px solid rgb(238, 103, 238);
+  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 195, 240, 0.3) 10px 10px,
+    rgba(46, 195, 240, 0.2) 15px 15px;
+}
+
+a{
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  padding: 1em;
+  margin: 1em 0em;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  background-color: #a98aff;
+  transition: all 0.2s;
+  box-shadow: 0px 0px 5px -1.5px #000;
+}
+
+.card:active{
+  background-color: #0079987b;
+  color: #fff;
+}
+
+.card::before {
+  content: "";
+  width: 99%;
+  height: 99%;
+  background: #242c88;
+  position: absolute;
+  z-index: -1;
+  top: 1px;
+  left: 1px;
+  border-radius: 25px;
+  transition: all 0.3s;
+  overflow: hidden;
+
+}
+
+.card__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__img__container {
+  width: 100%;
+}
+
+.card__img {
+  width: 100%;
+  object-fit:cover;
+  border-radius: 10px;
+  aspect-ratio: 3/1.5;
+  box-shadow: 0px 0px 5px 2px #000;
+
+}
+
+.card__title {
+  color: #2c2c2c;
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.card__subtitle {
+  color: #1f1f1f;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+
+.card__icon {
+  width: 40px;
+  height: 40px;
+  transform: rotate(-45deg);
+  transition: all 0.3s;
+}
+
+.card__icon svg {
+  width: 100%;
+  height: 100%;
+  user-select: none; 
+  display: inline-block; 
+  fill: rgb(224, 223, 220); 
+  flex-shrink: 0;
+  cursor: pointer;
+  color: rgb(224, 223, 220)
+}
+
+.card__icon g {
+  fill: #3177a4;
+}
+
+.card__icon circle,
+polyline,
+line {
+  stroke: #000000;
+}
+
+.card:hover .card__icon {
+  transform: rotate(0);
+}
+
+.card:hover .card__icon circle,
+.card:hover .card__icon polyline,
+.card:hover .card__icon line {
+  stroke: #000000;
+}
+
+.card:hover .card__icon g {
+  fill: #000000;
+}
+
+.card:hover {
+  box-shadow: 0px 0px 20px -5px #000;
+}
+
+.card:hover::before {
+  transform: rotate(10deg);
+  box-shadow: 0px 0px 20px -5px #000;
+}
