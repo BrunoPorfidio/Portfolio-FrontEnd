@@ -1,43 +1,29 @@
-<section class="wallpaper">
-  <div class="container login-form">
-    <div class="row">
-      <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
-        <div class="card bg-dark text-white">
-          <div class="card-body p-4 text-center login-container">
-            <div>
-              <div class="row">
-                <div class="col-10"><h1 class="fw-bold mb-2 text-uppercase login-title" style="padding-left: 2.5em;">Login</h1></div>
-                <div class="col-2"><button id="boton" class="btn btn-outline-light buttons" (click)="volver()" type="submit">
-                  <i class="bi bi-backspace"></i>
-                </button></div>
-              </div>
-              <h3><p class="text-white-50 mb-5">
-                Por favor, ingresar usuario y contraseña.
-                <br>
-                </h3>
-              <form id="form" #form="ngForm" (ngSubmit)="onLogin($event)" novalidate>
-                <div class="form-outline form-white mb-4">
-                  <label class="form-label login-txt" for="nombreUsuario">Nombre de Usuario</label>
-                  <input type="text" name="nombreUsuario" id="nombreUsuario" style="font-size: 20px;" class="form-control form-control-md"
-                    [(ngModel)]="nombreUsuario" required placeholder="Ejemplo: Bruno">
-                </div>
-
-                <div class="form-outline form-white mb-4">
-                  <label class="form-label login-txt" for="password">Contraseña</label>
-                  <input type="password" name="password" id="password" style="font-size: 20px;" class="form-control form-control-md"
-                    [(ngModel)]="password" required placeholder="Ejemplo: Password">
-                </div>  
-                <button id="boton" class="btn btn-outline-light btn-lg px-5 buttons" type="submit"><i class="bi bi-box-arrow-in-right icon-send"></i>
-                  Ingresar
-                </button>
-                <!-- <button id="boton" routerLink="/register" class="btn btn-outline-light btn-lg px-5 buttons" type="submit"><i class="bi bi-plus-square"></i>
-                  Crear Cuenta
-                </button> -->
-              </form>
-            </div>
+<form class="container" id="form" #form="ngForm" (ngSubmit)="onLogin($event)" novalidate>
+  <div class="input-container">
+      <div class="input-content">
+        <div class="input-dist">
+        <div class="d-f">
+          <div class="">
+            <a href="/portfolio">
+              <img class="img-back"
+              src="https://img.icons8.com/?size=256&id=43974&format=png"
+              alt="" srcset="">
+            </a>
+          </div>
+          <div class="col jc-c al-c">
+            <p class="login-title">Login</p>
           </div>
         </div>
+              <div class="input-type">
+                  <input name="nombreUsuario" id="nombreUsuario"
+                  placeholder="Email" required="" type="text" class="input-is" 
+                  [(ngModel)]="nombreUsuario" required placeholder="Ejemplo: Bruno">  
+
+                  <input name="password" id="password" [(ngModel)]="password" required placeholder="Ejemplo: Password"
+                   placeholder="Password" required="" type="password" class="input-is">  
+              </div>
+              <button type="submit">Submit</button>
+          </div>
       </div>
-    </div>
   </div>
-</section>
+</form>
