@@ -1,0 +1,271 @@
+.d-f {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.al-c {
+  align-items: center;
+}
+
+.form-main {
+  width: 50em;
+}
+
+#SubscribeTXT {
+  margin: 1em 0em;
+  font-size: 2em;
+  color: #9fc4d0;
+}
+
+.input-container {
+  filter: drop-shadow(46px 36px 24px #4090b5)
+    drop-shadow(-55px -40px 25px #9e30a9);
+}
+
+.input-content {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  padding-inline: 1em;
+}
+
+label {
+  color: #9fc4d0;
+  font-size: 1.5em;
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  background-color: transparent;
+}
+
+.input-label {
+  color: #9fc4d0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1.5em;
+  color: rgba(204, 204, 204, 0);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus + .input-label {
+  top: -20px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.input-field:focus + .input-label + .input-highlight {
+  width: 100%;
+}
+
+.input-content::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  filter: blur(40px);
+  -webkit-clip-path: polygon(
+    26% 0,
+    66% 0,
+    92% 0,
+    100% 8%,
+    100% 89%,
+    91% 100%,
+    7% 100%,
+    0 92%,
+    0 0
+  );
+  clip-path: polygon(
+    26% 0,
+    66% 0,
+    92% 0,
+    100% 8%,
+    100% 89%,
+    91% 100%,
+    7% 100%,
+    0 92%,
+    0 0
+  );
+  background: rgba(122, 251, 255, 0.264);
+  transition: all 1s ease-in-out;
+}
+
+.input-content::after {
+  content: "";
+  position: absolute;
+  width: 98%;
+  height: 98%;
+  box-shadow: inset 0px 0px 20px 20px #212121;
+  background: repeating-linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(64, 144, 181, 0.6) 1px,
+      rgb(0, 0, 0) 3px,
+      hsl(295, 60%, 12%) 5px,
+      #153544 4px,
+      transparent 0.5%
+    ),
+    repeating-linear-gradient(
+      to left,
+      hsl(295, 60%, 12%) 100%,
+      hsla(295, 60%, 12%, 0.99) 100%
+    );
+  -webkit-clip-path: polygon(
+    26% 0,
+    31% 2%,
+    61% 2%,
+    66% 0,
+    92% 0,
+    100% 8%,
+    100% 89%,
+    91% 100%,
+    7% 100%,
+    0 92%,
+    0 0
+  );
+  clip-path: polygon(
+    26% 0,
+    31% 2%,
+    61% 2%,
+    66% 0,
+    92% 0,
+    100% 8%,
+    100% 89%,
+    91% 100%,
+    7% 100%,
+    0 92%,
+    0 0
+  );
+}
+
+.input-dist {
+  z-index: 80;
+  display: grid;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding-inline: 1em;
+  padding-block: 1.2em;
+  grid-template-columns: 1fr;
+}
+
+.input-type {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1em;
+  font-size: 1.1rem;
+  background-color: transparent;
+  width: 100%;
+  border: none;
+}
+
+.input-is {
+  color: #fff;
+  font-size: 1.2em;
+  background-color: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 1em 0em;
+  padding-inline: 0.5em;
+  padding-block: 0.7em;
+  border: none;
+  transition: all 1s ease-in-out;
+  border-bottom: 1px solid hsl(221, 26%, 43%);
+}
+
+.input-is:hover {
+  transition: all 1s ease-in-out;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(102, 224, 255, 0.2) 27%,
+    rgba(102, 224, 255, 0.2) 63%,
+    transparent 100%
+  );
+}
+
+.input-content:focus-within::before {
+  transition: all 1s ease-in-out;
+  background: hsla(0, 0%, 100%, 0.211);
+}
+
+.input-is:focus {
+  outline: none;
+  border-bottom: 1px solid hsl(192, 100%, 100%);
+  color: hsl(192, 100%, 88%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(102, 224, 255, 0.2) 27%,
+    rgba(102, 224, 255, 0.2) 63%,
+    transparent 100%
+  );
+}
+
+.input-is::-moz-placeholder {
+  color: hsla(192, 100%, 88%, 0.806);
+}
+
+.input-is::placeholder {
+  color: hsla(192, 100%, 88%, 0.806);
+  font-size: 1.2em;
+}
+
+textarea{
+  min-height: 15vh;
+}
+
+button {
+  color: #9fc4d0;
+  text-decoration: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  margin: 10px 0 0;
+}
+
+button::before {
+  margin-left: auto;
+}
+
+button::after,
+button::before {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: #06aed8;
+  display: block;
+  transition: 0.5s;
+}
+
+button:hover::after,
+button:hover::before {
+  width: 100%;
+  color: #9fc4d0;
+}
+
+.btn:hover {
+  color: #9fc4d0;
+}
+
+.btn-save> i,
+.btnn-close > i{
+font-size: 1.5em;
+}

@@ -18,6 +18,8 @@ export class ModalSkillsComponent implements OnInit {
     
   fotoSkill: String;
 
+  tipoSkill: String;
+
   constructor(
     private skillService: SkillsService,
     private router: Router
@@ -30,6 +32,7 @@ export class ModalSkillsComponent implements OnInit {
     const skills = new Skills(
       this.nombreSkill,
       this.fotoSkill,
+      this.tipoSkill,
     );
     this.skillService.crearSkills(skills).subscribe(
       (data) => {

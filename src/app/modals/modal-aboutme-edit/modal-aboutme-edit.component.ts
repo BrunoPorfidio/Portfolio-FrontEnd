@@ -64,9 +64,4 @@ export class ModalAboutmeEditComponent implements OnInit {
   }
 
 
-  refresh(): void {
-      window.location.reload();
-  }
-
-
 }

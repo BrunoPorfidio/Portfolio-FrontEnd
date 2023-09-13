@@ -1,93 +1,95 @@
-<ng-container class="modalc">
-  <div class="modalc-content">
-    <nav class="modalc-header">
-      <div class="container-fluid">
-        <span class="modalc-title">EDITAR PERSONA</span>
-      </div>
-    </nav>
-
-    <div class="container modalc-container" *ngIf="persona">
-      <div class="row">
-        <div>
-          <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-            <div class="form-group">
-              <label for="nombre">Nombre</label>
-              <input type="text" class="form-control form-control-lg" id="nombre" name="nombre"
-                [(ngModel)]="persona.nombre" required>
-            </div>
-            <div class="form-group">
-              <label for="apellido">Apellido</label>
-              <input type="text" class="form-control form-control-lg" id="apellido" name="apellido"
-                [(ngModel)]="persona.apellido" required>
-            </div>
-
-            <div class="form-group ">
-              <label for="subTitulo">Titulo</label>
-              <input type="text" class="form-control form-control-lg" id="subTitulo" name="subTitulo"
-                [(ngModel)]="persona.subTitulo" required>
-            </div>
-
-            <div class="form-group">
-              <label for="descripcion">Descripcion</label>
-              <input type="text" class="form-control form-control-lg" id="descripcion" name="descripcion" size="5000px"
-                [(ngModel)]="persona.acercaMi" required>
-            </div>
-
-            <div class="form-group">
-              <label for="urlFoto">Agregar URL de la Imgen</label>
-              <input type="text" class="form-control form-control-lg" id="urlFoto" name="urlFoto"
-                [(ngModel)]="persona.urlFoto" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" class="form-control form-control-lg" id="email" name="email" size="5000px"
-                [(ngModel)]="persona.email" required>
-            </div>
-
-            <div class="form-group">
-              <label for="telefono">Telefono</label>
-              <input type="number" class="form-control form-control-lg" id="telefono" name="telefono" size="5000px"
-                [(ngModel)]="persona.telefono" required>
-            </div>
-
-            <div class="form-group">
-              <label for="linkedinUrl">Linkedin Url</label>
-              <input type="url" class="form-control form-control-lg" id="linkedinUrl" name="linkedinUrl" size="5000px"
-                [(ngModel)]="persona.linkedinUrl" required>
-            </div>
-
-            <div class="form-group">
-              <label for="githubUrl">GitHub Url</label>
-              <input type="url" class="form-control form-control-lg" id="githubUrl" name="githubUrl" size="5000px"
-                [(ngModel)]="persona.githubUrl" required>
-            </div>
-
-            <div class="form-group">
-              <label for="ubicacion">Ubicacion</label>
-              <input type="text" class="form-control form-control-lg" id="ubicacion" name="ubicacion" size="5000px"
-                [(ngModel)]="persona.ubicacion" required>
-            </div>
-
-            <div class="form-group">
-              <label for="imgBanner">Banner Url</label>
-              <input type="url" class="form-control form-control-lg" id="imgBanner" name="imgBanner" size="5000px"
-                [(ngModel)]="persona.imgBanner" required>
-            </div>
-
-            <div class="container">
-              <div class="row">
-                <div class="col-4">
-                  <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
+<section class="hero-form container">
+  <div class=" d-f jc-c al-c" *ngIf="persona">
+    <form class="form-main" (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <div class="input-container">
+        <div class="input-content">
+          <div class="input-dist">
+            <span id="SubscribeTXT">EDIT PROFILE</span>
+            <div class="input-type">
+              <div class="row d-f">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="nombre">Name</label>
+                    <input type="text" class="input-is" id="nombre" name="nombre" 
+                    placeholder="Ex: Bruno" [(ngModel)]="persona.nombre" required>
+                  </div>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="apellido">Last Name</label>
+                    <input type="text" class="input-is" id="apellido" name="apellido" 
+                    placeholder="Ex: Porfidio" [(ngModel)]="persona.apellido" required>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group ">
+                <label for="subTitulo">Title</label>
+                <input type="text" class="input-is" id="subTitulo" name="subTitulo" 
+                placeholder="Ex: FontEnd Develoer" [(ngModel)]="persona.subTitulo" required>
+              </div>
+
+              <div class="form-group">
+                <label for="descripcion">Descript</label>
+                <textarea class="textarea" type="text" class="input-is" id="descripcion" name="descripcion" size="5000px"
+                  [(ngModel)]="persona.acercaMi" required></textarea>
+              </div>
+
+              <div class="row d-f">
+
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="input-is" id="email" name="email" size="5000px"
+                      [(ngModel)]="persona.email" required>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="telefono">Phone</label>
+                    <input type="number" class="input-is" id="telefono" name="telefono" size="5000px"
+                      [(ngModel)]="persona.telefono" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row d-f">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="linkedinUrl">Url Linkedin</label>
+                    <input type="url" class="input-is" id="linkedinUrl" name="linkedinUrl" size="5000px"
+                      [(ngModel)]="persona.linkedinUrl" required>
+                  </div>
+                </div>
+                
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="githubUrl">Url GitHub</label>
+                    <input type="url" class="input-is" id="githubUrl" name="githubUrl" size="5000px"
+                      [(ngModel)]="persona.githubUrl" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ubicacion">Location</label>
+                <input type="text" class="input-is" id="ubicacion" name="ubicacion" size="5000px"
+                  [(ngModel)]="persona.ubicacion" required>
+              </div>
+
+              <div class="row d-f">
+                <div class="col jc-c al-c">
+                  <button type="submit" class="btn-save"><i class="bi bi-person-fill-add"></i></button>
+                </div>
+                <div class="col jc-c al-c">
                   <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-</ng-container>
+</section>

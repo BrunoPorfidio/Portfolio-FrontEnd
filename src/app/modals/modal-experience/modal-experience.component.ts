@@ -32,7 +32,6 @@ onCreate(): void {
   const experiencia = new Experiencia(
     this.nombreEmpresa,
     this.puesto,
-    this.descripcion,
     this.inicio,
     this.fin
   );

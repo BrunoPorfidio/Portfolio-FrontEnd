@@ -1,56 +1,66 @@
-<ng-container class="modalc mt-5">
-  <div class="modalc-content">
-    <nav class="modalc-header">
-      <div class="container-fluid">
-        <span class="modalc-title">Crear Educacion</span>
-      </div>
-    </nav>
-    <div class="container modalc-container">
-      <div class="row">
-        <div>
-          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
-            <div class="form-group">
-              <label for="institucion">Institucion</label>
-              <input type="text" class="form-control form-control-lg" id="institucion" name="institucion"
-              placeholder="Ingrese nombre del Instituto"  [(ngModel)]="institucion" required>
-            </div>
-            <div class="form-group">
-              <label for="titulo">Titulo</label>
-              <input type="text" class="form-control form-control-lg" id="titulo" name="titulo"
-              placeholder="Ingrese Titulo Obtenido"  [(ngModel)]="titulo" required>
-            </div>
+<section class="hero-form container">
+  <div class=" d-f jc-c al-c">
+    <form class="form-main" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+      <div class="input-container">
+        <div class="input-content">
+          <div class="input-dist">
+            <span id="SubscribeTXT">New Education</span>
+            <div class="input-type">
+              <div class="row d-f">
 
-            <div class="form-group ">
-              <label for="inicio">Inicio</label>
-              <input type="number" class="form-control form-control-lg" id="inicio" name="inicio"
-              placeholder="Ingresar Fecha de inicio (Solo Numeros)" [(ngModel)]="inicio" required>
-            </div>
+                <div class="col-6">
+                  <div class="form-group ">
+                    <label for="institucion">institution</label>
+                    <input type="text" class="input-is" id="institucion" name="institucion"
+                      placeholder="Ingrese nombre del Instituto" [(ngModel)]="institucion" required>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="fin">Fin</label>
-              <input type="number" class="form-control form-control-lg" id="fin" name="fin" size="5000px"
-              placeholder="Ingresar Fecha de Finalizacion (Solo Numeros)" [(ngModel)]="fin" required>
-            </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="titulo">Title</label>
+                    <input type="text" class="input-is" id="titulo" name="titulo" placeholder="Ingrese Titulo Obtenido"
+                      [(ngModel)]="titulo" required>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="fotoEducacion">Foto Educacion Url</label>
-              <input type="text" class="form-control form-control-lg" id="fotoEducacion" name="fotoEducacion"
-               placeholder="Ingrese Url de la imagen" [(ngModel)]="fotoEducacion" required>
-            </div>
+              </div>
+              <div class="row d-f">
 
-            <div class="container">
-              <div class="row">
-                <div class="col-4">
+                <div class="col-6">
+                  <div class="form-group ">
+                    <label for="inicio">From</label>
+                    <input type="month" class="input-is" id="inicio" name="inicio" [(ngModel)]="inicio" required>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="fin">To</label>
+                    <input type="month" class="input-is" id="fin" name="fin" [(ngModel)]="fin" required>
+                  </div>
+                </div>
+
+              </div>
+              <div class="form-group">
+                <label for="fotoEducacion">Education image Url</label>
+                <input type="text" class="input-is" id="fotoEducacion" name="fotoEducacion"
+                  placeholder="Ingrese Url de la imagen" [(ngModel)]="fotoEducacion" required>
+              </div>
+
+              <div class="row d-f">
+                <div class="col jc-c al-c">
                   <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
                 </div>
-                <div class="col-4">
+                <div class="col jc-c al-c">
                   <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
+
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-</ng-container>
+</section>

@@ -14,9 +14,9 @@ export class ModalEducationComponent implements OnInit {
 
   titulo: String;
 
-  inicio: Number;
+  inicio: Date;
 
-  fin: Number;
+  fin: Date;
 
   fotoEducacion: String;
 

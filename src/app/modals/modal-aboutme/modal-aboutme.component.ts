@@ -92,7 +92,6 @@ export class ModalAboutmeComponent implements OnInit {
 
   onNewPersona() {
     this.clearForm();
-    this.showModal();
   }
 
   private loadForm(persona: Persona) {
@@ -108,13 +107,9 @@ export class ModalAboutmeComponent implements OnInit {
 
       acercaMi: persona.acercaMi,
 
-      urlFoto: persona.urlFoto,
-
       linkedinUrl: persona.linkedinUrl,
 
       githubUrl: persona.githubUrl,
-
-      imgBanner: persona.imgBanner,
 
       telefono: persona.telefono,
 
@@ -133,14 +128,11 @@ export class ModalAboutmeComponent implements OnInit {
       .subscribe((newPersona: Persona) => {
         this.personaList.push(newPersona);
       });
-    this.hideModal();
-    this.refresh();
   }
   
     onEditPersona(index: number) {
       let persona: Persona = this.personaList[index];
       this.loadForm(persona);
-      this.showModal();
     }
   
   // Método para recurar los datos de la base de datos
@@ -150,17 +142,4 @@ export class ModalAboutmeComponent implements OnInit {
     });
   }
 
-
-  refresh(): void {
-      window.location.reload();
-  }
-
-  // Métodos para cerrar y abrir el modal
-  showModal() {
-    this.show = true;
-  }
-
-  hideModal() {
-    this.show = false;
-  }
 }

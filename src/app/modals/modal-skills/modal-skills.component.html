@@ -1,38 +1,52 @@
-<ng-container class="modalc">
-  <div class="modalc-content">
-    <nav class="modalc-header">
-      <div class="container-fluid">
-        <span class="modalc-title">Crear Skill</span>
-      </div>
-    </nav>
-    <div class="container modalc-container">
-      <div class="row">
-        <div>
-          <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+<section class="hero-form container">
+  <div class=" d-f jc-c al-c">
+    <form class="form-main" (ngSubmit)="onCreate()" novalidate #f="ngForm">
+      <div class="input-container">
+        <div class="input-content">
+          <div class="input-dist">
+            <span id="SubscribeTXT">New Skill</span>
+            <div class="input-type">
+              <div class="row d-f">
+
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="nombreSkill">Skill Name</label>
+                    <input type="text" class="input-is" id="nombreSkill" name="nombreSkill"
+                    placeholder="Enter name Skill" [(ngModel)]="nombreSkill" required>
+                  </div>
+                </div>
+
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="fotoSkill">Image Url</label>
+                    <input type="text" class="input-is" id="fotoSkill" name="fotoSkill"
+                     placeholder="Enter Image Url" [(ngModel)]="fotoSkill" required>
+                  </div>
+                </div>
+              </div>
+              
             <div class="form-group">
-              <label for="nombreSkill">Nombre de la Skill</label>
-              <input type="text" class="form-control form-control-lg" id="nombreSkill" name="nombreSkill"
-              placeholder="Ingrese Nombre de la Skill" [(ngModel)]="nombreSkill" required>
-            </div>
-            <div class="form-group">
-              <label for="fotoSkill">Url de Foto</label>
-              <input type="text" class="form-control form-control-lg" id="fotoSkill" name="fotoSkill"
-               placeholder="Ingrese la Url de la Foto" [(ngModel)]="fotoSkill" required>
+              <label for="tipoSkill">Select Skill Type</label>
+              <br>
+              <select  id="tipoSkill" name="tipo" [(ngModel)]="tipoSkill" required>
+                <option value="Front">FrontEnd</option>
+                <option value="Back">BackEnd</option>
+              </select>
             </div>
 
-            <div class="container">
-              <div class="row">
-                <div class="col-4">
+              <div class="row d-f">
+                <div class="col jc-c al-c">
                   <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
                 </div>
-                <div class="col-4">
+                <div class="col jc-c al-c">
                   <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
+
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-</ng-container>
+</section>

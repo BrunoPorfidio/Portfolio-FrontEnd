@@ -1,58 +1,61 @@
-<ng-container class="modalc">
-  <div class="modalc-content">
-    <nav class="modalc-header">
-      <div class="container-fluid">
-        <span class="modalc-title">Editar Educacion</span>
-      </div>
-    </nav>
+<section class="hero-form container" *ngIf="experiencia">
+  <div class=" d-f jc-c al-c">
+    <form class="form-main" (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+      <div class="input-container">
+        <div class="input-content">
+          <div class="input-dist">
+            <span id="SubscribeTXT">Edit Experience</span>
+            <div class="input-type">
+              <div class="row d-f">
 
-    <div class="container modalc-container" *ngIf="experiencia">
-      <div class="row">
-        <div>
-          <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
-            <div class="form-group">
-              <label for="nombreEmpresa">Nombre Empresa</label>
-              <input type="text" class="form-control form-control-lg" id="nombreEmpresa" name="nombreEmpresa"
-                [(ngModel)]="experiencia.nombreEmpresa" required>
-            </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="nombreEmpresa">Company Name</label>
+                    <input type="text" class="input-is" id="nombreEmpresa" name="nombreEmpresa"
+                      placeholder="Ingrese nombre de la Empresa" [(ngModel)]="experiencia.nombreEmpresa" required>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="puesto">Puesto</label>
-              <input type="text" class="form-control form-control-lg" id="puesto" name="puesto"
-                [(ngModel)]="experiencia.puesto" required>
-            </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="puesto">Job Obtained</label>
+                    <input type="text" class="input-is" id="puesto" name="puesto" placeholder="Ingrese Titulo Obtenido"
+                      [(ngModel)]="experiencia.puesto" required>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="descripcion">Descripcion</label>
-              <input type="text" class="form-control form-control-lg" id="descripcion" name="descripcion"
-                [(ngModel)]="experiencia.descripcion" required>
-            </div>
+              </div>
+              <div class="row d-f">
 
-            <div class="form-group">
-              <label for="inicio">Inicio</label>
-              <input type="number" class="form-control form-control-lg" id="inicio" name="inicio"
-                [(ngModel)]="experiencia.inicio" required>
-            </div>
+                <div class="col-6">
+                  <div class="form-group ">
+                    <label for="inicio">From</label>
+                    <input type="month" class="input-is" id="inicio" name="inicio" [(ngModel)]="experiencia.inicio" required>
+                  </div>
+                </div>
 
-            <div class="form-group">
-              <label for="fin">Fin</label>
-              <input type="number" class="form-control form-control-lg" id="fin" name="fin"
-                [(ngModel)]="experiencia.fin" required>
-            </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="fin">To</label>
+                    <input type="month" class="input-is" id="fin" name="fin" [(ngModel)]="experiencia.fin" required>
+                  </div>
+                </div>
 
-            <div class="container">
-              <div class="row">
-                <div class="col-4">
+              </div>
+
+              <div class="row d-f">
+                <div class="col jc-c al-c">
                   <button type="submit" class="btn-save mt-15"><i class="bi bi-person-fill-add"></i></button>
                 </div>
-                <div class="col-4">
+                <div class="col jc-c al-c">
                   <button routerLink="/portfolio" class="btnn-close"><i class="bi bi-x-circle-fill"></i></button>
                 </div>
               </div>
+
             </div>
-          </form>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
   </div>
-</ng-container>
+</section>
