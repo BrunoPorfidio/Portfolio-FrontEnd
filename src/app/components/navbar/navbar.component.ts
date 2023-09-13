@@ -60,10 +60,6 @@ public active : boolean = false;
     window.location.reload();
   }
 
-  login(){
-    this.ruta.navigate(['/portfolio'])
-  }
-
   toHome(){
     document.getElementById('main')?.scrollIntoView({behavior:"smooth"})
   }
@@ -76,8 +72,8 @@ public active : boolean = false;
     document.getElementById('experiece')?.scrollIntoView({behavior:"smooth"})
   }
 
-  toProyects(){
-    document.getElementById('proyects')?.scrollIntoView({behavior:"smooth"})
+  toProjects(){
+    document.getElementById('projects')?.scrollIntoView({behavior:"smooth"})
   }
 
   toContact(){
