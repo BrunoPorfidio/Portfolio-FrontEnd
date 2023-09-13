@@ -9,13 +9,9 @@ export class Persona{
 
     acercaMi: String;
 
-    urlFoto: String;
-
     linkedinUrl: String;
 
     githubUrl: String;
-
-    imgBanner: String;
 
     telefono: String;
 
@@ -33,13 +29,9 @@ export class Persona{
 
         acercaMi: String,
 
-        urlFoto: String,
-
         linkedinUrl: String,
 
         githubUrl: String,
-
-        imgBanner: String,
 
         telefono: String,
 
@@ -57,13 +49,9 @@ export class Persona{
 
     this.acercaMi = acercaMi,
 
-    this.urlFoto = urlFoto,
-
     this.linkedinUrl = linkedinUrl,
 
     this.githubUrl = githubUrl,
-
-    this.imgBanner = imgBanner,
 
     this.telefono = telefono,
 

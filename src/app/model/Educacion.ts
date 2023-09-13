@@ -5,9 +5,9 @@ export class Educacion {
    
     titulo: String;
     
-    inicio: Number;
+    inicio: Date;
     
-    fin: Number;
+    fin: Date;
 
     fotoEducacion: String;
 
@@ -17,9 +17,9 @@ export class Educacion {
 
         titulo: String,
 
-        inicio: Number,
+        inicio: Date,
 
-        fin: Number,
+        fin: Date,
 
         fotoEducacion: String
     ){

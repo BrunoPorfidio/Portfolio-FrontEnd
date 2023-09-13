@@ -5,16 +5,22 @@ export class Skills{
     
     fotoSkill: String;
 
+    tipoSkill: String;
+
     constructor(
 
         nombreSkill: String,
         
-        fotoSkill: String
+        fotoSkill: String,
+
+        tipoSkill: String
 
     ){
     
     this.nombreSkill = nombreSkill,
 
-    this.fotoSkill = fotoSkill
+    this.fotoSkill = fotoSkill,
+    
+    this.tipoSkill = tipoSkill
     }
 }

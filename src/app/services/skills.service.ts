@@ -27,6 +27,10 @@ export class SkillsService {
     return this.http.get<Skills>(`${this.ApiSkills}${id}`);
   }
 
+  public getSkillsByType(type: string): Observable<Skills[]> {
+    return this.http.get<Skills[]>(`${this.ApiSkills}tipo?tipoSkill=${type}`);
+  }
+
   public crearSkills(skills: Skills): Observable<any>{
     return this.http.post<any>(`${this.ApiSkills}nuevo`, skills);
   }

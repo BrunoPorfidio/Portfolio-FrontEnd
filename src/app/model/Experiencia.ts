@@ -5,8 +5,6 @@ export class Experiencia{
 
     puesto: String;
 
-    descripcion: String;
-
     inicio: Number;
 
     fin: Number;
@@ -17,8 +15,6 @@ export class Experiencia{
     
         puesto: String,
     
-        descripcion: String,
-    
         inicio: Number,
     
         fin: Number
@@ -28,8 +24,6 @@ export class Experiencia{
     this.nombreEmpresa = nombreEmpresa,
 
     this.puesto = puesto,
-
-    this.descripcion = descripcion,
 
     this.inicio = inicio,
 
