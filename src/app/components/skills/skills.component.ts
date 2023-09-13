@@ -9,6 +9,9 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit {
+
+  frontSkills: Skills[] = [];
+  backSkills: Skills[] = [];
   
   skilss: Skills[] = [];
   roles: string[];
@@ -24,7 +27,6 @@ export class SkillsComponent implements OnInit {
   ){
   }
   ngOnInit(): void {
-    this.mostrarSkills();
 
     this.roles = this.tokenService.getAuthorities();
     this.roles.forEach((rol) => {
@@ -32,6 +34,16 @@ export class SkillsComponent implements OnInit {
         this.isAdmin = true;
       }
     });
+
+    this.skillsService.getSkillsByType('Front').subscribe(skills => {
+      this.frontSkills = skills;
+    });
+
+    this.skillsService.getSkillsByType('Back').subscribe(skills => {
+      this.backSkills = skills;
+    });
+
+
   }
 
   private mostrarSkills() {
@@ -53,5 +65,6 @@ export class SkillsComponent implements OnInit {
       )
     ]
   }
+
 
 }
