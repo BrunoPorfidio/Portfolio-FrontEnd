@@ -1,0 +1,152 @@
+.d-f {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.al-c {
+  align-items: center;
+}
+
+.add-skill {
+  font-size: 3em;
+}
+
+.btn-edit,
+.btn-delete {
+  font-size: 1.5em;
+}
+
+.row-btn {
+  margin-top: 1em;
+}
+
+.bi {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.bi:hover {
+  color: #4444bd;
+}
+
+.experience-title {
+  width: auto;
+  font-family: bold;
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 2em 1em;
+  font-weight: 700;
+  background: #50469d;
+  color: rgb(255, 255, 255);
+  border-radius: 0.5rem;
+  border-top: 2px solid #59b8b0;
+  border-left: 2px solid #59b8b0;
+  border-bottom: 2px solid rgb(238, 103, 238);
+  border-right: 2px solid rgb(238, 103, 238);
+  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 195, 240, 0.3) 10px 10px,
+    rgba(46, 195, 240, 0.2) 15px 15px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+  background: #1b233d;
+  margin: 1em 0em;
+  border-radius: 20px;
+}
+
+.card::before {
+  display: flex;
+  justify-content: center;
+  content: "";
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(
+    180deg,
+    rgb(0, 183, 255),
+    rgb(255, 48, 255)
+  );
+  height: 300%;
+  animation: rotBGimg 6s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  background: #07182e;
+  inset: 5px;
+  border-radius: 15px;
+}
+
+.card .card-section {
+  width: 90%;
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 10;
+  margin-top: 15px;
+  padding: 10px;
+}
+
+.card .card-section .title {
+  display: block;
+  font-size: 2.5em;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  display: block;
+  font-size: 1.7em;
+  font-weight: bolder;
+  color: white;
+  text-align: center;
+}
+
+.card .card-section .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card .card-section .row .item {
+  flex: 30%;
+  text-align: center;
+  padding: 5px;
+  color: rgba(170, 222, 243, 0.721);
+}
+
+.card .card-section .row .item .big-text {
+  font-size: 1.5em;
+  display: block;
+  color: white;
+  font-weight: 700;
+}
+
+.card .card-section .row .item .regular-text {
+  font-size: 1.2em;
+}
+.card .card-section .row .item:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.126);
+}
