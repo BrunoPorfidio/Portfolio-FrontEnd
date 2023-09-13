@@ -1,0 +1,168 @@
+.d-f {
+  display: flex;
+}
+
+.jc-c {
+  justify-content: center;
+}
+
+.al-c {
+  align-items: center;
+}
+
+.add-skill{
+font-size: 3em;
+}
+
+.btn-edit,
+.btn-delete{
+  font-size: 1.5em;
+}
+
+.row-btn{
+  margin-top: 1em;
+}
+
+.bi{
+  color: rgb(255, 255, 255); 
+  cursor: pointer;
+}
+
+.bi:hover{
+  color: #4444bd;
+}
+
+.skills-title {
+  width: auto;
+  font-family: bold;
+  color: #fff;
+  font-size: 3em;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 2em 1em;
+  font-weight: 700;
+  background: #50469d;
+  color: rgb(255, 255, 255);
+  border-radius: .5rem;
+  border-top: 2px solid #59b8b0;
+  border-left: 2px solid #59b8b0;
+  border-bottom: 2px solid rgb(238, 103, 238);
+  border-right: 2px solid rgb(238, 103, 238);
+  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 195, 240, 0.3) 10px 10px, rgba(46, 195, 240, 0.2) 15px 15px;
+}
+
+.skills-column {
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.skills-column > p {
+  text-align: center;
+  color: #fff;
+  font-size: 3em;
+}
+
+.card {
+  width: 100%;
+  height: 114px;
+  margin: 0 auto;
+  background-color: #023252;
+  border-radius: 8px;
+  z-index: 1;
+ }
+ 
+ .tools {
+  display: flex;
+  align-items: center;
+  padding: 9px;
+ }
+ 
+ .circle {
+  padding: 0 4px;
+ }
+ 
+ .box {
+  display: inline-block;
+  align-items: center;
+  width: 10px;
+  height: 10px;
+  padding: 1px;
+  border-radius: 50%;
+ }
+ 
+ .red {
+  background-color: #ff605c;
+ }
+ 
+ .yellow {
+  background-color: #ffbd44;
+ }
+ 
+ .green {
+  background-color: #00ca4e;
+ }
+
+ .card__content > p{
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+ }
+
+.skill-card {
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.skill-card > .row > .col-3{
+  margin: 1.5em;
+  background: rgba(255, 255, 255, 0.34);
+  position: relative;
+  padding: 1.25em;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+  overflow: hidden;
+}
+
+.icon-container {
+  position: relative;
+  height: 80px;
+  transition: filter 0.3s;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3/1.7;
+  object-fit: contain;
+  transition: scale 0.6s, rotate 0.6s, filter 1s;
+}
+
+.icon:hover{
+  z-index: 10;
+  scale: 2.5;
+  rotate: 30deg;
+  filter: blur(7px);
+}
+
+.skill-name {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2em;
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
+  display: inline-block;
+}
+
+.icon-container:hover .icon {
+  filter: blur(5px);
+}
+
+.icon-container:hover .skill-name {
+  opacity: 1;
+}

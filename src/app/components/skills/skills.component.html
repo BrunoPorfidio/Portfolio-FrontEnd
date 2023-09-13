@@ -1,29 +1,91 @@
-<section class="container-fluid hero-sobre-mi" id="about-me">
-    <div class="hero-skills" style="margin-top: 50px;">
-        <h2 class="container my-skills-title">Mis Skills</h2>
-        <div class="botones-admin">
-            <i *ngIf="isAdmin" routerLink="/newSkill" class="bi bi-plus-square"
-                style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
-        </div>
-        <div class="container icons-skills" data-aos="zoom-out" data-aos-duration="1000">
-            <div class="row admin-btn">
-                <div class="col-1 i-skills" *ngFor="let skills of skilss, let i = index" [id]="skills.idSkill">
-                    <img [src]="skills.fotoSkill" class="skill-img" [alt]="skills.nombreSkill">
-                    <div class="row">
-                        <div class="col-6">
-                            <i *ngIf="isAdmin == true" routerLink="/editSkill/{{skills.idSkill}}" class="btn-edit bi bi-pencil-fill"></i>
-                        </div>
-                        <div class="col-6">
-                            <i *ngIf="isAdmin == true" (click)="delete(skills.idSkill)"
-                                 class="btn-delete bi bi-trash-fill"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container skills-hero">
+  <div class="container-fluid d-f jc-c">
+    <p class="skills-title">Skills</p>
+    <div class="d-f al-c">
+      <i *ngIf="isAdmin" routerLink="/newSkill" class="bi bi-plus-square add-skill"></i>
     </div>
-</section>
+  </div>
 
+  <div class="skills-container">
+    <div class="row">
+      <div class="col-6">
+        <div class="skills-column " *ngIf="frontSkills">
+          <div class="card mb-3">
+            <div class="tools">
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
 
+            <div class="card__content">
+              <p>&lt;FrontEnd_Skills/&gt;</p>
+            </div>
+          </div>
+          <div class="skill-card ">
+            <div class="row jc-c">
+              <div class="col-3" *ngFor="let skill of frontSkills, let i = index" [id]="skill.idSkill">
+                <div class="icon-container ">
+                  <img class="icon" [src]="skill.fotoSkill" alt="Icon Skill">
+                  <p class="skill-name">{{skill.nombreSkill}}</p>
+                </div>
+                <div class="row row-btn" *ngIf="isAdmin == true">
+                  <div class="col-6">
+                    <i routerLink="/editSkill/{{skill.idSkill}}" class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
+                  </div>
+                  <div class="col-6">
+                    <i (click)="delete(skill.idSkill)" class="btn-delete bi bi-trash-fill d-f jc-c al-c"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="skills-column" *ngIf="backSkills">
+          <div class="card mb-3">
+            <div class="tools">
+              <div class="circle">
+                <span class="red box"></span>
+              </div>
+              <div class="circle">
+                <span class="yellow box"></span>
+              </div>
+              <div class="circle">
+                <span class="green box"></span>
+              </div>
+            </div>
 
-
+            <div class="card__content">
+              <p>&lt;BackEnd_Skills/&gt;</p>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="row jc-c">
+              <div class="col-3" *ngFor="let skill of backSkills, let i = index" [id]="skill.idSkill">
+                <div class="icon-container">
+                  <img class="icon" [src]="skill.fotoSkill" alt="Icon">
+                  <p class="skill-name">{{skill.nombreSkill}}</p>
+                </div>
+                <div class="row row-btn" *ngIf="isAdmin == true">
+                  <div class="col-6">
+                    <i routerLink="/editSkill/{{skill.idSkill}}" class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
+                  </div>
+                  <div class="col-6">
+                    <i (click)="delete(skill.idSkill)" class="btn-delete bi bi-trash-fill d-f jc-c al-c"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
