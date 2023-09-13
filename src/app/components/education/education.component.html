@@ -1,52 +1,44 @@
-<div class="hero-education container-fluid" style="background-color: black;">
-    <div class="container">
-        <h1 class="title-education">Mi Educacion</h1>
+<div class="container education-hero">
+  <div class="container-fluid d-f jc-c">
+    <p class="education-title">My Educations</p>
+    <div class="d-f al-c">
+      <i *ngIf="isAdmin" routerLink="/newEducation" class="add-education bi bi-plus-square"></i>
     </div>
-    <div class="botones-admin">
-        <i *ngIf="isAdmin" routerLink="/newEducation" class="bi bi-plus-square"
-            style="color: rgb(255, 225, 0); font-size: 35px; cursor: pointer; "></i>
-    </div>
-
-    <div class="container-fluid" style="margin-bottom: 3%;">
-        <div class="row" >
-            <div class="col-md-6 col-sm-10"  *ngFor="let educacion of educacions, let i = index" [id]="educacion.idEducacion" >
-                <div class="card main-card-education">
-                    <div class="card-header card-education-title" data-aos="flip-left" data-aos-duration="1000">
-                        <h2 class="school-title">{{educacion.institucion}}</h2>
-                    </div>
-                    <div class="card-body education-card" data-aos="flip-left" data-aos-duration="1000">
-                        <div class="row">
-                            <div class="col-6">
-                                <img class=" img-education" [src]="educacion.fotoEducacion" alt="img Educacion" >
-                            </div>
-                            <div class="col-6">
-                                <div class="card-text">
-                                    <div class="card-title">
-                                        <h3 class="title-card-education">{{educacion.titulo}}</h3>
-                                    </div>
-                                    <div class="row date-education">
-                                        <div class="col-6">
-                                            <p class="date-card-education">Inicio: {{educacion.inicio}}</p>
-                                        </div>
-                                        <div class="col-6">
-                                            <p class="date-card-education" >Fin: {{educacion.fin}}</p>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <i *ngIf="isAdmin == true" routerLink="/editEducation/{{educacion.idEducacion}}" class="btn-edit bi bi-pencil-fill"></i>
-                        </div>
-                        <div class="col-6">
-                            <i *ngIf="isAdmin == true" (click)="delete(educacion.idEducacion)"
-                                class="btn-delete bi bi-trash-fill"></i>
-                        </div>
-                    </div>
+  </div>
+  <div class="row d-f jc-c al-c">
+    <div class="col-sm-6 col-md-3" *ngFor="let educacion of educacions, let i = index" [id]="educacion.idEducacion">
+      <div class="parent">
+        <div class="card">
+          <div class="top-section">
+            <img [src]="educacion.fotoEducacion">
+          </div>
+          <div class="bottom-section">
+            <span class="title">{{educacion.institucion}}</span>
+            <span class="subtitle">{{educacion.titulo}}</span>
+            <div class="row row1">
+              <div class="item">
+                <span class="regular-text">From</span>
+                <span class="big-text">{{educacion.inicio}}</span>
+              </div>
+              <div class="item">
+                <span class="regular-text">To</span>
+                <span class="big-text">{{educacion.fin}}</span>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <i *ngIf="isAdmin == true" routerLink="/editEducation/{{educacion.idEducacion}}"
+                    class="btn-edit d-f jc-c al-c bi bi-pencil-fill"></i>
                 </div>
+                <div class="col-6">
+                  <i *ngIf="isAdmin == true" (click)="delete(educacion.idEducacion)"
+                    class="btn-delete d-f jc-c al-c bi bi-trash-fill"></i>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
 </div>
