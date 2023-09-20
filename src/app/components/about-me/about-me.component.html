@@ -1,16 +1,16 @@
 <section class="title-hero">
     <div class="container-fluid">
-        <div class="row ">
-            <div class="col-5 d-f jc-c">
+        <div class="row d-f jc-c al-c">
+            <div class="col-12 col-sm-5 image-container d-f jc-c">
                 <img class="image" src="https://i.postimg.cc/158SmQHW/office.png" alt="" srcset="">
             </div>
-            <div class="col-6">
+            <div class="col-12 col-sm-7" *ngFor="let persona of personas, let i = index">
                 <div class="primary-text">
-                    <b class="welcome-text">Hi There, I'm </b>
+                    <b class="welcome-text"><a href="/login">Hi</a> There, I'm </b>
                 </div>
-                <p class="titulo glitch d-f " data-text="Bruno C G Porfidio"><a href="/login">B</a>runo C G Porfidio</p>
+                <p class="titulo glitch d-f " data-text="Bruno C G Porfidio">{{persona.nombre}} {{persona.apellido}}</p>
                 <div class="animated-text">
-                    <p class="subtitulo ">Full Stack Web Developer .</p>
+                    <p class="subtitulo ">{{persona.subTitulo}} .</p>
                 </div>
             </div>
             <div class="waves">
@@ -28,46 +28,42 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col d-f jc-c al-c mt-5">
-                <div class="aboutme-descript">
-                    <p data-aos="zoom-out-down">Welcome to my portfolio. I am a technology and computer enthusiast. At
-                        the beginning of 2022 I started my course in the Argentina Program. As I progressed I became
-                        more and more passionate about programming. Today I am a Freelancer and I am looking to continue
-                        my professional development.
+            <div class="col-12 col-sm-12 col-md-7 col-lg-7 d-f jc-c al-c mt-5">
+                <div class="aboutme-descript" *ngFor="let persona of personas, let i = index">
+                    <p data-aos="zoom-out-down">{{persona.acercaMi}}
                     </p>
                     <br>
                     <div class="social-container d-f jc-c al-c">
                         <div class="social-icon d-f">
                             <div class="col-1">
-                                <a href="https://www.linkedin.com/in/bruno-porfidio" target="_blank">
-                                    <img class="icon linkedin" src="https://img.icons8.com/?size=512&id=44019&format=png"
-                                        alt="Linikedin Png" srcset="" data-aos="fade-right">
+                                <a [href]="persona.linkedinUrl" target="_blank">
+                                    <img class="icon linkedin"
+                                        src="https://img.icons8.com/?size=512&id=44019&format=png" alt="Linikedin Png"
+                                        srcset="" data-aos="fade-right">
                                 </a>
                             </div>
                             <div class="col-1">
-                                <a href="https://github.com/BrunoPorfidio" target="_blank">
+                                <a [href]="persona.githubUrl" target="_blank">
                                     <img class="icon github" src="https://img.icons8.com/?size=512&id=52539&format=png"
-                                    alt="Github Png" srcset="" data-aos="fade-down">
+                                        alt="Github Png" srcset="" data-aos="fade-down">
                                 </a>
                             </div>
                             <div class="col-1">
                                 <a download="BrunoPortfidioCV" href="../../../assets/documents/CVBrunoPorfidioTIE.pdf">
-                                    <img class="icon cv" src="https://img.icons8.com/?size=512&id=4rzOerPFTcOo&format=png"
-                                        alt="Cv Png" srcset="" data-aos="fade-left">
+                                    <img class="icon cv"
+                                        src="https://img.icons8.com/?size=512&id=4rzOerPFTcOo&format=png" alt="Cv Png"
+                                        srcset="" data-aos="fade-left">
                                 </a>
                             </div>
-
-                           
-                           
                         </div>
                     </div>
                     <div class="admin-btn" *ngIf="isAdmin">
-                        <i routerLink="/editaboutMe/1" *ngIf="isLogged" class="btn-edit bi bi-pencil-fill">
+                        <i routerLink="/editaboutMe/{{persona.id}}" *ngIf="isLogged" class="btn-edit bi bi-pencil-fill">
                         </i>
                     </div>
                 </div>
             </div>
-            <div class="col d-f jc-c al-c">
+            <div class="col col-md-5 banner-container d-f jc-c al-c">
                 <img class="banner" src="https://quizbit.co/assets/img/banner.svg" alt="Image Banner" srcset="">
             </div>
         </div>
