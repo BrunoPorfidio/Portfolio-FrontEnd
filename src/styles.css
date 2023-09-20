@@ -4,11 +4,12 @@
   font-family: bold;
 }
 
-body{
-    background: rgb(122, 75, 221);
-    background: linear-gradient(
-      90deg,
-      rgba(122, 75, 221, 1) 0%,
-      rgba(46, 166, 199, 1) 86%
-    );
+body {
+  background: rgb(122, 75, 221);
+  background: linear-gradient(
+    to right,
+    rgba(122, 75, 221, 1) 0%,
+    rgba(46, 166, 199, 1) 86%
+  );
+  
 }
