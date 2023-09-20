@@ -1,25 +1,25 @@
 <div id="main"></div>
 <header class="hero-nav">
     <div class="container-fluid navbar">
-        <button (click)="setActive()" class="menu-btn">
-            <i class="bi bi-list"></i>
+        <button (click)="setActive()" class="menu-btn d-f jc-c al-c">
+            <i class="bi bi-list d-f jc-c al-c"></i>
         </button>
-        <div class="nav__item" [ngClass]="{ 'nav__item--activo': active }">
-            <a (click)="toHome()"><button class="buttons btn-nav">
+        <div class="nav__item d-f jc-c al-c" [ngClass]="{ 'nav__item--activo': active, 'slide-down': active }">
+            <a (click)="toHome(); closeMenu()"><button class="buttons btn-nav">
                     <p class="nav-txt"><i class="bi bi-house"></i> Home</p>
                 </button></a>
-            <a (click)="toAbout()"><button class="buttons btn-nav">
+            <a (click)="toAbout(); closeMenu()"><button class="buttons btn-nav">
                     <p class="nav-txt">
                         <i class="bi bi-file-earmark-person"></i> About Me
                     </p>
                 </button></a>
-            <a (click)="toExperience()"><button class="buttons btn-nav">
+            <a (click)="toExperience(); closeMenu()"><button class="buttons btn-nav">
                     <p class="nav-txt"><i class="bi bi-code-square"></i> Experience</p>
                 </button></a>
-            <a (click)="toProjects()"><button class="buttons btn-nav">
+            <a (click)="toProjects(); closeMenu()"> <button class="buttons btn-nav">
                     <p class="nav-txt"><i class="bi bi-view-list"></i> My Projects</p>
                 </button></a>
-            <a (click)="toContact()"><button class="buttons btn-nav">
+            <a (click)="toContact(); closeMenu()"><button class="buttons btn-nav">
                     <p class="nav-txt"><i class="bi bi-person-plus"></i> Contact</p>
                 </button></a>
             <!-- <a href="/login">

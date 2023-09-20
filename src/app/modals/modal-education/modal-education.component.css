@@ -269,3 +269,123 @@ button:hover::before {
 .btnn-close > i {
   font-size: 1.5em;
 }
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media all and (min-width: 950px) and (max-width: 1360px) {
+    
+  .contact-title {
+    font-size: 1.5em;
+  }
+
+
+}
+
+@media all and (min-width: 700px) and (max-width: 950px) {
+
+  .contact-title {
+    font-size: 1.7em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.7em;
+  }
+
+  label{
+    font-size: 1.2em;
+  }
+
+  .input-is{
+    font-size: .8em;
+  }
+
+  .btn{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 500px) and (max-width: 700px) {
+
+  .contact-title {
+    font-size: 1.3em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.5em;
+  }
+
+  label{
+    font-size: 1em;
+  }
+
+  .input-is{
+    font-size: .7em;
+  }
+
+  textarea{
+    min-height: 12vh;
+  }
+
+  .btn-save> i,
+  .btnn-close > i{
+  font-size: 1.2em;
+  }
+}
+
+@media all and (min-width: 330px) and (max-width: 500px) {
+
+  .contact-title {
+    font-size: 1em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.5em;
+  }
+
+  label{
+    font-size: 1em;
+  }
+
+  .input-is{
+    font-size: .7em;
+  }
+
+  textarea{
+    min-height: 10vh;
+  }
+
+  .btn-save> i,
+  .btnn-close > i{
+  font-size: 1em;
+  }
+}
+
+@media all and (max-width: 330px) {
+
+  .contact-title {
+    font-size: .8em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.2em;
+  }
+
+  label{
+    font-size: .8em;
+  }
+
+  .input-is{
+    font-size: .4em;
+  }
+
+  textarea{
+    min-height: 10vh;
+  }
+
+  .btn-save> i,
+  .btnn-close > i{
+  font-size: 1em;
+  }
+
+}

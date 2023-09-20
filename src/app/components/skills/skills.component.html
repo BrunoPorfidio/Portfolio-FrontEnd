@@ -2,13 +2,13 @@
   <div class="container-fluid d-f jc-c">
     <p class="skills-title">Skills</p>
     <div class="d-f al-c">
-      <i *ngIf="isAdmin" routerLink="/newSkill" class="bi bi-plus-square add-skill"></i>
+      <i *ngIf="isAdmin" routerLink="/newSkill" class="add-skill bi bi-plus-square"></i>
     </div>
   </div>
 
   <div class="skills-container">
     <div class="row">
-      <div class="col-6">
+      <div class="col-12 col-sm-6">
         <div class="skills-column " *ngIf="frontSkills">
           <div class="card mb-3">
             <div class="tools">
@@ -29,7 +29,7 @@
           </div>
           <div class="skill-card ">
             <div class="row jc-c">
-              <div class="col-3" *ngFor="let skill of frontSkills, let i = index" [id]="skill.idSkill">
+              <div class="col-3 col-md-3 col-container" *ngFor="let skill of frontSkills, let i = index" [id]="skill.idSkill">
                 <div class="icon-container ">
                   <img class="icon" [src]="skill.fotoSkill" alt="Icon Skill">
                   <p class="skill-name">{{skill.nombreSkill}}</p>
@@ -47,7 +47,7 @@
           </div>
         </div>
       </div>
-      <div class="col-6">
+      <div class="col-12 col-sm-6">
         <div class="skills-column" *ngIf="backSkills">
           <div class="card mb-3">
             <div class="tools">
@@ -68,7 +68,7 @@
           </div>
           <div class="skill-card">
             <div class="row jc-c">
-              <div class="col-3" *ngFor="let skill of backSkills, let i = index" [id]="skill.idSkill">
+              <div class="col-3 col-md-3 col-container" *ngFor="let skill of backSkills, let i = index" [id]="skill.idSkill">
                 <div class="icon-container">
                   <img class="icon" [src]="skill.fotoSkill" alt="Icon">
                   <p class="skill-name">{{skill.nombreSkill}}</p>

@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.add-skill {
+.add-project {
   font-size: 3em;
 }
 
@@ -170,4 +170,72 @@ line {
 .card:hover::before {
   transform: rotate(10deg);
   box-shadow: 0px 0px 20px -5px #000;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media all and (min-width: 1110px) and (max-width: 1360px) {
+}
+
+@media all and (min-width: 950px) and (max-width: 1110px) { 
+
+  .card__title{
+    font-size: 1.7em;
+  }
+
+}
+
+@media all and (min-width: 700px) and (max-width: 950px) {
+}
+
+@media all and (min-width: 500px) and (max-width: 700px) {
+
+  .project-title {
+    font-size: 1.5em;
+  }
+
+  .add-project{
+    font-size: 1.7em;
+  }
+  .btn-edit,
+  .btn-delete{
+    font-size: 1.2em;
+  }
+}
+
+@media all and (min-width: 330px) and (max-width: 500px) {
+
+  .project-title {
+    font-size: 1.2em;
+  }
+
+  .add-project{
+    font-size: 1.7em;
+  }
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (max-width: 330px) {
+
+  .project-title {
+    font-size: 1.2em;
+  }
+
+  .add-project{
+    font-size: 1.7em;
+  }
+
+  .card__title{
+    font-size: 1.7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
 }

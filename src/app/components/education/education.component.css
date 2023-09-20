@@ -19,12 +19,12 @@
   font-size: 1.5em;
 }
 
-.bi{
-  color: rgb(255, 255, 255); 
+.bi {
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
-.bi:hover{
+.bi:hover {
   color: #4444bd;
 }
 
@@ -49,13 +49,13 @@
 }
 
 .card {
-  width: 100%;
+  width: 80%;
   border-radius: 20px;
-  background: #1b233d;
+  background: #07182e;
   padding: 5px;
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
-  transition: 0.15s all ease-in-out;;
+  transition: 0.15s all ease-in-out;
 }
 
 .card:hover {
@@ -68,7 +68,7 @@
 }
 
 .card .top-section {
-    padding-top: 1em;
+  padding-top: 1em;
   border-radius: 15px;
   display: flex;
   position: relative;
@@ -104,18 +104,6 @@
   box-shadow: -5px -5px 0 2px #1b233d;
 }
 
-.card .top-section::before {
-  content: "";
-  position: absolute;
-  top: 30px;
-  left: 0;
-  background: rgba(255, 255, 255, 0);
-  height: 15px;
-  width: 15px;
-  border-top-left-radius: 15px;
-  box-shadow: -5px -5px 0 2px #1b233d;
-}
-
 .card .top-section .icons {
   position: absolute;
   top: 0;
@@ -123,12 +111,6 @@
   height: 30px;
   display: flex;
   justify-content: space-between;
-}
-
-.card .top-section .icons .logo {
-  height: 100%;
-  aspect-ratio: 1;
-  padding: 7px 0 7px 15px;
 }
 
 .card .bottom-section {
@@ -155,7 +137,6 @@
 
 .card .bottom-section .row {
   display: flex;
-  justify-content: space-between;
   margin-top: 20px;
 }
 
@@ -179,4 +160,179 @@
 
 .card .bottom-section .row .item:nth-child(2) {
   border-left: 1px solid rgba(255, 255, 255, 0.126);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media all and (min-width: 1110px) and (max-width: 1360px) {
+  .education-title {
+    font-size: 1.5em;
+  }
+
+  .add-education {
+    font-size: 2.5em;
+  }
+}
+
+@media all and (min-width: 753px) and (max-width: 1110px) {
+  .education-title {
+    font-size: 1.5em;
+  }
+
+  .add-education {
+    font-size: 2em;
+  }
+
+  .card .top-section img {
+    width: 70%;
+  }
+
+  .card .bottom-section .title {
+    font-size: 1.2em;
+  }
+
+  .card .bottom-section .subtitle {
+    font-size: 1em;
+  }
+
+  .card .bottom-section .row .item .big-text {
+    font-size: 1em;
+  }
+}
+
+@media all and (min-width: 850px) and (max-width: 950px) {
+  .education-title {
+    font-size: 1.5em;
+  }
+
+  .add-education {
+    font-size: 2em;
+  }
+}
+
+@media all and (min-width: 753px) and (max-width: 850px) {
+  .education-title {
+    font-size: 1.5em;
+  }
+
+  .add-education {
+    font-size: 1.7em;
+  }
+
+  .parent {
+    margin: 1em 0em;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .card .top-section img {
+    width: 80%;
+  }
+
+  .card .bottom-section .title {
+    font-size: .8em;
+  }
+
+  .card .bottom-section .subtitle {
+    font-size: .7em;
+  }
+
+  .card .bottom-section .row .item .big-text {
+    font-size: 0.8em;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 500px) and (max-width: 753px) {
+  .education-title {
+    font-size: 1.5em;
+  }
+
+  .add-education {
+    font-size: 2em;
+  }
+
+  .parent {
+    margin: 1em 0em;
+  }
+
+  .card {
+    width: 80%;
+  }
+
+  .card .top-section img {
+    width: 80%;
+  }
+
+  .card .bottom-section .title {
+    font-size: 1em;
+  }
+
+  .card .bottom-section .subtitle {
+    font-size: 0.8em;
+  }
+
+  .card .bottom-section .row .item .big-text {
+    font-size: 0.8em;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 500px) {
+  .education-title {
+    font-size: 1.2em;
+  }
+
+  .add-education {
+    font-size: 1.7em;
+  }
+
+  .parent {
+    margin: 1em 0em;
+  }
+
+  .card .top-section img {
+    width: 80%;
+  }
+
+  .card .bottom-section .title {
+    font-size: 1em;
+  }
+
+  .card .bottom-section .subtitle {
+    font-size: 0.8em;
+  }
+
+  .card .bottom-section .row .item .big-text {
+    font-size: 0.8em;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .education-title {
+    font-size: 1em;
+  }
+
+  .add-education {
+    font-size: 1.7em;
+  }
+
+  .parent {
+    margin: 1em 0em;
+  }
+
+  .card .bottom-section .title {
+    font-size: 0.8em;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1em;
+  }
 }

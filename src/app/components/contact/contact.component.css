@@ -14,7 +14,7 @@
   width: 50em;
 }
 
-.experience-title {
+.contact-title {
   width: auto;
   font-family: bold;
   color: #fff;
@@ -279,4 +279,129 @@ button:hover::before {
 
 .btn:hover {
   color: #9fc4d0;
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media all and (min-width: 950px) and (max-width: 1360px) {
+    
+  .contact-title {
+    font-size: 1.5em;
+  }
+
+
+}
+
+@media all and (min-width: 700px) and (max-width: 950px) {
+  
+  .form-main{
+    margin-top: 5vh;
+  }
+
+  .contact-title {
+    font-size: 1.7em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.7em;
+  }
+
+  label{
+    font-size: 1.2em;
+  }
+
+  .input-is{
+    font-size: .8em;
+  }
+
+  .btn{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 500px) and (max-width: 700px) {
+
+  .form-main{
+    margin-top: 5vh;
+  }
+
+  .contact-title {
+    font-size: 1.3em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.5em;
+  }
+
+  label{
+    font-size: 1em;
+  }
+
+  .input-is{
+    font-size: .7em;
+  }
+
+  .btn{
+    font-size: 1em;
+  }
+
+
+}
+
+@media all and (min-width: 330px) and (max-width: 500px) {
+
+  .form-main{
+    margin-top: 5vh;
+  }
+
+  .contact-title {
+    font-size: 1em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.5em;
+  }
+
+  label{
+    font-size: 1em;
+  }
+
+  .input-is{
+    font-size: .7em;
+  }
+
+  .btn{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (max-width: 330px) {
+
+  .form-main{
+    margin-top: 5vh;
+  }
+
+  .contact-title {
+    font-size: .8em;
+  }
+
+  #SubscribeTXT{
+    font-size: 1.5em;
+  }
+
+  label{
+    font-size: .8em;
+  }
+
+  .input-is{
+    font-size: .5em;
+  }
+
+  .btn{
+    font-size: 1em;
+  }
+
 }

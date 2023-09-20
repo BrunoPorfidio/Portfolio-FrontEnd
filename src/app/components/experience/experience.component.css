@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.add-skill {
+.add-experience {
   font-size: 3em;
 }
 
@@ -99,6 +99,7 @@
 }
 
 .card .card-section {
+  min-width: 30em;
   width: 90%;
   border-radius: 20px;
   overflow: hidden;
@@ -107,7 +108,7 @@
   padding: 10px;
 }
 
-.card .card-section .title {
+.title {
   display: block;
   font-size: 2.5em;
   font-weight: bolder;
@@ -120,7 +121,7 @@
   display: block;
   font-size: 1.7em;
   font-weight: bolder;
-  color: white;
+  color: rgb(186, 186, 186);
   text-align: center;
 }
 
@@ -149,4 +150,257 @@
 }
 .card .card-section .row .item:nth-child(2) {
   border-left: 1px solid rgba(255, 255, 255, 0.126);
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+@media all and (min-width: 1110px) and (max-width: 1360px) {
+    
+  .experience-title {
+    font-size: 1.5em;
+  }
+
+  .add-experience{
+    font-size: 1.7em;
+  }
+
+  .card{
+    width: 100%;
+    margin: 1em 0em;
+  }
+
+  .card .card-section {
+    min-width: 8em;
+  }
+
+  .title{
+    font-size:1.9em;
+  }
+
+  .subtitle{
+    font-size: .9em;
+  }
+
+  .card .card-section .row .item .big-text {
+    font-size: .7em;
+  }
+  
+  .card .card-section .row .item .regular-text {
+    font-size: .7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 950px) and (max-width: 1110px) { 
+  
+  .experience-title {
+    font-size: 1.5em;
+  }
+
+  .add-experience{
+    font-size: 1.7em;
+  }
+
+  .card{
+    width: 100%;
+    margin: 1em 0em;
+  }
+
+  .card .card-section {
+    min-width: 8em;
+  }
+
+  .title{
+    font-size:1.9em;
+  }
+
+  .subtitle{
+    font-size: .9em;
+  }
+
+  .card .card-section .row .item .big-text {
+    font-size: .7em;
+  }
+  
+  .card .card-section .row .item .regular-text {
+    font-size: .7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 700px) and (max-width: 950px) {
+  
+  .experience-title {
+    font-size: 1.5em;
+  }
+
+  .add-experience{
+    font-size: 1.7em;
+  }
+
+  .card{
+    width: 100%;
+    margin: 1em 0em;
+  }
+
+  .card .card-section {
+    min-width: 8em;
+  }
+
+  .title{
+    font-size:1.5em;
+  }
+
+  .subtitle{
+    font-size: .7em;
+  }
+
+  .card .card-section .row .item .big-text {
+    font-size: .7em;
+  }
+  
+  .card .card-section .row .item .regular-text {
+    font-size: .7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 500px) and (max-width: 700px) {
+
+  .experience-title {
+    font-size: 1.3em;
+  }
+
+  .add-experience{
+    font-size: 1.7em;
+  }
+
+  .card{
+    width: 100%;
+    margin: 1em 0em;
+  }
+
+  .card .card-section {
+    min-width: 8em;
+  }
+
+  .title{
+    font-size:1.5em;
+  }
+
+  .subtitle{
+    font-size: .7em;
+  }
+
+  .card .card-section .row .item .big-text {
+    font-size: .7em;
+  }
+  
+  .card .card-section .row .item .regular-text {
+    font-size: .7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (min-width: 330px) and (max-width: 500px) {
+
+  .experience-title {
+    font-size: 1em;
+  }
+
+  .add-experience{
+    font-size: 1.7em;
+  }
+
+  .card{
+    width: 80%;
+    margin: 1em 0em;
+  }
+
+  .card .card-section {
+    min-width: 8em;
+  }
+
+  .title{
+    font-size:1.5em;
+  }
+
+  .subtitle{
+    font-size: .7em;
+  }
+
+  .card .card-section .row .item .big-text {
+    font-size: .7em;
+  }
+  
+  .card .card-section .row .item .regular-text {
+    font-size: .7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
+
+}
+
+@media all and (max-width: 330px) {
+
+  .experience-title {
+    font-size: 1em;
+  }
+
+  .add-experience{
+    font-size: 1.7em;
+  }
+
+  .card{
+    width: 80%;
+    margin: 1em 0em;
+  }
+
+  .card .card-section {
+    min-width: 8em;
+  }
+
+  .title{
+    font-size:1.5em;
+  }
+
+  .subtitle{
+    font-size: .7em;
+  }
+
+  .card .card-section .row .item .big-text {
+    font-size: .7em;
+  }
+  
+  .card .card-section .row .item .regular-text {
+    font-size: .7em;
+  }
+
+  .btn-edit,
+  .btn-delete{
+    font-size: 1em;
+  }
 }

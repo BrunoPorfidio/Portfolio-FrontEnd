@@ -10,25 +10,25 @@
   align-items: center;
 }
 
-.add-skill{
-font-size: 3em;
+.add-skill {
+  font-size: 3em;
 }
 
 .btn-edit,
-.btn-delete{
+.btn-delete {
   font-size: 1.5em;
 }
 
-.row-btn{
+.row-btn {
   margin-top: 1em;
 }
 
-.bi{
-  color: rgb(255, 255, 255); 
+.bi {
+  color: rgb(255, 255, 255);
   cursor: pointer;
 }
 
-.bi:hover{
+.bi:hover {
   color: #4444bd;
 }
 
@@ -36,19 +36,20 @@ font-size: 3em;
   width: auto;
   font-family: bold;
   color: #fff;
-  font-size: 3em;
+  font-size: 2.4em;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 0.4em 1.7em;
   margin: 2em 1em;
   font-weight: 700;
   background: #50469d;
   color: rgb(255, 255, 255);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   border-top: 2px solid #59b8b0;
   border-left: 2px solid #59b8b0;
   border-bottom: 2px solid rgb(238, 103, 238);
   border-right: 2px solid rgb(238, 103, 238);
-  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 195, 240, 0.3) 10px 10px, rgba(46, 195, 240, 0.2) 15px 15px;
+  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 195, 240, 0.3) 10px 10px,
+    rgba(46, 195, 240, 0.2) 15px 15px;
 }
 
 .skills-column {
@@ -69,55 +70,55 @@ font-size: 3em;
   background-color: #023252;
   border-radius: 8px;
   z-index: 1;
- }
- 
- .tools {
+}
+
+.tools {
   display: flex;
   align-items: center;
   padding: 9px;
- }
- 
- .circle {
+}
+
+.circle {
   padding: 0 4px;
- }
- 
- .box {
+}
+
+.box {
   display: inline-block;
   align-items: center;
   width: 10px;
   height: 10px;
   padding: 1px;
   border-radius: 50%;
- }
- 
- .red {
-  background-color: #ff605c;
- }
- 
- .yellow {
-  background-color: #ffbd44;
- }
- 
- .green {
-  background-color: #00ca4e;
- }
+}
 
- .card__content > p{
+.red {
+  background-color: #ff605c;
+}
+
+.yellow {
+  background-color: #ffbd44;
+}
+
+.green {
+  background-color: #00ca4e;
+}
+
+.card__content > p {
   font-size: 2em;
   color: #fff;
   text-align: center;
- }
+}
 
 .skill-card {
   border-radius: 20px;
   margin-bottom: 10px;
 }
 
-.skill-card > .row > .col-3{
-  margin: 1.5em;
+.col-container {
+  margin: 1em;
   background: rgba(255, 255, 255, 0.34);
   position: relative;
-  padding: 1.25em;
+  padding: 0.5em;
   border-radius: 10px;
   transition: background-color 0.3s;
   overflow: hidden;
@@ -137,7 +138,7 @@ font-size: 3em;
   transition: scale 0.6s, rotate 0.6s, filter 1s;
 }
 
-.icon:hover{
+.icon:hover {
   z-index: 10;
   scale: 2.5;
   rotate: 30deg;
@@ -165,4 +166,288 @@ font-size: 3em;
 
 .icon-container:hover .skill-name {
   opacity: 1;
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+@media all and (min-width: 1110px) and (max-width: 1360px) {
+  .skills-title {
+    font-size: 2em;
+    padding: 0.4em 1.8em;
+  }
+
+  .add-skill {
+    font-size: 2em;
+  }
+
+  .box {
+    padding: 0.1px;
+  }
+
+  .card {
+    width: 90%;
+    height: 100px;
+  }
+
+  .col-container {
+    margin: 0.5em;
+  }
+
+  .icon-container {
+    height: 60px;
+  }
+
+  .card__content > p {
+    font-size: 1.5em;
+  }
+
+  .skill-name {
+    font-size: 2vw;
+    -webkit-text-stroke: 0.8px rgb(0, 0, 0);
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1.2em;
+  }
+}
+
+@media all and (min-width: 950px) and (max-width: 1110px) {
+  .skills-title {
+    font-size: 2em;
+    padding: 0.4em 1.8em;
+  }
+
+  .add-skill {
+    font-size: 2em;
+  }
+
+  .box {
+    padding: 0.1px;
+  }
+
+  .card {
+    width: 90%;
+    height: 100px;
+  }
+
+  .col-container {
+    margin: 0.5em;
+  }
+
+  .icon-container {
+    height: 60px;
+  }
+
+  .card__content > p {
+    font-size: 1.5em;
+  }
+
+  .skill-name {
+    font-size: 2vw;
+    -webkit-text-stroke: 0.8px rgb(0, 0, 0);
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1em;
+  }
+}
+
+@media all and (min-width: 700px) and (max-width: 950px) {
+  .skills-title {
+    font-size: 2em;
+    padding: 0.5em 1em;
+  }
+
+  .add-skill {
+    font-size: 1.7em;
+  }
+
+  .box {
+    padding: 0.1px;
+  }
+
+  .card {
+    width: 100%;
+    height: 90px;
+  }
+
+  .card__content > p {
+    font-size: 1.5em;
+  }
+
+  .col-container {
+    margin: 0.6em;
+    padding: 0.4em;
+  }
+
+  .icon-container {
+    height: 60px;
+  }
+
+  .skill-name {
+    font-size: 5vw;
+    -webkit-text-stroke: 0.8px rgb(0, 0, 0);
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1em;
+  }
+}
+
+@media all and (min-width: 575px) and (max-width: 700px) {
+  .skills-title {
+    font-size: 2em;
+    padding: 0.5em 1em;
+  }
+
+  .add-skill {
+    font-size: 1.7em;
+  }
+
+  .card {
+    width: 80%;
+    height: 80px;
+  }
+
+  .card__content > p {
+    font-size: 1em;
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1em;
+  }
+}
+
+/* Tamaño teléfonos */
+@media all and (min-width: 500px) and (max-width: 575px) {
+  .skills-title {
+    font-size: 1.8em;
+    padding: 0.5em 1em;
+  }
+
+  .add-skill {
+    font-size: 1.7em;
+  }
+
+  .box {
+    padding: 0.1px;
+  }
+
+  .card {
+    width: 80%;
+    height: 100px;
+  }
+
+  .card__content > p {
+    font-size: 2em;
+  }
+
+  .col-container {
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+
+  .icon-container {
+    height: 60px;
+  }
+
+  .skill-name {
+    font-size: 5vw;
+    -webkit-text-stroke: 0.8px rgb(0, 0, 0);
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 1em;
+  }
+}
+
+@media all and (min-width: 330px) and (max-width: 500px) {
+  .skills-title {
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+  }
+
+  .add-skill {
+    font-size: 1.7em;
+  }
+
+  .box {
+    padding: 0.1px;
+  }
+
+  .card {
+    width: 60%;
+    height: 80px;
+  }
+
+  .card__content > p {
+    font-size: 1em;
+  }
+
+  .col-container {
+    margin: 0.5em;
+    padding: 0.5em;
+  }
+
+  .icon-container {
+    height: 40px;
+  }
+
+  .skill-name {
+    font-size: 5vw;
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 0.9em;
+  }
+}
+
+@media all and (max-width: 330px) {
+  .skills-title {
+    font-size: 1.2em;
+  }
+
+  .add-skill {
+    font-size: 1.7em;
+  }
+
+  .box {
+    padding: 0.1px;
+  }
+
+  .card {
+    width: 80%;
+    height: 80px;
+  }
+
+  .card__content > p {
+    font-size: 1em;
+  }
+
+  .col-container {
+    margin: 0.5em;
+    padding: 1em;
+  }
+
+  .icon-container {
+    height: 40px;
+  }
+
+  .skill-name {
+    font-size: 5vw;
+    -webkit-text-stroke: 0.5px rgb(0, 0, 0);
+  }
+
+  .btn-edit,
+  .btn-delete {
+    font-size: 0.8em;
+  }
 }

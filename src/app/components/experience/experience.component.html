@@ -2,12 +2,12 @@
   <div class="container-fluid d-f jc-c">
     <p class="experience-title">My Experience</p>
     <div class="d-f al-c">
-      <i *ngIf="isAdmin" routerLink="/newExperience" class="bi bi-plus-square add-skill"></i>
+      <i *ngIf="isAdmin" routerLink="/newExperience" class="add-experience bi bi-plus-square"></i>
     </div>
   </div>
   <div class="container ">
     <div class="row d-f jc-c al-c">
-      <div class="col-12 col-sm-6 col-container" *ngFor="let experiencia of experiencias, let i = index"
+      <div class="col-12 col-sm-6 col-container  d-f jc-c al-c" *ngFor="let experiencia of experiencias, let i = index"
         [id]="experiencia.idExperiencia">
         <div class="card">
           <div class="card-section">
