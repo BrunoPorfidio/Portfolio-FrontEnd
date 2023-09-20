@@ -4,6 +4,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { LoginComponent } from './components/login/login.component';
 import { Error404Component } from './components/error404/error404.component';
 import { RegisterComponent } from './components/login/register/register.component';
+import { ModalAboutmeComponent } from './modals/modal-aboutme/modal-aboutme.component';
 import { ModalAboutmeEditComponent } from './modals/modal-aboutme-edit/modal-aboutme-edit.component';
 import { ModalEducationComponent } from './modals/modal-education/modal-education.component';
 import { ModalEducationEditComponent } from './modals/modal-education-edit/modal-education-edit.component';
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
+  //---------- Section New Prefile ------------ 
+  { path: 'newAboutMe', component: ModalAboutmeComponent },
   //---------- Section Edit AboutMe ------------ 
   { path: 'editaboutMe/:id', component: ModalAboutmeEditComponent },
 
