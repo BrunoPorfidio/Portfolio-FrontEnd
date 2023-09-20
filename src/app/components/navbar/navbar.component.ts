@@ -55,6 +55,26 @@ public active : boolean = false;
     this.active = !this.active;
   }
 
+  closeMenu() {
+    this.active = false;
+  }
+
+
+  closeMenuWithAnimation() {
+  this.active = false;
+  setTimeout(() => {
+    this.removeSlideDownClass();
+  }, 800); 
+}
+
+removeSlideDownClass() {
+  const element = document.querySelector('.nav__item');
+  if (element) {
+    element.classList.remove('slide-down');
+  }
+}
+
+
   onLogout(): void {
     this.tokenService.logOut();
     window.location.reload();
