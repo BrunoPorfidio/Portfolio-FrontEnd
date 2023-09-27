@@ -40,10 +40,10 @@
   color: #9fc4d0;
 }
 
-.input-container {
+/* .input-container {
   filter: drop-shadow(46px 36px 24px #4090b5)
     drop-shadow(-55px -40px 25px #9e30a9);
-}
+} */
 
 .input-content {
   position: relative;
@@ -279,6 +279,10 @@ button:hover::before {
 
 .btn:hover {
   color: #9fc4d0;
+}
+
+.btn:active{
+  color: #fff;
 }
 
 

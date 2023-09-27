@@ -1,59 +1,73 @@
-import { Component, OnInit } from '@angular/core';
-import { TokenService } from 'src/app/services/token.service';
-import { environments } from 'src/environments/environment';
-import { Persona } from 'src/app/model/Persona';
-import { PersonaService } from 'src/app/services/persona.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
+  styleUrls: ['./contact.component.css'],
 })
 export class ContactComponent implements OnInit {
+  contact: FormGroup;
 
-  personas: Persona[] =[];
-  personaList: Persona[] =[];
-  roles: string[];
-  authority: string;
-  isAdmin = false;
-  isLogged = environments.isLogged;
-  contacto: FormGroup;
+  @ViewChild('form', { static: false }) formElement: ElementRef;
 
-  public persona:Persona;
-
-  constructor(
-    private tokenService: TokenService,
-    private personaService: PersonaService,
-  ) {
+  constructor(private fb: FormBuilder) {
+    this.sendContact();
   }
 
-  ngOnInit(): void {
-    this.mostrarPersona();
-
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach((rol) => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });
-
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-    } else {
-      this.isLogged = false;
-    }
+  get invalidName() {
+    return (
+      this.contact.get('name')?.invalid && 
+      this.contact.get('name')?.touched
+    );
   }
-
-  private mostrarPersona() {
-    this.personaService.verPersona().subscribe(
-      (data) => {
-        this.personas = data;
-      },
-      (err) => {
-        console.log(err);
-      }
+  get invalidEmail() {
+    return (
+      this.contact.get('email')?.invalid && 
+      this.contact.get('email')?.touched
+    );
+  }
+  get invalidSubject() {
+    return (
+      this.contact.get('subject')?.invalid &&
+      this.contact.get('subject')?.touched
+    );
+  }
+  get invalidMessage() {
+    return (
+      this.contact.get('message')?.invalid &&
+      this.contact.get('message')?.touched
     );
   }
 
+  ngOnInit(): void {}
+
+  sendContact() {
+    this.contact = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
+        ],
+      ],
+      subject: ['', [Validators.required, Validators.minLength(10)]],
+      message: ['', [Validators.required, Validators.minLength(10)]],
+    });
+  }
+
+  submit(): any {
+    if (this.contact.invalid) {
+      return Object.values(this.contact.controls).forEach((control) => {
+        control.markAllAsTouched();
+      });
+    } else {
+      this.formElement.nativeElement.submit();
+    }
+  }
 }

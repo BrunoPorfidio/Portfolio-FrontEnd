@@ -1,4 +1,4 @@
-<form class="container" id="form" #form="ngForm" (ngSubmit)="onLogin($event)" novalidate>
+<form class="container" id="form" [formGroup]="login" (ngSubmit)="onLogin($event)" novalidate>
   <div class="input-container">
       <div class="input-content">
         <div class="input-dist">
@@ -14,16 +14,28 @@
             <p class="login-title">Login</p>
           </div>
         </div>
-              <div class="input-type">
+              <div class="input-type form-group">
                   <input name="nombreUsuario" id="nombreUsuario"
-                  placeholder="Email" required="" type="text" class="input-is" 
-                  [(ngModel)]="nombreUsuario" required placeholder="Ejemplo: Bruno">  
+                  class="input-is form-group" 
+                  [(ngModel)]="nombreUsuario" 
+                  [class.is-invalid]="invalidNombreUsuario" 
+                  formControlName="nombreUsuario"  
+                  type="text" required 
+                  placeholder="Example: Bruno">  
+                  <small *ngIf="invalidNombreUsuario" class="text-danger">Enter your UserName!</small>
 
-                  <input name="password" id="password" [(ngModel)]="password" required placeholder="Ejemplo: Password"
-                   placeholder="Password" required="" type="password" class="input-is">  
+                  <input name="password" id="password" 
+                  [(ngModel)]="password" required 
+                  class="input-is form-group"
+                  [class.is-invalid]="invalidPassword" 
+                  formControlName="password"
+                  placeholder="Example: Password"
+                  type="password" 
+                  >  
+                  <small *ngIf="invalidPassword" class="text-danger">Enter your Password!</small>
               </div>
               <button type="submit">Submit</button>
-          </div>
+            </div>
       </div>
   </div>
 </form>

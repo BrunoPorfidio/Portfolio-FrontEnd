@@ -2,44 +2,63 @@
     <section class="hero-contacto container" id="contact">
         <div class="container-fluid d-f jc-c">
             <p class="contact-title">Contact</p>
-          </div>
-          <div class=" d-f jc-c al-c">
-              <form class="form-main" #form target="_blank" action="https://formsubmit.co/brunoporfidio117@gmail.com" method="post">
-                  <div class="input-container">
-                <div class="input-content">
-                    <div class="input-dist">
-                        <span id="SubscribeTXT">Contact to Me!</span>
-                        <div class="input-type">
-                            <div class="row">
-                                <div class="col-6 form-group ">
-                                    <label>Name:</label>
-                                    <input type="text" name="nombre" class="input-is" placeholder="Enter your Name"
-                                        required>
+        </div>
+        <div class=" d-f jc-c al-c">
+            <form class="form-main" [formGroup]="contact" #form target="_blank" 
+            action="https://formsubmit.co/brunoporfidio117@gmail.com" method="post">
+                <div class="input-container">
+                    <div class="input-content">
+                        <div class="input-dist">
+                            <span id="SubscribeTXT">Contact to Me!</span>
+                            <div class="input-type">
+                                <div class="row">
+                                    <div class="col-6 form-group ">
+                                        <label>Name:</label>
+                                        <input type="text" name="name" 
+                                        class="form-group input-is"
+                                        [class.is-invalid]="invalidName" 
+                                        placeholder="Enter your Name"
+                                        formControlName="name" required>
+                                        <small *ngIf="invalidName" class="text-danger">
+                                            Ingrese minimo 4 carateres!
+                                        </small>
+                                    </div>
+                                    <div class="col-6 form-group">
+                                        <label>Email:</label>
+                                        <input type="email" name="email" 
+                                        class="form-control input-is"
+                                        [class.is-invalid]="invalidEmail" 
+                                        placeholder="Example: example@gmail.com" 
+                                        formControlName="email" required>
+                                        <small *ngIf="invalidEmail" class="text-danger">Ingrese un Mail Valido!</small>
+                                    </div>
                                 </div>
-                                <div class="col-6 form-group">
-                                    <label>Email:</label>
-                                    <input type="email" name="email" class="input-is"
-                                    placeholder="Example: example@gmail.com" required>
+                                <div class="form-group">
+                                    <label>Subject:</label>
+                                    <input type="text" name="subject" 
+                                    class="form-control input-is"
+                                    [class.is-invalid]="invalidSubject" 
+                                    placeholder="Enter the Subject" 
+                                    formControlName="subject" required>
+                                    <small *ngIf="invalidSubject" class="text-danger">Ingrese minimo 10 carateres!</small>
                                 </div>
+                                <div class="form-group">
+                                    <label>Message:</label>
+                                    <textarea name="message" rows="6" 
+                                    class="form-control input-is"
+                                    [class.is-invalid]="invalidMessage" 
+                                    placeholder="Enter the Message" 
+                                    formControlName="message" required></textarea>
+                                    <small *ngIf="invalidMessage" class="text-danger">Ingrese minimo 10 carateres!</small>
+                                </div>
+                                <button type="submit" class="btn" (click)="submit()" >
+                                    Send
+                                </button>
                             </div>
-                            <div>
-                                <label>Subject:</label>
-                                <input type="text" name="Asunto" class="input-is" placeholder="Enter the Subject"
-                                required>
-                            </div>
-                            <div>
-                                <label>Mesagge:</label>
-                                <textarea name="mensaje" rows="6" class="input-is" placeholder="Enter the Mesagge"
-                                required></textarea>
-                            </div>
-                            <button type="submit" class="btn" (click)="form.submit()">
-                                Send
-                            </button>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </section>
 </footer>
