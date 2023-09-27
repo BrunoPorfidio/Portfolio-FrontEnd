@@ -20,7 +20,7 @@
                                         placeholder="Enter your Name"
                                         formControlName="name" required>
                                         <small *ngIf="invalidName" class="text-danger">
-                                            Ingrese minimo 4 carateres!
+                                            Enter min 4 charactes!
                                         </small>
                                     </div>
                                     <div class="col-6 form-group">
@@ -30,7 +30,9 @@
                                         [class.is-invalid]="invalidEmail" 
                                         placeholder="Example: example@gmail.com" 
                                         formControlName="email" required>
-                                        <small *ngIf="invalidEmail" class="text-danger">Ingrese un Mail Valido!</small>
+                                        <small *ngIf="invalidEmail" class="text-danger">
+                                            Enter a Valid Mail!
+                                        </small>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -40,7 +42,7 @@
                                     [class.is-invalid]="invalidSubject" 
                                     placeholder="Enter the Subject" 
                                     formControlName="subject" required>
-                                    <small *ngIf="invalidSubject" class="text-danger">Ingrese minimo 10 carateres!</small>
+                                    <small *ngIf="invalidSubject" class="text-danger">Enter min 10 charactes!</small>
                                 </div>
                                 <div class="form-group">
                                     <label>Message:</label>
@@ -49,7 +51,7 @@
                                     [class.is-invalid]="invalidMessage" 
                                     placeholder="Enter the Message" 
                                     formControlName="message" required></textarea>
-                                    <small *ngIf="invalidMessage" class="text-danger">Ingrese minimo 10 carateres!</small>
+                                    <small *ngIf="invalidMessage" class="text-danger">Enter min 25 charactes!</small>
                                 </div>
                                 <button type="submit" class="btn" (click)="submit()" >
                                     Send
