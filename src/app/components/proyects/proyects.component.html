@@ -8,7 +8,89 @@
 
   <div class="container-fluid">
     <div class="row d-f jc-c al-c">
-      <div class="col-12 col-md-6 col-lg-4" *ngFor="let proyecto of proyectos , let i = index">
+      <!-- Aca empieza el codigo modificado -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card" [id]="proyecto.idProyectos">
+            <a href="https://lucibookslu.web.app/luciBlog" target="_blank">
+            <div class="card__img__container">
+              <img class="card__img" src="https://i.postimg.cc/bvw08Wt6/image-2023-09-02-143216468.png" alt="Project image" srcset="">
+            </div>
+          </a>
+            <div class="card__subtitle">Custom Blog</div>
+            <div class="card__wrapper">
+              <div class="card__title">lucibookslu</div>
+              <a [href]="proyecto.urlProyecto" target="_blank">
+              <div class="card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                  <g color="rgb(224, 223, 220)">
+                    <circle cx="128" cy="128" r="96" opacity="0.2"></circle>
+                    <circle cx="128" cy="128" r="96" fill="none" stroke="rgb(224, 223, 220)" stroke-miterlimit="10"
+                      stroke-width="16"></circle>
+                    <polyline points="134.1 161.9 168 128 134.1 94.1" fill="none" stroke="rgb(224, 223, 220)"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="rgb(224, 223, 220)"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                  </g>
+                </svg>
+              </div>
+            </a>
+            </div>
+            <!-- <div class="row row-btn" *ngIf="isAdmin == true">
+              <div class="col-6">
+                <i routerLink="/editProyect/{{proyecto.idProyectos}}"
+                  class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
+              </div>
+              <div class="col-6">
+                <i (click)="delete(proyecto.idProyectos)" 
+                class="btn-delete bi bi-trash-fill d-f jc-c al-c">
+                </i>
+              </div>
+            </div> -->
+
+          </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card" [id]="proyecto.idProyectos">
+            <a href="https://kevinfonttlizama.github.io/Interlinked-demo.github.io/" target="_blank">
+            <div class="card__img__container">
+              <img class="card__img" src="https://i.postimg.cc/fb2MY6Xw/image-2023-09-22-180305741.png" alt="Project image" srcset="">
+            </div>
+          </a>
+            <div class="card__subtitle">Demo Web</div>
+            <div class="card__wrapper">
+              <div class="card__title">Interlinked Demo</div>
+              <a [href]="proyecto.urlProyecto" target="_blank">
+              <div class="card__icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+                  <g color="rgb(224, 223, 220)">
+                    <circle cx="128" cy="128" r="96" opacity="0.2"></circle>
+                    <circle cx="128" cy="128" r="96" fill="none" stroke="rgb(224, 223, 220)" stroke-miterlimit="10"
+                      stroke-width="16"></circle>
+                    <polyline points="134.1 161.9 168 128 134.1 94.1" fill="none" stroke="rgb(224, 223, 220)"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></polyline>
+                    <line x1="88" y1="128" x2="168" y2="128" fill="none" stroke="rgb(224, 223, 220)"
+                      stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></line>
+                  </g>
+                </svg>
+              </div>
+            </a>
+            </div>
+            <!-- <div class="row row-btn" *ngIf="isAdmin == true">
+              <div class="col-6">
+                <i routerLink="/editProyect/{{proyecto.idProyectos}}"
+                  class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
+              </div>
+              <div class="col-6">
+                <i (click)="delete(proyecto.idProyectos)" 
+                class="btn-delete bi bi-trash-fill d-f jc-c al-c">
+                </i>
+              </div>
+            </div> -->
+
+          </div>
+      </div>
+      <!-- Aca termina el codigo modificado -->
+      <!-- <div class="col-12 col-md-6 col-lg-4" *ngFor="let proyecto of proyectos , let i = index">
         <div class="card" [id]="proyecto.idProyectos">
             <a [href]="proyecto.urlProyecto" target="_blank">
             <div class="card__img__container">
@@ -47,7 +129,7 @@
             </div>
 
           </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>
