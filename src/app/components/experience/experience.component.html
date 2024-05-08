@@ -7,7 +7,38 @@
   </div>
   <div class="container ">
     <div class="row d-f jc-c al-c">
-      <div class="col-12 col-sm-6 col-container  d-f jc-c al-c" *ngFor="let experiencia of experiencias, let i = index"
+      <!-- Aca comienza el codigo editado -->
+      <div class="col-12 col-sm-6 col-container  d-f jc-c al-c">
+        <div class="card">
+          <div class="card-section">
+            <span class="title">Freelancer</span>
+            <span class="subtitle">Full Stack Web Developer.</span>
+            <div class="row row1">
+              <div class="item">
+                <span class="regular-text">From</span>
+                <span class="big-text">03-2023</span>
+              </div>
+              <div class="item">
+                <span class="regular-text">To</span>
+                <span class="big-text">04-2024</span>
+              </div>
+            </div>
+            <div class="row row-btn" *ngIf="isAdmin == true">
+              <div class="col-6">
+                <i routerLink="/editExperience/{{experiencia.idExperiencia}}"
+                  class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
+              </div>
+              <div class="col-6">
+                <i (click)="delete(experiencia.idExperiencia)" 
+                class="btn-delete bi bi-trash-fill d-f jc-c al-c">
+                </i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- aca termin el codigo editado -->
+      <!-- <div class="col-12 col-sm-6 col-container  d-f jc-c al-c" *ngFor="let experiencia of experiencias, let i = index"
         [id]="experiencia.idExperiencia">
         <div class="card">
           <div class="card-section">
@@ -36,7 +67,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

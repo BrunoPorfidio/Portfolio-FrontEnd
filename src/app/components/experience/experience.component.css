@@ -75,7 +75,7 @@
     rgb(0, 183, 255),
     rgb(255, 48, 255)
   );
-  height: 300%;
+  height: 400%;
   animation: rotBGimg 6s linear infinite;
   transition: all 0.2s linear;
 }
