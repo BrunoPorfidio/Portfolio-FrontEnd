@@ -56,6 +56,7 @@
   overflow: hidden;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
   transition: 0.15s all ease-in-out;
+  margin: 2em 0em;
 }
 
 .card:hover {
@@ -220,7 +221,7 @@
   }
 
   .parent {
-    margin: 1em 0em;
+    margin: 0em;
   }
 
   .card {
@@ -260,7 +261,7 @@
   }
 
   .parent {
-    margin: 1em 0em;
+    margin: 0em;
   }
 
   .card {
@@ -293,10 +294,6 @@
     font-size: 1.7em;
   }
 
-  .parent {
-    margin: 1em 0em;
-  }
-
   .card .top-section img {
     width: 80%;
   }
@@ -321,10 +318,6 @@
 
   .add-education {
     font-size: 1.7em;
-  }
-
-  .parent {
-    margin: 1em 0em;
   }
 
   .card .bottom-section .title {
