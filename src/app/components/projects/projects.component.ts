@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 
 @Component({
-  selector: 'app-skills',
+  selector: 'app-projects',
   standalone: true,
   imports: [LucideAngularModule],
-  templateUrl: './skills.component.html',
-  styleUrl: './skills.component.css'
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.css'
 })
-export class SkillsComponent {
+export class ProjectsComponent {
 
 }

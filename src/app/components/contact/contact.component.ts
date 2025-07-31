@@ -1,73 +1,34 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
+  imports: [FormsModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css'],
+  styleUrl: './contact.component.css'
 })
-export class ContactComponent implements OnInit {
-  contact: FormGroup;
+export class ContactComponent {
+  feedbackMessage: string = '';
+  feedbackClass: string = '';
 
-  @ViewChild('form', { static: false }) formElement: ElementRef;
-
-  constructor(private fb: FormBuilder) {
-    this.sendContact();
-  }
-
-  get invalidName() {
-    return (
-      this.contact.get('name')?.invalid && 
-      this.contact.get('name')?.touched
-    );
-  }
-  get invalidEmail() {
-    return (
-      this.contact.get('email')?.invalid && 
-      this.contact.get('email')?.touched
-    );
-  }
-  get invalidSubject() {
-    return (
-      this.contact.get('subject')?.invalid &&
-      this.contact.get('subject')?.touched
-    );
-  }
-  get invalidMessage() {
-    return (
-      this.contact.get('message')?.invalid &&
-      this.contact.get('message')?.touched
-    );
-  }
-
-  ngOnInit(): void {}
-
-  sendContact() {
-    this.contact = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(4)]],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}$'),
-        ],
-      ],
-      subject: ['', [Validators.required, Validators.minLength(10)]],
-      message: ['', [Validators.required, Validators.minLength(10)]],
-    });
-  }
-
-  submit(): any {
-    if (this.contact.invalid) {
-      return Object.values(this.contact.controls).forEach((control) => {
-        control.markAllAsTouched();
-      });
-    } else {
-      this.formElement.nativeElement.submit();
+  onSubmit(form: NgForm) {
+    if (form.invalid) {
+      this.feedbackMessage = 'Please fill out all fields correctly.';
+      this.feedbackClass = 'text-red-500';
+      return;
     }
+
+    this.feedbackMessage = 'Sending...';
+    this.feedbackClass = 'text-cyan-300';
+
+    setTimeout(() => {
+      this.feedbackMessage = 'Message sent! Thank you for reaching out.';
+      this.feedbackClass = 'text-green-400';
+      form.resetForm();
+
+      setTimeout(() => {
+        this.feedbackMessage = '';
+      }, 4000);
+    }, 1500);
   }
 }

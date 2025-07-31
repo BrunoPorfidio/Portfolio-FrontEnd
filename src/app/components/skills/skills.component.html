@@ -1,216 +1,26 @@
-<div class="container skills-hero">
-  <div class="container-fluid d-f jc-c">
-    <p class="skills-title">Skills</p>
-    <div class="d-f al-c">
-      <i *ngIf="isAdmin" routerLink="/newSkill" class="add-skill bi bi-plus-square"></i>
-    </div>
-  </div>
-
-  <div class="skills-container">
-    <div class="row">
-      <div class="col-12 col-sm-6">
-        <!-- Aca termina el codigo modificado -->
-        <div class="skills-column">
-          <div class="card mb-3">
-            <div class="tools">
-              <div class="circle">
-                <span class="red box"></span>
-              </div>
-              <div class="circle">
-                <span class="yellow box"></span>
-              </div>
-              <div class="circle">
-                <span class="green box"></span>
-              </div>
+<section class="py-24 bg-[#170636] bg-opacity-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Skills</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <!-- Frontend -->
+            <div>
+                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Front End</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center group"><i-lucide name="shield" class="w-16 h-16 text-gray-400 group-hover:text-red-500 transition-colors mb-2"></i-lucide><span>Angular</span></div>
+                    <div class="flex flex-col items-center group"><i-lucide name="type" class="w-16 h-16 text-gray-400 group-hover:text-blue-500 transition-colors mb-2"></i-lucide><span>TypeScript</span></div>
+                    <div class="flex flex-col items-center group"><i-lucide name="file-code" class="w-16 h-16 text-gray-400 group-hover:text-orange-500 transition-colors mb-2"></i-lucide><span>HTML</span></div>
+                    <div class="flex flex-col items-center group"><i-lucide name="palette" class="w-16 h-16 text-gray-400 group-hover:text-blue-600 transition-colors mb-2"></i-lucide><span>CSS</span></div>
+                </div>
             </div>
-
-            <div class="card__content">
-              <p>&lt;FrontEnd_Skills/&gt;</p>
+            <!-- Backend -->
+            <div>
+                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Back End</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center">
+                    <div class="flex flex-col items-center group"><i-lucide name="coffee" class="w-16 h-16 text-gray-400 group-hover:text-orange-400 transition-colors mb-2"></i-lucide><span>Java</span></div>
+                    <div class="flex flex-col items-center group"><i-lucide name="leaf" class="w-16 h-16 text-gray-400 group-hover:text-green-500 transition-colors mb-2"></i-lucide><span>Spring Boot</span></div>
+                    <div class="flex flex-col items-center group"><i-lucide name="database" class="w-16 h-16 text-gray-400 group-hover:text-blue-400 transition-colors mb-2"></i-lucide><span>MySQL</span></div>
+                </div>
             </div>
-          </div>
-          <div class="skill-card ">
-            <div class="row jc-c">
-              <div class="col-3 col-md-3 col-container" >
-                <div class="icon-container ">
-                  <img class="icon" src="https://cdn.svgporn.com/logos/angular-icon.svg" alt="Icon Skill">
-                  <p class="skill-name">Angular</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container" >
-
-                <div class="icon-container ">
-                  <img class="icon" src="https://www.svgrepo.com/show/349402/html5.svg" alt="Icon Skill">
-                  <p class="skill-name">HTML</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container" >
-
-                <div class="icon-container ">
-                  <img class="icon" src="https://www.svgrepo.com/show/373535/css.svg" alt="Icon Skill">
-                  <p class="skill-name">CSS</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container" >
-
-                <div class="icon-container ">
-                  <img class="icon" src="https://www.svgrepo.com/show/439022/typescript.svg" alt="Icon Skill">
-                  <p class="skill-name">TS</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container" >
-
-                <div class="icon-container ">
-                  <img class="icon" src="https://cdn.svgporn.com/logos/bootstrap.svg" alt="Icon Skill">
-                  <p class="skill-name">Bootstrap</p>
-                </div>
-              </div>
-                <!-- <div class="row row-btn" *ngIf="isAdmin == true">
-                  <div class="col-6">
-                    <i routerLink="/editSkill/{{skill.idSkill}}" class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
-                  </div>
-                  <div class="col-6">
-                    <i (click)="delete(skill.idSkill)" class="btn-delete bi bi-trash-fill d-f jc-c al-c"></i>
-                  </div>
-                </div> -->
-              </div>
-            </div>
-          </div>
-        <!-- Aca termina el codigo moficiado -->
-        <!-- <div class="skills-column " *ngIf="frontSkills">
-          <div class="card mb-3">
-            <div class="tools">
-              <div class="circle">
-                <span class="red box"></span>
-              </div>
-              <div class="circle">
-                <span class="yellow box"></span>
-              </div>
-              <div class="circle">
-                <span class="green box"></span>
-              </div>
-            </div>
-
-            <div class="card__content">
-              <p>&lt;FrontEnd_Skills/&gt;</p>
-            </div>
-          </div>
-          <div class="skill-card ">
-            <div class="row jc-c">
-              <div class="col-3 col-md-3 col-container" *ngFor="let skill of frontSkills, let i = index" [id]="skill.idSkill">
-                <div class="icon-container ">
-                  <img class="icon" [src]="skill.fotoSkill" alt="Icon Skill">
-                  <p class="skill-name">{{skill.nombreSkill}}</p>
-                </div>
-                <div class="row row-btn" *ngIf="isAdmin == true">
-                  <div class="col-6">
-                    <i routerLink="/editSkill/{{skill.idSkill}}" class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
-                  </div>
-                  <div class="col-6">
-                    <i (click)="delete(skill.idSkill)" class="btn-delete bi bi-trash-fill d-f jc-c al-c"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
-      <div class="col-12 col-sm-6">
-        <!-- Aca empieza el codigo modificado -->
-        <div class="skills-column">
-          <div class="card mb-3">
-            <div class="tools">
-              <div class="circle">
-                <span class="red box"></span>
-              </div>
-              <div class="circle">
-                <span class="yellow box"></span>
-              </div>
-              <div class="circle">
-                <span class="green box"></span>
-              </div>
-            </div>
-
-            <div class="card__content">
-              <p>&lt;BackEnd_Skills/&gt;</p>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="row jc-c">
-              <div class="col-3 col-md-3 col-container">
-                <div class="icon-container">
-                  <img class="icon" src="https://img.icons8.com/?size=512&id=13679&format=png" alt="Icon">
-                  <p class="skill-name">Java</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container">
-                <div class="icon-container">
-                  <img class="icon" src="https://www.svgrepo.com/show/376350/spring.svg" alt="Icon">
-                  <p class="skill-name">Spring Boot</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container">
-                <div class="icon-container">
-                  <img class="icon" src="https://img.icons8.com/fluency/512/my-sql.png" alt="Icon">
-                  <p class="skill-name">MySQL</p>
-                </div>
-              </div>
-              <div class="col-3 col-md-3 col-container">
-                <div class="icon-container">
-                  <img class="icon" src="https://img.icons8.com/color/512/java-web-token.png" alt="Icon">
-                  <p class="skill-name">JWT</p>
-                </div>
-              </div>
-                <!-- <div class="row row-btn" *ngIf="isAdmin == true">
-                  <div class="col-6">
-                    <i routerLink="/editSkill/{{skill.idSkill}}" class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
-                  </div>
-                  <div class="col-6">
-                    <i (click)="delete(skill.idSkill)" class="btn-delete bi bi-trash-fill d-f jc-c al-c"></i>
-                  </div>
-                </div> -->
-              <!-- </div> -->
-            </div>
-          </div>
         </div>
-        <!-- Aca termina el codigo modificado -->
-        <!-- <div class="skills-column" *ngIf="backSkills">
-          <div class="card mb-3">
-            <div class="tools">
-              <div class="circle">
-                <span class="red box"></span>
-              </div>
-              <div class="circle">
-                <span class="yellow box"></span>
-              </div>
-              <div class="circle">
-                <span class="green box"></span>
-              </div>
-            </div>
-
-            <div class="card__content">
-              <p>&lt;BackEnd_Skills/&gt;</p>
-            </div>
-          </div>
-          <div class="skill-card">
-            <div class="row jc-c">
-              <div class="col-3 col-md-3 col-container" *ngFor="let skill of backSkills, let i = index" [id]="skill.idSkill">
-                <div class="icon-container">
-                  <img class="icon" [src]="skill.fotoSkill" alt="Icon">
-                  <p class="skill-name">{{skill.nombreSkill}}</p>
-                </div>
-                <div class="row row-btn" *ngIf="isAdmin == true">
-                  <div class="col-6">
-                    <i routerLink="/editSkill/{{skill.idSkill}}" class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
-                  </div>
-                  <div class="col-6">
-                    <i (click)="delete(skill.idSkill)" class="btn-delete bi bi-trash-fill d-f jc-c al-c"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> -->
-      </div>
     </div>
-  </div>
-</div>
+</section>

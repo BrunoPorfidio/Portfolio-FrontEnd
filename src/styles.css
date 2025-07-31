@@ -1,15 +1,80 @@
-* {
-  padding: 0;
-  margin: 0;
-  font-family: bold;
+/* Google Fonts: Poppins & Orbitron */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --bg-color: #0d0221;
+    --primary-accent: #f9258a;
+    --secondary-accent: #00f5ff;
+    --text-color: #e0e0e0;
+    --card-bg: rgba(18, 4, 44, 0.5);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-  background: rgb(122, 75, 221);
-  background: linear-gradient(
-    to right,
-    rgba(122, 75, 221, 1) 0%,
-    rgba(46, 166, 199, 1) 86%
-  );
-  
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+.font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary-accent), var(--secondary-accent));
+    border-radius: 5px;
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background-color: var(--card-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem; /* 8px */
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.4s ease;
+}
+
+.glass-card:hover::before {
+    left: 100%;
+}
+
+.glass-card:hover {
+    border-color: var(--primary-accent);
+    transform: translateY(-5px);
+}
+
+/* Section heading underline */
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-accent), var(--secondary-accent));
+    margin: 1rem auto 0;
+    border-radius: 2px;
 }

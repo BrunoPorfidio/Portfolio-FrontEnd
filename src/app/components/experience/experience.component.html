@@ -1,73 +1,25 @@
-<div class="container experience-hero" id="experiece">
-  <div class="container-fluid d-f jc-c">
-    <p class="experience-title">My Experience</p>
-    <div class="d-f al-c">
-      <i *ngIf="isAdmin" routerLink="/newExperience" class="add-experience bi bi-plus-square"></i>
-    </div>
-  </div>
-  <div class="container ">
-    <div class="row d-f jc-c al-c">
-      <!-- Aca comienza el codigo editado -->
-      <div class="col-12 col-sm-6 col-container  d-f jc-c al-c">
-        <div class="card">
-          <div class="card-section">
-            <span class="title">Freelancer</span>
-            <span class="subtitle">Full Stack Web Developer.</span>
-            <div class="row row1">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">03-2023</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">04-2024</span>
-              </div>
+<section class="py-24">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-orbitron font-bold text-center mb-20 section-heading text-white">Experience</h2>
+        <div class="relative timeline-container">
+            
+            <div class="timeline-item mb-12">
+                <div class="timeline-dot"></div>
+                <div class="p-6 glass-card rounded-lg">
+                    <h3 class="text-2xl font-orbitron font-bold text-pink-400">Back End Java Developer</h3>
+                    <p class="text-md text-gray-400 mb-2">Venedicto Developers | 2024 - Present</p>
+                    <p class="text-gray-300">Maintaining and integrating new features for a law firm's management web app. Lead backend developer for a psychologist-patient session management platform and a paddle tennis match management app.</p>
+                </div>
             </div>
-            <div class="row row-btn" *ngIf="isAdmin == true">
-              <div class="col-6">
-                <i routerLink="/editExperience/{{experiencia.idExperiencia}}"
-                  class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
-              </div>
-              <div class="col-6">
-                <i (click)="delete(experiencia.idExperiencia)" 
-                class="btn-delete bi bi-trash-fill d-f jc-c al-c">
-                </i>
-              </div>
+            
+            <div class="timeline-item mb-12">
+                <div class="timeline-dot"></div>
+                <div class="p-6 glass-card rounded-lg">
+                    <h3 class="text-2xl font-orbitron font-bold text-pink-400">Full Stack Developer</h3>
+                    <p class="text-md text-gray-400 mb-2">Freelance | 2023 - 2024</p>
+                    <p class="text-gray-300">Led end-to-end development on solo projects and collaborated effectively within team-based projects, contributing to all phases of the development lifecycle.</p>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <!-- aca termin el codigo editado -->
-      <!-- <div class="col-12 col-sm-6 col-container  d-f jc-c al-c" *ngFor="let experiencia of experiencias, let i = index"
-        [id]="experiencia.idExperiencia">
-        <div class="card">
-          <div class="card-section">
-            <span class="title">{{experiencia.nombreEmpresa}}</span>
-            <span class="subtitle">{{experiencia.puesto}}</span>
-            <div class="row row1">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">{{experiencia.inicio}}</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">{{experiencia.fin}}</span>
-              </div>
-            </div>
-            <div class="row row-btn" *ngIf="isAdmin == true">
-              <div class="col-6">
-                <i routerLink="/editExperience/{{experiencia.idExperiencia}}"
-                  class="btn-edit bi bi-pencil-fill d-f jc-c al-c"></i>
-              </div>
-              <div class="col-6">
-                <i (click)="delete(experiencia.idExperiencia)" 
-                class="btn-delete bi bi-trash-fill d-f jc-c al-c">
-                </i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
-  </div>
-</div>
+</section>

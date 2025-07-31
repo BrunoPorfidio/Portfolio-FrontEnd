@@ -1,66 +1,25 @@
-<footer>
-    <section class="hero-contacto container" id="contact">
-        <div class="container-fluid d-f jc-c">
-            <p class="contact-title">Contact</p>
+<section class="py-24">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Contact</h2>
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="max-w-2xl mx-auto" ngForm>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <input type="text" name="firstName" placeholder="First Name" class="w-full p-3 rounded-md form-input" ngModel required>
+                <input type="text" name="lastName" placeholder="Last Name" class="w-full p-3 rounded-md form-input" ngModel required>
+            </div>
+            <div class="mb-6">
+                <input type="email" name="email" placeholder="Email" class="w-full p-3 rounded-md form-input" ngModel required email>
+            </div>
+            <div class="mb-6">
+                <textarea name="message" rows="5" placeholder="Your message..." class="w-full p-3 rounded-md form-input" ngModel required></textarea>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="font-orbitron text-lg font-bold py-3 px-8 rounded-md text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-pink-500/30" [disabled]="contactForm.invalid">
+                    Send Message
+                </button>
+            </div>
+        </form>
+        <div class="mt-6 text-center text-lg h-6 transition-opacity duration-300" [class]="feedbackClass">
+            {{ feedbackMessage }}
         </div>
-        <div class=" d-f jc-c al-c">
-            <form class="form-main" [formGroup]="contact" #form target="_blank" 
-            action="https://formsubmit.co/brunoporfidio117@gmail.com" method="post">
-                <div class="input-container">
-                    <div class="input-content">
-                        <div class="input-dist">
-                            <span id="SubscribeTXT">Contact to Me!</span>
-                            <div class="input-type">
-                                <div class="row">
-                                    <div class="col-6 form-group ">
-                                        <label>Name:</label>
-                                        <input type="text" name="name" 
-                                        class="form-group input-is"
-                                        [class.is-invalid]="invalidName" 
-                                        placeholder="Enter your Name"
-                                        formControlName="name" required>
-                                        <small *ngIf="invalidName" class="text-danger">
-                                            Enter min 4 charactes!
-                                        </small>
-                                    </div>
-                                    <div class="col-6 form-group">
-                                        <label>Email:</label>
-                                        <input type="email" name="email" 
-                                        class="form-control input-is"
-                                        [class.is-invalid]="invalidEmail" 
-                                        placeholder="Example: example@gmail.com" 
-                                        formControlName="email" required>
-                                        <small *ngIf="invalidEmail" class="text-danger">
-                                            Enter a Valid Mail!
-                                        </small>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Subject:</label>
-                                    <input type="text" name="subject" 
-                                    class="form-control input-is"
-                                    [class.is-invalid]="invalidSubject" 
-                                    placeholder="Enter the Subject" 
-                                    formControlName="subject" required>
-                                    <small *ngIf="invalidSubject" class="text-danger">Enter min 10 charactes!</small>
-                                </div>
-                                <div class="form-group">
-                                    <label>Message:</label>
-                                    <textarea name="message" rows="6" 
-                                    class="form-control input-is"
-                                    [class.is-invalid]="invalidMessage" 
-                                    placeholder="Enter the Message" 
-                                    formControlName="message" required></textarea>
-                                    <small *ngIf="invalidMessage" class="text-danger">Enter min 25 charactes!</small>
-                                </div>
-                                <button type="submit" class="btn" (click)="submit()" >
-                                    Send
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-</footer>
+    </div>
+</section>

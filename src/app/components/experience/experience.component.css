@@ -1,406 +1,77 @@
-.d-f {
-  display: flex;
+.timeline-container {
+    position: relative;
 }
 
-.jc-c {
-  justify-content: center;
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-accent) 0%, var(--secondary-accent) 70%, transparent 100%);
 }
 
-.al-c {
-  align-items: center;
+.timeline-item {
+    position: relative;
+    width: 50%;
+}
+.timeline-item:nth-child(odd) {
+    padding-right: 30px;
+    text-align: right;
+}
+.timeline-item:nth-child(even) {
+    left: 50%;
+    padding-left: 30px;
+    text-align: left;
 }
 
-.add-experience {
-  font-size: 3em;
+.timeline-dot {
+    position: absolute;
+    top: 20px;
+    width: 14px;
+    height: 14px;
+    background-color: var(--secondary-accent);
+    border: 2px solid var(--bg-color);
+    border-radius: 50%;
+    z-index: 10;
+    box-shadow: 0 0 10px var(--secondary-accent);
+    transition: transform 0.3s ease;
 }
 
-.btn-edit,
-.btn-delete {
-  font-size: 1.5em;
+.timeline-item:hover .timeline-dot {
+    transform: scale(1.2);
 }
 
-.row-btn {
-  margin-top: 1em;
+.timeline-item:nth-child(odd) .timeline-dot {
+    right: -7px;
+}
+.timeline-item:nth-child(even) .timeline-dot {
+    left: -7px;
 }
 
-.bi {
-  color: rgb(255, 255, 255);
-  cursor: pointer;
-}
-
-.bi:hover {
-  color: #4444bd;
-}
-
-.experience-title {
-  width: auto;
-  font-family: bold;
-  color: #fff;
-  font-size: 3em;
-  text-align: center;
-  padding: 1rem 2rem;
-  margin: 2em 1em;
-  font-weight: 700;
-  background: #50469d;
-  color: rgb(255, 255, 255);
-  border-radius: 0.5rem;
-  border-top: 2px solid #59b8b0;
-  border-left: 2px solid #59b8b0;
-  border-bottom: 2px solid rgb(238, 103, 238);
-  border-right: 2px solid rgb(238, 103, 238);
-  box-shadow: rgba(46, 195, 240, 0.4) 5px 5px, rgba(46, 195, 240, 0.3) 10px 10px,
-    rgba(46, 195, 240, 0.2) 15px 15px;
-}
-
-.card {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  place-content: center;
-  place-items: center;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
-  background: #1b233d;
-  margin: 1em 0em;
-  border-radius: 20px;
-}
-
-.card::before {
-  display: flex;
-  justify-content: center;
-  content: "";
-  position: absolute;
-  width: 100px;
-  background-image: linear-gradient(
-    180deg,
-    rgb(0, 183, 255),
-    rgb(255, 48, 255)
-  );
-  height: 400%;
-  animation: rotBGimg 6s linear infinite;
-  transition: all 0.2s linear;
-}
-
-@keyframes rotBGimg {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.card::after {
-  content: "";
-  position: absolute;
-  background: #07182e;
-  inset: 5px;
-  border-radius: 15px;
-}
-
-.card .card-section {
-  min-width: 30em;
-  width: 90%;
-  border-radius: 20px;
-  overflow: hidden;
-  z-index: 10;
-  margin-top: 15px;
-  padding: 10px;
-}
-
-.title {
-  display: block;
-  font-size: 2.5em;
-  font-weight: bolder;
-  color: white;
-  text-align: center;
-  letter-spacing: 2px;
-}
-
-.subtitle {
-  display: block;
-  font-size: 1.7em;
-  font-weight: bolder;
-  color: rgb(186, 186, 186);
-  text-align: center;
-}
-
-.card .card-section .row {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.card .card-section .row .item {
-  flex: 30%;
-  text-align: center;
-  padding: 5px;
-  color: rgba(170, 222, 243, 0.721);
-}
-
-.card .card-section .row .item .big-text {
-  font-size: 1.5em;
-  display: block;
-  color: white;
-  font-weight: 700;
-}
-
-.card .card-section .row .item .regular-text {
-  font-size: 1.2em;
-}
-.card .card-section .row .item:nth-child(2) {
-  border-left: 1px solid rgba(255, 255, 255, 0.126);
-}
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~Media Queries~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-@media all and (min-width: 1110px) and (max-width: 1360px) {
-    
-  .experience-title {
-    font-size: 1.5em;
-  }
-
-  .add-experience{
-    font-size: 1.7em;
-  }
-
-  .card{
-    width: 100%;
-    margin: 1em 0em;
-  }
-
-  .card .card-section {
-    min-width: 8em;
-  }
-
-  .title{
-    font-size:1.9em;
-  }
-
-  .subtitle{
-    font-size: .9em;
-  }
-
-  .card .card-section .row .item .big-text {
-    font-size: .7em;
-  }
-  
-  .card .card-section .row .item .regular-text {
-    font-size: .7em;
-  }
-
-  .btn-edit,
-  .btn-delete{
-    font-size: 1em;
-  }
-
-}
-
-@media all and (min-width: 950px) and (max-width: 1110px) { 
-  
-  .experience-title {
-    font-size: 1.5em;
-  }
-
-  .add-experience{
-    font-size: 1.7em;
-  }
-
-  .card{
-    width: 100%;
-    margin: 1em 0em;
-  }
-
-  .card .card-section {
-    min-width: 8em;
-  }
-
-  .title{
-    font-size:1.9em;
-  }
-
-  .subtitle{
-    font-size: .9em;
-  }
-
-  .card .card-section .row .item .big-text {
-    font-size: .7em;
-  }
-  
-  .card .card-section .row .item .regular-text {
-    font-size: .7em;
-  }
-
-  .btn-edit,
-  .btn-delete{
-    font-size: 1em;
-  }
-
-}
-
-@media all and (min-width: 700px) and (max-width: 950px) {
-  
-  .experience-title {
-    font-size: 1.5em;
-  }
-
-  .add-experience{
-    font-size: 1.7em;
-  }
-
-  .card{
-    width: 100%;
-    margin: 1em 0em;
-  }
-
-  .card .card-section {
-    min-width: 8em;
-  }
-
-  .title{
-    font-size:1.5em;
-  }
-
-  .subtitle{
-    font-size: .7em;
-  }
-
-  .card .card-section .row .item .big-text {
-    font-size: .7em;
-  }
-  
-  .card .card-section .row .item .regular-text {
-    font-size: .7em;
-  }
-
-  .btn-edit,
-  .btn-delete{
-    font-size: 1em;
-  }
-
-}
-
-@media all and (min-width: 500px) and (max-width: 700px) {
-
-  .experience-title {
-    font-size: 1.3em;
-  }
-
-  .add-experience{
-    font-size: 1.7em;
-  }
-
-  .card{
-    width: 100%;
-    margin: 1em 0em;
-  }
-
-  .card .card-section {
-    min-width: 8em;
-  }
-
-  .title{
-    font-size:1.5em;
-  }
-
-  .subtitle{
-    font-size: .7em;
-  }
-
-  .card .card-section .row .item .big-text {
-    font-size: .7em;
-  }
-  
-  .card .card-section .row .item .regular-text {
-    font-size: .7em;
-  }
-
-  .btn-edit,
-  .btn-delete{
-    font-size: 1em;
-  }
-
-}
-
-@media all and (min-width: 330px) and (max-width: 500px) {
-
-  .experience-title {
-    font-size: 1em;
-  }
-
-  .add-experience{
-    font-size: 1.7em;
-  }
-
-  .card{
-    width: 80%;
-    margin: 1em 0em;
-  }
-
-  .card .card-section {
-    min-width: 8em;
-  }
-
-  .title{
-    font-size:1.5em;
-  }
-
-  .subtitle{
-    font-size: .7em;
-  }
-
-  .card .card-section .row .item .big-text {
-    font-size: .7em;
-  }
-  
-  .card .card-section .row .item .regular-text {
-    font-size: .7em;
-  }
-
-  .btn-edit,
-  .btn-delete{
-    font-size: 1em;
-  }
-
-}
-
-@media all and (max-width: 330px) {
-
-  .experience-title {
-    font-size: 1em;
-  }
-
-  .add-experience{
-    font-size: 1.7em;
-  }
-
-  .card{
-    width: 80%;
-    margin: 1em 0em;
-  }
-
-  .card .card-section {
-    min-width: 8em;
-  }
-
-  .title{
-    font-size:1.5em;
-  }
-
-  .subtitle{
-    font-size: .7em;
-  }
-
-  .card .card-section .row .item .big-text {
-    font-size: .7em;
-  }
-  
-  .card .card-section .row .item .regular-text {
-    font-size: .7em;
-  }
-
-  .btn-edit,
-  .btn-delete{
-    font-size: 1em;
-  }
+@media (max-width: 768px) {
+    .timeline-container::before {
+        left: 15px;
+    }
+    .timeline-item {
+        width: 100%;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+    }
+    .timeline-item:nth-child(even)  {
+        left: 0;
+    }
+    .timeline-item:nth-child(even) .timeline-dot {
+        left: 7px;
+    }
+    .timeline-dot {
+        left: 8px;
+    }
+    .timeline-item:nth-child(odd) .timeline-dot {
+        right: auto;
+        left: 8px;
+    }
 }

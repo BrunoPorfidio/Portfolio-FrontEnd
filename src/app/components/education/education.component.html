@@ -1,216 +1,69 @@
-<div class="container-fluid education-hero">
-  <div class="container-fluid d-f jc-c">
-    <p class="education-title">My Educations</p>
-    <div class="d-f al-c">
-      <i *ngIf="isAdmin" routerLink="/newEducation" class="add-education bi bi-plus-square"></i>
-    </div>
-  </div>
-  <div class="row d-f jc-c al-c">
-    <!-- Aca comienza el codigo editado -->
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3">
-      <div class="parent d-f jc-c al-c">
-        <div class="card">
-          <div class="top-section d-f jc-c al-c">
-            <img  src="https://i.postimg.cc/R01zKzJt/AP.png">
-          </div>
-          <div class="bottom-section">
-            <span class="title">Argentina Programa</span>
-            <br>
-            <span class="subtitle">Full Stack Web developer</span>
-            <div class="row">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">07-2022</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">03-2023</span>
-              </div>
+<section class="py-24">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Education</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 justify-center">
+            
+            <!-- Card 1: Tecnicatura en Programación -->
+            <div class="glass-card p-6 max-w-lg w-full">
+                <div class="h-40 mb-4 rounded-md flex items-center justify-center ">
+                    <img src="https://pydata.org/sanluis2017/media/sponsor_files/UNaB.png" alt="Universidad Nacional Guillermo Brown Logo" class="max-h-full max-w-full object-contain">
+                </div>
+                <h3 class="text-2xl font-bold font-orbitron mb-2 text-pink-400">Technician in Programming</h3>
+                <p class="text-sm text-gray-400 mb-4">Universidad Nacional Guillermo Brown</p>
+                <p class="text-gray-300 mb-4 text-sm">A comprehensive university technician degree containing the core fundamentals of programming, from foundational principles to advanced application and in-depth problem-solving.</p>
+                <ul class="flex flex-wrap gap-2">
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Algorithms</li>
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Data Structures</li>
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Software Architecture</li>
+                </ul>
+                <p class="text-x text-cyan-400 font-mono mt-4">From: 03-2024 - To: Currently</p>
             </div>
-            <div class="row" *ngIf="isAdmin == true">
-              <div class="col-6 d-f jc-c al-c">
-                <i routerLink="/editEducation/{{educacion.idEducacion}}"
-                  class="btn-edit bi bi-pencil-fill"></i>
-              </div>
-              <div class="col-6 d-f jc-c al-c">
-                <i (click)="delete(educacion.idEducacion)"
-                  class="btn-delete bi bi-trash-fill"></i>
-              </div>
+
+            <!-- Card 2: Argentina Programa -->
+            <div class="glass-card p-6 max-w-lg w-full">
+                <div class="h-40 mb-4 rounded-md flex items-center justify-center ">
+                    <img src="https://i.postimg.cc/R01zKzJt/AP.png" alt="Argentina Programa Logo" class="rounded-md mb-4 w-full h-50 object-contain">
+                </div>
+                <h3 class="text-2xl font-bold font-orbitron mb-2 text-pink-400">Full Stack Developer</h3>
+                <p class="text-sm text-gray-400 mb-4">Argentina Programa</p>
+                <p class="text-gray-300 mb-4 text-sm">Intensive training program containing both front-end and back-end web development technologies and best practices.</p>
+                <ul class="flex flex-wrap gap-2">
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Web Fundamentals</li>
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Databases</li>
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Version Control</li>
+                </ul>
+                <p class="text-x text-cyan-400 font-mono mt-4">From: 07-2022 - To: 03-2023</p>
             </div>
-          </div>
+
+            <!-- Card 4: Cisco English for IT -->
+            <div class="glass-card p-6 max-w-lg w-full">
+                <div class="h-40 mb-4 rounded-md flex items-center justify-center ">
+                    <img src="https://i.postimg.cc/kGYrW0MW/english-for-it-2.png" alt="Cisco Networking Academy Logo" class="rounded-md mb-4 w-full h-40 object-contain">
+                </div>
+                <h3 class="text-2xl font-bold font-orbitron mb-2 text-pink-400">English for IT (I & II)</h3>
+                <p class="text-sm text-gray-400 mb-4">Cisco Networking Academy</p>
+                <p class="text-gray-300 mb-4 text-sm">Completed the full program to master complex communication tasks, negotiation, and presentation skills for a global IT environment (CEFR B2 Level).</p>
+                 <ul class="flex flex-wrap gap-2">
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Professional Communication</li>
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Advanced IT Terminology</li>
+                </ul>
+                <p class="text-x text-cyan-400 font-mono mt-4">From: 07-2023 - To: 12-2023</p>
+            </div>
+
+            <!-- Card 3: English for Software Development -->
+            <div class="glass-card p-6 max-w-lg w-full">
+                <div class="h-40 mb-4 rounded-md flex items-center justify-center ">
+                    <img src="https://i.postimg.cc/yYbHmPQV/image-2023-08-30-162827173-removebg-preview.png" alt="Centro Universitario de Idiomas Logo" class="rounded-md mb-4 w-full h-40 object-contain">
+                </div>
+                <h3 class="text-2xl font-bold font-orbitron mb-2 text-pink-400">English for Software Development</h3>
+                <p class="text-sm text-gray-400 mb-4">Centro Universitario de Idiomas</p>
+                <p class="text-gray-300 mb-4 text-sm">A foundational course focused on building essential English vocabulary and communication skills specifically tailored for the software development industry (CEFR A2 Level).</p>
+                 <ul class="flex flex-wrap gap-2">
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Technical Vocabulary</li>
+                    <li class="bg-gray-700/50 text-xs px-2 py-1 rounded">Workplace Communication</li>
+                </ul>
+                <p class="text-x text-cyan-400 font-mono mt-4">From: 12-2022 - To: 04-2023</p>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3">
-      <div class="parent d-f jc-c al-c">
-        <div class="card">
-          <div class="top-section d-f jc-c al-c">
-            <img  src="https://i.postimg.cc/yYbHmPQV/image-2023-08-30-162827173-removebg-preview.png">
-          </div>
-          <div class="bottom-section">
-            <span class="title">Centro Universitario de Idiomas</span>
-            <br>
-            <span class="subtitle">Ingles para Desarrollo de Software</span>
-            <div class="row">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">12-2022</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">04-2023</span>
-              </div>
-            </div>
-            <div class="row" *ngIf="isAdmin == true">
-              <div class="col-6 d-f jc-c al-c">
-                <i routerLink="/editEducation/{{educacion.idEducacion}}"
-                  class="btn-edit bi bi-pencil-fill"></i>
-              </div>
-              <div class="col-6 d-f jc-c al-c">
-                <i (click)="delete(educacion.idEducacion)"
-                  class="btn-delete bi bi-trash-fill"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3">
-      <div class="parent d-f jc-c al-c">
-        <div class="card">
-          <div class="top-section d-f jc-c al-c">
-            <img  src="https://i.postimg.cc/3Jn1wJ3h/english-for-it-1.png">
-          </div>
-          <div class="bottom-section">
-            <span class="title">Cisco - Skill For All</span>
-            <br>
-            <span class="subtitle">English For IT 1 - B2</span>
-            <div class="row">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">07-2023</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">11-2023</span>
-              </div>
-            </div>
-            <div class="row" *ngIf="isAdmin == true">
-              <div class="col-6 d-f jc-c al-c">
-                <i routerLink="/editEducation/{{educacion.idEducacion}}"
-                  class="btn-edit bi bi-pencil-fill"></i>
-              </div>
-              <div class="col-6 d-f jc-c al-c">
-                <i (click)="delete(educacion.idEducacion)"
-                  class="btn-delete bi bi-trash-fill"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3">
-      <div class="parent d-f jc-c al-c">
-        <div class="card">
-          <div class="top-section d-f jc-c al-c">
-            <img  src="https://i.postimg.cc/kGYrW0MW/english-for-it-2.png">
-          </div>
-          <div class="bottom-section">
-            <span class="title">Cisco - Skill For All</span>
-            <br>
-            <span class="subtitle">English for IT 2 - B2</span>
-            <div class="row">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">11-2023</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">12-2023</span>
-              </div>
-            </div>
-            <div class="row" *ngIf="isAdmin == true">
-              <div class="col-6 d-f jc-c al-c">
-                <i routerLink="/editEducation/{{educacion.idEducacion}}"
-                  class="btn-edit bi bi-pencil-fill"></i>
-              </div>
-              <div class="col-6 d-f jc-c al-c">
-                <i (click)="delete(educacion.idEducacion)"
-                  class="btn-delete bi bi-trash-fill"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-9 col-sm-6 col-md-4 col-lg-3">
-      <div class="parent d-f jc-c al-c">
-        <div class="card">
-          <div class="top-section d-f jc-c al-c">
-            <img  src="https://pydata.org/sanluis2017/media/sponsor_files/UNaB.png">
-          </div>
-          <div class="bottom-section">
-            <span class="title">Universidad Nacional Guillermo Brown</span>
-            <br>
-            <span class="subtitle">Tecnicatura en Programacion</span>
-            <div class="row">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">03-2024</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">Currently</span>
-              </div>
-            </div>
-            <div class="row" *ngIf="isAdmin == true">
-              <div class="col-6 d-f jc-c al-c">
-                <i routerLink="/editEducation/{{educacion.idEducacion}}"
-                  class="btn-edit bi bi-pencil-fill"></i>
-              </div>
-              <div class="col-6 d-f jc-c al-c">
-                <i (click)="delete(educacion.idEducacion)"
-                  class="btn-delete bi bi-trash-fill"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Aca termina el codigo editado -->
-    <!-- <div class="col-9 col-sm-6 col-md-4 col-lg-3" *ngFor="let educacion of educacions, let i = index" [id]="educacion.idEducacion">
-      <div class="parent d-f jc-c al-c">
-        <div class="card">
-          <div class="top-section d-f jc-c al-c">
-            <img  [src]="educacion.fotoEducacion">
-          </div>
-          <div class="bottom-section">
-            <span class="title">{{educacion.institucion}}</span>
-            <br>
-            <span class="subtitle">{{educacion.titulo}}</span>
-            <div class="row">
-              <div class="item">
-                <span class="regular-text">From</span>
-                <span class="big-text">{{educacion.inicio}}</span>
-              </div>
-              <div class="item">
-                <span class="regular-text">To</span>
-                <span class="big-text">{{educacion.fin}}</span>
-              </div>
-            </div>
-            <div class="row" *ngIf="isAdmin == true">
-              <div class="col-6 d-f jc-c al-c">
-                <i routerLink="/editEducation/{{educacion.idEducacion}}"
-                  class="btn-edit bi bi-pencil-fill"></i>
-              </div>
-              <div class="col-6 d-f jc-c al-c">
-                <i (click)="delete(educacion.idEducacion)"
-                  class="btn-delete bi bi-trash-fill"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  </div>
-</div>
+</section>
