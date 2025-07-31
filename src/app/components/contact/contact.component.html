@@ -1,7 +1,8 @@
-<section class="py-24">
+<section id="contact" class="py-24 bg-black bg-opacity-20">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Contact</h2>
-        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" class="max-w-2xl mx-auto" ngForm>
+        
+        <form #contactForm="ngForm" (ngSubmit)="sendEmail($event)" class="max-w-2xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <input type="text" name="firstName" placeholder="First Name" class="w-full p-3 rounded-md form-input" ngModel required>
                 <input type="text" name="lastName" placeholder="Last Name" class="w-full p-3 rounded-md form-input" ngModel required>
@@ -17,7 +18,7 @@
                     Send Message
                 </button>
             </div>
-        </form>
+        </form> 
         <div class="mt-6 text-center text-lg h-6 transition-opacity duration-300" [class]="feedbackClass">
             {{ feedbackMessage }}
         </div>
