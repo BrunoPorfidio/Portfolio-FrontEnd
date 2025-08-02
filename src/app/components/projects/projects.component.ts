@@ -42,7 +42,7 @@ export class ProjectsComponent {
       shortDescription: 'API for managing psychologist-patient sessions, allowing companies to register employees for mental health care coverage.',
       longDescription: 'Architected a secure and HIPAA-compliant API to handle sensitive patient data, session scheduling, and confidential notes. The system was designed for scalability to support multiple corporate clients and their employees.',
       technologies: ['Java', 'Spring Boot', 'MySQL'],
-      url: 'www.berva.org'
+      url: 'https://www.berva.org'
     },
     {
       title: 'Lexline',
