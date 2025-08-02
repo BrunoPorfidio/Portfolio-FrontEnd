@@ -4,3 +4,60 @@
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.nav-link {
+    position: relative;
+    color: #e0e0e0; 
+    transition: color 0.3s ease-in-out;
+    cursor: pointer;
+    padding-bottom: 8px;
+}
+
+.nav-link:hover {
+    color: #ffffff; 
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-accent);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.nav-link.active-link {
+    color: var(--primary-accent) !important; 
+}
+
+.nav-link.active-link::after {
+    background-color: var(--primary-accent) !important;
+    transform: scaleX(1) !important;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    color: #ffffff;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.mobile-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-active-link {
+    background-color: rgba(249, 37, 138, 0.15); 
+    color: var(--primary-accent);
+    font-weight: 600;
+}
