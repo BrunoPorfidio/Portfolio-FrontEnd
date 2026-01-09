@@ -1,26 +1,46 @@
 <section class="py-24 bg-[#170636] bg-opacity-20">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Skills</h2>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-            <!-- Frontend -->
+
             <div>
                 <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Front End</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
-                    <div class="flex flex-col items-center group"><i-lucide name="shield" class="w-16 h-16 text-gray-400 group-hover:text-red-500 transition-colors mb-2"></i-lucide><span>Angular</span></div>
-                    <div class="flex flex-col items-center group"><i-lucide name="type" class="w-16 h-16 text-gray-400 group-hover:text-blue-500 transition-colors mb-2"></i-lucide><span>TypeScript</span></div>
-                    <div class="flex flex-col items-center group"><i-lucide name="file-code" class="w-16 h-16 text-gray-400 group-hover:text-orange-500 transition-colors mb-2"></i-lucide><span>HTML</span></div>
-                    <div class="flex flex-col items-center group"><i-lucide name="palette" class="w-16 h-16 text-gray-400 group-hover:text-blue-600 transition-colors mb-2"></i-lucide><span>CSS</span></div>
-                </div>
-            </div>
-            <!-- Backend -->
-            <div>
-                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Back End</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center">
-                    <div class="flex flex-col items-center group"><i-lucide name="coffee" class="w-16 h-16 text-gray-400 group-hover:text-orange-400 transition-colors mb-2"></i-lucide><span>Java</span></div>
-                    <div class="flex flex-col items-center group"><i-lucide name="leaf" class="w-16 h-16 text-gray-400 group-hover:text-green-500 transition-colors mb-2"></i-lucide><span>Spring Boot</span></div>
-                    <div class="flex flex-col items-center group"><i-lucide name="database" class="w-16 h-16 text-gray-400 group-hover:text-blue-400 transition-colors mb-2"></i-lucide><span>MySQL</span></div>
+
+                    <div *ngFor="let skill of frontendSkills" class="flex flex-col items-center group cursor-default p-4 rounded-lg hover:bg-white/5 transition-all duration-300">
+                        <lucide-angular
+                            [img]="skill.icon"
+                            class="w-16 h-16 text-gray-400 transition-colors duration-300 mb-3"
+                            [ngClass]="skill.color"> </lucide-angular>
+
+                        <span class="text-gray-300 font-mono group-hover:text-white transition-colors duration-300">
+                            {{ skill.name }}
+                        </span>
+                    </div>
+
                 </div>
             </div>
+
+            <div>
+                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Back End & Tools</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center">
+
+                    <div *ngFor="let skill of backendSkills" class="flex flex-col items-center group cursor-default p-4 rounded-lg hover:bg-white/5 transition-all duration-300">
+                        <lucide-angular
+                            [img]="skill.icon"
+                            class="w-16 h-16 text-gray-400 transition-colors duration-300 mb-3"
+                            [ngClass]="skill.color">
+                        </lucide-angular>
+
+                        <span class="text-gray-300 font-mono group-hover:text-white transition-colors duration-300">
+                            {{ skill.name }}
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

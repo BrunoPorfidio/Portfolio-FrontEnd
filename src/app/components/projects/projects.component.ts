@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-import { LucideAngularModule, LucideComponent } from 'lucide-angular';
-import { CommonModule } from '@angular/common'; // Importa CommonModule para usar *ngFor y *ngIf
+import { CommonModule } from '@angular/common';
+import {
+  LucideAngularModule,
+  // Importamos los iconos específicos de Lucide
+  Coffee, Leaf, Route, Lock, Database, Cloud,
+  Blocks, Hammer, Atom, Code, Wind, Brain,
+  Zap, AudioWaveform, Plug, Volume2, FileCode
+} from 'lucide-angular';
 
-// Define una interfaz para la estructura de cada proyecto
 export interface Project {
   title: string;
   role: string;
@@ -11,19 +16,42 @@ export interface Project {
   shortDescription: string;
   longDescription: string;
   technologies: string[];
-  url?: string; // La URL es opcional
+  url?: string;
 }
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule], // Añade CommonModule
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent {
-  
+
   projects: Project[] = [
+    {
+      title: 'Planify',
+      role: 'Software Architect & Full Stack Developer',
+      company: 'Personal Project',
+      companyType: 'Freelance',
+      shortDescription: 'Scalable academic management platform built on a microservices architecture. Features centralized security via API Gateway, real-time study planning, and stateless document management.',
+      longDescription: 'Architected and developed a distributed system using Java 17 and Spring Boot 3. Designed a "Defense in Depth" security model using Spring Cloud Gateway for centralized JWT validation and identity propagation, ensuring zero-trust communication between services. Implemented stateless file handling integrating Cloudinary for document storage and developed isolated microservices (User, Subject, Calendar, StudyPlan) with MySQL. Applied clean code principles, including DTO patterns, centralized exception handling, and Aspect-Oriented Programming (AOP) for audit logging.',
+      technologies: [
+        'Java 17', 'Spring Boot', 'Spring Cloud Gateway', 'Spring Security (JWT)',
+        'MySQL', 'Cloudinary API', 'Microservices', 'Maven'
+      ],
+      url: 'https://github.com/BrunoPorfidio/planify-microservices'
+    },
+    {
+      title: 'FluentAI',
+      role: 'Frontend & AI',
+      company: 'Personal Project',
+      companyType: 'Freelance',
+      shortDescription: 'Interactive English language coach featuring real-time voice conversation, roleplay scenarios, and instant grammar feedback powered by Google Gemini.',
+      longDescription: 'Designed and developed a modern web application for language learning. Integrated the Google Gemini API (Flash & Pro models) to create a low-latency "Live Coach" capable of processing speech and generating audio responses in real-time. Implemented AudioWorklet for efficient audio streaming, managed complex application state with React, and built a responsive, accessibility-focused UI using Tailwind CSS.',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Google Gemini API', 'Vite', 'Web Audio API'],
+      url: 'https://fluent-ai-learn.vercel.app/'
+    },
     {
       title: 'Smatch',
       role: 'Back End',
@@ -90,13 +118,50 @@ export class ProjectsComponent {
     document.body.style.overflow = 'auto';
   }
 
-  getIconForTechnology(tech: string): string {
-    const techIconMap: { [key: string]: string } = {
-      'Java': 'coffee',
-      'Spring Boot': 'leaf',
-      'MySQL': 'database',
-      'Angular': 'shield'
+  // Ahora esta función devuelve 'any' (el objeto del icono) en lugar de string
+  getIconForTechnology(tech: string): any {
+
+    // Mapa: Nombre Tecnología -> Objeto Icono Lucide
+    const techIconMap: { [key: string]: any } = {
+      // --- PLANIFY STACK ---
+      'Java 17': Coffee,
+      'Spring Boot': Leaf,
+      'Spring Cloud Gateway': Route,
+      'Spring Security (JWT)': Lock,
+      'MySQL': Database,
+      'Cloudinary API': Cloud,
+      'Microservices': Blocks, // Lucide usa 'Blocks' o 'Box'
+      'Maven': Hammer,
+
+      // --- FLUENT AI STACK ---
+      'React': Atom,
+      'TypeScript': Code,
+      'Tailwind CSS': Wind,
+      'Google Gemini API': Brain,
+      'Vite': Zap,             // Lucide usa 'Zap' para rayos/energía
+      'Web Audio API': AudioWaveform, // Lucide usa 'AudioWaveform'
+
+      // --- Otros ---
+      'Angular': FileCode, // O el que prefieras
+      'Java': Coffee
     };
-    return techIconMap[tech] || 'code';
+
+    // 1. Retorno directo
+    if (techIconMap[tech]) {
+      return techIconMap[tech];
+    }
+
+    // 2. Búsqueda "fuzzy"
+    const lowerTech = tech.toLowerCase();
+    if (lowerTech.includes('java')) return Coffee;
+    if (lowerTech.includes('spring')) return Leaf;
+    if (lowerTech.includes('react')) return Atom;
+    if (lowerTech.includes('css')) return Wind;
+    if (lowerTech.includes('api')) return Plug;
+    if (lowerTech.includes('audio')) return Volume2;
+    if (lowerTech.includes('angular')) return FileCode;
+
+    // 3. Default
+    return Code;
   }
 }
