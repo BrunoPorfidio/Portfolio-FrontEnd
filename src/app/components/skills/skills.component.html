@@ -1,11 +1,12 @@
 <section class="py-24 bg-[#170636] bg-opacity-20">
     <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Skills</h2>
+        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">{{ getTranslation('skills') }}</h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+        <!-- Front End y Back End en la misma fila -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 mb-16">
 
             <div>
-                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Front End</h3>
+                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">{{ getTranslation('Front-End') }}</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center">
 
                     <div *ngFor="let skill of frontendSkills" class="flex flex-col items-center group cursor-default p-4 rounded-lg hover:bg-white/5 transition-all duration-300">
@@ -15,7 +16,7 @@
                             [ngClass]="skill.color"> </lucide-angular>
 
                         <span class="text-gray-300 font-mono group-hover:text-white transition-colors duration-300">
-                            {{ skill.name }}
+                            {{ getTranslation(skill.name) }}
                         </span>
                     </div>
 
@@ -23,7 +24,7 @@
             </div>
 
             <div>
-                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">Back End & Tools</h3>
+                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-cyan-300">{{ getTranslation('Back-End') }}</h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center">
 
                     <div *ngFor="let skill of backendSkills" class="flex flex-col items-center group cursor-default p-4 rounded-lg hover:bg-white/5 transition-all duration-300">
@@ -34,13 +35,35 @@
                         </lucide-angular>
 
                         <span class="text-gray-300 font-mono group-hover:text-white transition-colors duration-300">
-                            {{ skill.name }}
+                            {{ getTranslation(skill.name) }}
                         </span>
                     </div>
 
                 </div>
             </div>
 
+        </div>
+
+        <!-- AI & Machine Learning centrado debajo -->
+        <div class="flex justify-center">
+            <div class="w-full md:w-1/2 lg:w-5/12">
+                <h3 class="text-3xl font-orbitron font-semibold mb-8 text-center text-purple-300">{{ getTranslation('AI & Machine Learning') }}</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-8 text-center">
+
+                    <div *ngFor="let skill of aiSkills" class="flex flex-col items-center group cursor-default p-4 rounded-lg hover:bg-white/5 transition-all duration-300">
+                        <lucide-angular
+                            [img]="skill.icon"
+                            class="w-16 h-16 text-gray-400 transition-colors duration-300 mb-3"
+                            [ngClass]="skill.color">
+                        </lucide-angular>
+
+                        <span class="text-gray-300 font-mono group-hover:text-white transition-colors duration-300">
+                            {{ getTranslation(skill.name) }}
+                        </span>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </section>

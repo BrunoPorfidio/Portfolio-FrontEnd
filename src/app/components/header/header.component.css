@@ -7,14 +7,14 @@
 
 .nav-link {
     position: relative;
-    color: #e0e0e0; 
+    color: #e0e0e0;
     transition: color 0.3s ease-in-out;
     cursor: pointer;
     padding-bottom: 8px;
 }
 
 .nav-link:hover {
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 .nav-link::after {
@@ -36,7 +36,7 @@
 }
 
 .nav-link.active-link {
-    color: var(--primary-accent) !important; 
+    color: var(--primary-accent) !important;
 }
 
 .nav-link.active-link::after {
@@ -57,7 +57,192 @@
 }
 
 .mobile-active-link {
-    background-color: rgba(249, 37, 138, 0.15); 
+    background-color: rgba(249, 37, 138, 0.15);
     color: var(--primary-accent);
     font-weight: 600;
+}
+
+/* ==================== OPCIÓN 1: Floating Con Accent Bar ==================== */
+.header-option1 {
+    background: rgba(13, 2, 33, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(90deg, #f9258a, #8b5cf6) 1;
+    box-shadow: 0 8px 32px rgba(249, 37, 138, 0.15);
+}
+
+.logo-option1 {
+    background: linear-gradient(135deg, #f9258a, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(249, 37, 138, 0.4);
+    filter: drop-shadow(0 0 10px rgba(249, 37, 138, 0.3));
+}
+
+.nav-link-option1 {
+    position: relative;
+    padding: 0.5rem 0.75rem;
+}
+
+.nav-link-option1::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #f9258a, #8b5cf6);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link-option1.active-link1::before {
+    transform: scaleX(1);
+}
+
+/* ==================== OPCIÓN 2: Minimal Elegante ==================== */
+.header-option2 {
+    background: rgba(13, 2, 33, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(249, 37, 138, 0.2);
+    padding: 1rem 0;
+}
+
+.logo-option2 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #ffffff, #e0e0e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+}
+
+.nav-link-option2 {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link-option2.active-link2 {
+    color: #f9258a;
+    font-weight: 600;
+}
+
+/* ==================== OPCIÓN 3: Tech Futurista ==================== */
+.header-option3 {
+    background: rgba(13, 2, 33, 0.95);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.header-option3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00ffff, transparent);
+}
+
+.logo-option3 {
+    font-size: 1.75rem;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(249, 37, 138, 0.3);
+    letter-spacing: 0.1em;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(249, 37, 138, 0.3); }
+    50% { text-shadow: 0 0 30px rgba(0, 255, 255, 0.7), 0 0 60px rgba(249, 37, 138, 0.5); }
+}
+
+.nav-link-option3 {
+    position: relative;
+    padding: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link-option3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00ffff, #f9258a);
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link-option3.active-link3 {
+    color: #00ffff;
+}
+
+.nav-link-option3.active-link3::after {
+    transform: scaleX(1);
+}
+
+.nav-link-option3:hover {
+    color: #00ffff;
+}
+
+/* ==================== OPCIÓN 4: Horizontal Compacto ==================== */
+.header-option4 {
+    background: rgba(13, 2, 33, 0.8);
+    backdrop-filter: blur(15px);
+    padding: 0.75rem 0;
+}
+
+.header-content-option4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.logo-option4 {
+    font-size: 1.5rem;
+    font-weight: 900;
+    min-width: fit-content;
+    background: linear-gradient(135deg, #f9258a, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-center-option4 {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.nav-link-option4 {
+    font-size: 0.85rem;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link-option4::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background: #f9258a;
+    border-radius: 50%;
+    transform: translateX(-50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-link-option4.active-link4::after {
+    transform: translateX(-50%) scale(1);
 }

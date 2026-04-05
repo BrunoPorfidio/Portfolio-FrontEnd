@@ -1,28 +1,36 @@
 import { Component, HostListener, Inject } from '@angular/core';
-import { DOCUMENT, NgClass } from '@angular/common';
+import { DOCUMENT, CommonModule } from '@angular/common';
+import { LanguageService, Language } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgClass],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
   isMenuOpen = false;
   activeSectionId: string | null = 'about-me';
+  currentLanguage: Language = 'es';
 
   private sectionIds = [
-    'about-me', 
-    'education', 
-    'skills', 
-    'experience', 
-    'projects', 
+    'about-me',
+    'education',
+    'skills',
+    'experience',
+    'projects',
     'contact'
   ];
 
-  constructor(@Inject(DOCUMENT) private document: Document) {
+  constructor(
+    @Inject(DOCUMENT) private document: Document,
+    public languageService: LanguageService
+  ) {
     this.checkActiveSection();
+    this.languageService.language$.subscribe((lang) => {
+      this.currentLanguage = lang;
+    });
   }
 
   @HostListener('window:scroll', [])
@@ -31,7 +39,7 @@ export class HeaderComponent {
   }
 
   private checkActiveSection(): void {
-    const scrollOffset = 150; 
+    const scrollOffset = 150;
     let newActiveSectionId: string | null = null;
 
     for (const id of this.sectionIds) {
@@ -44,7 +52,7 @@ export class HeaderComponent {
         }
       }
     }
-    
+
     this.activeSectionId = newActiveSectionId;
   }
 
@@ -55,5 +63,13 @@ export class HeaderComponent {
   scrollTo(sectionId: string): void {
     this.isMenuOpen = false;
     this.document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  changeLanguage(lang: Language): void {
+    this.languageService.setLanguage(lang);
+  }
+
+  getTranslation(key: string): string {
+    return this.languageService.getTranslation(key);
   }
 }

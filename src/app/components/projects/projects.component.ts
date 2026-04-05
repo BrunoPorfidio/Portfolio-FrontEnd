@@ -1,20 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 import {
   LucideAngularModule,
   // Importamos los iconos específicos de Lucide
-  Coffee, Leaf, Route, Lock, Database, Cloud,
-  Blocks, Hammer, Atom, Code, Wind, Brain,
-  Zap, AudioWaveform, Plug, Volume2, FileCode
+  Coffee,
+  Leaf,
+  Route,
+  Lock,
+  Database,
+  Cloud,
+  Blocks,
+  Hammer,
+  Atom,
+  Code,
+  Wind,
+  Brain,
+  Zap,
+  AudioWaveform,
+  Plug,
+  Volume2,
+  FileCode,
+  Workflow,
+  FileText,
+  Highlighter,
 } from 'lucide-angular';
 
 export interface Project {
-  title: string;
-  role: string;
+  titleKey: string;
+  roleKey: string;
   company: string;
   companyType: 'Venedicto Devs' | 'Freelance';
-  shortDescription: string;
-  longDescription: string;
+  shortDescriptionKey: string;
+  longDescriptionKey: string;
   technologies: string[];
   url?: string;
 }
@@ -23,88 +41,146 @@ export interface Project {
   selector: 'app-projects',
   standalone: true,
   imports: [CommonModule, LucideAngularModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.css']
+  styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
+  constructor(public languageService: LanguageService, private cdr: ChangeDetectorRef) {}
 
+  ngOnInit(): void {
+    this.languageService.language$.subscribe(() => {
+      this.cdr.markForCheck();
+    });
+  }
   projects: Project[] = [
     {
-      title: 'Planify',
-      role: 'Software Architect & Full Stack Developer',
+      titleKey: 'proj_md2pdf_title',
+      roleKey: 'proj_md2pdf_role',
       company: 'Personal Project',
       companyType: 'Freelance',
-      shortDescription: 'Scalable academic management platform built on a microservices architecture. Features centralized security via API Gateway, real-time study planning, and stateless document management.',
-      longDescription: 'Architected and developed a distributed system using Java 17 and Spring Boot 3. Designed a "Defense in Depth" security model using Spring Cloud Gateway for centralized JWT validation and identity propagation, ensuring zero-trust communication between services. Implemented stateless file handling integrating Cloudinary for document storage and developed isolated microservices (User, Subject, Calendar, StudyPlan) with MySQL. Applied clean code principles, including DTO patterns, centralized exception handling, and Aspect-Oriented Programming (AOP) for audit logging.',
+      shortDescriptionKey: 'proj_md2pdf_short',
+      longDescriptionKey: 'proj_md2pdf_long',
       technologies: [
-        'Java 17', 'Spring Boot', 'Spring Cloud Gateway', 'Spring Security (JWT)',
-        'MySQL', 'Cloudinary API', 'Microservices', 'Maven'
+        'React 19',
+        'TypeScript',
+        'Tailwind CSS',
+        'Vite',
+        'Mermaid.js',
+        'React Markdown',
+        'React Syntax Highlighter',
       ],
-      url: 'https://github.com/BrunoPorfidio/planify-microservices'
+      url: 'https://md2pdf-arg.vercel.app',
     },
     {
-      title: 'FluentAI',
-      role: 'Frontend & AI',
+      titleKey: 'proj_planify_title',
+      roleKey: 'proj_planify_role',
       company: 'Personal Project',
       companyType: 'Freelance',
-      shortDescription: 'Interactive English language coach featuring real-time voice conversation, roleplay scenarios, and instant grammar feedback powered by Google Gemini.',
-      longDescription: 'Designed and developed a modern web application for language learning. Integrated the Google Gemini API (Flash & Pro models) to create a low-latency "Live Coach" capable of processing speech and generating audio responses in real-time. Implemented AudioWorklet for efficient audio streaming, managed complex application state with React, and built a responsive, accessibility-focused UI using Tailwind CSS.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Google Gemini API', 'Vite', 'Web Audio API'],
-      url: 'https://fluent-ai-learn.vercel.app/'
+      shortDescriptionKey: 'proj_planify_short',
+      longDescriptionKey: 'proj_planify_long',
+      technologies: [
+        'Java 17',
+        'Spring Boot',
+        'Spring Cloud Gateway',
+        'Spring Security (JWT)',
+        'MySQL',
+        'Cloudinary API',
+        'Microservices',
+        'Maven',
+      ],
+      url: 'https://github.com/BrunoPorfidio/planify-microservices',
     },
     {
-      title: 'Smatch',
-      role: 'Back End',
+      titleKey: 'proj_fluentai_title',
+      roleKey: 'proj_fluentai_role',
+      company: 'Personal Project',
+      companyType: 'Freelance',
+      shortDescriptionKey: 'proj_fluentai_short',
+      longDescriptionKey: 'proj_fluentai_long',
+      technologies: [
+        'React',
+        'TypeScript',
+        'Tailwind CSS',
+        'Google Gemini API',
+        'Vite',
+        'Web Audio API',
+      ],
+      url: 'https://fluent-ai-learn.vercel.app/',
+    },
+    {
+      titleKey: 'proj_smatch_title',
+      roleKey: 'proj_smatch_role',
       company: 'Venedicto Devs',
       companyType: 'Venedicto Devs',
-      shortDescription: 'API for managing paddle tennis tournaments, including an accessory shop and court rental system.',
-      longDescription: 'Developed the core backend logic for a comprehensive paddle tennis platform. This involved creating endpoints for user management, tournament brackets, real-time court availability, and integrating a payment gateway for accessory purchases.',
+      shortDescriptionKey: 'proj_smatch_short',
+      longDescriptionKey: 'proj_smatch_long',
       technologies: ['Java', 'Spring Boot', 'MySQL'],
-      url: '#'
+      url: '#',
     },
     {
-      title: 'Berva',
-      role: 'Back End',
+      titleKey: 'proj_berva_title',
+      roleKey: 'proj_berva_role',
       company: 'Venedicto Devs',
       companyType: 'Venedicto Devs',
-      shortDescription: 'API for managing psychologist-patient sessions, allowing companies to register employees for mental health care coverage.',
-      longDescription: 'Architected a secure and HIPAA-compliant API to handle sensitive patient data, session scheduling, and confidential notes. The system was designed for scalability to support multiple corporate clients and their employees.',
+      shortDescriptionKey: 'proj_berva_short',
+      longDescriptionKey: 'proj_berva_long',
       technologies: ['Java', 'Spring Boot', 'MySQL'],
-      url: 'https://www.berva.org'
+      url: 'https://www.berva.org',
     },
     {
-      title: 'Lexline',
-      role: 'Back End (Maintenance)',
+      titleKey: 'proj_lexline_title',
+      roleKey: 'proj_lexline_role',
       company: 'Venedicto Devs',
       companyType: 'Venedicto Devs',
-      shortDescription: 'Case management API for a law firm, providing constant updates and improving the client-lawyer relationship.',
-      longDescription: 'Tasked with maintaining and optimizing the existing API for a legal case management system. Responsibilities included bug fixing, improving database query performance, and integrating new features based on the law firm\'s evolving needs.',
-      technologies: ['Java', 'Spring Boot', 'MySQL']
+      shortDescriptionKey: 'proj_lexline_short',
+      longDescriptionKey: 'proj_lexline_long',
+      technologies: ['Java', 'Spring Boot', 'MySQL'],
     },
     {
-      title: 'Interlinked Demo',
-      role: 'Full Stack',
+      titleKey: 'proj_interlinked_title',
+      roleKey: 'proj_interlinked_role',
       company: 'Freelance',
       companyType: 'Freelance',
-      shortDescription: 'A proof-of-concept for a developer community platform where creators could publish projects and seek investors.',
-      longDescription: 'Built a full-stack proof-of-concept from scratch. The platform allowed users to create profiles, showcase their projects with details and images, and connect with potential investors. The project involved both frontend UI/UX in Angular and backend API development.',
+      shortDescriptionKey: 'proj_interlinked_short',
+      longDescriptionKey: 'proj_interlinked_long',
       technologies: ['Angular', 'Java', 'Spring Boot'],
-      url: 'https://kevinfonttlizama.github.io/Interlinked-demo.github.io/'
+      url: 'https://kevinfonttlizama.github.io/Interlinked-demo.github.io/',
     },
     {
-      title: 'LuciBooksLu Blog',
-      role: 'Full Stack',
+      titleKey: 'proj_lucibookslu_title',
+      roleKey: 'proj_lucibookslu_role',
       company: 'Freelance',
       companyType: 'Freelance',
-      shortDescription: 'A custom blog for a "Bookstagrammer" to publish book reviews, opinions, and personal experiences.',
-      longDescription: 'Designed and developed a fully functional, custom blog platform. Features include a CMS for the author to write and manage posts, a comment system for reader engagement, and a responsive design optimized for both desktop and mobile reading.',
+      shortDescriptionKey: 'proj_lucibookslu_short',
+      longDescriptionKey: 'proj_lucibookslu_long',
       technologies: ['Angular', 'Java', 'Spring Boot', 'MySQL'],
-      url: 'https://lucibookslu.web.app'
-    }
+      url: 'https://lucibookslu.web.app',
+    },
   ];
 
+  isModalOpen: boolean = false;
   selectedProject: Project | null = null;
-  isModalOpen = false;
+
+  getTranslation(key: string): string {
+    return this.languageService.getTranslation(key);
+  }
+
+  getProjectTitle(project: Project): string {
+    return this.languageService.getTranslation(project.titleKey);
+  }
+
+  getProjectRole(project: Project): string {
+    return this.languageService.getTranslation(project.roleKey);
+  }
+
+  getProjectShortDescription(project: Project): string {
+    return this.languageService.getTranslation(project.shortDescriptionKey);
+  }
+
+  getProjectLongDescription(project: Project): string {
+    return this.languageService.getTranslation(project.longDescriptionKey);
+  }
 
   openModal(project: Project): void {
     this.selectedProject = project;
@@ -120,30 +196,36 @@ export class ProjectsComponent {
 
   // Ahora esta función devuelve 'any' (el objeto del icono) en lugar de string
   getIconForTechnology(tech: string): any {
-
     // Mapa: Nombre Tecnología -> Objeto Icono Lucide
     const techIconMap: { [key: string]: any } = {
+
+      // --- MD2PDF STACK ---
+      'React 19': Atom,
+      'Mermaid.js': Workflow, // Representa diagramas de flujo/nodos
+      'React Markdown': FileText, // Representa documentos de texto
+      'React Syntax Highlighter': Highlighter,
+
       // --- PLANIFY STACK ---
       'Java 17': Coffee,
       'Spring Boot': Leaf,
       'Spring Cloud Gateway': Route,
       'Spring Security (JWT)': Lock,
-      'MySQL': Database,
+      MySQL: Database,
       'Cloudinary API': Cloud,
-      'Microservices': Blocks, // Lucide usa 'Blocks' o 'Box'
-      'Maven': Hammer,
+      Microservices: Blocks, // Lucide usa 'Blocks' o 'Box'
+      Maven: Hammer,
 
       // --- FLUENT AI STACK ---
-      'React': Atom,
-      'TypeScript': Code,
+      React: Atom,
+      TypeScript: Code,
       'Tailwind CSS': Wind,
       'Google Gemini API': Brain,
-      'Vite': Zap,             // Lucide usa 'Zap' para rayos/energía
+      Vite: Zap, // Lucide usa 'Zap' para rayos/energía
       'Web Audio API': AudioWaveform, // Lucide usa 'AudioWaveform'
 
       // --- Otros ---
-      'Angular': FileCode, // O el que prefieras
-      'Java': Coffee
+      Angular: FileCode, // O el que prefieras
+      Java: Coffee,
     };
 
     // 1. Retorno directo

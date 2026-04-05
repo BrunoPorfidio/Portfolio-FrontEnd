@@ -1,19 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { LanguageService } from '../../services/language.service';
 
 declare var particlesJS: any;
 
 @Component({
   selector: 'app-home',
-  standalone: true, 
-  imports: [LucideAngularModule],
+  standalone: true,
+  imports: [CommonModule, LucideAngularModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  constructor() { }
+  constructor(public languageService: LanguageService, private cdr: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+    this.languageService.language$.subscribe(() => {
+      this.cdr.markForCheck();
+    });
+
     particlesJS('particles-js', {
       "particles": {
         "number": {"value": 60, "density": {"enable": true, "value_area": 800}},
@@ -31,5 +38,9 @@ export class HomeComponent implements OnInit {
       },
       "retina_detect": true
     });
+  }
+
+  getTranslation(key: string): string {
+    return this.languageService.getTranslation(key);
   }
 }

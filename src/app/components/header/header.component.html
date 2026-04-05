@@ -1,27 +1,59 @@
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 header-bg">
     <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
         <a (click)="scrollTo('about-me')" href="#about-me" class="font-orbitron text-xl md:text-2xl font-black tracking-tighter text-white hover:text-pink-400 transition-colors duration-300 cursor-pointer">
-            BCGP.DEV
+            BCGP
         </a>
         <div class="hidden md:flex items-center space-x-8 text-sm">
-            <a (click)="scrollTo('about-me')" href="#about-me" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'about-me'}">About Me</a>
-            <a (click)="scrollTo('education')" href="#education" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'education'}">Education</a>
-            <a (click)="scrollTo('skills')" href="#skills" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'skills'}">Skills</a>
-            <a (click)="scrollTo('experience')" href="#experience" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'experience'}">Experience</a>
-            <a (click)="scrollTo('projects')" href="#projects" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'projects'}">Projects</a>
-            <a (click)="scrollTo('contact')" href="#contact" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'contact'}">Contact</a>
+            <a (click)="scrollTo('about-me')" href="#about-me" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'about-me'}">{{ getTranslation('home') }}</a>
+            <a (click)="scrollTo('education')" href="#education" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'education'}">{{ getTranslation('education') }}</a>
+            <a (click)="scrollTo('skills')" href="#skills" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'skills'}">{{ getTranslation('skills') }}</a>
+            <a (click)="scrollTo('experience')" href="#experience" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'experience'}">{{ getTranslation('experience') }}</a>
+            <a (click)="scrollTo('projects')" href="#projects" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'projects'}">{{ getTranslation('projects') }}</a>
+            <a (click)="scrollTo('contact')" href="#contact" class="nav-link" [ngClass]="{'active-link': activeSectionId === 'contact'}">{{ getTranslation('contact') }}</a>
+
+            <!-- Language Selector -->
+            <div class="flex items-center gap-2 ml-4 pl-4 border-l border-gray-600">
+                <button
+                    (click)="changeLanguage('es')"
+                    class="px-3 py-1 rounded transition-all duration-300"
+                    [ngClass]="{'bg-pink-500 text-white': currentLanguage === 'es', 'text-gray-400 hover:text-white': currentLanguage !== 'es'}">
+                    ES
+                </button>
+                <button
+                    (click)="changeLanguage('en')"
+                    class="px-3 py-1 rounded transition-all duration-300"
+                    [ngClass]="{'bg-pink-500 text-white': currentLanguage === 'en', 'text-gray-400 hover:text-white': currentLanguage !== 'en'}">
+                    EN
+                </button>
+            </div>
         </div>
         <button (click)="toggleMenu()" class="md:hidden text-white focus:outline-none">
-            <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
         </button>
     </nav>
     <!-- Mobile Menu -->
     <div id="mobile-menu" [class.hidden]="!isMenuOpen" class="md:hidden">
-        <a (click)="scrollTo('about-me')" href="#about-me" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'about-me'}">About Me</a>
-        <a (click)="scrollTo('education')" href="#education" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'education'}">Education</a>
-        <a (click)="scrollTo('skills')" href="#skills" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'skills'}">Skills</a>
-        <a (click)="scrollTo('experience')" href="#experience" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'experience'}">Experience</a>
-        <a (click)="scrollTo('projects')" href="#projects" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'projects'}">Projects</a>
-        <a (click)="scrollTo('contact')" href="#contact" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'contact'}">Contact</a>
+        <a (click)="scrollTo('about-me')" href="#about-me" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'about-me'}">{{ getTranslation('home') }}</a>
+        <a (click)="scrollTo('education')" href="#education" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'education'}">{{ getTranslation('education') }}</a>
+        <a (click)="scrollTo('skills')" href="#skills" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'skills'}">{{ getTranslation('skills') }}</a>
+        <a (click)="scrollTo('experience')" href="#experience" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'experience'}">{{ getTranslation('experience') }}</a>
+        <a (click)="scrollTo('projects')" href="#projects" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'projects'}">{{ getTranslation('projects') }}</a>
+        <a (click)="scrollTo('contact')" href="#contact" class="mobile-nav-link" [ngClass]="{'mobile-active-link': activeSectionId === 'contact'}">{{ getTranslation('contact') }}</a>
+
+        <!-- Language Selector Mobile -->
+        <div class="flex gap-2 px-4 py-3 border-t border-gray-700">
+            <button
+                (click)="changeLanguage('es')"
+                class="flex-1 px-3 py-1 rounded transition-all duration-300 text-sm"
+                [ngClass]="{'bg-pink-500 text-white': currentLanguage === 'es', 'text-gray-400 hover:text-white': currentLanguage !== 'es'}">
+                Español
+            </button>
+            <button
+                (click)="changeLanguage('en')"
+                class="flex-1 px-3 py-1 rounded transition-all duration-300 text-sm"
+                [ngClass]="{'bg-pink-500 text-white': currentLanguage === 'en', 'text-gray-400 hover:text-white': currentLanguage !== 'en'}">
+                English
+            </button>
+        </div>
     </div>
 </header>

@@ -1,24 +1,34 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import emailjs, { type EmailJSResponseStatus } from '@emailjs/browser';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css'
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   feedbackMessage: string = '';
   feedbackClass: string = '';
 
   @ViewChild('contactForm') contactForm!: NgForm;
 
+  constructor(public languageService: LanguageService, private cdr: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    this.languageService.language$.subscribe(() => {
+      this.cdr.markForCheck();
+    });
+  }
+
   public sendEmail(e: Event) {
     e.preventDefault();
 
     if (this.contactForm.invalid) {
-      this.feedbackMessage = 'Please fill out all fields correctly.';
+      this.feedbackMessage = this.languageService.getTranslation('email');
       this.feedbackClass = 'text-red-500';
       return;
     }
@@ -45,5 +55,9 @@ export class ContactComponent {
           this.feedbackClass = 'text-red-500';
         },
       );
+  }
+
+  getTranslation(key: string): string {
+    return this.languageService.getTranslation(key);
   }
 }

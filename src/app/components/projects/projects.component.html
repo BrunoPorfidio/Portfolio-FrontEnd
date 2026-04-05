@@ -1,9 +1,9 @@
 <section id="projects" class="py-24 bg-[#170636] bg-opacity-20">
     <div class="container mx-auto px-6">
-        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">Projects</h2>
+        <h2 class="text-4xl font-orbitron font-bold text-center mb-16 section-heading text-white">{{ getTranslation('projectsTitle') }}</h2>
         <div class="relative">
             <div *ngIf="projects.length > 0" class="click-me-indicator hidden md:block">
-                <span class="text-pink-400 font-orbitron text-lg">Click me!</span>
+                <span class="text-pink-400 font-orbitron text-lg">{{ getTranslation('clickMe') }}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="indicator-arrow">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-6 6m0 0-6-6m6 6V13a6 9 0 0111 -3v0"></path>
                 </svg>
@@ -14,17 +14,17 @@
 
                     <div class="flex justify-between items-start mb-4">
                         <div>
-                            <h3 class="text-2xl font-orbitron font-bold text-pink-400">{{ project.title }}</h3>
-                            <p class="text-xs text-cyan-400 font-mono">Role: {{ project.role }}</p>
+                            <h3 class="text-2xl font-orbitron font-bold text-pink-400">{{ getProjectTitle(project) }}</h3>
+                            <p class="text-xs text-cyan-400 font-mono">{{ getTranslation('projectRole') }}: {{ getProjectRole(project) }}</p>
                         </div>
                         <span class="text-xs font-semibold px-2 py-1 rounded shrink-0"
-                              [ngClass]="{'bg-orange-700/50': project.companyType === 'Venedicto Devs', 'bg-pink-500/50 text-pink-300': project.companyType === 'Freelance'}">
+                              [ngClass]="{'bg-orange-700/50': project.companyType === 'Venedicto Devs', 'bg-pink-500/50': project.companyType === 'Freelance', 'text-pink-300': project.companyType === 'Freelance'}">
                             {{ project.company }}
                         </span>
                     </div>
 
                     <p class="text-gray-300 mb-6 text-sm flex-grow">
-                        {{ project.shortDescription }}
+                        {{ getProjectShortDescription(project) }}
                     </p>
 
                     <div class="mt-auto flex items-center justify-start gap-4 flex-wrap">
@@ -45,7 +45,7 @@
 
                         </div>
                     </div>
-                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -58,15 +58,15 @@
             <lucide-icon name="x" class="w-6 h-6"></lucide-icon>
         </button>
 
-        <h2 class="text-3xl font-orbitron font-bold text-pink-400 mb-2">{{ selectedProject.title }}</h2>
-        <p class="text-sm text-cyan-400 font-mono mb-6">Role: {{ selectedProject.role }}</p>
+        <h2 class="text-3xl font-orbitron font-bold text-pink-400 mb-2">{{ getProjectTitle(selectedProject) }}</h2>
+        <p class="text-sm text-cyan-400 font-mono mb-6">{{ getTranslation('projectRole') }}: {{ getProjectRole(selectedProject) }}</p>
 
         <p class="text-gray-300 mb-6">
-            {{ selectedProject.longDescription }}
+            {{ getProjectLongDescription(selectedProject) }}
         </p>
 
         <div class="mb-6">
-            <h4 class="font-semibold text-gray-200 mb-2">Technologies Used:</h4>
+            <h4 class="font-semibold text-gray-200 mb-2">{{ getTranslation('technologiesUsed') }}:</h4>
             <div class="flex flex-wrap gap-2">
                 <span *ngFor="let tech of selectedProject.technologies" class="bg-gray-700/50 text-xs px-2 py-1 rounded">{{ tech }}</span>
             </div>
@@ -74,7 +74,7 @@
 
         <a *ngIf="selectedProject.url && selectedProject.url !== '#'" [href]="selectedProject.url" target="_blank" rel="noopener noreferrer"
            class="inline-block font-orbitron text-md font-bold py-2 px-6 rounded-md text-white bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105">
-            Visit Project
+            {{ getTranslation('visitProject') }}
         </a>
     </div>
 </div>
